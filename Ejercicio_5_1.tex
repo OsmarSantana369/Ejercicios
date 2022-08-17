@@ -1,15 +1,27 @@
-documentclass{article}
+\documentclass{article}
+\usepackage{amsmath}
 \begin{document}
-      5. $ \frac{dN}{dt}+N=Nte^{t+2} $
-      $ \Longrightarrow \frac{dN}{dt}=Nte^{t+2}-N $
-      $ \Longrightarrow \frac{dN}{dt}=N(te^{t+2}-1) $
-      Sea $ N \neq 0 $, entonces
-      $ frac{1}{N} \cdot \frac{dN}{dt}=te^{t+2}-1 $
-      $ \Longrightarrow \int frac{1}{N} \mathrm{d}N = \int (te^{t+2}-1) \mathrm{d}t $
-      $ \Longrightarrow \ln \| N = \int te^{t+2} \mathrm{d}t - \int 1 \mathrm{d}t $
-      Sea $ u=t $ y $ \mathrm{d}v = e^{t+2} $ entonces $ \mathrm{d}u = \mathrm{d}t $ y $ v = e^{t+2} $}. Así,
-      $ \ln \| N = te^{t+2} - \int e^{t+2}\mathrm{d}t - t $
-      $ \Longrightarrow \ln \| N = te^{t+2} - e^{t+2} - t + c $
-      $ \Longrightarrow N = e^c \ cdot e^{te^{t+2} - e^{t+2} - t} $
-      Como no existe algún $ c $ que satisface que $ N = 0 $, entonces $ N = e^c \ cdot e^{te^{t+2} - e^{t+2} - t} $ es solución explícita de la E.D.
+      5. $ \displaystyle \frac{dN}{dt}+N=Nte^{t+2} $ \\
+
+      $ \displaystyle \Longrightarrow \frac{dN}{dt}=Nte^{t+2}-N $ \\
+
+      $ \displaystyle \Longrightarrow \frac{dN}{dt}=N(te^{t+2}-1) $ \\
+
+      Sea $ N \neq 0 $, entonces \\
+
+      $ \displaystyle \frac{1}{N}  \cdot \frac{dN}{dt}=te^{t+2}-1 $ \\
+
+      $ \displaystyle \Longrightarrow \int \frac{1}{N} \mathrm{d}N = \int (te^{t+2}-1) \mathrm{d}t $ \\
+
+      $ \displaystyle \Longrightarrow \ln |N| = \int te^{t+2} \mathrm{d}t - \int 1 \mathrm{d}t $ \\
+      
+      Sea $ u=t $ y $ \mathrm{d}v = e^{t+2} $ entonces $ \mathrm{d}u = \mathrm{d}t $ y $ v = e^{t+2} $. Así, \\
+
+      $ \displaystyle \ln |N| = te^{t+2} - \int e^{t+2}\mathrm{d}t - t $ \\
+
+      $ \Longrightarrow \ln |N| = te^{t+2} - e^{t+2} - t + c $ \\
+
+      $ \Longrightarrow N = e^c \cdot e^{te^{t+2} - e^{t+2} - t} $ \\
+
+      Como no existe algún $ c $ que satisfaga que $ N = 0 $, entonces $ N = e^c \cdot e^{te^{t+2} - e^{t+2} - t} $ es solución explícita de la E.D. en cualquier intervalo.
 \end{document}
