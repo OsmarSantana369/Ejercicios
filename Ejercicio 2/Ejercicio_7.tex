@@ -1,59 +1,23 @@
 \documentclass{article}
-\usepackage{amsmath}
+%\usepackage{amsmath, amssymb, amssymb}
 
 \begin{document}
-      7. $ [\sin (x) \sin (y) - xe^y] \mathrm{d}y = [e^y + \cos (x) \cos (y)] \mathrm{d}x $
+    7. $ \big [\sin (x) \sin (y) - xe^y \big ] \mathrm{d}y = \big [e^y + \cos (x) \cos(y) \big ] \mathrm{d}x $ \\
 
-      Escribiendo la E.D. en la forma diferencial:
+    \hspace{4 mm} Solución. \\
 
-      $ [-e^y - \cos (x) \cos (y)] \mathrm{d}x + [\sin (x) \sin (y) - xe^y] \mathrm{d}y = 0 $
+    Escribiendo la E.D. en la forma diferencial: \\
 
-      Sean $ M(x,y) = -e^y - \cos (x) \cos (y) $ y $ N(x,y) = \sin (x) \sin (y) - xe^y $. Luego,
+    $ \big [-e^y - \cos (x) \cos(y) \big ] \mathrm{d}x + \big [\sin (x) \sin (y) - xe^y \big ] \mathrm{d}y = 0 $
 
-      $ \frac{\partial M}{\partial y} = -e^y + \cos (x) \sin (y) $ y
 
-      $ \frac{\partial N}{\partial x} = \cos (x) \sin (y) -e^y $
 
-      Como $ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $ entonces la E.D. es exacta. Es decir, $ \exists f(x,y) = C $ tal que
+    \begin{equation}
+        e^{i\pi} + 1 = 0
+        \label{eq:euler}
+    \end{equation}
+        
+    Como vemos en la Ecuación \ref{eq:euler}
+        
 
-      \begin{equation}
-            \label{1}
-            \frac{\partial f}{\partial x} = -e^y - \cos (x) \cos (y)
-      \end{equation}
-
-      \begin{equation}
-            \label{2}
-            \frac{\partial f}{\partial y} = \sin (x) \sin (y) - xe^y
-      \end{equation}
-
-      Integrando ~\ref{1} respecto a $ x $:
-      \begin{equation}
-            \label{3}
-            f(x,y) = -xe^y - \sin (x) \cos (y) + h(y)
-      \end{equation}
-
-      Luego, derivando ~\ref{3} respecto a $ y $:
-
-      $ \frac{\partial f}{\partial y} = - xe^y + \sin (x) \sin (y) + h'(y) $
-
-      De la ecuación ~ref{2} se tiene que
-
-      $ \sin (x) \sin (y) - xe^y = - xe^y + \sin (x) \sin (y) + h'(y) $
-
-      $ \Longrightarrow 0 = h'(y) $
-
-      $ \Longrightarrow h(y) = c $
-
-      Sustituyendo en ~\ref{3}:
-
-      $ f(x,y) = -xe^y - \sin (x) \cos (y) + c $
-
-      Como $ f(x,y) = C $ entonces
-
-      $ C = -xe^y - \sin (x) \cos (y) + c $
-      
-      $ \therefore xe^y + \sin (x) \cos (y) = D ($ con $ D = c - C $) es solución implícita de la E.D.
-      
-      
-      
-/end{document}
+\end{document}
