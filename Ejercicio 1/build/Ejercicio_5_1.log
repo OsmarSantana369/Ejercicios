@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  16 AUG 2022 20:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  17 AUG 2022 19:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio_5_1.tex
-(c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio_5_1.tex
+**"c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 1/Ejercicio_5_1.tex"
+(c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 1/Ejercicio_5_1.tex
 LaTeX2e <2022-06-01> pre-release-0 (develop 2022-6-25 branch)
 L3 programming layer <2022-06-02> (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -90,7 +90,7 @@ LaTeX Info: Redefining \] on input line 2954.
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count271
 \l__pdf_internal_box=\box53
-) (c:\Users\CONTROL\Desktop\Ejercicios\build\Ejercicio_5_1.aux)
+) (c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 1\build\Ejercicio_5_1.aux)
 \openout1 = `Ejercicio_5_1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -164,17 +164,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
 [1
 
-{C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\Users\CONTROL\Desktop\Ejercicios\build\Ejercicio_5_1.aux) ) 
+{C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 1\build\Ejercicio_5_1.aux) ) 
 Here is how much of TeX's memory you used:
  1153 strings out of 478354
- 18477 string characters out of 2836174
+ 18615 string characters out of 2836174
  321981 words of memory out of 3000000
  19630 multiletter control sequences out of 15000+600000
  469713 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,5n,62p,261b,111s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 54i,5n,62p,275b,111s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on c:\Users\CONTROL\Desktop\Ejercicios\build\Ejercicio_5_1.pdf (1 page, 89702 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 1\build\Ejercicio_5_1.pdf" (1 page, 89702 bytes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
