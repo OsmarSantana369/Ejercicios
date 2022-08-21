@@ -1,23 +1,52 @@
 \documentclass{article}
-%\usepackage{amsmath, amssymb, amssymb}
+\usepackage{amsmath, amssymb}
+\usepackage[spanish]{babel}
+\usepackage{parskip}
 
 \begin{document}
-    7. $ \big [\sin (x) \sin (y) - xe^y \big ] \mathrm{d}y = \big [e^y + \cos (x) \cos(y) \big ] \mathrm{d}x $ \\
+    
+    7. $ \big [\sen (x) \sen (y) - xe^y \big ] \mathrm{d}y = \big [e^y + \cos (x) \cos(y) \big ] \mathrm{d}x $ 
 
-    \hspace{4 mm} Solución. \\
+    \hspace{4 mm} Solución. 
 
-    Escribiendo la E.D. en la forma diferencial: \\
+    Escribiendo la E.D. en la forma diferencial: 
 
-    $ \big [-e^y - \cos (x) \cos(y) \big ] \mathrm{d}x + \big [\sin (x) \sin (y) - xe^y \big ] \mathrm{d}y = 0 $
+    $ \big [-e^y - \cos (x) \cos(y) \big ] \mathrm{d}x + \big [\sen (x) \sen (y) - xe^y \big ] \mathrm{d}y = 0 $ 
 
-
-
+    Sean $ M(x,y) = -e^y - \cos (x) \cos(y) $ y $ N(x,y) = \sen (x) \sen (y) - xe^y $, entonces $ \displaystyle \frac{\partial M}{\partial y} = -e^y + \cos (x) \sen(y) $ y $ \displaystyle \frac{\partial N}{\partial x} = \cos (x) \sen(y) -e^y $. Como $ \displaystyle \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $, entonces la E.D. es exacta. Es decir, existe $ f(x,y) = C $ con $ C \in \mathbb{R}  $ tal que
     \begin{equation}
-        e^{i\pi} + 1 = 0
-        \label{eq:euler}
+        \frac{\partial f}{\partial x} = -e^y - \cos (x) \cos(y)
+        \label{eq:uno}
     \end{equation}
-        
-    Como vemos en la Ecuación \ref{eq:euler}
-        
+    \begin{equation}
+        \frac{\partial f}{\partial y} = \sen (x) \sen (y) - xe^y
+        \label{eq:dos}
+    \end{equation}
+    Integrando (\ref{eq:uno}) respecto a $ x $:
+    \begin{equation}
+        f(x,y) = - xe^y - \sen (x) \cos (y) + h(y)
+        \label{eq:tres}
+    \end{equation}
+    Luego, derivando (\ref{eq:tres}) respecto a $ y $: 
+
+    $ \displaystyle \frac{\partial f}{\partial y} = - xe^y + \sen (x) \sen (y) + h'(y) $ 
+
+    De la ecuación (\ref{eq:dos}) y la anterior, se tiene que 
+
+    $ \sen (x) \sen (y) - xe^y = - xe^y + \sen (x) \sen (y) + h'(y) $ 
+
+    $ \Longrightarrow 0 = h'(y) $ 
+
+    $ \Longrightarrow h(y) = c $ \hfill (con $ c \in \mathbb{R} $) 
+    
+    Despúes, sustituyendo $ h(y) $ en (\ref{eq:tres}): 
+
+    $ f(x,y) = - xe^y - \sen (x) \cos (y) + c $ 
+
+    Y como $ f(x,y) = C $, entonces 
+
+    $ C = - xe^y - \sen (x) \cos (y) + c $ 
+
+    $ \therefore \, xe^y + \sen (x) \cos (y) = D $, con $ D = c - C $, es solución implícita de la E.D.        
 
 \end{document}
