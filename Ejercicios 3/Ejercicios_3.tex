@@ -1,0 +1,35 @@
+\documentclass[fleqn]{article}
+\usepackage{parskip}
+\usepackage{amsmath,amssymb}
+\usepackage{bigints}
+
+\begin{document}
+    \begin{enumerate}
+        \item[10.] $ x^2y''+2xy'-6y = 0; \; y_1 = x^2 $ \par 
+        Solución. \par 
+        Sea $ y_2(x) = u(x)y_1(x) $ la segunda solución de la E.D. Por el método de reducción de orden, se sabe que 
+        \begin{align*}
+            u(x) =& \bigints \frac{e^{- \displaystyle \int \frac{2}{x} \; \mathrm{d}x}}{(x^2)^2} \; \mathrm{d}x \\
+            =& \int \frac{e^{-2 \ln \lvert x \rvert }}{x^4} \; \mathrm{d}x \\
+            =& \int \frac{x^{-2}}{x^4} \; \mathrm{d}x \\
+            =& \int \frac{1}{x^6} \; \mathrm{d}x \\
+            =& - \frac{1}{5x^3} 
+        \end{align*}
+        Así, $ y_2(x) = \displaystyle \left(- \frac{1}{5x^3}\right) x^2 = - \frac{1}{5x^3} $. \par 
+        Por lo tanto, la solución general es:  
+        $$ y(x) = c_1x^2- \frac{c_2}{5x^3} $$
+
+        \item[7.] $ 12y''-5y'-2y = 0 $ \par 
+        Solución. \par
+        El polinomio característico de la E.D. es \par  
+        $ 12m^2-5m-2 = 0 $ \par 
+        $ \Longrightarrow 12m^2-8m+3m-2 = 0 $ \par 
+        $ \Longrightarrow 4m(3m^2-2)+(3m-2) = 0 $ \par 
+        $ \Longrightarrow (4m+1)(3m-2) = 0 $ \par 
+        $ \Longrightarrow m_1 = - \frac{1}{4} \text{ y } m_2 = \frac{2}{3} $ son raíces del polinomio característico. \par 
+        Como $ m_1 \neq m_2 $ entonces \par 
+        $ y_1(x) = e^{^{\textstyle -\frac{1}{4}x}} $ y $ y_2(x) = e^{^{\textstyle \frac{2}{3}x}} $ son soluciones linealmente independientes de la E.D. \par 
+        $ \therefore \, y(x) = c_1 e^{^{\textstyle -\frac{1}{4}x}} + c_2 e^{^{\textstyle \frac{2}{3}x}} $ es la solución general de la E.D.
+
+    \end{enumerate}
+\end{document}

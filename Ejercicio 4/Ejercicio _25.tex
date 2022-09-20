@@ -1,0 +1,21 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage{parskip}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+    \begin{enumerate}
+        \item[25.] $ 16 \, \dfrac{\mathrm{d}^4 y}{\mathrm{d} x^4} + 24 \, \dfrac{\mathrm{d}^2 y}{\mathrm{d} x^2} + 9y = 0 $ \par
+        Solución. \par 
+        El polinomio característico de la E.D. es: 
+        \begin{align*}
+            & 16m^4+24m^2+9 = 0 \\
+            & \Longrightarrow (4m^2+3)^2 = 0 \\
+            & \Longrightarrow 4m^2+3 = 0 \\
+            & \Longrightarrow m = \sqrt{-\dfrac{3}{4}} = \pm \dfrac{\sqrt{3}}{2}i
+        \end{align*}
+        Así, $ m_1 = \dfrac{\sqrt{3}}{2}i $ y $ m_2 = -\dfrac{\sqrt{3}}{2}i $ son raíces de multiplicidad 2 del polinomio característico. \par 
+        De esta forma, $ y_1(x) = \cos\left(\dfrac{\sqrt{3}}{2}x \right) $, $ y_2(x) = \sen\left(\dfrac{\sqrt{3}}{2}x \right) $, $ y_3(x) = x\cos\left(\dfrac{\sqrt{3}}{2}x \right) $ y $ y_4(x) = x\cos\left(\dfrac{\sqrt{3}}{2}x \right) $. \par 
+        $ \therefore $ \, La solución general es $ y(x) = c_1 \cos\left(\dfrac{\sqrt{3}}{2}x \right) + c_2 \sen\left(\dfrac{\sqrt{3}}{2}x \right) + c_3 x\cos\left(\dfrac{\sqrt{3}}{2}x \right) + c_4 x\cos\left(\dfrac{\sqrt{3}}{2}x \right) $
+    \end{enumerate}
+\end{document}
