@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1664258588 "c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 5/Ejercicio_12.tex" "build/Ejercicio_12.pdf" "Ejercicio_12" 1664258597
+["pdflatex"] 1664258711 "c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 5/Ejercicio_12.tex" "build/Ejercicio_12.pdf" "Ejercicio_12" 1664258722
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1663960654 89649 ab86388f254f042e0352c93c8266abfe ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1656205869 10326951 4c20795a0ba3dfbd8250d5bdd3ba6426 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233955448 1004 54797486969f23fa377b128694d548df ""
@@ -196,11 +196,11 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/translator/translator.sty" 1622471510 8765 56d370785f0143111ff9898b5adfe08e ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636288472 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Ejercicio_12.tex" 1664258585 2775 48272da6b787349c03744ac07892e739 ""
-  "build/Ejercicio_12.aux" 1664258596 1359 84162024bb77ad92f2652c0935a53120 "pdflatex"
-  "build/Ejercicio_12.nav" 1664258596 571 686a2d273024229235dc0db1f461ba6c "pdflatex"
+  "Ejercicio_12.tex" 1664258707 2743 8924ce836de5e96c8bb55ec63a6d4daf ""
+  "build/Ejercicio_12.aux" 1664258720 1359 84162024bb77ad92f2652c0935a53120 "pdflatex"
+  "build/Ejercicio_12.nav" 1664258720 571 686a2d273024229235dc0db1f461ba6c "pdflatex"
   "build/Ejercicio_12.out" 0 -1 0 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 5/Ejercicio_12.tex" 1664258585 2775 48272da6b787349c03744ac07892e739 ""
+  "c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 5/Ejercicio_12.tex" 1664258707 2743 8924ce836de5e96c8bb55ec63a6d4daf ""
   (generated)
   "build/Ejercicio_12.aux"
   "build/Ejercicio_12.log"
