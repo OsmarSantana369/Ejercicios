@@ -1,0 +1,91 @@
+\documentclass[fleqn]{article}
+\usepackage{parskip}
+\usepackage{amsmath}
+
+\begin{document}
+    35. $ y''' - 2y'' + y' = 2 - 24e^x + 40e^{5x} $; \; $ y(0) = \dfrac{1}{2} $, \; $ y'(0) = \dfrac{5}{2} $, \; $ y''(0) = - \dfrac{9}{2} $
+
+    Solución.
+
+    Ecuación homogénea asociada: $ y''' - 2y'' + y' = 0 $
+
+    Polinomio característico: $ m^3 - 2m^2 + m = 0 $
+
+    \hspace{3.2cm} $ \Longrightarrow m(m^2 - 2m + 1) = 0 $
+
+    \hspace{3.2cm} $ \Longrightarrow m(m - 1)^2 = 0 $
+
+    \hspace{3.2cm} $ \Longrightarrow m_1 = 0, \; m_2 = 1 $ es una raíz de multiplicidad 2.
+
+    Soluciones \textit{l.i.}: $ y_1(x) = e^{0x} = 1, \; y_2(x) = e^x $ y $ y_3(x) = xe^x $.
+
+    Funcion complementaria: $ y_c(x) = c_1 + c_2e^x + c_3xe^x $.
+
+    Sea $ y_p(x) = Ax + Bx^2e^x + Ce^{5x} $
+
+    $ \Longrightarrow y_p'(x) = A + 2Bxe^x + Bx^2e^x + 5Ce^{5x} $
+
+    $ \Longrightarrow y_p''(x) = 2Be^x + 4Bxe^x + Bx^2e^x + 25Ce^{5x} $
+
+    $ \Longrightarrow y_p'''(x) = 6Be^x + 6Bxe^x + Bx^2e^x + 125Ce^{5x} $
+
+    Sustituyendo en la E.D.
+    \begin{align*}
+        y_p(x)''' - 2y_p(x)'' + y_p(x)' =& \; 6Be^x + 6Bxe^x + Bx^2e^x + 125Ce^{5x} \\ & \; - 2 \left(2Be^x + 4Bxe^x + Bx^2e^x  + 25Ce^{5x} \right) \\ & \; + A + 2Bxe^x + Bx^2e^x + 5Ce^{5x} \\
+        =& \; A + 2Be^x + 80Ce^{5x}
+    \end{align*}
+    $ \Longrightarrow 2 - 24e^x + 40e^{5x} = A + 2Be^x + 80Ce^{5x} $
+
+    De esto, se tiene que 
+    \begin{align*}
+        A =& \; 2 \\
+        -24 =& \; 2B \\
+        40 =& \; 80C
+    \end{align*}
+    por lo que
+    \begin{align*}
+        A =& \; 2 \\
+        B =& \; -12 \\
+        C =& \; \dfrac{1}{2}
+    \end{align*}
+    Así, $ y_p(x) = 2x - 12x^2e^x + \dfrac{1}{2} \, e^{5x} $.
+
+    De esta manera, la solución general es:
+
+    $ y(x) = c_1 + c_2e^x + c_3xe^x + 2x - 12x^2e^x + \dfrac{1}{2} \, e^{5x} $
+
+    Luego,
+
+    $ y'(x) = c_2e^x + c_3e^x + c_3xe^x + 2 - 24xe^x - 12x^2e^x + \dfrac{5}{2} \, e^{5x} $
+
+    $ y''(x) = c_2e^x + 2c_3e^x + c_3xe^x - 24e^x - 48xe^x - 12x^2e^x + \dfrac{25}{2} \, e^{5x} $
+
+    Pero
+
+    $ - \dfrac{9}{2} = y''(0) = c_2 + 2c_3 - 24 + \dfrac{25}{2} = c_2 + 2c_3 - \dfrac{23}{2} $
+    \begin{equation}
+        \label{uno}
+        \Longrightarrow 7 = c_2 + 2c_3
+    \end{equation}
+    $ \dfrac{5}{2} = y'(0) = c_2 + c_3 + 2 + \dfrac{5}{2} = c_2 + c_3 + \dfrac{9}{2} $
+    \begin{equation}
+        \label{dos}
+        \Longrightarrow 2 = -c_2 - c_3
+    \end{equation}
+    $ \dfrac{1}{2} = y(0) = c_1 + c_2 + \dfrac{1}{2} $
+    \begin{equation}
+        \label{tres}
+        \Longrightarrow 0 = c_1 + c_2
+    \end{equation}
+
+    Sumando (\ref{uno}) y (\ref{dos}): $ 9 = c_3 $
+
+    Sustituyendo $ c_3 $ en (\ref{uno}): $ 7 = c_2 + 2(9) = c_2 + 18 \Longrightarrow c_2 = -11 $
+
+    Sustituyendo $ c_2 $ en (\ref{tres}): $ 0 = c_1 - 11 \Longrightarrow c_1 = 11 $
+
+    Por lo tanto, 
+
+    $ y(x) = 11 - 11e^x + 9xe^x + 2x - 12x^2e^x + \dfrac{1}{2} \, e^{5x} $
+    
+\end{document}
