@@ -1,43 +1,30 @@
-\documentclass{beamer}
+\documentclass[fleqn]{article}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{parskip}
-\usetheme{Singapore}
-\usefonttheme{professionalfonts}
-\usecolortheme{albatross}
-
 
 \begin{document}
-    \begin{frame}
-        \begin{enumerate}
+    \begin{enumerate}
         \item[12.] $ y'' - 2y' + y = \dfrac{e^x}{1+x^2} $ 
-            
-            \vspace{2.7mm}
-            \textbf{Solución.}
+        
+        \textbf{Solución.}
 
-            \vspace{0.6mm}
-            Ecuación homogénea asociada: $ y'' - 2y' + y = 0 $ 
+        Ecuación homogénea asociada: $ y'' - 2y' + y = 0 $ 
 
-            \vspace{0.6mm}
-            Polinomio característico:
+        Polinomio característico: $ m^2 - 2m + 1 = 0 $
 
-            \vspace{0.6mm}
-            $ m^2 - 2m + 1 = 0 $ \\
-            $ \Longrightarrow (m - 1)^2 = 0 $ \\
-            $ \Longrightarrow m - 1 = 0 $ \\
-            $ \Longrightarrow m = 1 $ \; es una raíz de multiplicidad 2.
+        \hspace{3.2cm} $ \Longrightarrow (m - 1)^2 = 0 $
 
-            \vspace{0.6mm}
-            Así, $ y_1(x) = e^x $ y $ y_2(x) = xe^x $ son soluciones \emph{l.i.}
+        \hspace{3.2cm} $ \Longrightarrow m - 1 = 0 $
 
-            \vspace{0.6mm}
-            Función complementaria: $ y_c(x) = c_1e^x + c_2xe^x $
-        \end{enumerate}
-    \end{frame}
-    \begin{frame}
-        \textbf{Solución particular de la ecuación diferencial no homogénea.}
-        Como $ \displaystyle y'' - 2y' + y = \dfrac{e^x}{1 + x^2} $ esta en la forma canónica, entonces sea $ \displaystyle y_p(x) = u(x)y_1(x) + v(x)y_2(x) $ la solución particular. Luego,
+        \hspace{3.2cm} $ \Longrightarrow m = 1 $ \; es una raíz de multiplicidad 2.
+
+        Así, $ y_1(x) = e^x $ y $ y_2(x) = xe^x $ son soluciones \textit{l.i.}
+
+        Función complementaria: $ y_c(x) = c_1e^x + c_2xe^x $
+    
+        Como $ \displaystyle y'' - 2y' + y = \dfrac{e^x}{1 + x^2} $ esta en la forma canónica, entonces sea $ y_p(x) = u(x)y_1(x) + v(x)y_2(x) $ la solución particular. Luego,
         \begin{align*}
-            W(e^x, xe^x) =& ~
+            W =&
             \left\lvert 
                 \begin{array}{ccc}
                     e^x & xe^x \\
@@ -47,30 +34,32 @@
             =& ~ e^{2x} + xe^{2x} - xe^{2x} \\
             =& ~ e^{2x}
         \end{align*}
-    \end{frame}
-    \begin{frame}
         Y así, 
+        \vspace{-7mm}
 
-        \begin{minipage}[t]{0.45 \textwidth}
+        \begin{minipage}[t]{5cm}
             \begin{align*}
                 u'(x) =& \dfrac{-xe^x \left(\dfrac{e^x}{1 + x^2} \right)}{e^2x} \\
-                =& -\dfrac{x}{1 + x^2} \\
+                =& -\dfrac{x}{1 + x^2}
+            \end{align*}
+            \begin{align*}
                 \Longrightarrow u(x) =& \int -\dfrac{x}{1 + x^2} \mathrm{d}x \\
                 =& -\dfrac{1}{2} \ln (1 + x^2)
             \end{align*}
-        \end{minipage} \begin{minipage}[t]{0.45 \textwidth}
+        \end{minipage} \begin{minipage}[t]{5cm}
             \begin{align*}
                 v'(x) =& \dfrac{e^x \left(\dfrac{e^x}{1 + x^2} \right)}{e^2x} \\
-                =& \dfrac{1}{1 + x^2} \\
+                =& \dfrac{1}{1 + x^2}
+            \end{align*}
+            \begin{align*}
                 \Longrightarrow v(x) =& \int \dfrac{1}{1 + x^2} \mathrm{d}x \\
                 =& \arctan (x)
             \end{align*}
         \end{minipage}
-        $ \therefore y_p(x) = -\dfrac{e^x}{2} \ln (1 + x^2) + xe^x \arctan(x) $
-    \end{frame}
-    \begin{frame}
-        Por lo tanto, la solución general es:
 
+        $ \therefore y_p(x) = -\dfrac{e^x}{2} \ln (1 + x^2) + xe^x \arctan(x) $
+
+        Por lo tanto, la solución general es:
         $ y(x) = c_1e^x + c_2xe^x -\dfrac{e^x}{2} \ln (1 + x^2) + xe^x \arctan(x) $
-    \end{frame}
+    \end{enumerate}
 \end{document}
