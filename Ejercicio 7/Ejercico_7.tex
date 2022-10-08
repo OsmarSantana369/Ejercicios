@@ -1,0 +1,34 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{parskip}
+
+\begin{document}
+    7. $ x^2y'' - 3xy' - 2y = 0 $
+
+    Solución.
+
+    Suponiendo que $ y(x) = x^m $
+
+    \hspace{18mm} $ \Longrightarrow y'(x) = mx^{m-1} $
+
+    \hspace{18mm} $ \Longrightarrow y''(x) = m(m-1)x^{m-2} $
+
+    Sustituyendo lo anterior en la E.D. se tiene que
+
+    $ x^2m(m-1)x^{m-2} - 3xmx^{m-1} - 2x^m = 0 $
+
+    $ \Longrightarrow m(m-1)x^m - 3mx^m - 2x^m = 0 $
+
+    $ \Longrightarrow x^m(m^2 - m - 3m - 2) = 0 $
+
+    $ \Longrightarrow x^m(m^2 - 4m - 2) = 0 $
+
+    $ \Longrightarrow m^2 - 4m - 2 = 0 $
+
+    $ \Longrightarrow m = \dfrac{4 \pm \sqrt{(-4)^2 - 4(1)(-2)}}{2(1)} = \dfrac{4 \pm \sqrt{16 + 8}}{2} = 2 \pm \sqrt{6} $
+
+    $ \Longrightarrow m_1 = 2 + \sqrt{6} $ y $ m_2 = 2 - \sqrt{6} $ son raíces del polinomio característico.
+
+    $ \therefore $ La solución general es $ y(x) = c_1x^{2 + \sqrt{6}} + c_2x^{2 - \sqrt{6}} $
+
+\end{document}
