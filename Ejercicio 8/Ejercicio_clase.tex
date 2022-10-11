@@ -1,0 +1,67 @@
+\documentclass[fleqn]{article}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+    $ xy'' =  y' + x(y')^2 $
+
+    \textbf{Solución.}
+
+    Reescribiendo la E.D.
+
+    $ x \; \dfrac{\mathrm{d}^2 y}{\mathrm{d}x^2} = \dfrac{\mathrm{d} y}{\mathrm{d}x} + x \left( \dfrac{\mathrm{d} y}{\mathrm{d}x} \right)^2 $
+
+    Sea $ w(x) = \dfrac{\mathrm{d} y}{\mathrm{d}x} $ entonces $ \dfrac{\mathrm{d} w}{\mathrm{d}x} = \dfrac{\mathrm{d}^2 y}{\mathrm{d}x^2} $. Sustituyendo esto en la E.D. se tiene que
+
+    $ x \; \dfrac{\mathrm{d} w}{\mathrm{d}x} = w + xw^2 $
+
+    $ \Longrightarrow x \; \dfrac{\mathrm{d} w}{\mathrm{d}x} - w = xw^2 $
+
+    $ \Longrightarrow \dfrac{\mathrm{d} w}{\mathrm{d}x} - \dfrac{1}{x} \; w = w^2 $
+
+    $ \Longrightarrow \dfrac{1}{w^2} \left( \dfrac{\mathrm{d} w}{\mathrm{d}x} \right) - \dfrac{1}{x} \left( \dfrac{1}{w} \right) = 1 $
+
+    Sea $ u(x) = \dfrac{1}{w} $ entonces $ \dfrac{\mathrm{d} u}{\mathrm{d}x} = - \dfrac{1}{w^2} \left( \dfrac{\mathrm{d} w}{\mathrm{d}x} \right) $. Sustituyendo esto en lo anterior,
+
+    $ - \dfrac{\mathrm{d} u}{\mathrm{d}x} - \dfrac{1}{x} \; u = 1 $
+
+    $ \Longrightarrow \dfrac{\mathrm{d} u}{\mathrm{d}x} + \dfrac{1}{x} \; u = -1 $
+
+    Sea $ \mu (x) = e^{^{\displaystyle \int \dfrac{1}{x} \, \mathrm{d}x}} = e^{\displaystyle \ln |x|} = x $. Multiplicando $ \mu (x) $ por la ecuación anterior se da que
+
+    $ \Longrightarrow x \; \dfrac{\mathrm{d} u}{\mathrm{d}x} + u = -x $
+
+    $ \Longrightarrow \dfrac{\mathrm{d}}{\mathrm{d}x} (xu) = -x $
+
+    $ \Longrightarrow xu = \int -x \, \mathrm{d}x $
+
+    $ \Longrightarrow xu = - \dfrac{x^2}{2} + C $
+
+    $ \Longrightarrow u = - \dfrac{x}{2} + \dfrac{C}{x} $
+
+    $ \Longrightarrow u = \dfrac{2C - x^2}{2x} $
+
+    Pero $ u(x) = \dfrac{1}{w} $. Asi, 
+
+    $ \dfrac{1}{w} = \dfrac{2C - x^2}{2x} $
+
+    $ \Longrightarrow w = \dfrac{2x}{2C - x^2} $
+
+    Además de que $ w = \dfrac{\mathrm{d} y}{\mathrm{d}x} $, por lo que
+
+    $ \dfrac{\mathrm{d} y}{\mathrm{d}x} = \dfrac{2x}{2C - x^2} $
+
+    $ \Longrightarrow y(x) = \displaystyle \int \dfrac{2x}{2C - x^2} \, \mathrm{d}x $
+
+    Sea $ t = 2C - x^2 $ entonces $ \mathrm{d}t = -2x \Longrightarrow - \mathrm{d}t = 2x $. Sustituyendo esto en lo anterior, se da que
+    \begin{equation*}
+        \begin{split}
+            y(x) &= - \displaystyle \int \dfrac{1}{t} \, \mathrm{d}t \\
+            &= - \ln |t| + D
+        \end{split}
+    \end{equation*}
+    Pero $ t = 2C - x^2 $. Por lo tanto, la solución general de la E.D. es: 
+    
+    $ y(x) = - \ln \left \lvert 2C - x^2 \right \lvert + D $
+
+\end{document}
