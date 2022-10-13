@@ -1,0 +1,124 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip, nopageno}
+\usepackage[a4paper, margin = 2.1cm]{geometry}
+
+\begin{document}
+    \begin{enumerate}
+        \item[3.] Determinar el conjunto donde la función 
+        
+        $ H(x,y,z) = \dfrac{xyz}{x^2 + y^2 - z} $
+
+        es continua.
+
+        \textbf{Solución.}
+
+        La función $ H $ está definida cuando $ x^2 + y^2 - z \neq 0 $. Ya que $ x^2 + y^2 - z = 0 $ si y solo si $ x^2 + y^2 = z $, se tiene que la función $ H $ está definida en el conjunto
+
+        $ C = \mathbb{R}^3 \setminus \left \{ (x,y,z) \in \mathbb{R}^3 \mid x^2 + y^2 = z \right \} $
+
+        Sean $ (x,y,z), (x_1,y_1,z_1) \in C $, $ \epsilon > 0 $, $ \delta_1 = \displaystyle \sqrt[3]{\epsilon - \left \lvert xyz_1 + xy_1z + x_1yz - xy_1z_1 - x_1yz_1 - x_1y_1z \right \rvert} $ y \\ $ f, g : C \subseteq \mathbb{R}^3 \to \mathbb{R} $ tales que $ f(x,y,z) = xyz $ y $ g(x,y,z) = \displaystyle x^2 + y^2 - z $.
+
+        Si $ 0 < \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_1 $ entonces
+        \begin{equation*}
+            \begin{split}
+                & \left\lvert x - x_1 \right\rvert <= \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_1, \\
+                & \left\lvert y - y_1 \right\rvert <= \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_1 \text{ y} \\
+                & \left\lvert z - z_1 \right\rvert <= \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_1.
+            \end{split}
+        \end{equation*}
+        Así, $ \left\lvert x - x_1 \right\rvert \left\lvert y - y_1 \right\rvert \left\lvert z - z_1 \right\rvert < \delta_1 ^3 $. Luego, como $ \delta_1 = \displaystyle \sqrt[3]{\epsilon - \left \lvert xyz_1 + xy_1z + x_1yz - xy_1z_1 - x_1yz_1 - x_1y_1z \right \rvert} $ se da que
+
+        $ \left\lvert (x - x_1)(y - y_1)(z - z_1) \right\rvert < \displaystyle \left(\sqrt[3]{\epsilon - \left \lvert xyz_1 + xy_1z + x_1yz - xy_1z_1 - x_1yz_1 - x_1y_1z \right \rvert} \right)^3 $
+        \begin{multline*}
+            \Longrightarrow \left\lvert xyz - xyz_1 - xy_1z + xy_1z_1 - x_1yz + x_1yz_1 + x_1y_1z - x_1y_1z_1 \right\rvert < \epsilon \\
+            - |xyz_1 + xy_1z + x_1yz - xy_1z_1 - x_1yz_1 - x_1y_1z|
+        \end{multline*}
+        \begin{multline*}
+            \Longrightarrow |xyz - xyz_1 - xy_1z + xy_1z_1 - x_1yz + x_1yz_1 + x_1y_1z - x_1y_1z_1| + |xyz_1 + xy_1z + x_1yz - xy_1z_1 - x_1yz_1 \\
+            - x_1y_1z| < \epsilon
+        \end{multline*}
+        \begin{multline*}
+            \Longrightarrow |xyz - xyz_1 - xy_1z + xy_1z_1 - x_1yz + x_1yz_1 + x_1y_1z - x_1y_1z_1 + xyz_1 + xy_1z + x_1yz - xy_1z_1 - x_1yz_1 \\
+            - x_1y_1z| \leq |xyz - xyz_1 - xy_1z + xy_1z_1 - x_1yz + x_1yz_1 + x_1y_1z - x_1y_1z_1| + |xyz_1 + xy_1z + x_1yz - xy_1z_1 \\ 
+            - x_1yz_1 - x_1y_1z| < \epsilon
+        \end{multline*}
+        \hspace{9mm} $ \Longrightarrow |xyz - x_1y_1z_1| < \epsilon $
+
+        Es decir, $ \left\lvert f(x,y,z) - f(x_1,y_1,z_1) \right\rvert < \epsilon $. Y como $ \epsilon $ fue arbitrario, se concluye que $ f $ es continua.
+
+        Ahora, sea $ \delta_2 = \dfrac{\epsilon - 2(\left\lvert xx_1 \right\rvert + \left\lvert yy_1 \right\rvert + x_1^2 + y_1^2)}{\left\lvert x - x_1 \right\rvert + \left\lvert y - y_1 \right\rvert + 1} $. Si $ 0 < \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_2 $ entonces
+        \begin{equation}
+            \left\lvert x - x_1 \right\rvert <= \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_2,
+            \label{eq:1}
+        \end{equation}
+        \begin{equation}
+            \left\lvert y - y_1 \right\rvert <= \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_2 \text{ y}
+            \label{eq:2}
+        \end{equation}
+        \begin{equation}
+            \left\lvert z - z_1 \right\rvert <= \left\lVert (x,y,z) - (x_1,y_1,z_1) \right\rVert < \delta_2.
+            \label{eq:3}
+        \end{equation}
+        De (\ref{eq:1}) se tiene que
+
+        $ \left\lvert x - x_1 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert x^2 - 2xx_1 + x_1^2 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert x^2 + x_1^2 \right\rvert - \left\lvert 2xx_1 \right\rvert \leq \left\lvert x^2 - 2xx_1 + x_1^2 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert x^2 + x_1^2 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert + \left\lvert 2xx_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert x^2 + x_1^2 \right\rvert + \left\lvert 2x_1^2 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert + \left\lvert 2xx_1 \right\rvert + \left\lvert 2x_1^2 \right\rvert $
+
+        $ \Longrightarrow \left\lvert x^2 + x_1^2 - 2x_1^2 \right\rvert \leq \left\lvert x^2 + x_1^2 \right\rvert + \left\lvert 2x_1^2 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert + \left\lvert 2xx_1 \right\rvert + 2x_1^2 $
+        \begin{equation}
+            \Longrightarrow \left\lvert x^2 - x_1^2 \right\rvert < \delta_2 \left\lvert x - x_1 \right\rvert + \left\lvert 2xx_1 \right\rvert + 2x_1^2
+            \label{eq:4}
+        \end{equation}
+        Después, de (\ref{eq:2}) se da que
+
+        $ \left\lvert y - y_1 \right\rvert ^2 < \delta_2 \left\lvert y - y_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert y^2 - 2yy_1 + y_1^2 \right\rvert < \delta_2 \left\lvert y - y_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert y^2 + y_1^2 \right\rvert - \left\lvert 2yy_1 \right\rvert \leq \left\lvert y^2 - 2yy_1 + y_1^2 \right\rvert < \delta_2 \left\lvert y - y_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert y^2 + y_1^2 \right\rvert < \delta_2 \left\lvert y - y_1 \right\rvert + \left\lvert 2yy_1 \right\rvert $
+
+        $ \Longrightarrow \left\lvert y^2 + y_1^2 \right\rvert + \left\lvert 2y_1^2 \right\rvert < \delta_2 \left\lvert y - y_1 \right\rvert + \left\lvert 2yy_1 \right\rvert + \left\lvert 2y_1^2 \right\rvert $
+
+        $ \Longrightarrow \left\lvert y^2 + y_1^2 - 2y_1^2 \right\rvert \leq \left\lvert y^2 + y_1^2 \right\rvert + \left\lvert 2y_1^2 \right\rvert < \delta_2 \left\lvert y - y_1 \right\rvert + \left\lvert 2yy_1 \right\rvert + 2y_1^2 $
+        \begin{equation}
+            \Longrightarrow \left\lvert y^2 - y_1^2 \right\rvert < \delta_2 \left\lvert y - y_1 \right\rvert + \left\lvert 2yy_1 \right\rvert + 2y_1^2
+            \label{eq:5}
+        \end{equation}
+        Y de (\ref{eq:3}) se obtiene que
+        \begin{equation}
+            \left\lvert z_1 - z \right\rvert < \delta_2
+            \label{eq:6}
+        \end{equation}
+        Sumando (\ref{eq:4}), (\ref{eq:5}) y (\ref{eq:6}) se tiene que
+        \begin{align*}
+            \left\lvert x^2 - x_1^2 \right\rvert + \left\lvert y^2 - y_1^2 \right\rvert + \left\lvert z_1 - z \right\rvert &< \delta_2 \left\lvert x - x_1 \right\rvert + \left\lvert 2xx_1 \right\rvert + 2x_1^2 + \delta_2 \left\lvert y - y_1 \right\rvert + \left\lvert 2yy_1 \right\rvert + 2y_1^2 + \delta_2 \\
+            &= \delta_2 (\left\lvert x - x_1 \right\rvert + \left\lvert y - y_1 \right\rvert + 1) + 2(\left\lvert xx_1 \right\rvert + \left\lvert yy_1 \right\rvert + x_1^2 + y_1^2)
+        \end{align*}
+        Pero $ \delta_2 = \dfrac{\epsilon - 2(\left\lvert xx_1 \right\rvert + \left\lvert yy_1 \right\rvert + x_1^2 + y_1^2)}{\left\lvert x - x_1 \right\rvert + \left\lvert y - y_1 \right\rvert + 1} $. De esta forma,
+
+        $ \left\lvert x^2 - x_1^2 \right\rvert + \left\lvert y^2 - y_1^2 \right\rvert + \left\lvert z_1 - z \right\rvert < \left( \dfrac{\epsilon - 2(\left\lvert xx_1 \right\rvert + \left\lvert yy_1 \right\rvert + x_1^2 + y_1^2)}{\left\lvert x - x_1 \right\rvert + \left\lvert y - y_1 \right\rvert + 1} \right) (\left\lvert x - x_1 \right\rvert + \left\lvert y - y_1 \right\rvert + 1) + 2(\left\lvert xx_1 \right\rvert + \left\lvert yy_1 \right\rvert + x_1^2 + y_1^2) $
+
+        $ \Longrightarrow \left\lvert x^2 - x_1^2 \right\rvert + \left\lvert y^2 - y_1^2 \right\rvert + \left\lvert z_1 - z \right\rvert < \epsilon $
+
+        $ \Longrightarrow \left\lvert x^2 - x_1^2 + y^2 - y_1^2 + z_1 - z \right\rvert \leq \left\lvert x^2 - x_1^2 \right\rvert + \left\lvert y^2 - y_1^2 \right\rvert + \left\lvert z_1 - z \right\rvert < \epsilon $
+        
+        $ \Longrightarrow \left\lvert x^2 + y^2 - z - x_1^2 - y_1^2 + z_1  \right\rvert < \epsilon $
+
+        $ \Longrightarrow \left\lvert x^2 + y^2 - z - (x_1^2 + y_1^2 - z_1)  \right\rvert < \epsilon $
+
+        Es decir, $ \left\lvert g(x,y,z) - g(x_1,y_1,z_1) \right\rvert < \epsilon $. Y como $ \epsilon $ fue arbitrario, se concluye que $ g $ es continua.
+
+        Por lo tanto, $ H(x,y,z) = \dfrac{f(x,y,z)}{g(x,y,z)} $, con $ g(x,y,z) $ distinto de cero en su dominio, es continua.
+        
+    \end{enumerate}
+\end{document}
