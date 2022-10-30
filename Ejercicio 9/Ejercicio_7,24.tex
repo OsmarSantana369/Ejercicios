@@ -1,0 +1,157 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+    6. Una fuerza de $ 400 \, N $ alarga $2 \, m $ un resorte. Una masa de $ 50 \, kg $ se une al extremo del resorte y se libera inicialmente desde la posición de equlibrio con una velocidad ascendente de $ 10 \, m/s $. Encuentre la ecuación de movimiento.
+
+    \textbf{Solución.}
+
+    De la fórmula de Hooke: $ 400 \, N = K(2 \, m) \Longrightarrow K = 200 \, N/m $
+
+    Luego, $ w = \sqrt{\dfrac{200}{50}} = \sqrt{4} = 2 $.
+
+    De esta manera, la ecuación de movimiento es: $ x_1(t) = c_1 \cos (2t) + c_2 \sen(2t) $. Por lo que, $ x_1'(t) = -2c_1 \sen (2t) + 2c_2 \cos(2t) $.
+
+    Como la masa se libera desde la posición de equilibrio y con una velocidad ascendente de $ 10 \, m/s $ entonces $ x_1(0) = 0 $ y $ x_1'(0) = 10 $. De esta forma,
+
+    $ 0 = x_1(0) = c_1 \cos (2(0)) + c_2 \sen(2(0)) = c_1 $ y 
+
+    $ 10 = x_1'(0) = -2c_1 \sen (2(0)) + 2c_2 \cos(2(0)) = 2c_2 \Longrightarrow 5 = c_2 $
+
+    Por lo tanto, $ x_1(t) = 5 \sen (2t) $.
+
+    7. Otro resorte cuya constante es $ 20 \, N/m $ se suspende del mismo soporte, pero paralelo al sistema resorte/masa del problema 6. Al segundo resorte se le coloca una masa de $ 20 \, kg $ y ambas masas se liberan al inicio desde la posición de equilibrio con una velocidad ascendente de $ 10 \, m/s $.
+
+    \begin{enumerate}
+            \item[a)] ¿Cuál masa presenta la mayor amplitud de movimiento?
+            \item[b)] ¿Cuál masa se mueve más rápido en $ t = \dfrac{\pi}{4} \, s $? ¿En $ \dfrac{\pi}{2} \, s $?
+            \item[c)] ¿En qué instantes las dos masas están en la misma posición? ¿Dónde están las masas en estos instantes? ¿En qué direcciones se están moviendo las masas?
+    \end{enumerate}
+
+    \textbf{Solución.}
+
+    Como la constante del resorte es $ 20 \, N/m $ y la masa del objeto es de $ 20 \, kg $, se tiene que
+
+    $ w = \sqrt{\dfrac{20}{20}} = 1 $
+
+    Así la ecuación de movimiento del segundo resorte es: $ x_2(t) = c_1 \cos (t) + c_2 \sen(t) $. Por lo que, $ x_2'(t) = -c_1 \sen (t) + c_2 \cos(t) $.
+
+    Como la masa se libera desde la posición de equilibrio con una velocidad ascendente de $ 10 \, m/s $ entonces $ x_2(0) = 0 $ y $ x_2'(0) = 10 $. De esta forma,
+
+    $ 0 = x_2(0) = c_1 \cos (0) + c_2 \sen(0) = c_1 $ y
+
+    $ 10 = x_2'(0) = -c_1 \sen (0) + c_2 \cos(0) = c_2 $
+
+    Por lo que, $ x_2(t) = 10 \sen (t) $.
+
+    \begin{enumerate}
+        \item[a)] La masa de $ 50 \, kg $ tiene una amplitud de movimiento igual a 5 y la de $ 20 \, kg $ una de 10. Por lo tanto, la masa de $ 20 \, kg $ presenta una mayor amplitud de movimiento.
+        
+        \item[b)] Las ecuaciones de velocidad de ambas masas son: $ x_1'(t) = 10 \cos (2t) $ y $ x_2'(t) = 10 \cos (t) $.
+        
+        Luego, evaluando $ t = \dfrac{\pi}{4} $:
+
+        $ x_1' \left(\dfrac{\pi}{4} \right) = 10 \cos \left(2 \cdot \dfrac{\pi}{4} \right) = 10 \cos \left(\dfrac{\pi}{2} \right) = 0 $
+
+        $ x_2'\left(\dfrac{\pi}{4} \right) = 10 \cos \left(\dfrac{\pi}{4} \right) = 10 \cdot \dfrac{\sqrt{2}}{2} = 5 \sqrt{2} $
+
+        Así, la masa que se mueve más rápido en $ t = \dfrac{\pi}{4} \, s $ es la de $ 20 \, kg $.
+
+        Después, evaluando $ t = \dfrac{\pi}{2} $:
+
+        $ x_1' \left(\dfrac{\pi}{2} \right) = 10 \cos \left(2 \cdot \dfrac{\pi}{2} \right) = 10 \cos (\pi) = -10 $
+
+        $ x_2'\left(\dfrac{\pi}{2} \right) = 10 \cos \left(\dfrac{\pi}{2} \right) = 0 $
+
+        De esta forma, la masa que se mueve más rápido en $ t = \dfrac{\pi}{2} \, s $ es la de $ 50 \, kg $.
+
+        \item[c)] Igualando las ecuaciones de posición:
+        
+        $ 5 \sen (2t) = 10 \sen (t) $
+
+        $ \Longrightarrow \sen (2t) = 2 \sen (t) $
+
+        $ \Longrightarrow 2 \sen (t) \cos (t) = 2 \sen (t) $
+
+        $ \Longrightarrow 2 \sen (t) \cos (t) - 2 \sen (t) = 0 $
+
+        $ \Longrightarrow 2 \sen (t) [\cos (t) - 1] = 0 $
+
+        $ \Longrightarrow 2 \sen (t) = 0 $ o $ \cos (t) - 1 = 0 $
+
+        $ \Longrightarrow \sen (t) = 0 $ o $ \cos (t) = 1 $
+
+        $ \Longrightarrow t = k \pi $ con $ k = 0, 1, 2, \ldots $
+
+        Es decir, ambas masas se encuentran en la posición de equilibrio al inicio y cada $ \pi $ segundos, pues $ 5 \sen (2k \pi) = 5(0) = 0 = 10(0) = 10 \sen (k \pi) $ con $ k = 0, 1, 2, \ldots $
+
+        Luego, se tiene que $ x_1'(k \pi) = 10 \cos (2k \pi) = 1 > 0 $. De esta manera, la masa de $ 50 \, kg $ se mueve hacia arriba cuando coincide con la de $ 20 \, kg $.
+
+        Después, $ x_2'(k \pi) = 10 \cos (k \pi) $. Si $ k $ es par entonces $ x_2'(k \pi) = 10 > 0 $ y si $ k $ es impar entonces $ x_2'(k \pi) = -10 < 0 $. Así, la masa de $ 20 \, kg $, cuando coincide con la de $ 50 \, kg $, se mueve hacia arriba al inicio y cada $ 2 \pi $ segundos; y hacia abajo a los $ \pi $ segundos y cada $ 2 \pi $ segundos a partir de ese instante.
+    \end{enumerate}
+
+    23. Una masa de $ 1 \, kg $ se fija a un resorte cuya constante es de $ 16 \, N/m $ y luego el sistema completo se sumerge en un líquido que imparte una fuerza amortiguadora igual a 10 veces la velocidad instantánea. Determine las ecuaciones de movimiento si
+
+    \begin{enumerate}
+        \item[a)] Al inicio la masa se libera desde un punto situado $ 1 \, m $ bajo la posición de equilibrio.
+        \item[b)] La masa se libera inicialmente desde un punto a un metro bajo la posición de equilibrio con una velocidad ascendente de $ 12 \, m $. 
+    \end{enumerate}
+
+    \textbf{Solución.}
+
+    \begin{enumerate}
+        \item[a)] La E.D. que modela el movimiento del sistema es:
+        
+        $ \dfrac{\mathrm{d}^2 x}{\mathrm{d} t^2} + 10 \dfrac{\mathrm{d} x}{\mathrm{d} t} + 16x = 0 $
+
+        Luego, como la masa se libera desde $ 1 \, m $ bajo la posición de equilibrio, se tiene que $ x(0) = 1 $ y $ x'(0) = 0 $
+
+        Polinomio característico: 
+        
+        $ r^2 + 10r + 16 = 0 $.
+
+        $ \Longrightarrow (r + 2)(r + 8) = 0 $
+
+        $ \Longrightarrow r_1 = -2 $ o $ r_2 = -8 $
+
+        Solución general: $ x(t) = c_1 e^{-2t} + c_2 e^{-8t} $
+
+        $ \Longrightarrow x'(t) = -2c_1 e^{-2t} - 8c_2 e^{-8t} $
+
+        Después, usando las condiciones iniciales:
+        \begin{equation}
+            \label{eq:1}
+            1 = x(0) = c_1 e^{-2(0)} + c_2 e^{-8(0)} = c_1 + c_2
+        \end{equation}
+        \begin{equation}
+            \label{eq:2}
+            0 = x'(0) = -2c_1 e^{-2(0)} - 8c_2 e^{-8(0)} = - 2c_1 - 8c_2
+        \end{equation}
+        De (\ref{eq:2}) se tiene que: $ c_1 = - 4c_2 $
+        
+        Sustituyendo $ c_1 $ en (\ref{eq:1}): $ 1 = - 4c_2 + c_2 = - 3c_2 \Longrightarrow c_2 = - \dfrac{1}{3} $. Así, $ c_1 = - 4 \left(- \dfrac{1}{3} \right) = \dfrac{4}{3} $
+
+        Por lo tanto, $ x(t) = \dfrac{4}{3} e^{-2t} - \dfrac{1}{3} e^{-8t} $.
+
+        \item[b)] Como la masa se libera desde un metro bajo la posición de equilibrio con una velocidad ascendente de $ 12 \, m $, se tiene que $ x(0) = 1 $ y $ x'(0) = - 12 $. Así,
+        \begin{equation}
+            \label{eq:3}
+            1 = x(0) = c_1 e^{-2(0)} + c_2 e^{-8(0)} = c_1 + c_2
+        \end{equation}
+        \begin{equation*}
+            - 12 = x'(0) = -2c_1 e^{-2(0)} - 8c_2 e^{-8(0)} = - 2c_1 - 8c_2
+        \end{equation*}
+        \begin{equation}
+            \label{eq:4}
+            \Longrightarrow - 6 = - c_1 - 4c_2
+        \end{equation}
+        De (\ref{eq:4}): $ c_1 = 6 - 4c_2 $
+
+        Sustituyendo $ c_1 $ en (\ref{eq:3}): $ 1 = 6 - 4c_2 + c_2 = 6 - 3c_2 \Longrightarrow c_2 = \dfrac{5}{3} $. Así, $ c_1 = 6 - 4 \cdot \dfrac{5}{3} = - \dfrac{2}{3} $.
+
+        Por lo tanto, $ x(t) = - \dfrac{2}{3} e^{-2t} + \dfrac{5}{3} e^{-8t} $.
+    \end{enumerate}
+
+\end{document}
