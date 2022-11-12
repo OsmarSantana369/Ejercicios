@@ -1,0 +1,65 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+    25. $ y'' - (x + 1)y' - y = 0 $
+
+    \textbf{Solución.}
+
+    La E.D. no tiene puntos singulares.
+
+    Considerando al punto ordinario $ x_0 = -1 $ entonces
+    
+    $ y(x) = \displaystyle \sum_{n=0}^{\infty} c_n (x+1)^n $
+
+    $ \Longrightarrow y'(x) = \displaystyle \sum_{n=1}^{\infty} n c_n (x+1)^{n-1} $
+
+    $ \Longrightarrow y''(x) = \displaystyle \sum_{n=2}^{\infty} n(n-1) c_n (x+1)^{n-2} $
+    
+    Sustituyendo en la E.D.
+
+    $ \displaystyle \sum_{n=2}^{\infty} n(n-1) c_n (x+1)^{n-2} - (x + 1)\sum_{n=1}^{\infty} n c_n (x+1)^{n-1} - \sum_{n=0}^{\infty} c_n (x+1)^n = 0 $
+
+    $ \Longrightarrow \displaystyle \sum_{n=2}^{\infty} n(n-1) c_n (x+1)^{n-2} - \sum_{n=1}^{\infty} n c_n (x+1)^n - \sum_{n=0}^{\infty} c_n (x+1)^n = 0 $
+
+    $ \Longrightarrow \displaystyle \sum_{n=0}^{\infty} (n+2)(n+1) c_{n+2} (x+1)^n - \sum_{n=1}^{\infty} n c_n (x+1)^n - \sum_{n=0}^{\infty} c_n (x+1)^n = 0 $
+
+    $ \Longrightarrow \displaystyle 2c_2 - c_0 + \sum_{n=1}^{\infty} (n+2)(n+1) c_{n+2} (x+1)^n - \sum_{n=1}^{\infty} n c_n (x+1)^n - \sum_{n=1}^{\infty} c_n (x+1)^n = 0 $
+
+    $ \Longrightarrow \displaystyle 2c_2 - c_0 + \sum_{n=1}^{\infty} [(n+2)(n+1) c_{n+2} - n c_n - c_n] (x+1)^n = 0 $
+
+    $ \Longrightarrow \displaystyle 2c_2 - c_0 + \sum_{n=1}^{\infty} [(n+2)(n+1) c_{n+2} - (n+1) c_n] (x+1)^n = 0 $
+
+    $ \Longrightarrow \displaystyle 2c_2 - c_0 + \sum_{n=1}^{\infty} \left\lbrace (n+1) [(n+2) c_{n+2} - c_n] \right\rbrace (x+1)^n = 0 $
+
+    $ \Longrightarrow 2c_2 - c_0 = 0 \quad $ y $ \quad (n+1) [(n+2) c_{n+2} - c_n] = 0 $ con $ n = 1,2,3, \ldots $
+
+    $ \Longrightarrow 2c_2 - c_0 = 0 \quad $ y $ \quad (n+2) c_{n+2} - c_n = 0 $ con $ n = 1,2,3, \ldots $
+
+    $ \Longrightarrow c_2 = \dfrac{c_0}{2} \quad $ y $ \quad c_{n+2} = \dfrac{c_n}{n+2} $ con $ n = 1,2,3, \ldots $
+
+    Obteniendo algunos términos:
+
+    $ c_3 = \dfrac{c_1}{3} $
+
+    $ c_4 = \dfrac{c_2}{4} = \dfrac{c_0}{2 \cdot 4} $
+
+    $ c_5 = \dfrac{c_3}{5} = \dfrac{c_1}{3 \cdot 5} $
+
+    $ c_6 = \dfrac{c_4}{6} = \dfrac{c_0}{2 \cdot 4 \cdot 6} $
+
+    $ c_7 = \dfrac{c_5}{7} = \dfrac{c_1}{3 \cdot 5 \cdot 7} $
+
+    Así, la solución general es:
+    \begin{align*}
+        y(x) =& \; c_0 + c_1 (x+1) + \left( \dfrac{c_0}{2} \right)(x+1)^2 + \left( \dfrac{c_1}{3} \right)(x+1)^3 + \left( \dfrac{c_0}{2 \cdot 4} \right)(x+1)^4 \\
+        & + \left( \dfrac{c_1}{3 \cdot 5} \right)(x+1)^5 + \left( \dfrac{c_0}{2 \cdot 4 \cdot 6} \right)(x+1)^6 + \left( \dfrac{c_1}{3 \cdot 5 \cdot 7} \right)(x+1)^7 + \cdots \\\\
+        =& \; c_0 \left( 1 + \dfrac{(x+1)^2}{2} + \dfrac{(x+1)^4}{2 \cdot 4} + \dfrac{(x+1)^6}{2 \cdot 4 \cdot 6} + \cdots \right) \\ 
+        & + c_1 \left( (x+1) + \dfrac{(x+1)^3}{3} + \dfrac{(x+1)^5}{3 \cdot 5} + \dfrac{(x+1)^7}{3 \cdot 5 \cdot 7} + \cdots \right) \\\\
+        =& \; c_0 \left( 1 + \dfrac{(x+1)^2}{2!} + \dfrac{3(x+1)^4}{4!} + \dfrac{3 \cdot 5(x+1)^6}{6!} + \cdots \right) \\
+        & + c_1 \left( (x+1) + \dfrac{2(x+1)^3}{3!} + \dfrac{2 \cdot 4(x+1)^5}{5!} + \dfrac{2 \cdot 4 \cdot 6(x+1)^7}{7!} + \cdots \right) \\\\
+        =& \; c_0 \left(1 + \sum_{n=1}^{\infty} \dfrac{\displaystyle \prod_{j=1}^{n} 2j-1}{(2n)!} (x+1)^{2n} \right) + c_1 \left( (x+1) + \sum_{n=1}^{\infty} \dfrac{\displaystyle \prod_{j=1}^{n} 2j}{(2n+1)!} (x+1)^{2n+1} \right)
+    \end{align*}
+    De esta manera, $ y_1(x) = 1 + \displaystyle \sum_{n=1}^{\infty} \dfrac{\displaystyle \prod_{j=1}^{n} 2j-1}{(2n)!} (x+1)^{2n} $ y $ y_2(x) = (x+1) + \displaystyle \sum_{n=1}^{\infty} \dfrac{\displaystyle \prod_{j=1}^{n} 2j}{(2n+1)!} (x+1)^{2n+1} $ son soluciones linealmente independientes.
+\end{document}
