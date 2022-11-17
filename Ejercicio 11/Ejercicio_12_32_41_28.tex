@@ -1,0 +1,111 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage[scr]{rsfso}
+
+\begin{document}
+    12. $ f(t) = e^{-2t - 5} $
+
+    \textbf{Solución.}
+    \begin{align*}
+        F(s) &= \mathscr{L} \left\lbrace e^{-2t - 5} \right\rbrace \\
+        &= \int_0^\infty e^{-st} e^{-2t - 5} \, \mathrm{d}t \\
+        &= \lim_{r \to \infty} \int_0^r e^{-st} e^{-2t - 5} \, \mathrm{d}t \\
+        &= \lim_{r \to \infty} e^{-5} \int_0^r e^{-t(s+2)} \, \mathrm{d}t \\
+        &= e^{-5} \lim_{r \to \infty} \left[- \left. \dfrac{e^{-t(s+2)}}{s+2} \right|_0^r \right] \, \mathrm{d}t \\
+        &= e^{-5} \lim_{r \to \infty} \left[- \dfrac{e^{-r(s+2)}}{s+2} + \dfrac{1}{s+2} \right] \\
+        &= \dfrac{e^-5}{s+2} \quad \text{con } s > -2
+    \end{align*}
+    
+    32. $ f(t) = \cos (5t) + \sen (2t) $
+
+    \textbf{Solución.}
+    \begin{align*}
+        F(s) &= \mathscr{L} \left\lbrace \cos (5t) + \sen (2t) \right\rbrace\\
+        &= \mathscr{L} \left\lbrace \cos (5t) \right\rbrace + \mathscr{L} \left\lbrace \sen (2t) \right\rbrace\\
+        &= \dfrac{s}{s^2 + 25} + \dfrac{2}{s^2 + 4}
+    \end{align*}
+
+    41. Una definición de la función gamma está dada por la integral impropia
+
+    $ \Gamma (\alpha) = \displaystyle \int_0^\infty t^{\alpha - 1} e^{-t} \, \mathrm{d}t, \alpha > 0 $
+
+    \begin{enumerate}
+        \item[a)] Demuestre que $ \Gamma (\alpha + 1) = \alpha \, \Gamma (\alpha) $.
+        \item[b)] Demuestre que $ \mathscr{L} \lbrace t^\alpha \rbrace = \dfrac{\Gamma (\alpha + 1)}{s^{\alpha + 1}} $, $ \alpha > -1 $
+    \end{enumerate}
+
+    \textbf{Demostración.}
+
+    \begin{enumerate}
+        \item[a)] 
+        \begin{align*}
+            \Gamma (\alpha + 1) &= \displaystyle \int_0^\infty t^{\alpha + 1 - 1} e^{-t} \, \mathrm{d}t \\
+            &= \int_0^\infty t^{\alpha} e^{-t} \, \mathrm{d}t \\
+            &= \lim_{r \to \infty} \left[ \int_0^r t^{\alpha} e^{-t} \, \mathrm{d}t \right]
+        \end{align*}
+        
+        Sean $ u = t^\alpha $ y $ \mathrm{d}v = e^{-t} \mathrm{d}t $ entonces $ \mathrm{d}u = \alpha t^{\alpha - 1} \, \mathrm{d}t $ y $ v = -e^{-t} $. Así,
+        \begin{align*}
+            \Gamma (\alpha + 1) &= \lim_{r \to \infty} \left[ \left. -t^\alpha e^{-t} \right|_0^r + \int_0^r \alpha \, t^{\alpha - 1} e^{-t} \, \mathrm{d}t \right]  \\
+            &= \lim_{r \to \infty} \left[ -r^\alpha e^{-r} + \alpha \int_0^r t^{\alpha - 1} e^{-t} \, \mathrm{d}t \right] \\
+            &= \alpha \int_0^\infty t^{\alpha - 1} e^{-t} \, \mathrm{d}t \\
+            &= \alpha \, \Gamma (\alpha)
+        \end{align*}
+        $ \therefore \Gamma (\alpha + 1) = \alpha \, \Gamma (\alpha) $
+
+        \item[b)] $ \mathscr{L} \lbrace t^\alpha \rbrace = \displaystyle \int_0^\infty e^{-st} t^\alpha \, \mathrm{d}t $
+        
+        Sea $ u = st $ entonces $ \mathrm{d}u = s \, \mathrm{d}t $ y $ u = \dfrac{u}{s} $. Aplicando cambio de variables:
+        \begin{align*}
+            \mathscr{L} \lbrace t^\alpha \rbrace &= \int_{s(0)}^{s(\infty)} \left( \dfrac{u}{s} \right)^\alpha \dfrac{e^{-u}}{s} \, \mathrm{d}u \\
+            &= \dfrac{1}{s^{\alpha + 1}} \int_0^\infty u^\alpha e^{-u} \, \mathrm{d}u \qquad (\text{con } s > 0) \\
+            &= \dfrac{\Gamma (\alpha + 1)}{s^{\alpha + 1}} \qquad (\text{con } \alpha > -1)
+        \end{align*}
+        $ \therefore \mathscr{L} \lbrace t^\alpha \rbrace = \dfrac{\Gamma (\alpha + 1)}{s^{\alpha + 1}} $
+    \end{enumerate}
+
+    28. $ \mathscr{L}^{-1} \left\lbrace \dfrac{1}{s^4 - 9} \right\rbrace $
+
+    $ \dfrac{1}{s^4 - 9} = \dfrac{1}{(s^2 - 3)(s^2 + 3)} $
+
+    Sea $ \dfrac{1}{(s^2 - 3)(s^2 + 3)} = \dfrac{As + B}{s^2 - 3} + \dfrac{Cs + D}{s^2 + 3} $
+    \begin{align*}
+        \Longrightarrow 1 &= (As + B)(s^2 + 3) + (Cs + D)(s^2 - 3) \\
+        &= As^3 + 3As + Bs^2 + 3B + Cs^3 - 3Cs + Ds^2 - 3D \\
+        &= s^3(A + C) + s^2(B + D) + s(3A - 3C) + 3B - 3D
+    \end{align*}
+    De aqui, se obtiene el siguiente sistema de ecuaciones
+    \begin{equation}
+        A + C = 0 
+        \label{eq:1}
+    \end{equation}
+    \begin{equation}
+        B + D = 0 
+        \label{eq:2}
+    \end{equation}
+    \begin{equation}
+        3A - 3C = 0 
+        \label{eq:3}
+    \end{equation}
+    \begin{equation}
+        3B - 3D = 1
+        \label{eq:4}
+    \end{equation}
+    De (\ref{eq:1}): $ A = -C $. Sustituyendo esto en (\ref{eq:3}) se tiene que $ -3C - 3C = 0 \Longrightarrow -6C = 0 \Longrightarrow C = 0 $. De esta manera, $ A = -0 = 0 $
+
+    Luego, de (\ref{eq:2}): $ B = -D $. Sustituyendo esto en (\ref{eq:4}) $ -3D - 3D = 1 \Longrightarrow -6D = 1 \Longrightarrow D = - \dfrac{1}{6} $. De esta forma, $ B = \dfrac{1}{6} $.
+
+    Así $ \dfrac{1}{(s^2 - 3)(s^2 + 3)} = \dfrac{\frac{1}{6}}{s^2 - 3} - \dfrac{\frac{1}{6}}{s^2 + 3} $.
+
+    Después, 
+    \begin{align*}
+        \mathscr{L}^{-1} \left\lbrace \dfrac{1}{s^4 - 9} \right\rbrace &= \mathscr{L}^{-1} \left\lbrace \dfrac{\frac{1}{6}}{s^2 - 3} - \dfrac{\frac{1}{6}}{s^2 + 3} \right\rbrace \\
+        &= \dfrac{1}{6} \, \mathscr{L}^{-1} \left\lbrace \dfrac{1}{s^2 - 3} \right\rbrace - \dfrac{1}{6} \, \mathscr{L}^{-1} \left\lbrace \dfrac{1}{s^2 + 3} \right\rbrace \\
+        &= \dfrac{1}{6 \sqrt{3}} \, \mathscr{L}^{-1} \left\lbrace \dfrac{\sqrt{3}}{s^2 - 3} \right\rbrace - \dfrac{1}{6 \sqrt{3}} \, \mathscr{L}^{-1} \left\lbrace \dfrac{\sqrt{3}}{s^2 + 3} \right\rbrace \\
+        &= \dfrac{\senh (t \sqrt{3})}{6 \sqrt{3}} - \dfrac{\sen (t \sqrt{3})}{6 \sqrt{3}}
+    \end{align*}
+    $ \therefore \mathscr{L}^{-1} \left\lbrace \dfrac{1}{s^4 - 9} \right\rbrace = \dfrac{\senh (t \sqrt{3})}{6 \sqrt{3}} - \dfrac{\sen (t \sqrt{3})}{6 \sqrt{3}} $
+
+\end{document}
