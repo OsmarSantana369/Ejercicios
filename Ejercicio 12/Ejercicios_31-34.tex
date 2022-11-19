@@ -1,0 +1,113 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage[scr]{rsfso}
+
+\begin{document}
+    31. $ \dfrac{\mathrm{d} y}{\mathrm{d} t} - y = 1 $; $ y(0) = 0 $
+
+    \textbf{Solución.}
+
+    $ \mathscr{L} \left\lbrace \dfrac{\mathrm{d} y}{\mathrm{d} t} - y \right\rbrace = \mathscr{L} \lbrace 1 \rbrace $
+
+    $ \Longrightarrow s Y(s) - y(0) - Y(s) = \dfrac{1}{s} $
+
+    $ \Longrightarrow Y(s)(s - 1) = \dfrac{1}{s} $
+
+    $ \Longrightarrow Y(s) = \dfrac{1}{s(s - 1)} $
+
+    Sea $ \dfrac{1}{s(s - 1)} = \dfrac{A}{s} + \dfrac{B}{s - 1} $
+
+    $ \Longrightarrow 1 = A(s-1) + Bs = s(A + B) - A $
+
+    $ \Longrightarrow A + B = 0 $ y $ -A = 1 $
+
+    $ \Longrightarrow A = -1 $ y $ B = 1 $
+
+    Así, $ Y(s) = -\dfrac{1}{s} + \dfrac{1}{s - 1} $.
+
+    Aplicando Transformada Inversa de Laplace
+
+    $ \mathscr{L}^{-1} \lbrace Y(s) \rbrace = \mathscr{L}^{-1} \left\lbrace -\dfrac{1}{s} + \dfrac{1}{s - 1} \right\rbrace $
+
+    $ \therefore y(t) = -1 + e^t $
+
+    32. $ 2 \, \dfrac{\mathrm{d} y}{\mathrm{d} t} + y = 0 $; $ y(0) = -3 $
+
+    \textbf{Solución.}
+
+    $ \mathscr{L} \left\lbrace 2 \, \dfrac{\mathrm{d} y}{\mathrm{d} t} + y \right\rbrace = \mathscr{L} \lbrace 0 \rbrace $
+
+    $ \Longrightarrow 2s Y(s) - 2y(0) + Y(s) = 0 $
+
+    $ \Longrightarrow Y(s)(2s + 1) = -6 $
+
+    $ \Longrightarrow Y(s) = \dfrac{-6}{2s + 1} $
+
+    Aplicando Transformada Inversa de Laplace
+
+    $ \mathscr{L}^{-1} \lbrace Y(s) \rbrace = \mathscr{L}^{-1} \left\lbrace \dfrac{-6}{2s + 1} \right\rbrace = \mathscr{L}^{-1} \left\lbrace \dfrac{-3}{s + \frac{1}{2}} \right\rbrace $
+
+    $ \therefore y(t) = -3 e^{- \frac{t}{2}} $
+
+    33. $ y' + 6y = e^{4t} $; $ y(0) = 2 $
+
+    \textbf{Solución.}
+
+    $ \mathscr{L} \left\lbrace y' + 6y \right\rbrace = \mathscr{L} \lbrace e^{4t} \rbrace $
+
+    $ \Longrightarrow s Y(s) - y(0) + 6Y(s) = \dfrac{1}{s - 4} $
+
+    $ \Longrightarrow Y(s)(s + 6) = \dfrac{1}{s - 4} + 2 $
+
+    $ \Longrightarrow Y(s) = \dfrac{2s - 7}{(s - 4)(s + 6)} $
+
+    Sea $ \dfrac{2s - 7}{(s - 4)(s + 6)} = \dfrac{A}{s - 4} + \dfrac{B}{s + 6} $
+
+    $ \Longrightarrow 2s - 7 = A(s+6) + B(s-4) = s(A + B) + 6A - 4B $
+    \begin{align}
+        \Longrightarrow &A + B = 2 \label{eq:1} \\
+        &6A - 4B = -7 \label{eq:2}
+    \end{align}
+    De (\ref{eq:1}): $ A = 2 - B $. Sustituyendo en (\ref{eq:2}) se tiene que $ -7 = 6(2 - B) - 4B = 12 - 6B - 4B = 12 - 10B \Longrightarrow B = \dfrac{19}{10} $. Así, $ A = 2 - \dfrac{19}{10} = \dfrac{1}{10} $.
+
+    De esta manera, $ Y(s) = \dfrac{\frac{1}{10}}{s - 4} + \dfrac{\frac{19}{10}}{s + 6} $.
+
+    Aplicando Transformada Inversa de Laplace
+
+    $ \mathscr{L}^{-1} \lbrace Y(s) \rbrace = \mathscr{L}^{-1} \left\lbrace \dfrac{\frac{1}{10}}{s - 4} + \dfrac{\frac{19}{10}}{s + 6} \right\rbrace $ 
+
+    $ \therefore y(t) = \dfrac{e^{4t}}{10} + \dfrac{19 e^{-6t}}{10} $
+
+    34. $ y' - y = 2 \cos (5t) $; $ y(0) = 0 $
+    
+    \textbf{Solución.}
+
+    $ \mathscr{L} \left\lbrace y' - y \right\rbrace = \mathscr{L} \lbrace 2 \cos (5t) \rbrace $
+
+    $ \Longrightarrow s Y(s) - y(0) - Y(s) = \dfrac{2s}{s^2 + 25} $
+
+    $ \Longrightarrow Y(s)(s - 1) = \dfrac{2s}{s^2 + 25} $
+
+    $ \Longrightarrow Y(s) = \dfrac{2s}{(s - 1)(s^2 + 25)} $
+
+    Sea $ \dfrac{2s}{(s^2 + 25)} = \dfrac{A}{s - 1} + \dfrac{Bs + C}{s^2 + 25} $
+
+    $ \Longrightarrow 2s = A(s^2 + 25) + (Bs + C)(s - 1) = s^2(A + B) + s(-B + C) + 25A - C $
+    \begin{align}
+        \Longrightarrow &A + B = 0 \label{eq:3} \\
+        & -B + C = 2 \label{eq:4} \\
+        & 25A - C = 0 \label{eq:5}
+    \end{align}
+    Sumando (\ref{eq:4}) y (\ref{eq:5}): 25A - B = 2. De (\ref{eq:3}): $ A = -B $. Así, $ -25B - B = -26B = 2 \Longrightarrow B = - \dfrac{1}{13} $. Luego, $ A = \dfrac{1}{13} $ y $ C = \dfrac{25}{13} $.
+
+    Por lo que, $ Y(s) = \dfrac{\frac{1}{13}}{s - 1} - \dfrac{\frac{1}{13} \, s - \frac{25}{13}}{s^2 + 25} $
+
+    Aplicando Transformada Inversa de Laplace
+
+    $ \mathscr{L}^{-1} \lbrace Y(s) \rbrace = \mathscr{L}^{-1} \left\lbrace \dfrac{\frac{1}{13}}{s - 1} - \dfrac{\frac{1}{13} \, s - \frac{25}{13}}{s^2 + 25} \right\rbrace $ 
+
+    $ \therefore y(t) = \dfrac{e^t}{13} - \dfrac{\cos (5t)}{13}  + \dfrac{5 \sen (5t)}{13} $
+
+\end{document}

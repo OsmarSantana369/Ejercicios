@@ -1,0 +1,189 @@
+\documentclass[fleqn]{article}
+\usepackage[a4paper, margin = 21mm]{geometry}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{sansmathfonts}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+    \textbf{Examen. Límite, continuidad y derivada.}
+
+    Osmar Dominique Santana Reyes
+    
+    \begin{enumerate}
+        %Primer ejercicio
+        \item 
+        \begin{enumerate}
+            %Inciso a del primer ejercicio
+            \item Afirmación: $ \displaystyle \lim_{(x,y) \to (0,0)} f(x,y) = 0 $.
+
+            \textbf{Demostración.}
+
+            Sean $ (x,y) \in \mathbb{R}^2 \setminus \left\lbrace \overline{0} \right\rbrace $, $ \epsilon > 0 $ y $ \delta = \epsilon $. Se tiene que
+
+            $ 0 \leq (\lvert x \rvert + \lvert y \rvert)^2 = \lvert x \rvert^2 - 2 \lvert xy \rvert + \lvert y \rvert^2 $
+
+            $ \Longrightarrow 2 \lvert xy \rvert \leq \lvert x \rvert^2 + \lvert y \rvert^2 $
+
+            $ \Longrightarrow \dfrac{\lvert xy \rvert}{x^2 + y^2} \leq \dfrac{1}{2} $
+            \begin{equation}
+                \Longrightarrow \dfrac{\lvert x \rvert \cdot \lvert xy \rvert}{x^2 + y^2} \leq \dfrac{\lvert x \rvert}{2}
+                \label{eq:1a1}
+            \end{equation}
+            Luego, si $ 0 < \lVert (x,y) - (0,0) \rVert < \delta $ entonces
+
+            $ \sqrt{x^2 + y^2} < \delta = \epsilon $
+
+            $ \Longrightarrow \lvert x \rvert \leq \sqrt{x^2 + y^2} < \epsilon $
+
+            $ \Longrightarrow \dfrac{\lvert x \rvert}{2} \leq \lvert x \rvert < \epsilon $
+
+            $ \Longrightarrow \dfrac{\lvert x \rvert \cdot \lvert xy \rvert}{x^2 + y^2} \leq \dfrac{\lvert x \rvert}{2} < \epsilon $ \hfill (por (\ref{eq:1a1}))
+
+            $ \Longrightarrow \dfrac{\lvert x^2 y \rvert}{x^2 + y^2} < \epsilon $
+
+            $ \Longrightarrow \left\lvert \dfrac{x^2 y}{x^2 + y^2} - 0 \right\rvert < \epsilon $
+
+            $ \therefore \displaystyle \lim_{(x,y) \to (0,0)} f(x,y) = 0 $
+
+            %Inciso b del primer ejercicio
+            \item Afirmación: $ \displaystyle \lim_{(x,y) \to (0,0)} g(x,y) $ no existe.
+
+            \textbf{Demostración.}
+
+            Sean $ (x,y) \in \mathbb{R}^2 \setminus \left\lbrace \overline{0} \right\rbrace $, $ \epsilon > 0 $ y $ \delta = \sqrt{\epsilon} $. Si $ y = 0 $ y $ 0 < \lVert (x,y) - (0,0) \rVert < \delta $ entonces
+
+            $ \lVert (x,0) \rVert = \lvert x \rvert < \delta = \sqrt{\epsilon} $
+
+            $ \Longrightarrow \lvert x \rvert < \sqrt{\epsilon} $
+
+            $ \Longrightarrow \lvert x \rvert^2 < \epsilon $
+
+            $ \Longrightarrow \left\lvert (x^2 + 1) - 1 \right\rvert < \epsilon $
+
+            $ \therefore \displaystyle \lim_{(x,0) \to (0,0)} g(x,y) = 1 $
+
+            Ahora, sea $ \delta_1 = \sqrt{\epsilon - 1} $. Si $ x = y $ y $ 0 < \lVert (x,y) - (0,0) \rVert < \delta_1 $ entonces
+
+            $ \lVert (x,x) \rVert = \lvert x \rvert \sqrt{2} < \delta_1 = \sqrt{\epsilon - 1} $
+
+            $ \Longrightarrow \lvert x \rvert < \lvert x \rvert \sqrt{2} < \sqrt{\epsilon - 1} $
+
+            $ \Longrightarrow \lvert x \rvert < \sqrt{\epsilon - 1} $
+
+            $ \Longrightarrow \lvert x \rvert^2 < \epsilon - 1 $
+
+            $ \Longrightarrow \lvert x^2 \rvert + 1 < \epsilon $
+
+            $ \Longrightarrow \left\lvert x^2 + 1 - 0 \right\rvert < \epsilon $
+
+            $ \therefore \displaystyle \lim_{(x,x) \to (0,0)} g(x,y) = 0 $
+
+            Como los límites obtenidos difieren entonces $ \displaystyle \lim_{(x,y) \to (0,0)} g(x,y) $ no existe.
+        \end{enumerate}
+
+        %Segundo ejercicio
+        \item \textbf{Demostración.}
+
+        Sean $ (x,y) \in \mathbb{R}^2 $, $ \epsilon > 0 $ y $ \delta = \sqrt{\epsilon} $. Como $ \lvert f(x,y) \rvert \leq x^2 + y^2 $ se cumple que 
+
+        $ 0 \leq \lvert f(0,0) \rvert \leq 0^2 + 0^2 = 0 $
+
+        Por lo que $ f(0,0) = 0 $.
+
+        Luego, si $ 0 < \lVert (x,y) - (0,0) \rVert < \delta $ entonces
+
+        $ \lVert (x,y) \rVert < \sqrt{\epsilon} $
+
+        $ \Longrightarrow \sqrt{x^2 + y^2} < \sqrt{\epsilon} $
+
+        $ \Longrightarrow x^2 + y^2 < \epsilon $
+
+        $ \Longrightarrow \lvert f(x,y) \rvert \leq x^2 + y^2 < \epsilon $
+
+        $ \Longrightarrow \lvert f(x,y) \rvert < \epsilon $
+
+        $ \Longrightarrow \lvert f(x,y) - 0 \rvert < \epsilon $
+
+        $ \Longrightarrow \lvert f(x,y) - f(0,0) \rvert < \epsilon $
+
+        Por lo tanto, $ f $ es continua en $ \overline{0} $.
+
+        %Tercer ejercicio
+        \item \textbf{Demostración.}
+
+        Como $ f $ es continua en $ \overline{x}_0 $ se tiene que $ \forall \, \epsilon > 0 $, en particular para $ \epsilon = f(\overline{x}_0) $, existe $ \delta > 0 $ tal que si $ \overline{y} \in B_\delta (\overline{x}_0) $ entonces $ f(\overline{y}) \in B_\epsilon (f(\overline{x}_0)) $. Así, $ \left\lvert f(\overline{x}_0) - f(\overline{y}) \right\rvert < \epsilon = f(\overline{x}_0) $ y de esto
+
+        $ -f(\overline{x}_0 < f(\overline{x}_0) - f(\overline{y}) < f(\overline{x}_0) $
+
+        $ \Longrightarrow f(\overline{x}_0) - f(\overline{y}) < f(\overline{x}_0) $
+
+        $ \Longrightarrow - f(\overline{y}) < 0 $
+
+        $ \therefore f(\overline{y}) > 0 $.
+
+        %Cuarto ejercicio
+        \item \textbf{Demostración.}
+
+        Sea $ \overline{x}_0 = (x_0,y_0) \in \mathbb{R}^2 $ un punto fijo. La derivada de $ f $ en $ \overline{x}_0 $ es
+
+        $ D f(\overline{x}_0) = \left( \dfrac{\partial f}{\partial x} (\overline{x}_0), \dfrac{\partial f}{\partial y} (\overline{x}_0) \right) = (1,1) $ 
+        
+        Luego,
+        \begin{align*}
+            \lim_{\overline{x}_0 \to \overline{x}_0} \dfrac{\lvert f(\overline{x}) - (1(x - x_0) + 1(y - y_0) + f(\overline{x}_0)) \rvert}{\lVert \overline{x} - \overline{x}_0 \rVert} &= \lim_{\overline{x} \to \overline{x}_0} \dfrac{\lvert 2 + x + y - (x - x_0 + y - y_0 + 2 + x_0 + y_0) \rvert}{\lVert \overline{x} - \overline{x}_0 \rVert} \\
+            &= \lim_{\overline{x} \to \overline{x}_0} \dfrac{\lvert 2 + x + y - (x + y + 2) \rvert}{\lVert \overline{x} - \overline{x}_0 \rVert} \\
+            &= \lim_{\overline{x} \to \overline{x}_0} \dfrac{\lvert 0 \rvert}{\lVert \overline{x} - \overline{x}_0 \rVert} \\
+            &= 0
+        \end{align*}
+        Por lo tanto, $ f $ es diferenciable en cualquier punto.
+
+        %Quinto ejercicio
+        \item Obteniendo las derivadas parciales
+        \begin{align*}
+            \dfrac{\partial h}{\partial x} &= \dfrac{\partial f}{\partial u} \cdot \dfrac{\partial u}{\partial x} + \dfrac{\partial f}{\partial v} \cdot \dfrac{\partial v}{\partial x} \\
+            &= \left( \dfrac{(u^2 - v^2)(2u) - (u^2 + v^2)(2u)}{(u^2 - v^2)^2} \right) (-e^{-x - y}) + \left( \dfrac{(u^2 - v^2)(2v) - (u^2 + v^2)(-2v)}{(u^2 - v^2)^2} \right) (ye^{xy}) \\
+            &= \left( \dfrac{2u^3 - 2u v^2 - 2u^3 - 2u v^2}{(u^2 - v^2)^2} \right) (-e^{-x - y}) + \left( \dfrac{2u^2 v - 2v^3 + 2u^2 v + 2v^3}{(u^2 - v^2)^2} \right) (ye^{xy}) \\
+            &= \left( \dfrac{4u v^2}{(u^2 - v^2)^2} \right) e^{-x - y} + \left( \dfrac{4u^2 v}{(u^2 - v^2)^2} \right) ye^{xy} \\
+            &= \dfrac{4uv(v e^{-x - y} + uy e^{xy})}{(u^2 - v^2)^2} \\
+            &= \dfrac{4 e^{-x - y} e^{xy}(e^{xy} e^{-x - y} + e^{-x - y} y e^{xy})}{((e^{-x - y})^2 - (e^{xy})^2)^2} \\
+            &= \dfrac{4 e^{-x - y} e^{xy}[e^{xy} e^{-x - y} (1 + y)]}{(e^{-2(x + y)} - e^{2xy})^2} \\
+            &= \dfrac{4 e^{-2(x + y)} e^{2xy} (1 + y)}{(e^{-2(x + y)} - e^{2xy})^2} \\
+            &= \dfrac{4 e^{2(xy - x - y)} (1 + y)}{(e^{-2(x + y)} - e^{2xy})^2}
+        \end{align*}
+        \begin{align*}
+            \dfrac{\partial h}{\partial y} &= \dfrac{\partial f}{\partial u} \cdot \dfrac{\partial u}{\partial y} + \dfrac{\partial f}{\partial v} \cdot \dfrac{\partial v}{\partial y} \\
+            &= \left( \dfrac{(u^2 - v^2)(2u) - (u^2 + v^2)(2u)}{(u^2 - v^2)^2} \right) (-e^{-x - y}) + \left( \dfrac{(u^2 - v^2)(2v) - (u^2 + v^2)(-2v)}{(u^2 - v^2)^2} \right) (xe^{xy}) \\
+            &= \dfrac{4uv(v e^{-x - y} + ux e^{xy})}{(u^2 - v^2)^2} \\
+            &= \dfrac{4 e^{-x - y} e^{xy} (e^{xy} e^{-x - y} + e^{-x - y} x e^{xy})}{((e^{-x - y})^2 - (e^{xy})^2)^2} \\
+            &= \dfrac{4 e^{-x - y} e^{xy} [e^{xy} e^{-x - y} (1 + x)]}{(e^{-2(x + y)} - e^{2xy})^2} \\
+            &= \dfrac{4 e^{-2(x + y)} e^{2xy} (1 + x)]}{(e^{-2(x + y)} - e^{2xy})^2}
+        \end{align*}
+        Así, $ Dh(x,y) = \left( \dfrac{4 e^{2(xy - x - y)} (1 + y)}{(e^{-2(x + y)} - e^{2xy})^2} \; , \; \dfrac{4 e^{-2(x + y)} e^{2xy} (1 + x)}{(e^{-2(x + y)} - e^{2xy})^2} \right) $.
+
+        Por otro lado, sea $ w: \mathbb{R}^2 \to \mathbb{R}^2 $ con $ w(x,y) = (u(x,y), v(x,y)) $ entonces $ h(x,y) = (f \circ w)(x,y) $. Luego,
+        \begin{equation*}
+            Dw(x,y) = \left(
+                \begin{matrix}
+                    -e^{-x - y} & -e^{-x - y} \\
+                    y e^{xy}    & x e^{xy}
+                \end{matrix}
+            \right)
+        \end{equation*}
+        \begin{align*}
+            Df(u,v) &= \left( \begin{matrix} \dfrac{(u^2 - v^2)(2u) - (u^2 + v^2)(2u)}{(u^2 - v^2)^2} & \dfrac{(u^2 - v^2)(2v) - (u^2 + v^2)(-2v)}{(u^2 - v^2)^2} \end{matrix} \right) \\
+            &= \left( \begin{matrix} \dfrac{2u^3 - 2u v^2 - 2u^3 - 2u v^2}{(u^2 - v^2)^2} & \dfrac{2u^2 v - 2v^3 + 2u^2 v + 2v^3}{(u^2 - v^2)^2} \end{matrix} \right) \\
+            &= \left( \begin{matrix} - \dfrac{4u v^2}{(u^2 - v^2)^2} & \dfrac{4u^2 v}{(u^2 - v^2)^2} \end{matrix} \right)
+        \end{align*}
+        Después, por regla de la cadena
+        \begin{align*}
+            Dh(x,y) &= Df(w(x,y)) \cdot Dw(x,y) \\
+            &= \left( \begin{matrix} - \dfrac{4 e^{-x - y} (e^{xy})^2}{((e^{-x - y})^2 - (e^{xy})^2)^2} & \dfrac{4 (e^{-x - y})^2 e^{xy}}{((e^{-x - y})^2 - (e^{xy})^2)^2} \end{matrix} \right) \cdot \left(\begin{matrix} -e^{-x - y} & -e^{-x - y} \\ y e^{xy} & x e^{xy} \end{matrix} \right) \\
+            &= \left( \begin{matrix} - \dfrac{4 e^{2xy - x - y}}{(e^{-2(x + y)} - e^{2xy})^2} & \dfrac{4 e^{xy - 2x - 2y}}{(e^{-2(x + y)} - e^{2xy})^2} \end{matrix} \right) \cdot \left(\begin{matrix} -e^{-x - y} & -e^{-x - y} \\ y e^{xy} & x e^{xy} \end{matrix} \right) \\
+            &= \left( \begin{matrix} - \dfrac{4 e^{2xy - x - y} (-e^{-x - y})}{(e^{-2(x + y)} - e^{2xy})^2} + \dfrac{4 e^{xy - 2x - 2y} (y e^{xy})}{(e^{-2(x + y)} - e^{2xy})^2} & - \dfrac{4 e^{2xy - x - y} (-e^{-x - y})}{(e^{-2(x + y)} - e^{2xy})^2} + \dfrac{4 e^{xy - 2x - 2y} (x e^{xy})}{(e^{-2(x + y)} - e^{2xy})^2} \end{matrix} \right) \\
+            &= \left( \begin{matrix} \dfrac{4 e^{2(xy - x - y)}}{(e^{-2(x + y)} - e^{2xy})^2} + \dfrac{4y e^{2(xy - x - y)}}{(e^{-2(x + y)} - e^{2xy})^2} & \dfrac{4 e^{2(xy - x - y)}}{(e^{-2(x + y)} - e^{2xy})^2} + \dfrac{4x e^{2(xy - x - y)}}{(e^{-2(x + y)} - e^{2xy})^2} \end{matrix} \right) \\
+            &= \left( \begin{matrix} \dfrac{4 e^{2(xy - x - y)} (1 + y)}{(e^{-2(x + y)} - e^{2xy})^2} & \dfrac{4 e^{2(xy - x - y)} (1 + x)}{(e^{-2(x + y)} - e^{2xy})^2} \end{matrix} \right) \\
+        \end{align*}
+        Por lo tanto, se cumple la regla de la cadena.
+    \end{enumerate}
+\end{document}

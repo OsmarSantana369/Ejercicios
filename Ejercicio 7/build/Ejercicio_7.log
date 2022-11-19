@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  5 OCT 2022 21:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  19 NOV 2022 10:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 7/Ejercico_7.tex"
-(c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 7/Ejercico_7.tex
+**"c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 7/Ejercicio_7.tex"
+(c:/Users/CONTROL/Desktop/Ejercicios/Ejercicio 7/Ejercicio_7.tex
 LaTeX2e <2022-06-01> pre-release-0 (develop 2022-6-25 branch)
 L3 programming layer <2022-06-02> (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -122,8 +122,8 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count272
 \l__pdf_internal_box=\box53
-) (c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux)
-\openout1 = `Ejercico_7.aux'.
+) (c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercicio_7.aux)
+\openout1 = `Ejercicio_7.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -148,17 +148,17 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux) ) 
+{C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercicio_7.aux) ) 
 Here is how much of TeX's memory you used:
  2439 strings out of 478354
- 37601 string characters out of 2836174
- 335777 words of memory out of 3000000
+ 37613 string characters out of 2836174
+ 335779 words of memory out of 3000000
  20871 multiletter control sequences out of 15000+600000
  470958 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,5n,62p,553b,109s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 55i,5n,62p,554b,109s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.pdf" (1 page, 82223 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercicio_7.pdf" (1 page, 82223 bytes).
 PDF statistics:
  46 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

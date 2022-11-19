@@ -1,7 +1,7 @@
-PWD c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7
+PWD c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13
 INPUT C:\Users\CONTROL\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\Ejercico_7.tex
-OUTPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.log
+INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\Ejercicios_13_31.tex
+OUTPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.log
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -21,6 +21,31 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\txtbabel.def
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-es.ini
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
@@ -102,6 +127,7 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\parskip\parskip.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\parskip\parskip.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\parskip\parskip.sty
@@ -168,6 +194,30 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\rsfso.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\xkeyval\xkeyval.tex
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\xkeyval\xkvutils.tex
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
@@ -179,10 +229,10 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backe
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux
-INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux
-INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux
-OUTPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux
+INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.aux
+INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.aux
+INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.aux
+OUTPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.aux
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
@@ -199,9 +249,21 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-OUTPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.pdf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\ursfso.fd
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\ursfso.fd
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\ursfso.fd
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\rsfso\ursfso.fd
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\rsfso\rsfso10.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\rsfso\rsfso7.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\rsfso\rsfso5.tfm
+OUTPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.pdf
 INPUT C:\Users\CONTROL\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 7\build\Ejercico_7.aux
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\rsfso\rsfso10.vf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\rsfso\rrsfso10.tfm
+INPUT c:\Users\CONTROL\Desktop\Ejercicios\Ejercicio 13\build\Ejercicios_13_31.aux
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
@@ -218,3 +280,5 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\rsfs\rsfs10.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\rsfs\rsfs10.pfb

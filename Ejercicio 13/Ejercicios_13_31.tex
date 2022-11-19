@@ -1,0 +1,71 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage[scr]{rsfso}
+
+\begin{document}
+    13. $ y'' - 2y' + 2y = 0 $; $ y(0) = 0 $, $ y'(0) = 1 $
+
+    \textbf{Solución.}
+
+    $ \mathscr{L} \left\lbrace y'' - 2y' + 2y \right\rbrace = \mathscr{L} \lbrace 0 \rbrace $
+
+    $ \Longrightarrow s^2 Y(s) - s y(0) - y'(0) - 2s Y(s) - 2y(0) + 2Y(s) = 0 $
+
+    $ \Longrightarrow (s^2 - 2s + 2)Y(s) - 1 = 0 $
+
+    $ \Longrightarrow Y(s) = \dfrac{1}{s^2 - 2s + 2} = \dfrac{1}{(s - 1)^2 + 1} $
+
+    Aplicando Transformada Inversa de Laplace
+
+    $ \mathscr{L}^{-1} \lbrace Y(s) \rbrace = \mathscr{L}^{-1} \left\lbrace \dfrac{1}{(s - 1)^2 + 1} \right\rbrace $
+
+    $ \therefore y(t) = e^t \sen (t) $.
+
+
+    21. $ y'' - 2y' + 2y = \cos (t) $; $ y(0) = 1, y'(0) = 0 $
+
+    \textbf{Solución.}
+
+    $ \mathscr{L} \left\lbrace y'' - 2y' + 2y \right\rbrace = \mathscr{L} \lbrace \cos (t) \rbrace $
+
+    $ \Longrightarrow s^2 Y(s) - s y(0) - y'(0) - 2s Y(s) + 2y(0) + 2Y(s) = \dfrac{s}{s^2 + 1} $
+
+    $ \Longrightarrow (s^2 - 2s + 2)Y(s) - s + 2 = \dfrac{s}{s^2 + 1} $
+
+    $ \Longrightarrow (s^2 - 2s + 2)Y(s) = \dfrac{s + (s - 2)(s^2 + 1)}{s^2 + 1} = \dfrac{s^3 - 2s^2 + 2s - 2}{s^2 + 1} $
+
+    $ \Longrightarrow Y(s) = \dfrac{s^3 - 2s^2 + 2s - 2}{(s^2 + 1)(s^2 - 2s + 2)} $
+
+    Sea $ \dfrac{s^3 - 2s^2 + 2s - 2}{(s^2 + 1)(s^2 - 2s + 2)} = \dfrac{As + B}{s^2 + 1} + \dfrac{Cs + D}{s^2 - 2s + 2} $
+
+    $ \Longrightarrow s^3 - 2s^2 + 2s - 2 = (As + B)(s^2 - 2s + 2) + (Cs + D)(s^2 + 1) $
+
+    $ \Longrightarrow s^3 - 2s^2 + 2s - 2 = s^3(A + C) + s^2(-2A + B + D) + s(2A - 2B + C) + 2B + D $
+    \begin{align}
+        \Longrightarrow & A + C = 1 \label{eq:1} \\
+        & -2A + B + D = -2 \label{eq:2} \\
+        & 2A - 2B + C = 2 \label{eq:3} \\
+        & 2B + D = -2 \label{eq:4}
+    \end{align}
+    De (\ref{eq:1}) se tiene que $ A = 1 - C $ y de (\ref{eq:4}) que $ D = - 2 - 2B $. Sustituyendo en (\ref{eq:2}) y en (\ref{eq:3}):
+    \begin{align}
+        & -2(1 - C) + B - 2 - 2B = -B + 2C - 4 = -2 \Longrightarrow -B + 2C = 2 \label{eq:5} \\
+        & 2(1 - C) - 2B + C = -2B - C + 2 = 2 \Longrightarrow -2B - C = 0 \label{eq:6}
+    \end{align}
+    Sumando (\ref{eq:5}) y $ 2 \cdot $(\ref{eq:6}): $ -5B = 2 \Longrightarrow B = - \dfrac{2}{5} $. Así, $ D = - 2 - 2\left(- \dfrac{2}{5} \right) = - \dfrac{6}{5} $. Sustituyendo $ B $ en (\ref{eq:6}) se da que $ -2 \left(- \dfrac{2}{5} \right) - C = 0 \Longrightarrow C = \dfrac{4}{5} $. Sustituyendo esto en (\ref{eq:1}): $ A + \dfrac{4}{5} = 1 \Longrightarrow A = \dfrac{1}{5} $.
+
+    De esta forma, $ Y(s) = \dfrac{\frac{1}{5} s - \frac{2}{5}}{s^2 + 1} + \dfrac{\frac{4}{5} s - \frac{6}{5}}{s^2 - 2s + 2} $
+
+    Aplicando Transformada Inversa de Laplace
+
+    $ \mathscr{L}^{-1} \lbrace Y(s) \rbrace = \mathscr{L}^{-1} \left\lbrace \dfrac{\frac{1}{5} s - \frac{2}{5}}{s^2 + 1} + \dfrac{\frac{4}{5} s - \frac{6}{5}}{s^2 - 2s + 2} \right\rbrace $ 
+
+    $ \Longrightarrow y(t) = \mathscr{L}^{-1} \left\lbrace \dfrac{1}{5} \left( \dfrac{s}{s^2 + 1} \right) - \dfrac{2}{5} \left( \dfrac{1}{s^2 + 1} \right) + \dfrac{4}{5} \left( \dfrac{s - 1}{(s - 1)^2 + 1} \right) - \dfrac{2}{5} \left( \dfrac{1}{(s - 1)^2 + 1} \right) \right\rbrace $
+
+    $ \Longrightarrow y(t) = \dfrac{1}{5} \cos(t) - \dfrac{2}{5} \sen (t) + \dfrac{4}{5} e^t \cos (t) - \dfrac{2}{5} e^t \sen (t) $
+
+    $ \therefore y(t) = \cos(t) \left( \dfrac{1 + 4e^t}{5} \right) - 2 \sen (t) \left( \dfrac{1 + e^t}{5} \right) $
+
+\end{document}
