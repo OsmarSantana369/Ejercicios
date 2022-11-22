@@ -133,15 +133,50 @@
 
             Pero $ (0,0) $ no pertenece al dominio de $ f $, pues $ f(0,0) = \dfrac{0}{0} $, por lo que no es un punto crítico.
 
-            Así, $ \left( -\dfrac{1}{2}, 4 \right) $ es punto crítico de $ f $.
+            Así, $ \left( -\dfrac{1}{2}, 4 \right) $ es un punto crítico de $ f $.
 
 %-----------Inciso d) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = e^x \cos (y) $.
             
+            \textbf{Solución.}
+
+            Calculando los puntos críticos de la función:
+
+            $ \derivadaparcial{f}{x} = e^x \cos (y) = 0 \quad $ y $ \derivadaparcial{f}{y} = -e^x \sen (y) = 0 $
+
+            $ \Longrightarrow e^x \cos (y) = 0 \quad $ y $ \quad -e^x \sen (y) = 0 $
+
+            $ \Longrightarrow \cos (y) = 0 \quad $ y $ \quad - \sen (y) = 0 $
+
+            $ \Longrightarrow y = k \dfrac{\pi}{2} $ con $ k \in \mathbb{N} $
+
+            Asi, el conjunto $ B = \left\lbrace (x,y) \in \mathbb{R}^2 \talque y = k \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
+
+            Luego, se sabe que $ 0 < e^x < \infty $ y $ -1 \leq \cos (y) \leq 1 $. Si $ -1 \leq \cos (y) < 0 $ entonces $ - \infty < e^x < 0 $. Y si $ 0 < \cos (y) \leq 1 $ entonces $ 0 < e^x cos(y) < \infty $. De esta manera, $ - \infty < e^x \cos (y) < \infty $. Por lo tanto, $ f $ no tine máximos ni mínimos locales y los puntos del conjunto $ B $ son puntos silla.
 
 %-----------Inciso e) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = x \sen (y) $.
             
+            \textbf{Solución.}
+
+            Calculando los puntos críticos de la función:
+
+            $ \derivadaparcial{f}{x} = \sen (y) = 0 \quad $ y $ \derivadaparcial{f}{y} = x \cos (y) = 0 $
+
+            $ \Longrightarrow \sen (y) = 0 \quad $ y $ \quad x \cos (y) = 0 $
+
+            $ \Longrightarrow y = k \pi \text{ con } k \in \mathbb{N} \quad $ y $ \quad x \cos (y) = 0 $
+
+            $ \Longrightarrow y = k \pi \text{ con } k \in \mathbb{N} \quad $ y $ \quad x \lvert 1 \rvert = 0 $
+
+            $ \Longrightarrow y = k \pi \text{ con } k \in \mathbb{N} \quad $ y $ \quad x = 0 $
+
+            Asi, el conjunto $ C = \left\lbrace (x,y) \in \mathbb{R}^2 \talque x = 0, y = k \pi \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
+
+            Ahora, si $ y = \dfrac{\pi}{2} $ entonces $ f(x,y) = x $ y como $ 0 \leq \lvert x \rvert $ entonces $ f $ no tiene ningún extremo local en $ x = 0 $. 
+            
+            Por lo tanto, los puntos del conjunto $ C $ son puntos silla.
+
         \end{enumerate}
 
 %-------Ejercicio 2---------------------------------------------------------------------------------------------------
