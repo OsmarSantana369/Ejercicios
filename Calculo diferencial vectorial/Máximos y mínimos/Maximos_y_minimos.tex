@@ -1,40 +1,197 @@
-\documentclass[fleqn]{article}
+\documentclass[fleqn, 12pt]{article}
 \usepackage[a4paper, margin = 21mm]{geometry}
 \usepackage[spanish]{babel}
 \usepackage{parskip}
-\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{amsmath, amsfonts, amsthm}
 \usepackage{enumerate}
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+%\usepackage{amsmath,amsthm} must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
+\newcommand{\derivadaparcial}[2]{\dfrac{\partial {#1}}{\partial {#2}}}
+\newcommand{\talque}{\; \middle | \;}
 
 \begin{document}
     \begin{center}
-        UNIVERSIDAD AUTÓNOMA DEL ESTADO DE MÉXICO
-
-        \vspace{-2mm}
-        FACULTAD DE CIENCIAS
-        
-        \vspace{-2mm}
-        DEPARTEMENTO DE MATEMÁTICAS
-        
-        \vspace{-2mm}
-        Cálculo diferencial vectorial
-        
-        \vspace{-2mm}
-        Profesores: Dr. Félix Capulín Pérez
-        
-        \vspace{-2mm}
-        Dr. Enrique Castañeda Alvarado
-        
-        \vspace{-2mm}
+        UNIVERSIDAD AUTÓNOMA DEL ESTADO DE MÉXICO \\
+        FACULTAD DE CIENCIAS \\
+        DEPARTEMENTO DE MATEMÁTICAS \\
+        Cálculo diferencial vectorial \\
+        Profesores: Dr. Félix Capulín Pérez \\
+        Dr. Enrique Castañeda Alvarado \\
         Tarea: Máximos y mínimos
     \end{center}
 
-    Nombre: Osmar Dominique Santana Reyes \hfill No. de cuenta: 2125197
+    Nombre: Osmar Dominique Santana Reyes \hfill No. de cuenta: $ 2125197 $
 
-    \textbf{Instrucciones: } Resuelve cada uno de los ejercicios, justica cada respuesta.
+    \textbf{Instrucciones:} Resuelve cada uno de los ejercicios, justica cada respuesta.
 
-    \begin{enumerate}[\textbf{Ejercicio} 1.]
-        \item Encontrar los valores máximos y mínimos locales, asi como los puntos silla de las funciones siguientes , después usar un software graficador en tres dimensiones
-        \item Encontrar los valores
-        \item Encontrar el punto del plano
+    \begin{enumerate}[\bfseries Ejerc{i}c{i}o 1.]
+%-------Ejercicio 1---------------------------------------------------------------------------------------------------
+        \item Encontrar los valores máximos y mínimos locales, asi como los puntos silla de las funciones siguientes, después usar un software graficador en tres dimensiones y grafica las funciones teniendo en cuenta que se visualicen todos los aspectos importantes de la función correspondiente.
+        
+        \begin{enumerate}
+%-----------Inciso a) del Ejercicio 1---------------------------------------------------------------------------------
+            \item $ f(x,y) = 1 + 2x - x^2 - y^2 $.
+            
+            \textbf{Solución.}
+
+            Calculando los puntos críticos de la función:
+
+            $ \derivadaparcial{f}{x} = 2y - 2x = 0 \quad $ y $ \quad \derivadaparcial{f}{y} = 2x - 2y = 0 $
+
+            $ \Longrightarrow 2y - 2x = 0 \quad $ y $ \quad 2x - 2y = 0 $
+
+            $ \Longrightarrow y = x $
+
+            Asi, el conjunto $ A = \left\lbrace (x,y) \in \mathbb{R}^2 \talque x = y \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
+
+            Luego, se sabe que
+
+            $ 0 \leq (x - y)^2 = x^2 - 2xy + y^2 $
+
+            $ \Longrightarrow 2xy - x^2 - y^2 \leq 0 $
+
+            $ \Longrightarrow 1 + 2xy - x^2 - y^2 \leq 1 $
+
+            Pero si $ (x,y) \in A $ entonces
+
+            $ f(x,y) = 1 + 2xx - x^2 - x^2 = 1 $
+
+            Por lo tanto, $ f $ alcanza su máximo absoluto en los puntos del conjunto $ A $.
+
+%-----------Inciso b) del Ejercicio 1---------------------------------------------------------------------------------
+            \item $ f(x,y) = xy - 2x - 2y $.
+            
+            \textbf{Solución.}
+
+            Calculando los puntos críticos de la función:
+
+            $ \derivadaparcial{f}{x} = y - 2 = 0 \quad $ y $ \quad \derivadaparcial{f}{y} = x - 2 = 0 $
+
+            $ \Longrightarrow y - 2 = 0 \quad $ y $ \quad x - 2 = 0 $
+
+            $ \Longrightarrow y = 2 \quad $ y $ \quad x = 2 $
+
+            Asi, $ (2,2) $ es un punto crítico de $ f $.
+
+            Si $ x = -y $ entonces $ f(x,y) = -y^2 $. Pero $ -y^2 $ solo alcanza su máximo valor en $ y = 0 $.
+
+            Por lo tanto, $ (2,2) $ es un punto silla de $ f $.
+
+%-----------Inciso c) del Ejercicio 1---------------------------------------------------------------------------------
+            \item $ f(x,y) = \dfrac{x^2 y^2 - 8x + y}{xy} $.
+            
+            \textbf{Solución.}
+
+            Calculando los puntos críticos de la función:
+
+            $ \derivadaparcial{f}{x} = \dfrac{(xy)(2x y^2 - 8) - (x^2 y^2 - 8x + y)(y)}{x^2 y^2} = 0 \quad $ y
+
+            $ \derivadaparcial{f}{y} = \dfrac{(xy)(2x^2 y + 1) - (x^2 y^2 - 8x + y)(x)}{x^2 y^2} = 0 $
+
+
+            $ \Longrightarrow (xy)(2x y^2 - 8) - (x^2 y^2 - 8x + y)(y) = 0 \quad $ y
+
+            \hspace{7mm} $ (xy)(2x^2 y + 1) - (x^2 y^2 - 8x + y)(x) = 0 $
+
+
+            $ \Longrightarrow 2x^2 y^3 - 8xy - x^2 y^3 + 8xy - y^2 = 0 \quad $ y
+
+            \hspace{7mm} $ 2x^3 y^2 + xy - x^3 y^2 + 8x^2 - xy = 0 $
+
+
+            $ \Longrightarrow x^2 y^3 - y^2 = 0 \quad $ y $ \quad x^3 y^2 + 8x^2 = 0 $
+
+            $ \Longrightarrow y^2(x^2 y - 1) = 0 \quad $ y $ \quad x^2(xy^2 + 8) = 0 $
+
+            $ \Longrightarrow x = 0, \quad y = 0 \quad $ y se tiene el siguiente sistema de ecuaciones
+            \begin{align}
+                x^2 y - 1 = 0 \label{eq:1c1} \\
+                xy^2 + 8 = 0 \label{eq:1c2}
+            \end{align}
+            De (\ref{eq:1c1}) se tiene que $ y = \dfrac{1}{x^2} $. Sustituyendo esto en (\ref{eq:1c2}), se tiene que
+
+            $ x \left( \dfrac{1}{x^2} \right)^2 + 8 = 0 $
+
+            $ \Longrightarrow \dfrac{1}{x^3} = -8 $
+
+            $ \Longrightarrow x^3 = -\dfrac{1}{8} $
+
+            $ \Longrightarrow x = -\dfrac{1}{2} $
+
+            Sustituyendo en (\ref{eq:1c1}): 
+
+            $ \left( -\dfrac{1}{2} \right)^2 y - 1 = 0 $
+
+            $ \Longrightarrow \dfrac{y}{4} = 1 $
+
+            $ \Longrightarrow y = 4 $
+
+            Pero $ (0,0) $ no pertenece al dominio de $ f $, pues $ f(0,0) = \dfrac{0}{0} $, por lo que no es un punto crítico.
+
+            Así, $ \left( -\dfrac{1}{2}, 4 \right) $ es punto crítico de $ f $.
+
+%-----------Inciso d) del Ejercicio 1---------------------------------------------------------------------------------
+            \item $ f(x,y) = e^x \cos (y) $.
+            
+
+%-----------Inciso e) del Ejercicio 1---------------------------------------------------------------------------------
+            \item $ f(x,y) = x \sen (y) $.
+            
+        \end{enumerate}
+
+%-------Ejercicio 2---------------------------------------------------------------------------------------------------
+        \item Encontrar los valores máximo y mínimo absolutos de $ f $ en la región $ D $.
+        
+        \begin{enumerate}
+%-----------Inciso a) del Ejercicio 2---------------------------------------------------------------------------------
+            \item $ f(x,y) = x^2 + y^2 + x^2 y + 4, \, D = \left\lbrace (x,y) \in \mathbb{R}^2 : \lvert x \rvert \leq 1, \lvert y \rvert \leq 1 \right\rbrace $.
+            
+
+%-----------Inciso b) del Ejercicio 2---------------------------------------------------------------------------------
+            \item $ f(x,y) = 1 + xy - x - y, \, D $ es la región acotada por la parábola $ y = x^2 $ y la recta $ y = 4 $.
+            
+
+%-----------Inciso c) del Ejercicio 2---------------------------------------------------------------------------------
+            \item $ f(x,y) = 2x^3 + y^4, \, D = \left\lbrace (x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \right\rbrace $.
+            
+        \end{enumerate}
+%-------Ejercicio 4---------------------------------------------------------------------------------------------------
+        \item Encontrar el punto del plano $ 2x - y + z = 1 $ que sea más cercano al punto $ (-4,1,3) $.
+        
+
+%-------Ejercicio 5---------------------------------------------------------------------------------------------------
+        \item Encontrar el punto de la superficie $ x^2 y^2 z = 1 $ que sea más cercano al origen.
+        
+        
+%-------Ejercicio 6---------------------------------------------------------------------------------------------------
+        \item Encontrar tres números positivos cuya suma sea 100 y cuyo producto sea mínimo.
+    
+
+%-------Ejercicio 7---------------------------------------------------------------------------------------------------
+        \item Encontrar el volumen de la mayor caja rectangular con bordes paralelos a los ejes que pueda estar inscrita en el elipsoide $ 9x^2 + 36y^2 + 4z^2 = 36 $.
+        
+
+%-------Ejercicio 8---------------------------------------------------------------------------------------------------
+        \item Encontrar las dimensiones de la caja rectangular con máximo volumen y área superficial total de 64 cm$ ^2 $.
+        
+
+%-------Ejercicio 9---------------------------------------------------------------------------------------------------
+        \item La base de una pecera con volumen $ V $ dado esta hecha de pizarra y, los lados, de vidrio. Si la pizarra cuesta 5 veces (por unidad de área) más que el vidrio encontrar las dimensiones de la pecera que reduzca al mínimo el costo de los materiales.
+        
+
+%-------Ejercicio 10--------------------------------------------------------------------------------------------------
+        \item Tres alelos (formas mutantes de genes) A, B y O, determinan los cuatro tipos sanguíneos A (AA o AO), B (BB o BO), O (OO) y AB. La ley de Hardy-Weinberg expresa que la proporción de individuos en una población que llevan los alelos diferentes es
+        $$ P = 2pq + 2rp + 2rq $$
+        donde $ p, q, r $ son las proporciones de $ A, B, O $ en la población. Utilizar el hecho de que $ p + q + r = 1 $ para demostrar que $ P $ es, a lo sumo $ \frac{2}{3} $.
+
+
+%-------Ejercicio 11--------------------------------------------------------------------------------------------------
+        \item Encontrar la ecuación del plano que pasa por el punto (1,2,3) y determina el volumen más pequeño en el primer octante.
+        
     \end{enumerate}
 \end{document}
