@@ -198,11 +198,9 @@
 
             $ \Longrightarrow 4 \leq x^2 + y^2 + x^2 y + 4 \leq 1 + 1 + 1 + 4 $
 
-            De esta forma, $ f $ está acotada entre 4 y 7. Luego, buscando valores que satisfagan que $ f(x,y) = 4 $ y $ f(x,y) = 7 $:
+            De esta forma, $ f $ está acotada entre 4 y 7. Luego, notemos que $ f(0,0) = 0^2 + 0^2 + 0^2 (0) + 4 = 4 $ y $ f(1,1) = 1^2 + 1^2 + 1^2 (1) + 4 = 7 = (-1)^2 + 1^2 + (-1)^2 (1) + 4 = f(-1,1) $.
 
-            $ x^2 + y^2 + x^2 y + 4 = 4 \Longrightarrow x = 0 $ y $ y = 0 $
-            
-            Luego, $ x^2 + y^2 + x^2 y + 4 = 7 \Longrightarrow $
+            Por lo tanto, $ f $ alcanza su mínimo absoluto en $ (0,0) $ y su máximo absoluto en $ (-1,1) $ y $ (1,1) $.
 
 %-----------Inciso b) del Ejercicio 2---------------------------------------------------------------------------------
             \item $ f(x,y) = 1 + xy - x - y, \, D $ es la región acotada por la parábola $ y = x^2 $ y la recta $ y = 4 $.
@@ -214,7 +212,33 @@
         \end{enumerate}
 %-------Ejercicio 4---------------------------------------------------------------------------------------------------
         \item Encontrar el punto del plano $ 2x - y + z = 1 $ que sea más cercano al punto $ (-4,1,3) $.
+
+        \textbf{Solución.}
         
+        Sea $ (x,y,z) $ un punto del plano $ 2x - y + z = 1 $ entonces la distancia entre este punto y el punto $ (-4,1,3) $ esta dada por 
+
+        $ \sqrt{(x + 4)^2 + (y - 1)^2 + (z - 3)^2} $
+
+        Luego, de la ecuación del plano $ 2x - y + z = 1 $ se tiene que $ z = 1 + y - 2x $. Sustituyendo esto en la expresión anterior se tiene que
+
+        $ \sqrt{(x + 4)^2 + (y - 1)^2 + (1 + y - 2x - 3)^2} = \sqrt{(x + 4)^2 + (y - 1)^2 + (y - 2x - 2)^2} $
+
+        Como la raíz cuadrada es una función creciente entonces basta con encontrar el mínimo absoluto de $ (x + 4)^2 + (y - 1)^2 + (y - 2x - 2)^2 $.
+
+        Así, sea $ g(x,y) = (x + 4)^2 + (y - 1)^2 + (y - 2x - 2)^2 $. Calculando los puntos críticos de la función, se tiene que
+
+        $ \derivadaparcial{g}{x} = 2(x + 4) - 4(y - 2x - 2) = 0 \quad $ y $ \quad \derivadaparcial{g}{y} = 2(y - 1) + 2(y - 2x - 2) = 0 $
+
+        $ \Longrightarrow 2(x + 4) - 4(y - 2x - 2) = 0 \quad $ y $ \quad 2(y - 1) + 2(y - 2x - 2) = 0 $
+
+        $ \Longrightarrow 2x + 8 - 4y + 8x + 8 = 0 \quad $ y $ \quad 2y - 2 + 2y - 4x - 4 = 0 $
+
+        $ \Longrightarrow 10x - 4y + 16 = 0 \quad $ y $ \quad -4x + 4y - 6 = 0 $
+        De esta manera, se forma el siguiente sistema de ecuaciones
+        \begin{align}
+            10x - 4y = -16 \label{eq:41} \\
+            -4x + 4y = 6 \label{eq:42}
+        \end{align}
 
 %-------Ejercicio 5---------------------------------------------------------------------------------------------------
         \item Encontrar el punto de la superficie $ x^2 y^2 z = 1 $ que sea más cercano al origen.
