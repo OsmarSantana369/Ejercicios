@@ -4,6 +4,7 @@
 \usepackage{parskip}
 \usepackage{amsmath, amsfonts, amsthm}
 \usepackage{enumerate}
+\usepackage{graphicx}
 \usepackage[p,osf]{scholax}
 % T1 and textcomp are loaded by package. Change that here, if you want
 % load sans and typewriter packages here, if needed
@@ -35,7 +36,7 @@
         
         \begin{enumerate}
 %-----------Inciso a) del Ejercicio 1---------------------------------------------------------------------------------
-            \item $ f(x,y) = 1 + 2x - x^2 - y^2 $.
+            \item $ f(x,y) = 1 + 2xy - x^2 - y^2 $.
             
             \textbf{Solución.}
 
@@ -63,6 +64,11 @@
 
             Por lo tanto, $ f $ alcanza su máximo absoluto en los puntos del conjunto $ A $.
 
+            \begin{figure}[h]
+                \centering
+                \includegraphics[height = 5cm]{Primero.png}
+            \end{figure}
+
 %-----------Inciso b) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = xy - 2x - 2y $.
             
@@ -81,6 +87,11 @@
             Si $ x = -y $ entonces $ f(x,y) = -y^2 $. Pero $ -y^2 $ solo alcanza su máximo valor en $ y = 0 $.
 
             Por lo tanto, $ (2,2) $ es un punto silla de $ f $.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[height = 5cm]{Segundo.png}
+            \end{figure}
 
 %-----------Inciso c) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = \dfrac{x^2 y^2 - 8x + y}{xy} $.
@@ -150,6 +161,11 @@
 
             $ \Longrightarrow y = k \, \dfrac{\pi}{2} $ con $ k \in \mathbb{N} $
 
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[height = 5cm]{Cuarto.png}
+            \end{figure}
+
             Asi, el conjunto $ B = \left\lbrace (x,y) \in \mathbb{R}^2 \talque y = k \, \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
 
             Luego, se sabe que $ 0 < e^x < \infty $ y $ -1 \leq \cos (y) \leq 1 $. Si $ -1 \leq \cos (y) < 0 $ entonces $ - \infty < e^x \cos (y) < 0 $. Y si $ 0 < \cos (y) \leq 1 $ entonces $ 0 < e^x cos(y) < \infty $. De esta manera, $ - \infty < e^x \cos (y) < \infty $. Por lo tanto, $ f $ no tine máximos ni mínimos locales y los puntos del conjunto $ B $ son puntos silla.
@@ -176,6 +192,11 @@
             Ahora, si $ y = \dfrac{\pi}{2} $ entonces $ f(x,y) = x $ y como $ - \infty \leq x \leq \infty $ entonces $ f $ no tiene ningún extremo local en $ x = 0 $. 
             
             Por lo tanto, los puntos del conjunto $ C $ son puntos silla.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[height = 5cm]{Quinto.png}
+            \end{figure}
 
         \end{enumerate}
 
@@ -214,7 +235,7 @@
             \item $ f(x,y) = 2x^3 + y^4, \, D = \left\lbrace (x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \right\rbrace $.
             
         \end{enumerate}
-%-------Ejercicio 4---------------------------------------------------------------------------------------------------
+%-------Ejercicio 3---------------------------------------------------------------------------------------------------
         \item Encontrar el punto del plano $ 2x - y + z = 1 $ que sea más cercano al punto $ (-4,1,3) $.
 
         \textbf{Solución.}
@@ -238,43 +259,43 @@
         $ \Longrightarrow 2x + 8 - 4y + 8x + 8 = 0 \quad $ y $ \quad 2y - 2 + 2y - 4x - 4 = 0 $
 
         $ \Longrightarrow 10x - 4y + 16 = 0 \quad $ y $ \quad -4x + 4y - 6 = 0 $
+
         De esta manera, se forma el siguiente sistema de ecuaciones
         \begin{align}
             10x - 4y = -16 \label{eq:41} \\
             -4x + 4y = 6 \label{eq:42}
         \end{align}
+        Sumando (\ref{eq:41}) y (\ref{eq:42}): $ 6x = -10 \Longrightarrow x = -\dfrac{5}{3} $. Sustituyendo en (\ref{eq:42}) se tiene que $ -4 \left( -\dfrac{5}{3} \right) + 4y = 6 \Longrightarrow 4y = 6 - \dfrac{20}{3} \Longrightarrow y = -\dfrac{2}{12} = -\dfrac{1}{6} $
 
-        Sumando (\ref{eq:41}) y (\ref{eq:42}): $ 6x = -10 \Longrightarrow x = -\dfrac{5}{3} $. Sustituyendo en (\ref{eq:42}) se tiene que $ -4 \left( -\ dfrac{5}{3} \right) + 4y = 6 \Longrightarrow 4y = 6 - \dfrac{20}{3} \Longrightarrow y = -\dfrac{2}{12} = -\dfrac{1}{6} $
+        Por lo tanto, $ \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) $ es un punto crítico de $ g $.
 
-        Por lo tanto, $ \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) es un punto crítico de $ g $.
-
-%-------Ejercicio 5---------------------------------------------------------------------------------------------------
+%-------Ejercicio 4---------------------------------------------------------------------------------------------------
         \item Encontrar el punto de la superficie $ x^2 y^2 z = 1 $ que sea más cercano al origen.
         
         
-%-------Ejercicio 6---------------------------------------------------------------------------------------------------
+%-------Ejercicio 5---------------------------------------------------------------------------------------------------
         \item Encontrar tres números positivos cuya suma sea 100 y cuyo producto sea mínimo.
     
 
-%-------Ejercicio 7---------------------------------------------------------------------------------------------------
+%-------Ejercicio 6---------------------------------------------------------------------------------------------------
         \item Encontrar el volumen de la mayor caja rectangular con bordes paralelos a los ejes que pueda estar inscrita en el elipsoide $ 9x^2 + 36y^2 + 4z^2 = 36 $.
         
 
-%-------Ejercicio 8---------------------------------------------------------------------------------------------------
+%-------Ejercicio 7---------------------------------------------------------------------------------------------------
         \item Encontrar las dimensiones de la caja rectangular con máximo volumen y área superficial total de 64 cm$ ^2 $.
         
 
-%-------Ejercicio 9---------------------------------------------------------------------------------------------------
+%-------Ejercicio 8---------------------------------------------------------------------------------------------------
         \item La base de una pecera con volumen $ V $ dado esta hecha de pizarra y, los lados, de vidrio. Si la pizarra cuesta 5 veces (por unidad de área) más que el vidrio encontrar las dimensiones de la pecera que reduzca al mínimo el costo de los materiales.
         
 
-%-------Ejercicio 10--------------------------------------------------------------------------------------------------
+%-------Ejercicio 9---------------------------------------------------------------------------------------------------
         \item Tres alelos (formas mutantes de genes) A, B y O, determinan los cuatro tipos sanguíneos A (AA o AO), B (BB o BO), O (OO) y AB. La ley de Hardy-Weinberg expresa que la proporción de individuos en una población que llevan los alelos diferentes es
         $$ P = 2pq + 2rp + 2rq $$
         donde $ p, q, r $ son las proporciones de $ A, B, O $ en la población. Utilizar el hecho de que $ p + q + r = 1 $ para demostrar que $ P $ es, a lo sumo $ \frac{2}{3} $.
 
 
-%-------Ejercicio 11--------------------------------------------------------------------------------------------------
+%-------Ejercicio 10--------------------------------------------------------------------------------------------------
         \item Encontrar la ecuación del plano que pasa por el punto (1,2,3) y determina el volumen más pequeño en el primer octante.
         
     \end{enumerate}
