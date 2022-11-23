@@ -532,6 +532,8 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmi
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-tlf-ot1.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxexx.vf
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txexs.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-osf-t1.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-osf-t1.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\zncfmi.vf
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXFourierMI.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
@@ -540,8 +542,12 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxs
 INPUT c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Máximos y mínimos\build\Maximos_y_minimos.aux
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\scholax\zcs_2ulndi.enc
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\scholax\zcs_fn6vum.enc
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXFourierMI.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXFourierMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXMathMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXMathMI.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\TeXGyreScholaX-Bold.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\TeXGyreScholaX-Bold.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\TeXGyreScholaX-Italic.pfb

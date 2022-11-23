@@ -148,11 +148,11 @@
 
             $ \Longrightarrow \cos (y) = 0 \quad $ y $ \quad - \sen (y) = 0 $
 
-            $ \Longrightarrow y = k \dfrac{\pi}{2} $ con $ k \in \mathbb{N} $
+            $ \Longrightarrow y = k \, \dfrac{\pi}{2} $ con $ k \in \mathbb{N} $
 
-            Asi, el conjunto $ B = \left\lbrace (x,y) \in \mathbb{R}^2 \talque y = k \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
+            Asi, el conjunto $ B = \left\lbrace (x,y) \in \mathbb{R}^2 \talque y = k \, \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
 
-            Luego, se sabe que $ 0 < e^x < \infty $ y $ -1 \leq \cos (y) \leq 1 $. Si $ -1 \leq \cos (y) < 0 $ entonces $ - \infty < e^x < 0 $. Y si $ 0 < \cos (y) \leq 1 $ entonces $ 0 < e^x cos(y) < \infty $. De esta manera, $ - \infty < e^x \cos (y) < \infty $. Por lo tanto, $ f $ no tine máximos ni mínimos locales y los puntos del conjunto $ B $ son puntos silla.
+            Luego, se sabe que $ 0 < e^x < \infty $ y $ -1 \leq \cos (y) \leq 1 $. Si $ -1 \leq \cos (y) < 0 $ entonces $ - \infty < e^x \cos (y) < 0 $. Y si $ 0 < \cos (y) \leq 1 $ entonces $ 0 < e^x cos(y) < \infty $. De esta manera, $ - \infty < e^x \cos (y) < \infty $. Por lo tanto, $ f $ no tine máximos ni mínimos locales y los puntos del conjunto $ B $ son puntos silla.
 
 %-----------Inciso e) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = x \sen (y) $.
@@ -161,7 +161,7 @@
 
             Calculando los puntos críticos de la función:
 
-            $ \derivadaparcial{f}{x} = \sen (y) = 0 \quad $ y $ \derivadaparcial{f}{y} = x \cos (y) = 0 $
+            $ \derivadaparcial{f}{x} = \sen (y) = 0 \quad $ y $ \quad \derivadaparcial{f}{y} = x \cos (y) = 0 $
 
             $ \Longrightarrow \sen (y) = 0 \quad $ y $ \quad x \cos (y) = 0 $
 
@@ -173,7 +173,7 @@
 
             Asi, el conjunto $ C = \left\lbrace (x,y) \in \mathbb{R}^2 \talque x = 0, y = k \pi \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
 
-            Ahora, si $ y = \dfrac{\pi}{2} $ entonces $ f(x,y) = x $ y como $ 0 \leq \lvert x \rvert $ entonces $ f $ no tiene ningún extremo local en $ x = 0 $. 
+            Ahora, si $ y = \dfrac{\pi}{2} $ entonces $ f(x,y) = x $ y como $ - \infty \leq x \leq \infty $ entonces $ f $ no tiene ningún extremo local en $ x = 0 $. 
             
             Por lo tanto, los puntos del conjunto $ C $ son puntos silla.
 
@@ -188,17 +188,21 @@
             
             \textbf{Solución.}
 
-            Sea $ (x,y) \in D $ entonces $ \lvert x \rvert \leq 1 $ y $ \lvert y \rvert \leq 1 $
+            Sea $ (x,y) \in D $ entonces $ \lvert x \rvert \leq 1 \quad $ y $ \quad \lvert y \rvert \leq 1 $
 
-            $ \Longrightarrow -1 \leq x \leq 1 $ y $ -1 \leq y \leq 1 $
+            $ \Longrightarrow -1 \leq x \leq 1 \quad $ y $ \quad -1 \leq y \leq 1 $
 
-            $ \Longrightarrow 0 \leq x^2 \leq 1 $ y $ 0 \leq y^2 \leq 1 $
+            $ \Longrightarrow 0 \leq x^2 \leq 1 \quad $ y $ \quad 0 \leq y^2 \leq 1 $
 
-            $ \Longrightarrow 0 \leq x^2 \leq 1 $, $ 0 \leq y^2 \leq 1 $ y $ 0 \leq x^2 y \leq 1 $
+            $ \Longrightarrow 0 \leq x^2 \leq 1 $, $ \quad 0 \leq y^2 \leq 1 \quad $ y $ \quad 0 \leq x^2 y \leq 1 $
 
-            $ \Longrightarrow 4 \leq x^2 + y^2 + x^2 y + 4 \leq 1 + 1 + 1 + 4 $
+            $ \Longrightarrow 4 \leq x^2 + y^2 + x^2 y + 4 \leq 1 + 1 + 1 + 4 = 7 $
 
-            De esta forma, $ f $ está acotada entre 4 y 7. Luego, notemos que $ f(0,0) = 0^2 + 0^2 + 0^2 (0) + 4 = 4 $ y $ f(1,1) = 1^2 + 1^2 + 1^2 (1) + 4 = 7 = (-1)^2 + 1^2 + (-1)^2 (1) + 4 = f(-1,1) $.
+            De esta forma, $ f $ está acotada entre 4 y 7. Luego, notemos que 
+            
+            $ f(0,0) = 0^2 + 0^2 + 0^2 (0) + 4 = 4 \quad $ y 
+            
+            $ f(1,1) = 1^2 + 1^2 + 1^2 (1) + 4 = 7 = (-1)^2 + 1^2 + (-1)^2 (1) + 4 = f(-1,1) $.
 
             Por lo tanto, $ f $ alcanza su mínimo absoluto en $ (0,0) $ y su máximo absoluto en $ (-1,1) $ y $ (1,1) $.
 

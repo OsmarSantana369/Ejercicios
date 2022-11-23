@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1669107312 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" "build/Maximos_y_minimos.pdf" "Maximos_y_minimos" 1669107324
+["pdflatex"] 1669169488 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" "build/Maximos_y_minimos.pdf" "Maximos_y_minimos" 1669169497
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1669018992 216741 abcd66adf55fa3e242b4962fc58be431 ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1656202269 10326951 4c20795a0ba3dfbd8250d5bdd3ba6426 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc" 1608341204 3077 b2cad32a5770ecfa23227387c44f86cc ""
@@ -37,10 +37,12 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/scholax/TeXGyreScholaX-Regular-tlf-ot1G.tfm" 1577487739 3536 b475caee769b33a64f30b565214f3364 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/scholax/zncfmi.tfm" 1590969204 3400 2eb3c7ce41ae263ba56582e81769d75d ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/scholax/zncfmia.tfm" 1616476051 2208 063a8839e18df57e1208c2b74548ddb1 ""
+  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb" 1572037323 32409 eee1344d05b8bec92e60a2ec9a7f49e3 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb" 1620675894 33424 8b2b99d9d7571201cc7eece13c492c55 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaSTbb.pfb" 1559424814 15249 5fb9688df795874609441a62bc595e85 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb" 1634840349 56686 3d6d86b0a770bb2c243f4c4351685fc2 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb" 1568320140 40320 2f25747178fd77dc1d402345c8ce5bfc ""
+  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXFourierMI.pfb" 1583792880 15080 5631cca113823f24848343ec372c4e9e ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXMathMI.pfb" 1590967511 23132 33a31a819ae873ad4342d9e9531b9706 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb" 1590969623 166772 05b74d39d4f7f4b1ae32a1f0cdc871ad ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb" 1590969645 172866 e049e1e61646a3b16ad5ad9e01afdaf6 ""
@@ -112,9 +114,9 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/tools/enumerate.sty" 1636710260 3468 068d84ef9735e15f11c5a120c0a1a139 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623002090 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1626881362 123 a302f2c651a95033260db60e51527ae8 ""
-  "Maximos_y_minimos.tex" 1669107310 9664 a98f70d6c69bd392b5702525f60347ed ""
-  "build/Maximos_y_minimos.aux" 1669107323 246 5c6ebbe2ef495fdb39e28b22caba3c34 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" 1669107310 9664 a98f70d6c69bd392b5702525f60347ed ""
+  "Maximos_y_minimos.tex" 1669169484 14150 0e48993f990736778dddbf71da87d2c2 ""
+  "build/Maximos_y_minimos.aux" 1669169496 296 d92a2f682c3b0f16f77b8e654795921f "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" 1669169484 14150 0e48993f990736778dddbf71da87d2c2 ""
   (generated)
   "build/Maximos_y_minimos.aux"
   "build/Maximos_y_minimos.log"
