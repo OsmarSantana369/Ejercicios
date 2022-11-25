@@ -13,6 +13,8 @@
 \usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
 % vvarbb selects the STIX version of blackboard bold.
 \newcommand{\derivadaparcial}[2]{\dfrac{\partial {#1}}{\partial {#2}}}
+\newcommand{\derivadaparcialn}[3]{\dfrac{\partial^{#3} {#1}}{\partial {#2}^{#3}}}
+\newcommand{\derivadaparcialnd}[3]{\dfrac{\partial^{2} {#1}}{\partial {#3} \partial {#2}}}
 \newcommand{\talque}{\; \middle | \;}
 
 \begin{document}
@@ -100,28 +102,44 @@
             
             \textbf{Solución.}
 
+            Calculando las primeras y segundas derivadas parciales:
+            \begin{align*}
+                \derivadaparcial{f}{x} &= \dfrac{(xy)(2x y^2 - 8) - (x^2 y^2 - 8x + y)(y)}{x^2 y^2} \\
+                &= \dfrac{y(2x y^2 - 8) - (x^2 y^2 - 8x + y)}{x^2 y} \\
+                &= \dfrac{2x^2 y^2 - 8x - x^2 y^2 + 8x - y}{x^2 y} \\
+                &= \dfrac{x^2 y^2 - y}{x^2 y} \\
+                &= \dfrac{x^2 y - 1}{x^2}
+            \end{align*}
+            \begin{align*}
+                \derivadaparcial{f}{y} &= \dfrac{(xy)(2x^2 y + 1) - (x^2 y^2 - 8x + y)(x)}{x^2 y^2} \\
+                &= \dfrac{y(2x^2 y + 1) - (x^2 y^2 - 8x + y)}{x y^2} \\
+                &= \dfrac{2x^2 y^2 + y - x^2 y^2 + 8x - y}{x y^2} \\
+                &= \dfrac{x^2 y^2 + 8x}{x y^2} \\
+                &= \dfrac{x y^2 + 8}{y^2} \\
+            \end{align*}
+            \begin{align*}
+                \derivadaparcialn{f}{x}{2} &= \dfrac{x^2(2xy) - (x^2 y - 1)(2x)}{x^4} \\
+                &= \dfrac{2x^3 y - 2x^3 y + 2x}{x^4} \\
+                &= \dfrac{2x^2 y - 2x^2 y + 2}{x^3} \\
+                &= \dfrac{2}{x^3} \\
+            \end{align*}
+            \begin{align*}
+                \derivadaparcialn{f}{y}{2} &= \dfrac{y^2(2xy) - (x y^2 + 8)(2y)}{y^4} \\
+                &= \dfrac{y(2xy) - (x y^2 + 8)(2)}{y^3} \\
+                &= \dfrac{2x y^2 - 2x y^2 - 16}{y^3} \\
+                &= - \dfrac{16}{y^3} \\
+            \end{align*}
+            \begin{align}
+                \derivadaparcialnd{f}{x}{y} = 1 = \derivadaparcialnd{f}{y}{x}
+            \end{align}
+           
             Calculando los puntos críticos de la función:
 
-            $ \derivadaparcial{f}{x} = \dfrac{(xy)(2x y^2 - 8) - (x^2 y^2 - 8x + y)(y)}{x^2 y^2} = 0 \quad $ y
+            $ \derivadaparcial{f}{x} = 0 \quad $ y $ \derivadaparcial{f}{y} = 0 $
 
-            $ \derivadaparcial{f}{y} = \dfrac{(xy)(2x^2 y + 1) - (x^2 y^2 - 8x + y)(x)}{x^2 y^2} = 0 $
+            $ \Longrightarrow \dfrac{x^2 y - 1}{x^2} = 0 \quad $ y $\dfrac{x y^2 + 8}{y^2} = 0 $
 
-
-            $ \Longrightarrow (xy)(2x y^2 - 8) - (x^2 y^2 - 8x + y)(y) = 0 \quad $ y
-
-            \hspace{7mm} $ (xy)(2x^2 y + 1) - (x^2 y^2 - 8x + y)(x) = 0 $
-
-
-            $ \Longrightarrow 2x^2 y^3 - 8xy - x^2 y^3 + 8xy - y^2 = 0 \quad $ y
-
-            \hspace{7mm} $ 2x^3 y^2 + xy - x^3 y^2 + 8x^2 - xy = 0 $
-
-
-            $ \Longrightarrow x^2 y^3 - y^2 = 0 \quad $ y $ \quad x^3 y^2 + 8x^2 = 0 $
-
-            $ \Longrightarrow y^2(x^2 y - 1) = 0 \quad $ y $ \quad x^2(xy^2 + 8) = 0 $
-
-            $ \Longrightarrow x = 0, \quad y = 0 \quad $ y se tiene el siguiente sistema de ecuaciones
+            De esta manera se tiene el siguiente sistema de ecuaciones
             \begin{align}
                 x^2 y - 1 = 0 \label{eq:1c1} \\
                 xy^2 + 8 = 0 \label{eq:1c2}
@@ -144,18 +162,43 @@
 
             $ \Longrightarrow y = 4 $
 
-            Pero $ (0,0) $ no pertenece al dominio de $ f $, pues $ f(0,0) = \dfrac{0}{0} $, por lo que no es un punto crítico.
-
             Así, $ \left( -\dfrac{1}{2}, 4 \right) $ es un punto crítico de $ f $.
+
+            Luego, 
+            \begin{align}
+                D \left( -\dfrac{1}{2}, 4 \right) &= \left( \derivadaparcialn{f}{x}{2} \left( -\dfrac{1}{2}, 4 \right) \right) \left( \derivadaparcialn{f}{y}{2} \left( -\dfrac{1}{2}, 4 \right) \right) - \left( \derivadaparcialnd{f}{x}{y} \left( -\dfrac{1}{2}, 4 \right) \right)^2 \\
+                &= \left( \dfrac{2}{\left( -\frac{1}{2} \right)^3} \right) \left( - \dfrac{16}{4^3} \right) - 1^2 \\
+                &= (-16) \left( - \dfrac{1}{4} \right) - 1 \\
+                &= 4 - 1 \\
+                &= 3 > 0
+            \end{align}
+            Y como $ \derivadaparcialn{f}{x}{2} \left( -\dfrac{1}{2}, 4 \right) = -16 < 0 $ entonces $ \left( -\dfrac{1}{2}, 4 \right) $ es un punto de máximo local de $ f $.
 
 %-----------Inciso d) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = e^x \cos (y) $.
             
             \textbf{Solución.}
 
+            Calculando las primeras y segundas derivadas parciales:
+            \begin{align*}
+                \derivadaparcial{f}{x} &=  e^x \cos (y)
+            \end{align*}
+            \begin{align*}
+                \derivadaparcial{f}{y} &=  -e^x \sen (y)
+            \end{align*}
+            \begin{align*}
+                \derivadaparcialn{f}{x}{2} &= e^x \cos (y)
+            \end{align*}
+            \begin{align*}
+                \derivadaparcialn{f}{y}{2} &= -e^x \cos (y)
+            \end{align*}
+            \begin{align}
+                \derivadaparcialnd{f}{x}{y} = -e^x \sen (y) = \derivadaparcialnd{f}{y}{x}
+            \end{align}
+           
             Calculando los puntos críticos de la función:
 
-            $ \derivadaparcial{f}{x} = e^x \cos (y) = 0 \quad $ y $ \derivadaparcial{f}{y} = -e^x \sen (y) = 0 $
+            $ \derivadaparcial{f}{x} = 0 \quad $ y $ \derivadaparcial{f}{y} = 0 $
 
             $ \Longrightarrow e^x \cos (y) = 0 \quad $ y $ \quad -e^x \sen (y) = 0 $
 
@@ -163,15 +206,32 @@
 
             $ \Longrightarrow y = k \, \dfrac{\pi}{2} $ con $ k \in \mathbb{N} $
 
-            \begin{figure}[h!]
-                \centering
-                \includegraphics[height = 5cm]{Cuarto.png}
-            \end{figure}
+            Asi, el conjunto $ B = \left\lbrace (x,y) \in \mathbb{R}^2 \talque y = k \, \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \cup \lbrace 0 \rbrace \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
 
-            Asi, el conjunto $ B = \left\lbrace (x,y) \in \mathbb{R}^2 \talque y = k \, \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
+            Luego, sea $ (x,y) \in B $ se tiene que $ y = k \, \dfrac{\pi}{2} \text{ con } k \in \mathbb{N} \cup \lbrace 0 \rbrace $. Así,
 
-            Luego, se sabe que $ 0 < e^x < \infty $ y $ -1 \leq \cos (y) \leq 1 $. Si $ -1 \leq \cos (y) < 0 $ entonces $ - \infty < e^x \cos (y) < 0 $. Y si $ 0 < \cos (y) \leq 1 $ entonces $ 0 < e^x cos(y) < \infty $. De esta manera, $ - \infty < e^x \cos (y) < \infty $. Por lo tanto, $ f $ no tine máximos ni mínimos locales y los puntos del conjunto $ B $ son puntos silla.
+            $  D(x,y) = \left( \derivadaparcialn{f}{x}{2} (x,y) \right) \left( \derivadaparcialn{f}{y}{2} (x,y) \right) - \left( \derivadaparcialnd{f}{x}{y} (x,y) \right)^2 $
 
+            \begin{itemize}
+                \item  Si $ k = 0, 4, 8, 12, \ldots $ entonces
+            
+                $ D(x,y) = \left( e^x \right) \left( -e^x \right) = -e^{2x} < 0 $
+
+                \item  Si $ k = 1, 5, 9, 13, \ldots $ entonces
+
+                $  D(x,y) = - \left( -e^x \right)^2 < 0 $
+
+                \item  Si $ k = 2, 6, 10, 14, \ldots $ entonces
+
+                $  D(x,y) = \left( -e^{x} \right) \left( e^{x} \right) = -e^{2x} < 0 $
+
+                \item  Si $ k = 3, 7, 11, 15, \ldots $ entonces
+
+                $  D(x,y) = - \left( e^x \right)^2 < 0 $
+            \end{itemize}
+
+           Por lo tanto, los puntos del conjunto $ B $ son puntos silla de $ f $.
+            
 %-----------Inciso e) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = x \sen (y) $.
             
@@ -191,10 +251,8 @@
 
             Asi, el conjunto $ C = \left\lbrace (x,y) \in \mathbb{R}^2 \talque x = 0, y = k \pi \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
 
-            Ahora, si $ y = \dfrac{\pi}{2} $ entonces $ f(x,y) = x $ y como $ - \infty \leq x \leq \infty $ entonces $ f $ no tiene ningún extremo local en $ x = 0 $. 
+            Ahora, si $ (x,y) \in C $ entonces $ f(x,y) = 0 $. Pero para $ (x,y) = (1, \dfrac{\pi}{2}) $, $ f(x,y) = 1 $ y para $ (x,y) = (-1, \dfrac{\pi}{2}) $, $ f(x,y) = -1 $. Debido a esto, los puntos del conjunto $ C $ no son máximos ni mínimos locales, es decir, son puntos silla.
             
-            Por lo tanto, los puntos del conjunto $ C $ son puntos silla.
-
             \begin{figure}[h]
                 \centering
                 \includegraphics[height = 5cm]{Quinto.png}
@@ -231,10 +289,26 @@
 
 %-----------Inciso b) del Ejercicio 2---------------------------------------------------------------------------------
             \item $ f(x,y) = 1 + xy - x - y, \, D $ es la región acotada por la parábola $ y = x^2 $ y la recta $ y = 4 $.
+
+            \textbf{Solución.}
             
+            $ \nabla f = \lambda \nabla y $
 
 %-----------Inciso c) del Ejercicio 2---------------------------------------------------------------------------------
             \item $ f(x,y) = 2x^3 + y^4, \, D = \left\lbrace (x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \right\rbrace $.
+
+            \textbf{Solución.}
+            
+            $ \nabla f = \lambda \nabla (x^2 + y^2) $
+
+            $ \Longrightarrow (6x^2, 4y^3) = \lambda (2x, 2y) $
+            \begin{align}
+                \Longrightarrow & 6x^2 = 2 \lambda x \\
+                & 4y^3 = 2 \lambda y \\
+                & x^2 + y^2 \leq 1
+            \end{align}
+            
+            
             
         \end{enumerate}
 %-------Ejercicio 3---------------------------------------------------------------------------------------------------
