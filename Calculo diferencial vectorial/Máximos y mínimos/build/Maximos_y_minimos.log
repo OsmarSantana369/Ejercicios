@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  22 NOV 2022 23:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  24 NOV 2022 23:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -681,11 +681,11 @@ LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 31.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/it' will be
 (Font)              scaled to size 12.0pt on input line 39.
-<Primero.png, id=1, 581.92406pt x 373.395pt>
+<Primero.png, id=1, 490.83376pt x 382.42876pt>
 File: Primero.png Graphic file (type png)
 <use Primero.png>
 Package pdftex.def Info: Primero.png  used on input line 69.
-(pdftex.def)             Requested size: 221.7106pt x 142.26378pt.
+(pdftex.def)             Requested size: 182.58676pt x 142.26378pt.
  [1
 
 {C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Primero.png>]
@@ -728,7 +728,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  60i,8n,67p,636b,455s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_fn6vum.enc}<C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXFourierMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXMathMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaSTbb.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Máximos y mínimos\build\Maximos_y_minimos.pdf" (6 pages, 783740 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Máximos y mínimos\build\Maximos_y_minimos.pdf" (6 pages, 807915 bytes).
 PDF statistics:
  85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
