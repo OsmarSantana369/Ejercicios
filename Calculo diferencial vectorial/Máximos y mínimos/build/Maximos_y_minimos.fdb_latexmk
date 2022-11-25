@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1669356331 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" "build/Maximos_y_minimos.pdf" "Maximos_y_minimos" 1669356346
+["pdflatex"] 1669356876 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" "build/Maximos_y_minimos.pdf" "Maximos_y_minimos" 1669356891
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1669180935 216741 abcd66adf55fa3e242b4962fc58be431 ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1656202269 10326951 4c20795a0ba3dfbd8250d5bdd3ba6426 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc" 1608341204 3077 b2cad32a5770ecfa23227387c44f86cc ""
@@ -127,12 +127,12 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623002090 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1626881362 123 a302f2c651a95033260db60e51527ae8 ""
   "Cuarto.png" 1669180575 210394 7ff0fa65f26a14335d66fa9dafc0a56b ""
-  "Maximos_y_minimos.tex" 1669356327 15263 5ae3a96feb86e0106d8733ec5ef78d34 ""
+  "Maximos_y_minimos.tex" 1669356872 15263 a98f6ed10699f1f3fa49b4800f64a465 ""
   "Primero.png" 1669353049 108441 90ff895be306c62fe506432b54ec12a0 ""
   "Quinto.png" 1669180641 344820 e00ad74b6ec8b415fb211328442c5887 ""
-  "Segundo.png" 1669356307 67109 b0ffa347c2fb819a3ca1f7fa15069584 ""
-  "build/Maximos_y_minimos.aux" 1669356344 296 ebbaab4d7358e31eae2824d94d4acab2 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" 1669356327 15263 5ae3a96feb86e0106d8733ec5ef78d34 ""
+  "Segundo.png" 1669356865 69254 83b92372bd28b6a5c1fd9cc04bb9994b ""
+  "build/Maximos_y_minimos.aux" 1669356890 296 ebbaab4d7358e31eae2824d94d4acab2 "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Máximos y mínimos/Maximos_y_minimos.tex" 1669356872 15263 a98f6ed10699f1f3fa49b4800f64a465 ""
   (generated)
   "build/Maximos_y_minimos.aux"
   "build/Maximos_y_minimos.log"
