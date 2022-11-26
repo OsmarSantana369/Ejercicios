@@ -656,13 +656,13 @@ INPUT .\Segundo.png
 INPUT .\Segundo.png
 INPUT .\Segundo.png
 INPUT .\Segundo.png
-INPUT .\Cuarto.png
-INPUT .\Cuarto.png
-INPUT Cuarto.png
-INPUT .\Cuarto.png
-INPUT .\Cuarto.png
-INPUT .\Cuarto.png
-INPUT .\Cuarto.png
+INPUT .\Tercero.png
+INPUT .\Tercero.png
+INPUT Tercero.png
+INPUT .\Tercero.png
+INPUT .\Tercero.png
+INPUT .\Tercero.png
+INPUT .\Tercero.png
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-osf-t1.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-osf-t1.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\zncfmi.vf
@@ -677,6 +677,12 @@ INPUT .\Quinto.png
 INPUT .\Quinto.png
 INPUT .\Quinto.png
 INPUT .\Quinto.png
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\TeXGyreScholaX-Regular-tlf-ot1G.vf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-tlf-ot1.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy.vf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
 INPUT c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Máximos y mínimos\build\Maximos_y_minimos.aux
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\scholax\zcs_2ulndi.enc
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\scholax\zcs_fn6vum.enc

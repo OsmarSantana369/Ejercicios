@@ -30,7 +30,7 @@
 
     Nombre: Osmar Dominique Santana Reyes \hfill No. de cuenta: $ 2125197 $
 
-    \textbf{Instrucciones:} Resuelve cada uno de los ejercicios, justica cada respuesta.
+    \textbf{Instrucciones:} Resuelve cada uno de los ejercicios, justifica cada respuesta.
 
     \begin{enumerate}[\bfseries Ejerc{i}c{i}o 1.]
 %-------Ejercicio 1---------------------------------------------------------------------------------------------------
@@ -105,7 +105,7 @@
             Calculando las primeras y segundas derivadas parciales:
             \begin{align*}
                 \derivadaparcial{f}{x} &= \dfrac{(xy)(2x y^2 - 8) - (x^2 y^2 - 8x + y)(y)}{x^2 y^2} \\
-                &= \dfrac{y(2x y^2 - 8) - (x^2 y^2 - 8x + y)}{x^2 y} \\
+                &= \dfrac{x(2x y^2 - 8) - (x^2 y^2 - 8x + y)}{x^2 y} \\
                 &= \dfrac{2x^2 y^2 - 8x - x^2 y^2 + 8x - y}{x^2 y} \\
                 &= \dfrac{x^2 y^2 - y}{x^2 y} \\
                 &= \dfrac{x^2 y - 1}{x^2}
@@ -115,29 +115,29 @@
                 &= \dfrac{y(2x^2 y + 1) - (x^2 y^2 - 8x + y)}{x y^2} \\
                 &= \dfrac{2x^2 y^2 + y - x^2 y^2 + 8x - y}{x y^2} \\
                 &= \dfrac{x^2 y^2 + 8x}{x y^2} \\
-                &= \dfrac{x y^2 + 8}{y^2} \\
+                &= \dfrac{x y^2 + 8}{y^2}
             \end{align*}
             \begin{align*}
                 \derivadaparcialn{f}{x}{2} &= \dfrac{x^2(2xy) - (x^2 y - 1)(2x)}{x^4} \\
                 &= \dfrac{2x^3 y - 2x^3 y + 2x}{x^4} \\
                 &= \dfrac{2x^2 y - 2x^2 y + 2}{x^3} \\
-                &= \dfrac{2}{x^3} \\
+                &= \dfrac{2}{x^3}
             \end{align*}
             \begin{align*}
                 \derivadaparcialn{f}{y}{2} &= \dfrac{y^2(2xy) - (x y^2 + 8)(2y)}{y^4} \\
                 &= \dfrac{y(2xy) - (x y^2 + 8)(2)}{y^3} \\
                 &= \dfrac{2x y^2 - 2x y^2 - 16}{y^3} \\
-                &= - \dfrac{16}{y^3} \\
+                &= - \dfrac{16}{y^3}
             \end{align*}
-            \begin{align}
+            \begin{align*}
                 \derivadaparcialnd{f}{x}{y} = 1 = \derivadaparcialnd{f}{y}{x}
-            \end{align}
+            \end{align*}
            
             Calculando los puntos críticos de la función:
 
-            $ \derivadaparcial{f}{x} = 0 \quad $ y $ \derivadaparcial{f}{y} = 0 $
+            $ \derivadaparcial{f}{x} = 0 \quad $ y $ \quad \derivadaparcial{f}{y} = 0 $
 
-            $ \Longrightarrow \dfrac{x^2 y - 1}{x^2} = 0 \quad $ y $\dfrac{x y^2 + 8}{y^2} = 0 $
+            $ \Longrightarrow \dfrac{x^2 y - 1}{x^2} = 0 \quad $ y $ \quad \dfrac{x y^2 + 8}{y^2} = 0 $
 
             De esta manera se tiene el siguiente sistema de ecuaciones
             \begin{align}
@@ -165,14 +165,19 @@
             Así, $ \left( -\dfrac{1}{2}, 4 \right) $ es un punto crítico de $ f $.
 
             Luego, 
-            \begin{align}
+            \begin{align*}
                 D \left( -\dfrac{1}{2}, 4 \right) &= \left( \derivadaparcialn{f}{x}{2} \left( -\dfrac{1}{2}, 4 \right) \right) \left( \derivadaparcialn{f}{y}{2} \left( -\dfrac{1}{2}, 4 \right) \right) - \left( \derivadaparcialnd{f}{x}{y} \left( -\dfrac{1}{2}, 4 \right) \right)^2 \\
                 &= \left( \dfrac{2}{\left( -\frac{1}{2} \right)^3} \right) \left( - \dfrac{16}{4^3} \right) - 1^2 \\
                 &= (-16) \left( - \dfrac{1}{4} \right) - 1 \\
                 &= 4 - 1 \\
                 &= 3 > 0
-            \end{align}
+            \end{align*}
             Y como $ \derivadaparcialn{f}{x}{2} \left( -\dfrac{1}{2}, 4 \right) = -16 < 0 $ entonces $ \left( -\dfrac{1}{2}, 4 \right) $ es un punto de máximo local de $ f $.
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[height = 5cm]{Tercero.png}
+            \end{figure}
 
 %-----------Inciso d) del Ejercicio 1---------------------------------------------------------------------------------
             \item $ f(x,y) = e^x \cos (y) $.
@@ -181,24 +186,13 @@
 
             Calculando las primeras y segundas derivadas parciales:
             \begin{align*}
-                \derivadaparcial{f}{x} &=  e^x \cos (y)
+                \derivadaparcial{f}{x} &=  e^x \cos (y) \qquad & \derivadaparcial{f}{y} &= -e^x \sen (y) \\
+                \derivadaparcialn{f}{x}{2} &= e^x \cos (y) & \derivadaparcialn{f}{y}{2} &= -e^x \cos (y) \\
+                \derivadaparcialnd{f}{x}{y} &= -e^x \sen (y) = \derivadaparcialnd{f}{y}{x}
             \end{align*}
-            \begin{align*}
-                \derivadaparcial{f}{y} &=  -e^x \sen (y)
-            \end{align*}
-            \begin{align*}
-                \derivadaparcialn{f}{x}{2} &= e^x \cos (y)
-            \end{align*}
-            \begin{align*}
-                \derivadaparcialn{f}{y}{2} &= -e^x \cos (y)
-            \end{align*}
-            \begin{align}
-                \derivadaparcialnd{f}{x}{y} = -e^x \sen (y) = \derivadaparcialnd{f}{y}{x}
-            \end{align}
-           
             Calculando los puntos críticos de la función:
 
-            $ \derivadaparcial{f}{x} = 0 \quad $ y $ \derivadaparcial{f}{y} = 0 $
+            $ \derivadaparcial{f}{x} = 0 \quad $ y $ \quad \derivadaparcial{f}{y} = 0 $
 
             $ \Longrightarrow e^x \cos (y) = 0 \quad $ y $ \quad -e^x \sen (y) = 0 $
 
@@ -251,7 +245,7 @@
 
             Asi, el conjunto $ C = \left\lbrace (x,y) \in \mathbb{R}^2 \talque x = 0, y = k \pi \text{ con } k \in \mathbb{N} \right\rbrace $ contiene a todos los puntos críticos de la función $ f $.
 
-            Ahora, si $ (x,y) \in C $ entonces $ f(x,y) = 0 $. Pero para $ (x,y) = (1, \dfrac{\pi}{2}) $, $ f(x,y) = 1 $ y para $ (x,y) = (-1, \dfrac{\pi}{2}) $, $ f(x,y) = -1 $. Debido a esto, los puntos del conjunto $ C $ no son máximos ni mínimos locales, es decir, son puntos silla.
+            Ahora, si $ (x,y) \in C $ entonces $ f(x,y) = 0 $. Pero para $ (x,y) = \left( 1, \dfrac{\pi}{2} \right) $, $ f(x,y) = 1 $ y para $ (x,y) = \left( 1, \dfrac{\pi}{2} \right) $, $ f(x,y) = -1 $. Debido a esto, los puntos del conjunto $ C $ no son máximos ni mínimos locales, es decir, son puntos silla.
             
             \begin{figure}[h]
                 \centering
@@ -290,24 +284,36 @@
 %-----------Inciso b) del Ejercicio 2---------------------------------------------------------------------------------
             \item $ f(x,y) = 1 + xy - x - y, \, D $ es la región acotada por la parábola $ y = x^2 $ y la recta $ y = 4 $.
 
-            \textbf{Solución.}
+            % \textbf{Solución.}
+
+            % Sea $ (x,y) \in D $. Como $ D $ está acotada por $ y = x^2 $ y $ y \leq 4 $ (pues $ D $ también está acotada por la recta $ y = 4 $), se tiene que $ 0 \leq y \leq 4 $. Así, $ D = \left\lbrace (x,y) \in \mathbb{R}^2 \talque 0 \leq y \leq 4 \text{\; y \;} x^2 - y \leq 0 \right\rbrace $. 
+
+            % Luego, sean $ g(x,y) = y \, $ y $ \, h(x,y) = x^2 - y $ se sabe que
             
-            $ \nabla f = \lambda \nabla y $
+            % $ \nabla f = \lambda \nabla g + \alpha \nabla h $
+
+            % $ \Longrightarrow (y - 1, x - 1) = \lambda (0, 1) + \alpha (2x, -1) $
+            % \begin{align}
+            %     \Longrightarrow \; & y - 1 = 2 \alpha x \label{eq:2b1} \\
+            %     & x - 1 = \lambda - \alpha \label{eq:2b2} \\
+            %     & 0 \leq y \leq 4 \label{eq:2b3} \\
+            %     & x^2 - y \leq 0 \label{eq:2b4}
+            % \end{align}
+
 
 %-----------Inciso c) del Ejercicio 2---------------------------------------------------------------------------------
             \item $ f(x,y) = 2x^3 + y^4, \, D = \left\lbrace (x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \right\rbrace $.
 
-            \textbf{Solución.}
+            % \textbf{Solución.}
             
-            $ \nabla f = \lambda \nabla (x^2 + y^2) $
+            % $ \nabla f = \lambda \nabla (x^2 + y^2) $
 
-            $ \Longrightarrow (6x^2, 4y^3) = \lambda (2x, 2y) $
-            \begin{align}
-                \Longrightarrow & 6x^2 = 2 \lambda x \\
-                & 4y^3 = 2 \lambda y \\
-                & x^2 + y^2 \leq 1
-            \end{align}
-            
+            % $ \Longrightarrow (6x^2, 4y^3) = \lambda (2x, 2y) $
+            % \begin{align}
+            %     \Longrightarrow & 6x^2 = 2 \lambda x \\
+            %     & 4y^3 = 2 \lambda y \\
+            %     & x^2 + y^2 \leq 1
+            % \end{align}
             
             
         \end{enumerate}
@@ -326,13 +332,17 @@
 
         Como la raíz cuadrada es una función creciente entonces basta con encontrar el mínimo absoluto de $ (x + 4)^2 + (y - 1)^2 + (y - 2x - 2)^2 $.
 
-        Así, sea $ g(x,y) = (x + 4)^2 + (y - 1)^2 + (y - 2x - 2)^2 $. Calculando los puntos críticos de la función, se tiene que
+        Así, sea $ g(x,y) = (x + 4)^2 + (y - 1)^2 + (y - 2x - 2)^2 $. Calculando las primeras y segundas derivadas parciales:
 
-        $ \derivadaparcial{g}{x} = 2(x + 4) - 4(y - 2x - 2) = 0 \quad $ y $ \quad \derivadaparcial{g}{y} = 2(y - 1) + 2(y - 2x - 2) = 0 $
+        \begin{align*}
+            & \derivadaparcial{g}{x} =  2(x + 4) - 4(y - 2x - 2) = 2x + 8 - 4y + 8x + 8 = 10x - 4y + 16 \\
+            & \derivadaparcial{g}{y} = 2(y - 1) + 2(y - 2x - 2) = 2y - 2 + 2y - 4x - 4 = -4x + 4y - 6 \\
+            & \derivadaparcialn{g}{x}{2} = 10 \qquad \derivadaparcialn{g}{y}{2} = 4 \\
+            & \derivadaparcialnd{g}{x}{y} = -4 = \derivadaparcialnd{g}{y}{x}
+        \end{align*}
+        Calculando los puntos críticos de la función:
 
-        $ \Longrightarrow 2(x + 4) - 4(y - 2x - 2) = 0 \quad $ y $ \quad 2(y - 1) + 2(y - 2x - 2) = 0 $
-
-        $ \Longrightarrow 2x + 8 - 4y + 8x + 8 = 0 \quad $ y $ \quad 2y - 2 + 2y - 4x - 4 = 0 $
+        $ \derivadaparcial{g}{x} = 0 \quad $ y $ \quad \derivadaparcial{g}{y} = 0 $
 
         $ \Longrightarrow 10x - 4y + 16 = 0 \quad $ y $ \quad -4x + 4y - 6 = 0 $
 
@@ -343,36 +353,79 @@
         \end{align}
         Sumando (\ref{eq:41}) y (\ref{eq:42}): $ 6x = -10 \Longrightarrow x = -\dfrac{5}{3} $. Sustituyendo en (\ref{eq:42}) se tiene que $ -4 \left( -\dfrac{5}{3} \right) + 4y = 6 \Longrightarrow 4y = 6 - \dfrac{20}{3} \Longrightarrow y = -\dfrac{2}{12} = -\dfrac{1}{6} $
 
-        Por lo tanto, $ \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) $ es un punto crítico de $ g $.
+        Así, $ \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) $ es un punto crítico de $ g $. Luego,
+        \begin{align*}
+            D \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) &= \left( \derivadaparcialn{g}{x}{2} \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) \right) \left( \derivadaparcialn{g}{y}{2} \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) \right) - \left( \derivadaparcialnd{g}{x}{y} \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) \right)^2 \\
+            &= (10)(4) - (-4)^2 \\
+            &= 40 - 16 \\
+            &= 24 > 0
+        \end{align*}
+        Y como $ \derivadaparcialn{g}{x}{2} \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) = 10 > 0 $, $ g $ tiene un punto mínimo en $ \left( -\dfrac{5}{3}, -\dfrac{1}{6} \right) $. Después,
+        \begin{align*}
+            \sqrt{\left( -\dfrac{5}{3} + 4 \right)^2 + \left( -\dfrac{1}{6} - 1 \right)^2 + \left( -\dfrac{1}{6} - 2 \left( -\dfrac{5}{3} \right) - 2 \right)^2} &= \sqrt{\left( \dfrac{7}{3} \right)^2 + \left( -\dfrac{7}{6} \right)^2 + \left( \dfrac{7}{6} \right)^2} \\
+            &= \sqrt{\dfrac{49}{9} + \dfrac{49}{36} + \dfrac{49}{36}} \\
+            &= \sqrt{\dfrac{294}{36}} \\
+            &= \dfrac{7 \sqrt{6}}{6}
+        \end{align*}
+        Por lo tanto la distancia mínima entre el punto del plano $ 2x - y + z = 1 $ al punto $ (-4,1,3) $ es $ \dfrac{7 \sqrt{6}}{6} $.
 
 %-------Ejercicio 4---------------------------------------------------------------------------------------------------
         \item Encontrar el punto de la superficie $ x^2 y^2 z = 1 $ que sea más cercano al origen.
         
-        
-%-------Ejercicio 5---------------------------------------------------------------------------------------------------
-        \item Encontrar tres números positivos cuya suma sea 100 y cuyo producto sea mínimo.
-    
+        \textbf{Solución.}
 
-%-------Ejercicio 6---------------------------------------------------------------------------------------------------
-        \item Encontrar el volumen de la mayor caja rectangular con bordes paralelos a los ejes que pueda estar inscrita en el elipsoide $ 9x^2 + 36y^2 + 4z^2 = 36 $.
-        
+        Sea $ (x,y,z) $ un punto de la superficie $ 2x^2 y^2 z = 1 $ entonces la distancia entre este punto y el origen esta dada por 
 
-%-------Ejercicio 7---------------------------------------------------------------------------------------------------
-        \item Encontrar las dimensiones de la caja rectangular con máximo volumen y área superficial total de 64 cm$ ^2 $.
-        
+        $ \sqrt{x^2 + y^2 + z^2} $
 
-%-------Ejercicio 8---------------------------------------------------------------------------------------------------
-        \item La base de una pecera con volumen $ V $ dado esta hecha de pizarra y, los lados, de vidrio. Si la pizarra cuesta 5 veces (por unidad de área) más que el vidrio encontrar las dimensiones de la pecera que reduzca al mínimo el costo de los materiales.
-        
+        Luego, de la ecuación de la superficie $ 2x^2 y^2 z = 1 $ se tiene que $ z = \dfrac{1}{2x^2 y^2} $. Sustituyendo esto en la expresión anterior se tiene que
 
-%-------Ejercicio 9---------------------------------------------------------------------------------------------------
-        \item Tres alelos (formas mutantes de genes) A, B y O, determinan los cuatro tipos sanguíneos A (AA o AO), B (BB o BO), O (OO) y AB. La ley de Hardy-Weinberg expresa que la proporción de individuos en una población que llevan los alelos diferentes es
-        $$ P = 2pq + 2rp + 2rq $$
-        donde $ p, q, r $ son las proporciones de $ A, B, O $ en la población. Utilizar el hecho de que $ p + q + r = 1 $ para demostrar que $ P $ es, a lo sumo $ \frac{2}{3} $.
+        $ \sqrt{x^2 + y^2 + \left( \dfrac{1}{2x^2 y^2} \right)^2} = \sqrt{x^2 + y^2 + \dfrac{1}{4x^4 y^4}} $
 
+        Como la raíz cuadrada es una función creciente entonces basta con encontrar el mínimo absoluto de $ x^2 + y^2 + \dfrac{1}{4x^4 y^4} $.
 
-%-------Ejercicio 10--------------------------------------------------------------------------------------------------
-        \item Encontrar la ecuación del plano que pasa por el punto (1,2,3) y determina el volumen más pequeño en el primer octante.
-        
+        Así, sea $ h(x,y) = x^2 + y^2 + \dfrac{1}{4x^4 y^4} $. Calculando las primeras y segundas derivadas parciales:
+        \begin{align*}
+            & \derivadaparcial{h}{x} = 2x - \dfrac{16x^3 y^4}{(4x^4 y^4)^2} = 2x - \dfrac{1}{x^5 y^4} \\
+            & \derivadaparcial{h}{y} = 2y - \dfrac{16x^4 y^3}{(4x^4 y^4)^2} = 2y - \dfrac{1}{x^4 y^5} \\
+            & \derivadaparcialn{h}{x}{2} = 2 + \dfrac{5x^4 y^4}{(x^5 y^4)^2} = 2 + \dfrac{5}{x^6 y^4} \\
+            & \derivadaparcialn{h}{y}{2} = 2 + \dfrac{5x^4 y^4}{(x^4 y^5)^2} = 2 + \dfrac{5}{x^4 y^6} \\
+            & \derivadaparcialnd{h}{x}{y} = \dfrac{4x^5 y^3}{(x^5 y^4)^2} = \dfrac{4}{x^5 y^5} = \dfrac{4x^3 y^5}{(x^4 y^5)^2} = \derivadaparcialnd{h}{y}{x}
+        \end{align*}
+        Buscando los puntos críticos de la función:
+
+        $ \derivadaparcial{h}{x} = 0 \quad $ y $ \quad \derivadaparcial{h}{y} = 0 $
+
+        $ \Longrightarrow 2x - \dfrac{1}{x^5 y^4} = 0 \quad $ y $ \quad 2y - \dfrac{1}{x^4 y^5} = 0 $
+
+        $ \Longrightarrow \dfrac{2x^6 y^4 - 1}{x^5 y^4} = 0 \quad $ y $ \quad \dfrac{2x^4 y^6 - 1}{x^4 y^5} = 0 $
+
+        $ \Longrightarrow 2x^6 y^4 - 1 = 0 \quad $ y $ \quad 2x^4 y^6 - 1 = 0 $
+
+        $ \Longrightarrow 2x^6 y^4 = 1 \quad $ y $ \quad 2x^4 y^6 = 1 $
+
+        $ \Longrightarrow 2x^6 y^4 = 2x^4 y^6 $
+
+        $ \Longrightarrow x^2 = y^2 $
+
+        $ \Longrightarrow x = y \quad $ o $ \quad x = -y $
+
+        Si $ x = y $ entonces $ 2x^6 y^4 = 2x^{10} = 1 \Longrightarrow x = \dfrac{1}{\sqrt[10]{2}} = y $.
+
+        Si $ x = -y $ entonces $ 2(-y)^6 y^4 = -2y^{10} = 1 $. Pero no hay algún número real que cumpla esta igualdad.
+
+        De esta forma, $ \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) $ es un punto crítico de $ h $. Luego,
+        \begin{align*}
+            D \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) &= \left( \derivadaparcialn{h}{x}{2} \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) \right) \left( \derivadaparcialn{h}{y}{2} \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) \right) - \\
+            & \quad \left( \derivadaparcialnd{h}{x}{y} \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) \right)^2 \\
+            &= (12)(12) - (8)^2 \\
+            &= 144 - 64 \\
+            &= 80 > 0
+        \end{align*}
+        Y como $ \derivadaparcialn{h}{x}{2} \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) = 12 > 0 $, $ h $ tiene un punto mínimo en $ \left( \dfrac{1}{\sqrt[10]{2}}, \dfrac{1}{\sqrt[10]{2}} \right) $. Después,
+        \begin{align*}
+            \sqrt{\left( \dfrac{1}{\sqrt[10]{2}} \right)^2 + \left( \dfrac{1}{\sqrt[10]{2}} \right)^2 + \dfrac{1}{4 \left( \frac{1}{\sqrt[10]{2}} \right)^4 \left( \frac{1}{\sqrt[10]{2}} \right)^4}} = \left( \sqrt[10]{2} \right)^4
+        \end{align*}
+        Por lo tanto la distancia mínima entre un punto de la superficie al origen es $ \left( \sqrt[10]{2} \right)^4 $.
     \end{enumerate}
 \end{document}
