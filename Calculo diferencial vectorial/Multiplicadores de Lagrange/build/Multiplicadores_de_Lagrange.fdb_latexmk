@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1669681340 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Multiplicadores de Lagrange/Multiplicadores_de_Lagrange.tex" "build/Multiplicadores_de_Lagrange.pdf" "Multiplicadores_de_Lagrange" 1669681351
+["pdflatex"] 1669805240 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Multiplicadores de Lagrange/Multiplicadores_de_Lagrange.tex" "build/Multiplicadores_de_Lagrange.pdf" "Multiplicadores_de_Lagrange" 1669805246
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1669523685 220302 a5742fb6b2c622bc349e21bad2f6ec8d ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1656202269 10326951 4c20795a0ba3dfbd8250d5bdd3ba6426 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc" 1608341204 3077 b2cad32a5770ecfa23227387c44f86cc ""
@@ -41,6 +41,7 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/scholax/TeXGyreScholaX-Regular-tlf-ot1G.tfm" 1577487739 3536 b475caee769b33a64f30b565214f3364 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/scholax/zncfmi.tfm" 1590969204 3400 2eb3c7ce41ae263ba56582e81769d75d ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/scholax/zncfmia.tfm" 1616476051 2208 063a8839e18df57e1208c2b74548ddb1 ""
+  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb" 1572037323 32409 eee1344d05b8bec92e60a2ec9a7f49e3 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb" 1620675894 33424 8b2b99d9d7571201cc7eece13c492c55 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb" 1634840349 56686 3d6d86b0a770bb2c243f4c4351685fc2 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb" 1568320140 40320 2f25747178fd77dc1d402345c8ce5bfc ""
@@ -136,9 +137,9 @@
   "Ejercicio e1.jpg" 1669674124 2266322 92b7eb8ac1a890aa45f49401a1d47e65 ""
   "Ejercicio e2.jpg" 1669674140 2520951 e018cb335fb9b7c87af17f97ec43f3a8 ""
   "Ejercicio e3.jpg" 1669674152 1159009 75657994a9eb1bbecb247191293c86db ""
-  "Multiplicadores_de_Lagrange.tex" 1669681335 18866 75eb621bdcf4f87fb82e1f386d9f0956 ""
-  "build/Multiplicadores_de_Lagrange.aux" 1669681350 664 2fbdacbb77f4bb3b789cdfc93df2a9d7 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Multiplicadores de Lagrange/Multiplicadores_de_Lagrange.tex" 1669681335 18866 75eb621bdcf4f87fb82e1f386d9f0956 ""
+  "Multiplicadores_de_Lagrange.tex" 1669805228 17179 067075cc0ad394f83c34e3b1f2bfcf90 ""
+  "build/Multiplicadores_de_Lagrange.aux" 1669805245 582 aac7fe8f2ecd786f9bb4ede3388db344 "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Multiplicadores de Lagrange/Multiplicadores_de_Lagrange.tex" 1669805228 17179 067075cc0ad394f83c34e3b1f2bfcf90 ""
   (generated)
   "build/Multiplicadores_de_Lagrange.aux"
   "build/Multiplicadores_de_Lagrange.log"

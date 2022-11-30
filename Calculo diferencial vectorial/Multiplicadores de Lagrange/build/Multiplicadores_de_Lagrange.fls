@@ -704,26 +704,6 @@ INPUT .\Ejercicio e3.jpg
 INPUT .\Ejercicio e3.jpg
 INPUT .\Ejercicio e3.jpg
 INPUT .\Ejercicio e3.jpg
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-osf-t1.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-osf-t1.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy.vf
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\zncfmi.vf
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXFourierMI.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXMathMI.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\zncfmi.vf
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXFourierMI.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXMathMI.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\zncfmia.vf
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXFourierMR.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaSTbb.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXMathRM.tfm
 INPUT c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Multiplicadores de Lagrange\build\Multiplicadores_de_Lagrange.aux
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\scholax\zcs_72zhkj.enc
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\scholax\zcs_fn6vum.enc
@@ -732,6 +712,8 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXFourierMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXMathMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXMathMI.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\TeXGyreScholaX-Bold.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\TeXGyreScholaX-Bold.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\TeXGyreScholaX-Regular.pfb

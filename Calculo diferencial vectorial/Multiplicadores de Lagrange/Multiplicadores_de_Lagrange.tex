@@ -166,30 +166,6 @@ Nombre: Osmar Dominique Santana Reyes \hfill No. de cuenta: $ 2125197 $
     \end{enumerate}
 
     \normalfont
-%---Ejercicio 2----------------------------------------------------------------------------------------------------------
-    \item $ \mathbf{2.} $ Encontrar los valores máximo y mínimo absolutos de $ f $ en la región descrita por la desigualdad:
-    
-    \begin{enumerate}[a)]
-%-------Inciso a) del Ejercicio 2----------------------------------------------------------------------------------------
-        \item $ f(x,y) = 2x^2 + 3y^2 - 4x - 5 $; \; $ x^2 + y^2 \leq 16 $
-        
-        \textbf{Solución.}
-
-%-------Inciso b) del Ejercicio 2----------------------------------------------------------------------------------------
-        \item $ f(x,y) = e^{-xy} $; \; $ x^2 + 4y^2 \leq 1 $
-        
-        \textbf{Solución.}
-
-        $ \nabla f = \lambda \nabla (x^2 + 4y^2) $
-
-        $ \Longrightarrow (-y e^{-xy}, -x e^{-xy}) = \lambda (2x, 8y) $
-        \begin{align}
-            \Longrightarrow \; & -y e^{-xy} = 2 \lambda x \label{eq:2b1} \\
-            & -x e^{-xy} = 8 \lambda y \label{eq:2b2} \\
-            &  x^2 + 4y^2 \leq 1 \label{eq:2b3}
-        \end{align}
-
-    \end{enumerate}
 
 %---Ejercicio 3----------------------------------------------------------------------------------------------------------
     \item $ \mathbf{3.} $ Usa multiplicadores de Lagrange para demostrar que el rectángulo con máxima área, que tiene un perímetro dado $ p $ es un cuadrado.
@@ -210,66 +186,46 @@ Nombre: Osmar Dominique Santana Reyes \hfill No. de cuenta: $ 2125197 $
 
     Por lo tanto, el rectángulo alcanza su máxima área cuando la longitud de su base y altura son iguales, es decir, cuando es un cuadrado cuyos lados tienen una medida de un cuarto de su perímetro.
 
-%---Ejercicio 4----------------------------------------------------------------------------------------------------------
-    \item $ \mathbf{4.} $ Encuentra los volúmenes máximo y mínimo de una caja rectangular cuya superficie tiene un área de $ 1500 \text{ cm}^2 $ y para la cual la longitud total de las aristas es de $ 200 $ cm.
-    
-    \textbf{Solución.}
-
-    Sean $ x,y,z $ el largo, el ancho y la altura de la caja, respectivamente; $ V(x,y,z) = xyz $ el volumen de la caja, $ A(x,y,z) = 2xy + 2yz + 2xz = 1500 $ su área superficial y $ L(x,y,z) = 4x + 4y + 4z = 200 $ la longitud total de las aristas. Usando multiplicadores de Lagrange se tiene que
-
-    $ \nabla V = \alpha \nabla A + \lambda \nabla L $
-
-    $ \Longrightarrow (yz, xz, xy) = \alpha (2y + 2z, 2x + 2z, 2y + 2x) + \lambda (4,4,4) $
-    \begin{align}
-        \Longrightarrow & yz = 2 \alpha y + 2 \alpha z + 4 \lambda \label{eq:41} \\
-        & xz = 2 \alpha x + 2 \alpha z + 4 \lambda \label{eq:42} \\
-        & xy = 2 \alpha y + 2 \alpha x + 4 \lambda \label{eq:43} \\
-        & 2xy + 2yz + 2xz = 1500 \Longrightarrow xy + yz + xz = 750 \label{eq:44} \\
-        & 4x + 4y + 4z = 200 \Longrightarrow x + y + z = 50 \label{eq:45}
-    \end{align}
-
-
-
 %---Ejercicio 5----------------------------------------------------------------------------------------------------------
     \item $ \mathbf{5.} $ El plano $ x + y + 2z = 2 $ intersecta al paraboloide $ z = x^2 + y^2 $ en una elipse. Encontrar los puntos de esta elipse que estan más cerca y más lejos del origen.
     
-%---Ejercicio 6----------------------------------------------------------------------------------------------------------
-    \item $ \mathbf{6.} $ 
+    \textbf{Solución.}
+
+    Sea $ (x,y,z) $ un punto del plano $ x + y + 2z = 2 $ y el paraboloide $ z = x^2 + y^2 $ entonces la distancia entre este punto y el origen esta dada por 
+
+    $ \sqrt{x^2 + y^2 + z^2} $
+
+    Como la raíz cuadrada es una función creciente, basta con encontrar los extremos locales de $ x^2 + y^2 + z^2 $. Luego, usando Multiplicadores de Lagrange
+
+    $ \nabla (x^2 + y^2 + z^2) = \alpha \nabla (x + y + 2z) + \lambda \nabla (x^2 + y^2 - z) $
+
+    $ \Longrightarrow (2x, 2y, 2z) = \alpha (1, 1, 2) + \lambda (2x, 2y, -1) $
+    \begin{align}
+        \Longrightarrow & 2x = \alpha + 2 \lambda x \label{eq:51} \\
+        & 2y = \alpha + 2 \lambda y \label{eq:52} \\
+        & 2z = 2 \alpha - \lambda \label{eq:53} \\
+        & x + y + 2z = 2 \label{eq:54} \\
+        & z = x^2 + y^2 \label{eq:55}
+    \end{align}
+    Si $ \lambda = 1 $ entonces, por (\ref{eq:51}), $ \alpha = 0 $. Luego, por (\ref{eq:53}), se tiene que $ 2z = -1 \Longrightarrow z = - \dfrac{1}{2} $. Después en (\ref{eq:54}) se da que $ x + y = 3 \Longrightarrow y = 3 - x $. Y de (\ref{eq:55}), se obtiene que $ - \dfrac{1}{2} = x^2 + (3 - x)^2 = x^2 + 9 - 6x + x^2 \Longrightarrow 2x^2 - 6x = - \dfrac{19}{2} \Longrightarrow x^2 - 3x + \dfrac{19}{4} = 0 $. Pero como $ (-3)^2 - 4(1) \left( \dfrac{19}{4} \right) = -10 < 0 $, se tiene que $ x $ no existe como número real. De esta manera, $ \lambda \neq 1 $.
+    \begin{itemize}
+        \item Si $ x = 0 $ entonces, por (\ref{eq:51}), $ \alpha = 0 $. Sustituyendo en (\ref{eq:52}) se tiene que $ y = \lambda y $.
+        
+        Como $ y = \lambda y $ y $ \lambda \neq 1 $ se tiene que $ y = 0 $. Asi, de (\ref{eq:55}), $ z = 0 $. Y por (\ref{eq:54}) $ 0 = 2 $, lo cual no puede ser. De esta forma, $ x \neq 0 $, y de forma analoga, $ y \neq 0 $.
+    \end{itemize}
     
-    \begin{enumerate}[a)]
-%-------Inciso a) del Ejercicio 6----------------------------------------------------------------------------------------
-        \item Encontrar el máximo valor de 
-        $$ f(x_1, x_2, \ldots , x_n) = \sqrt[n]{\displaystyle x_1 x_2 \cdots x_n} $$
-        dado que $ x_1, x_2, \ldots , x_n $ son números positivos y que $ x_1 + x_2 + \cdots + x_n = c $ donde $ c $ es una constante.
+    Ahora, por (\ref{eq:51}) y (\ref{eq:52}), se obtiene que $ 2x - 2 \lambda x = \alpha = 2y - 2 \lambda y \Longrightarrow x(1 - \lambda) = y (1 - \lambda) \Longrightarrow x = y $.
 
+    Posteriormente, de (\ref{eq:55}): $ z = 2x^2 \Longrightarrow x = \sqrt{\dfrac{z}{2}} $ o $ x = - \sqrt{\dfrac{z}{2}} $.
 
-%-------Inciso b) del Ejercicio 6----------------------------------------------------------------------------------------
-        \item Deducir del inciso a) que si $ x_1, x_2, \ldots , x_n $ son números positivos, entonces 
-        $$ \sqrt[n]{\displaystyle x_1 x_2 \cdots x_n} = \dfrac{x_1 + x_2 + \cdots + x_n}{n} $$
-        Note que esta desigualdad dice que la media geométrica de $ n $ números no es más grande que la media geométrica de los números. ¿Bajo qué circunstancias estas dos medias son iguales entre sí?
+    Si $ x = \sqrt{\dfrac{z}{2}} $ entonces, por (\ref{eq:54}), $ 2 \sqrt{\dfrac{z}{2}} + 2z = 2 \Longrightarrow \sqrt{\dfrac{z}{2}} = 1 - z \Longrightarrow \dfrac{z}{2} = 1 - 2z + z^2 \Longrightarrow 2z^2 - 5z + 1 = 0 \Longrightarrow (z-2) \left( z - \dfrac{1}{2} \right) = 0 \Longrightarrow z = \dfrac{1}{2} $ o $ z = 2 $.
 
-    \end{enumerate}
-    
-%---Ejercicio 7----------------------------------------------------------------------------------------------------------
-    \item $ \mathbf{7.} $ 
-    
-    \begin{enumerate}
-%-------Inciso a) del Ejercicio 7----------------------------------------------------------------------------------------
-        \item Maximizar 
-        $$ \sum_{i = 1}^{n} x_i y_i $$
-        sujeta a las restricciones
+    Por lo tanto, se obtienen los puntos $ \left( \dfrac{1}{2}, \dfrac{1}{2}, \dfrac{1}{2} \right) $ y $ (-1,-1,2) $. Evaluandolos en $ \sqrt{x^2 + y^2 + z^2} $ se obtiene que
 
-        $ \displaystyle \sum_{i = 1}^{n} x_i^2 = 1 \quad $ y $ \displaystyle \quad \sum_{i = 1}^{n} y_i^2 = 1 $
+    $ \sqrt{\left( \dfrac{1}{2} \right)^2 + \left( \dfrac{1}{2} \right)^2 + \left( \dfrac{1}{2} \right)^2} = \dfrac{\sqrt{3}}{2} $
 
+    $ \sqrt{(-1)^2 + (-1)^2 + 2^2} = \sqrt{6} $
 
-%-------Inciso b) del Ejercicio 7----------------------------------------------------------------------------------------
-        \item Haga 
-            
-        $ x_i = \dfrac{a_i}{\sqrt{\displaystyle \sum_{i = 1}^{n} a_i^2}} \quad $ y $ \quad x_i = \dfrac{b_i}{\sqrt{\displaystyle \sum_{i = 1}^{n} b_i^2}} $
-
-        para demostrar que 
-        $$ \sum_{i = 1}^{n} a_i b_i \leq \sqrt{\displaystyle \sum_{i = 1}^{n} a_i^2} \sqrt{\displaystyle \sum_{i = 1}^{n} b_i^2} $$
-        para cualesquiera números $ a_1, a_2, \ldots , a_n, b_1, b_2, \ldots , b_n $. Esta desigualdad se conoce como la desigualdad de Cauchy-Schwarz.
-    \end{enumerate}
+    En conclusión, el punto $ \left( \dfrac{1}{2}, \dfrac{1}{2}, \dfrac{1}{2} \right) $ está más cerca del origen y el punto $ (-1,-1,2) $ es el más lejano.
 \end{list}
 \end{document}

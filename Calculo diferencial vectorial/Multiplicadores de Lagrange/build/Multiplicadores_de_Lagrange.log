@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  28 NOV 2022 18:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  30 NOV 2022 04:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -734,27 +734,27 @@ File: Ejercicio e3.jpg Graphic file (type jpg)
 <use Ejercicio e3.jpg>
 Package pdftex.def Info: Ejercicio e3.jpg  used on input line 165.
 (pdftex.def)             Requested size: 451.23468pt x 144.07942pt.
- [7 <./Ejercicio e2.jpg>]
-LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 8.8pt on input line 214.
-LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 214.
- [8 <./Ejercicio e3.jpg>] [9] [10] (c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Multiplicadores de Lagrange\build\Multiplicadores_de_Lagrange.aux
+ [7 <./Ejercicio e2.jpg>] [8 <./Ejercicio e3.jpg>]
+Overfull \hbox (1.38525pt too wide) in paragraph at lines 223--224
+[]\T1/TeXGyreScholaX-OsF/m/n/12 Por lo tan-to, se ob-tie-nen los pun-tos $[]$ y $\LMS/ntxsy/m/n/12 ¹^^@\OT1/TeXGyreScholaX-TLF/m/n/12 1\OML/zncfmi/m/it/12 ; \LMS/ntxsy/m/n/12 ^^@\OT1/TeXGyreScholaX-TLF/m/n/12 1\OML/zncfmi/m/it/12 ; \OT1/TeXGyreScholaX-TLF/m/n/12 2\LMS/ntxsy/m/n/12 º$\T1/TeXGyreScholaX-OsF/m/n/12 . Eva-luan-do-los en $[]$
+ []
+
+[9] (c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Multiplicadores de Lagrange\build\Multiplicadores_de_Lagrange.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 9045 strings out of 478354
- 139753 string characters out of 2836174
- 473809 words of memory out of 3000000
- 27242 multiletter control sequences out of 15000+600000
- 511498 words of font info for 104 fonts, out of 8000000 for 9000
+ 9030 strings out of 478354
+ 139605 string characters out of 2836174
+ 473780 words of memory out of 3000000
+ 27241 multiletter control sequences out of 15000+600000
+ 501419 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,10n,67p,726b,464s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_72zhkj.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_fn6vum.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc}<C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXFourierMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXMathMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Multiplicadores de Lagrange\build\Multiplicadores_de_Lagrange.pdf" (10 pages, 15149094 bytes).
+{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_72zhkj.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_fn6vum.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc}<C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXFourierMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXMathMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Multiplicadores de Lagrange\build\Multiplicadores_de_Lagrange.pdf" (9 pages, 15147919 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
