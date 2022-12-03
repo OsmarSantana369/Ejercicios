@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  1 DEC 2022 23:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.25)  2 DEC 2022 23:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -717,22 +717,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
-[4] (c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Identidades\build\Identidades_vectoriales.aux
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 355--357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--447
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 460--462
+
+ []
+
+[7] (c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Identidades\build\Identidades_vectoriales.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
  8941 strings out of 478354
  137347 string characters out of 2836174
- 464674 words of memory out of 3000000
+ 467674 words of memory out of 3000000
  27161 multiletter control sequences out of 15000+600000
  501937 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,17n,67p,634b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_fn6vum.enc}<C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/NCXMathMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Identidades\build\Identidades_vectoriales.pdf" (4 pages, 94909 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Calculo diferencial vectorial\Identidades\build\Identidades_vectoriales.pdf" (7 pages, 106636 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

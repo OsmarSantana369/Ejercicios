@@ -190,12 +190,172 @@
             &= f \derivadaparcial{g_1}{x_1} + g_1 \derivadaparcial{f}{x_1} + f \derivadaparcial{g_2}{x_2} + g_2 \derivadaparcial{f}{x_2} + \cdots + f \derivadaparcial{g_n}{x_n} + g_n \derivadaparcial{f}{x_n}
         \end{align*}
         \begin{align*}
-            &= f \left( \derivadaparcial{g_1}{x_1} + \derivadaparcial{g_2}{x_2} + \cdots + \derivadaparcial{g_n}{x_n} \right) + g_1 \derivadaparcial{f}{x_1} + g_2 \derivadaparcial{f}{x_2} + \cdots + g_n \derivadaparcial{f}{x_n} \\
+            \qquad \qquad & = f \left( \derivadaparcial{g_1}{x_1} + \derivadaparcial{g_2}{x_2} + \cdots + \derivadaparcial{g_n}{x_n} \right) + g_1 \derivadaparcial{f}{x_1} + g_2 \derivadaparcial{f}{x_2} + \cdots + g_n \derivadaparcial{f}{x_n} \\
             &= f \dive F + \nabla f F
         \end{align*}
         Por lo tanto, $ \dive (fF) = f \dive F + \nabla f F $. \\
 
-        \item[11.] $ \rot (f F) = f \rot F + \nabla f \times F $
+        \item $ \mathbf{\dive (F \times G) = G \cdot \rot F - F \cdot \rot G} $
+        
+        \textbf{Solución.}
+        \begin{align*}
+            \dive (F \times G) &= \dive \left\lvert 
+            \begin{matrix}
+                \widehat{i} & \widehat{j} & \widehat{k} \vspace{1mm} \\
+                f_1 & f_2 & f_3 \vspace{1mm} \\
+                g_1 & g_2 & g_3
+            \end{matrix} \right\rvert \\
+            &= \dive \left( \left\lvert 
+            \begin{matrix}
+                f_2 & f_3 \vspace{1mm} \\
+                g_2 & g_3
+            \end{matrix} \right\rvert \widehat{i} - \left\lvert 
+            \begin{matrix}
+                f_1 & f_3 \vspace{1mm} \\
+                g_1 & g_3
+            \end{matrix} \right\rvert \widehat{j} + \left\lvert 
+            \begin{matrix}
+                f_1 & f_2 \vspace{1mm} \\
+                g_1 & g_2
+            \end{matrix} \right\rvert \widehat{k} \right) \\
+            &= \dive \left[ (f_2 g_3 - f_3 g_2) \widehat{i} - (f_1 g_3 - f_3 g_1) \widehat{j} + (f_1 g_2 - f_2 g_1) \widehat{k} \right] \\
+            &= \dive \left( f_2 g_3 - f_3 g_2, f_3 g_1 - f_1 g_3, f_1 g_2 - f_2 g_1 \right) \\
+            &= \derivadaparcial{(f_2 g_3 - f_3 g_2)}{x} + \derivadaparcial{(f_3 g_1 - f_1 g_3)}{y} + \derivadaparcial{(f_1 g_2 - f_2 g_1)}{z} \\
+            &= f_2 \cdot \derivadaparcial{g_3}{x} + g_3 \cdot \derivadaparcial{f_2}{x} - f_3 \cdot \derivadaparcial{g_2}{x} - g_2 \cdot \derivadaparcial{f_3}{x} + f_3 \cdot \derivadaparcial{g_1}{y} + g_1 \cdot \derivadaparcial{f_3}{y} - \\
+            & \quad f_1 \cdot \derivadaparcial{g_3}{y} - g_3 \cdot \derivadaparcial{f_1}{y} + f_1 \cdot \derivadaparcial{g_2}{z} + g_2 \cdot \derivadaparcial{f_1}{z} - f_2 \cdot \derivadaparcial{g_1}{z} - g_1 \cdot \derivadaparcial{f_2}{z} \\
+            &= g_1 \left( \derivadaparcial{f_3}{y} - \derivadaparcial{f_2}{z} \right) + g_2 \left( \derivadaparcial{f_1}{z} - \derivadaparcial{f_3}{x} \right) + g_3 \left( \derivadaparcial{f_2}{x} - \derivadaparcial{f_1}{y} \right) - \\
+            & \quad f_1 \left( \derivadaparcial{g_3}{y} - \derivadaparcial{g_2}{z} \right) - f_2 \left( \derivadaparcial{g_1}{z} - \derivadaparcial{g_3}{x} \right) - f_3 \left( \derivadaparcial{g_2}{x} - \derivadaparcial{g_1}{y} \right) \\
+            &= (g_1, g_2, g_3) \cdot \left( \derivadaparcial{f_3}{y} - \derivadaparcial{f_2}{z}, \derivadaparcial{f_1}{z} - \derivadaparcial{f_3}{x}, \derivadaparcial{f_2}{x} - \derivadaparcial{f_1}{y} \right) - \\
+            & \quad (f_1, f_2, f_3) \cdot \left( \derivadaparcial{g_3}{y} - \derivadaparcial{g_2}{z}, \derivadaparcial{g_1}{z} - \derivadaparcial{g_3}{x}, \derivadaparcial{g_2}{x} - \derivadaparcial{g_1}{y} \right) \\
+            &= (g_1, g_2, g_3) \cdot \left[ \left( \derivadaparcial{f_3}{y} - \derivadaparcial{f_2}{z} \right) \widehat{i} - \left( \derivadaparcial{f_3}{x} - \derivadaparcial{f_1}{z} \right) \widehat{j} + \left( \derivadaparcial{f_2}{x} - \derivadaparcial{f_1}{y} \right) \widehat{k} \right] - \\
+            & \quad (f_1, f_2, f_3) \cdot \left[ \left( \derivadaparcial{g_3}{y} - \derivadaparcial{g_2}{z} \right) \widehat{i} - \left( \derivadaparcial{g_3}{x} - \derivadaparcial{g_1}{z} \right) \widehat{j} + \left( \derivadaparcial{g_2}{x} - \derivadaparcial{g_1}{y} \right) \widehat{k} \right] \\
+            &= (g_1, g_2, g_3) \cdot \left( \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                f_2 & f_3
+            \end{matrix}
+            \right\rvert \widehat{i} -
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{z} \vspace{1mm} \\
+                f_1 & f_3
+            \end{matrix}
+            \right\rvert \widehat{j} +
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} \vspace{1mm} \\
+                f_1 & f_2
+            \end{matrix}
+            \right\rvert \widehat{k} \right) - \\
+            & \quad (f_1, f_2, f_3) \cdot \left( \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                g_2 & g_3
+            \end{matrix}
+            \right\rvert \widehat{i} -
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{z} \vspace{1mm} \\
+                g_1 & g_3
+            \end{matrix}
+            \right\rvert \widehat{j} +
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} \vspace{1mm} \\
+                g_1 & g_2
+            \end{matrix}
+            \right\rvert \widehat{k} \right)
+        \end{align*}
+        \begin{align*}
+            \qquad \qquad \quad & = (g_1, g_2, g_3) \cdot \left\lvert 
+            \begin{matrix}
+                \widehat{i} & \widehat{j} & \widehat{k} \vspace{1mm} \\
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                f_1 & f_2 & f_3
+            \end{matrix} \right\rvert - (f_1, f_2, f_3) \cdot \left\lvert 
+            \begin{matrix}
+                \widehat{i} & \widehat{j} & \widehat{k} \vspace{1mm} \\
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                g_1 & g_2 & g_3
+            \end{matrix} \right\rvert \\
+            &= G \cdot \rot F - F \cdot \rot G
+        \end{align*}
+        Por lo tanto, $ \dive (F \times G) = G \cdot \rot F - F \cdot \rot G $.
+
+        \item $ \mathbf{\dive (\rot F) = 0} $
+        
+        \textbf{Solución.}
+        \begin{align*}
+            \dive (\rot F) &= \dive \left\lvert 
+            \begin{matrix}
+                \widehat{i} & \widehat{j} & \widehat{k} \vspace{1mm} \\
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                f_1 & f_2 & f_3
+            \end{matrix} \right\rvert \\
+            &= \dive \left( \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                f_2 & f_3
+            \end{matrix}
+            \right\rvert \widehat{i} -
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{z} \vspace{1mm} \\
+                f_1 & f_3
+            \end{matrix}
+            \right\rvert \widehat{j} +
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} \vspace{1mm} \\
+                f_1 & f_2
+            \end{matrix}
+            \right\rvert \widehat{k} \right) \\
+            &= \dive \left[ \left( \derivadaparcial{f_3}{y} - \derivadaparcial{f_2}{z} \right) \widehat{i} - \left( \derivadaparcial{f_3}{x} - \derivadaparcial{f_1}{z} \right) \widehat{j} + \left( \derivadaparcial{f_2}{x} - \derivadaparcial{f_1}{y} \right) \widehat{k} \right] \\
+            &= \dive \left( \derivadaparcial{f_3}{y} - \derivadaparcial{f_2}{z}, \derivadaparcial{f_1}{z} - \derivadaparcial{f_3}{x}, \derivadaparcial{f_2}{x} - \derivadaparcial{f_1}{y} \right) \\
+            &= \derivadaparcial{\left( \derivadaparcial{f_3}{y} - \derivadaparcial{f_2}{z} \right)}{x} + \derivadaparcial{\left( \derivadaparcial{f_1}{z} - \derivadaparcial{f_3}{x} \right)}{y} + \derivadaparcial{\left( \derivadaparcial{f_2}{x} - \derivadaparcial{f_1}{y} \right)}{z} \\
+            &= \derivadaparcialnd{f_3}{y}{x} - \derivadaparcialnd{f_2}{z}{x} + \derivadaparcialnd{f_1}{z}{y} - \derivadaparcialnd{f_3}{x}{y} + \derivadaparcialnd{f_2}{x}{z} - \derivadaparcialnd{f_1}{y}{z} \\
+            &= 0
+        \end{align*}
+        Por lo tanto, $ \dive (\rot F) = 0 $
+
+        \item $ \mathbf{\rot (\nabla f) = \overline{0}} $
+        
+        \textbf{Solución.}
+        \begin{align*}
+            \rot (\nabla f) &= \rot \left( \derivadaparcial{f}{x}, \derivadaparcial{f}{y}, \derivadaparcial{f}{z} \right) \\
+            &= \left\lvert 
+            \begin{matrix}
+                \widehat{i} & \widehat{j} & \widehat{k} \vspace{1mm} \\
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                \derivadaparcial{f}{x} & \derivadaparcial{f}{y} & \derivadaparcial{f}{z}
+            \end{matrix} \right\rvert \\
+            &= \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{y} & \derivadaparcial{}{z} \vspace{1mm} \\
+                \derivadaparcial{f}{y} & \derivadaparcial{f}{z}
+            \end{matrix}
+            \right\rvert \widehat{i} -
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{z} \vspace{1mm} \\
+                \derivadaparcial{f}{x} & \derivadaparcial{f}{z}
+            \end{matrix}
+            \right\rvert \widehat{j} +
+            \left\rvert 
+            \begin{matrix}
+                \derivadaparcial{}{x} & \derivadaparcial{}{y} \vspace{1mm} \\
+                \derivadaparcial{f}{x} & \derivadaparcial{f}{y}
+            \end{matrix}
+            \right\rvert \widehat{k}
+        \end{align*}
+        \begin{align*}
+            \qquad \qquad &= \left( \derivadaparcialnd{f}{z}{y} - \derivadaparcialnd{f}{y}{z} \right) \widehat{i} - \left( \derivadaparcialnd{f}{z}{x} - \derivadaparcialnd{f}{x}{z} \right) \widehat{j} + \left( \derivadaparcialnd{f}{y}{x} - \derivadaparcialnd{f}{x}{y} \right) \widehat{k} \\
+            &= 0 \widehat{i} - 0 \widehat{j} + 0 \widehat{k} \\
+            &= \overline{0}
+        \end{align*}
+        Por lo tanto, $ \rot (\nabla f) = \overline{0} $. \\
+
+        \item $ \mathbf{\rot (f F) = f \rot F + \nabla f \times F} $
         
         \textbf{Solución.}
         \begin{align*}
@@ -283,8 +443,35 @@
             \right\rvert \\
             &= f \rot F + \nabla f \times F
         \end{align*}
-        
-        
-    \end{enumerate}
+        Por lo tanto, $ \rot (f F) = f \rot F + \nabla f \times F $. \\
 
+        \item $ \mathbf{\nabla^2 (fg) = f \nabla^2 g + g \nabla^2 f + 2(\nabla f \cdot \nabla g)} $
+        
+        \textbf{Solución.}
+        \begin{align*}
+            \nabla^2 (fg) &= \derivadaparcialn{(fg)}{x_1}{2} + \derivadaparcialn{(fg)}{x_2}{2} + \cdots + \derivadaparcialn{(fg)}{x_n}{2} \\
+            &= f \cdot \derivadaparcialn{g}{x_1}{2} + 2 \cdot \derivadaparcial{f}{x_1} \cdot \derivadaparcial{g}{x_1} + g \derivadaparcialn{f}{x_1}{2} + f \cdot \derivadaparcialn{g}{x_2}{2} + 2 \cdot \derivadaparcial{f}{x_2} \cdot \derivadaparcial{g}{x_2} + \\
+            & \quad g \derivadaparcialn{f}{x_2}{2} + \ldots + f \cdot \derivadaparcialn{g}{x_n}{2} + 2 \cdot \derivadaparcial{f}{x_n} \cdot \derivadaparcial{g}{x_n} + g \derivadaparcialn{f}{x_n}{2} \\
+            &= f \cdot \derivadaparcialn{g}{x_1}{2} + f \cdot \derivadaparcialn{g}{x_2}{2} + \ldots + f \cdot \derivadaparcialn{g}{x_n}{2} + g \derivadaparcialn{f}{x_1}{2} + g \derivadaparcialn{f}{x_2}{2} + \ldots + \\
+            & \quad g \derivadaparcialn{f}{x_n}{2} + 2 \cdot \derivadaparcial{f}{x_1} \cdot \derivadaparcial{g}{x_1} + 2 \cdot \derivadaparcial{f}{x_2} \cdot \derivadaparcial{g}{x_2} + \ldots + 2 \cdot \derivadaparcial{f}{x_n} \cdot \derivadaparcial{g}{x_n} \\
+            &= f \left( \derivadaparcialn{g}{x_1}{2} + \derivadaparcialn{g}{x_2}{2} + \ldots + \derivadaparcialn{g}{x_n}{2} \right) + g \left( \derivadaparcialn{f}{x_1}{2} + \derivadaparcialn{f}{x_2}{2} + \ldots + \derivadaparcialn{f}{x_n}{2} \right) + \\
+            & \quad 2 \left( \derivadaparcial{f}{x_1} \cdot \derivadaparcial{g}{x_1} + \derivadaparcial{f}{x_2} \cdot \derivadaparcial{g}{x_2} + \ldots + \derivadaparcial{f}{x_n} \cdot \derivadaparcial{g}{x_n} \right) \\
+            &= f \nabla^2 g + g \nabla^2 f + 2(\nabla f \cdot \nabla g)
+        \end{align*}
+        Por lo tanto, $ \nabla^2 (fg) = f \nabla^2 g + g \nabla^2 f + 2(\nabla f \cdot \nabla g) $. \\
+
+        \item $ \mathbf{\dive (\nabla f \times \nabla g) = 0} $
+        
+        \textbf{Solución.}
+
+        Por el inciso 8, se sabe que
+
+        $ \dive (\nabla f \times \nabla g) = \nabla g \cdot \rot (\nabla f) - \nabla f \cdot \rot (\nabla g) $
+
+        Y por el inciso 10 se tiene que
+
+        $ \dive (\nabla f \times \nabla g) = \nabla g \cdot \overline{0} - \nabla f \cdot \overline{0} $
+
+        Por lo tanto, $ \dive (\nabla f \times \nabla g) = 0 $.
+    \end{enumerate}
 \end{document}
