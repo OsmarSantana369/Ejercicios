@@ -53,7 +53,7 @@
             &= \dfrac{1}{2} \left( 2 h_1^2 + 2 h_1 h_2 + 2 h_2 h_1 + 2 h_2^2 \right) \\
             &= h_1^2 + 2 h_1 h_2 + h_2^2
         \end{align*}
-        Notemos que $ f(x,y) = (x + y)^2 = x^2 + 2xy + y^2 $. Lo cual es igual a su Polinomio de Taylor.
+        Notemos que $ f(x,y) = (x + y)^2 = x^2 + 2xy + y^2 $. Por lo tanto, es igual a su Polinomio de Taylor.
 
 %-------Ejercicio 2------------------------------------------------------------------------------------------------------
         \item $ f(x,y) = \dfrac{1}{x^2 + y^2 + 1} $, donde $ x_0 = 0 $, $ y_0 = 0 $.
@@ -85,8 +85,8 @@
             f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
             &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
             & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
-            &= \dfrac{1}{2} \left( 2 h_1^2 + 2 h_1 h_2 + 2 h_2 h_1 + 2 h_2^2 \right) \\
-            &= h_1^2 + 2 h_1 h_2 + h_2^2
+            &= 1 + \dfrac{1}{2} \left( -2 h_1^2 - 2 h_2^2 \right) \\
+            &= 1 - h_1^2 - h_2^2
         \end{align*}
 
 %-------Ejercicio 3------------------------------------------------------------------------------------------------------
@@ -94,12 +94,52 @@
         
         \textbf{Solución.}
 
+        $ f(0,0) = e^{0 + 0} = 1 $
+
+        $ \derivadaparcial{f}{x} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcial{f}{y} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcialn{f}{x}{2} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcialnd{f}{x}{y} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcialn{f}{y}{2} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        Así, el Polinomio de Taylor es
+        \begin{align*}
+            f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
+            &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
+            & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
+            &= 1 + h_1 + h_2 + \dfrac{1}{2} \left( h_1^2 + 2 h_1 h_2 + h_2^2 \right) \\
+            &= 1 + h_1 + h_2 + h_1 h_2 + \dfrac{h_1^2 + h_2^2}{2}
+        \end{align*}
 
 %-------Ejercicio 4------------------------------------------------------------------------------------------------------
         \item $ f(x,y) = e^{-x^2 - y^2} \cos (xy) $, donde $ x_0 = 0 $, $ y_0 = 0 $.
         
         \textbf{Solución.}
+        
+        $ f(0,0) = e^{-0^2 - 0^2} \cos (0 \cdot 0) = 1 $
 
+        $ \derivadaparcial{f}{x} (0,0) = \left. -2x e^{-x^2 - y^2} \cos (xy) + e^{-x^2 - y^2} \cos (xy) \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcial{f}{y} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcialn{f}{x}{2} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcialnd{f}{x}{y} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        $ \derivadaparcialn{f}{y}{2} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
+
+        Así, el Polinomio de Taylor es
+        \begin{align*}
+            f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
+            &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
+            & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
+            &= 1 + h_1 + h_2 + \dfrac{1}{2} \left( h_1^2 + 2 h_1 h_2 + h_2^2 \right) \\
+            &= 1 + h_1 + h_2 + h_1 h_2 + \dfrac{h_1^2 + h_2^2}{2}
+        \end{align*}
 
 %-------Ejercicio 5------------------------------------------------------------------------------------------------------
         \item $ f(x,y) = \sen (xy) + \cos (xy) $, donde $ x_0 = 0 $, $ y_0 = 0 $.
