@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1670185617 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Polinomio de Taylor/Polinomio_de_Taylor.tex" "build/Polinomio_de_Taylor.pdf" "Polinomio_de_Taylor" 1670185625
+["pdflatex"] 1670212918 "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Polinomio de Taylor/Polinomio_de_Taylor.tex" "build/Polinomio_de_Taylor.pdf" "Polinomio_de_Taylor" 1670212926
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1669523685 220302 a5742fb6b2c622bc349e21bad2f6ec8d ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1656202269 10326951 4c20795a0ba3dfbd8250d5bdd3ba6426 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/scholax/zcs_2ulndi.enc" 1608341204 3077 b2cad32a5770ecfa23227387c44f86cc ""
@@ -119,9 +119,9 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/tools/enumerate.sty" 1636710260 3468 068d84ef9735e15f11c5a120c0a1a139 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623002090 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1626881362 123 a302f2c651a95033260db60e51527ae8 ""
-  "Polinomio_de_Taylor.tex" 1670185606 8124 557d018827c5c410054833cd027a2aea ""
-  "build/Polinomio_de_Taylor.aux" 1670185623 194 8ef13589215cbc4243f5064b0bbe0726 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Polinomio de Taylor/Polinomio_de_Taylor.tex" 1670185606 8124 557d018827c5c410054833cd027a2aea ""
+  "Polinomio_de_Taylor.tex" 1670212914 12036 2bdaa2325f9c289709c41978f1e4b982 ""
+  "build/Polinomio_de_Taylor.aux" 1670212925 194 9335a9ca55a386f3840326f93434c5bf "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Calculo diferencial vectorial/Polinomio de Taylor/Polinomio_de_Taylor.tex" 1670212914 12036 2bdaa2325f9c289709c41978f1e4b982 ""
   (generated)
   "build/Polinomio_de_Taylor.aux"
   "build/Polinomio_de_Taylor.log"

@@ -47,7 +47,7 @@
 
         Así, el Polinomio de Taylor es
         \begin{align*}
-            f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
+            f((h_1, h_2) - (x_0, y_0)) &= f(h_1, h_2) \\
             &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
             & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
             &= \dfrac{1}{2} \left( 2 h_1^2 + 2 h_1 h_2 + 2 h_2 h_1 + 2 h_2^2 \right) \\
@@ -82,7 +82,7 @@
         \end{align*}
         Así, el Polinomio de Taylor es
         \begin{align*}
-            f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
+            f((h_1, h_2) - (x_0, y_0)) &= f(h_1, h_2) \\
             &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
             & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
             &= 1 + \dfrac{1}{2} \left( -2 h_1^2 - 2 h_2^2 \right) \\
@@ -108,7 +108,7 @@
 
         Así, el Polinomio de Taylor es
         \begin{align*}
-            f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
+            f((h_1, h_2) - (x_0, y_0)) &= f(h_1, h_2) \\
             &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
             & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
             &= 1 + h_1 + h_2 + \dfrac{1}{2} \left( h_1^2 + 2 h_1 h_2 + h_2^2 \right) \\
@@ -121,24 +121,38 @@
         \textbf{Solución.}
         
         $ f(0,0) = e^{-0^2 - 0^2} \cos (0 \cdot 0) = 1 $
-
-        $ \derivadaparcial{f}{x} (0,0) = \left. -2x e^{-x^2 - y^2} \cos (xy) + e^{-x^2 - y^2} \cos (xy) \right|_{(0,0)} = 1 $
-
-        $ \derivadaparcial{f}{y} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
-
-        $ \derivadaparcialn{f}{x}{2} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
-
-        $ \derivadaparcialnd{f}{x}{y} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
-
-        $ \derivadaparcialn{f}{y}{2} (0,0) = \left. e^{x + y} \right|_{(0,0)} = 1 $
-
+        \begin{align*}
+            \hspace{-1cm} \derivadaparcial{f}{x} (0,0) &= \left. \left[ -2x e^{-x^2 - y^2} \cos (xy) - y e^{-x^2 - y^2} \sen (xy) \right] \right|_{(0,0)} \\
+            &= \left. e^{-x^2 - y^2} \left(-2x \cos (xy) - y \sen (xy) \right) \right|_{(0,0)} \\
+            &= 0
+        \end{align*}
+        \begin{align*}
+            \hspace{-1cm} \derivadaparcial{f}{y} (0,0) &= \left. \left[ -2y e^{-x^2 - y^2} \cos (xy) - x e^{-x^2 - y^2} \sen (xy) \right] \right|_{(0,0)} \\
+            &= \left. e^{-x^2 - y^2} \left( -2y \cos (xy) - x \sen (xy) \right) \right|_{(0,0)} \\
+            &= 0
+        \end{align*}
+        \begin{align*}
+            \hspace{-1cm} \derivadaparcialn{f}{x}{2} (0,0) &= \left[ -2x e^{-x^2 - y^2} \left(-2x \cos (xy) - y \sen (xy) \right) + \right. \\
+            & \quad \left. \left. e^{-x^2 - y^2} \left(-2^{} \cos (xy) + 2xy \sen (xy) - y^2 \cos (xy) \right) \right] \right|_{(0,0)} \\
+            &= -2
+        \end{align*}
+        \begin{align*}
+            \hspace{-1cm} \derivadaparcialnd{f}{x}{y} (0,0) &= \left[ -2y e^{-x^2 - y^2} \left(-2x \cos (xy) - y \sen (xy) \right) \right. +  \\
+            & \quad \left. \left. e^{-x^2 - y^2} \left(2x^2 \sen (xy) - \sen (xy) - xy \cos (xy) \right) \right] \right|_{(0,0)} \\
+            &= 0
+        \end{align*}
+        \begin{align*}
+            \hspace{-1cm} \derivadaparcialn{f}{y}{2} (0,0) &= \left[ -2y e^{-x^2 - y^2} \left(-2y \cos (xy) - x \sen (xy) \right) \right. + \\
+            & \quad \left. \left. e^{-x^2 - y^2} \left(-2 \cos (xy) + 2xy \sen (xy) - x^2 \cos (xy) \right) \right] \right|_{(0,0)} \\
+            &= -2
+        \end{align*}
         Así, el Polinomio de Taylor es
         \begin{align*}
-            f((x_0, y_0) + (h_1, h_2)) &= f(h_1, h_2) \\
+            f((h_1, h_2) - (x_0, y_0)) &= f(h_1, h_2) \\
             &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
             & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
-            &= 1 + h_1 + h_2 + \dfrac{1}{2} \left( h_1^2 + 2 h_1 h_2 + h_2^2 \right) \\
-            &= 1 + h_1 + h_2 + h_1 h_2 + \dfrac{h_1^2 + h_2^2}{2}
+            &= 1 + \dfrac{1}{2} \left( -2h_1^2 - 2h_2^2 \right)  \\
+            &= 1 - h_1^2 - h_2^2
         \end{align*}
 
 %-------Ejercicio 5------------------------------------------------------------------------------------------------------
@@ -146,12 +160,51 @@
         
         \textbf{Solución.}
 
+        $ f(0,0) = \sen (0 \cdot 0) + \cos (0 \cdot 0) = 1 $
+
+        $ \derivadaparcial{f}{x} (0,0) = \left. \left[ y \cos (xy) - y \sen (xy) \right] \right|_{(0,0)} = \left. y \left( \cos (xy) - \sen (xy) \right) \right|_{(0,0)} = 0 $
+
+        $ \derivadaparcial{f}{y} (0,0) = \left. \left[ x \cos (xy) - x \sen (xy) \right] \right|_{(0,0)} = \left. x \left( \cos (xy) - \sen (xy) \right) \right|_{(0,0)} = 0 $
+
+        $ \derivadaparcialn{f}{x}{2} (0,0) = \left. y \left( -y \sen (xy) - y \cos (xy) \right) \right|_{(0,0)} = \left. -y^2 \left( \sen (xy) + \cos (xy) \right) \right|_{(0,0)} = 0 $
+        
+        $ \derivadaparcialnd{f}{x}{y} (0,0) = \left. \cos (xy) - \sen (xy) + y \left( - x \sen (xy) - x \cos (xy) \right) \right|_{(0,0)} = 1 $
+        
+        $ \derivadaparcialn{f}{y}{2} (0,0) = \left. x \left( -x \sen (xy) - x \cos (xy) \right) \right|_{(0,0)} = \left. -x^2 \left( \sen (xy) + \cos (xy) \right) \right|_{(0,0)} = 0 $
+
+        Así, el Polinomio de Taylor es
+        \begin{align*}
+            f((h_1, h_2) - (x_0, y_0)) &= f(h_1, h_2) \\
+            &= f(0,0) + h_1 \, \derivadaparcial{f}{x} (0,0) + h_2 \, \derivadaparcial{f}{y} (0,0) + \dfrac{1}{2} \left( h_1^2 \, \derivadaparcialn{f}{x}{2} (0,0) \right. + \\
+            & \quad \left. h_1 h_2 \, \derivadaparcialnd{f}{x}{y} (0,0) + h_2 h_1 \, \derivadaparcialnd{f}{y}{x} (0,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (0,0) \right) \\
+            &= 1 + h_1 h_2
+        \end{align*}
 
 %-------Ejercicio 6------------------------------------------------------------------------------------------------------
         \item $ f(x,y) = e^{(x - 1)^2} \cos (y) $, donde $ x_0 = 1 $, $ y_0 = 0 $.
         
         \textbf{Solución.}
 
+        $ f(1,0) = e^{(1 - 1)^2} \cos (0) = 1 $
 
+        $ \derivadaparcial{f}{x} (1,0) = \left. 2(x - 1) e^{(x - 1)^2} \cos (y) \right|_{(1,0)} = 0 $
+
+        $ \derivadaparcial{f}{y} (1,0) = \left. -e^{(x - 1)^2} \sen (y) \right|_{(1,0)} = 0 $
+
+        $ \derivadaparcialn{f}{x}{2} (1,0) = \left. 2 \cos (y) \left[ e^{(x - 1)^2} + 2(x - 1)^2 e^{(x - 1)^2} \right] \right|_{(1,0)} = 2 $
+
+        $ \derivadaparcialnd{f}{x}{y} (1,0) = \left. -2(x - 1) e^{(x - 1)^2} \sen (y) \right|_{(1,0)} = 0 $
+
+        $ \derivadaparcialn{f}{y}{2} (1,0) = \left. -e^{(x - 1)^2} \cos (y) \right|_{(1,0)} = -1 $
+
+        Así, el Polinomio de Taylor es
+        \begin{align*}
+            f((h_1, h_2) - (x_0, y_0)) &= f(h_1 - 1, h_2) \\
+            &= f(1,0) + (h_1 - 1) \, \derivadaparcial{f}{x} (1,0) + h_2 \, \derivadaparcial{f}{y} (1,0) + \\
+            & \quad \dfrac{1}{2} \left( (h_1 - 1)^2 \, \derivadaparcialn{f}{x}{2} (1,0) + (h_1 - 1) h_2 \, \derivadaparcialnd{f}{x}{y} (1,0) \right. + \\
+            & \quad \left. h_2 (h_1 - 1) \, \derivadaparcialnd{f}{y}{x} (1,0) + h_2^2 \, \derivadaparcialn{f}{y}{2} (1,0) \right) \\
+            &= 1 + \dfrac{1}{2} \left( 2(h_1 - 1)^2 - h_2^2 \right) \\
+            &= 1 + (h_1 - 1)^2 - \dfrac{h_2^2}{2}
+        \end{align*}
     \end{enumerate}
 \end{document}
