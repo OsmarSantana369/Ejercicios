@@ -1,1 +1,22 @@
-\document{article}
+\documentclass[fleqn]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+    Principio de inclusión y exclusión.
+
+    Supongamos que tenemos $ n $ conjuntos $ A_1, \dots , A_n $ (posiblemente con elementos en común). Entonces
+
+    $ | A_1 \cup A_2 \cup \dots \cup A_n | = \sum_{i = 1}^{n} | A_i | - \sum_{\substack{i,j = 1 \\ i<j}}^{n} | A_i \cap A_j | + \sum_{\substack{i,j,k = 1 \\ i<j<k}}^{n} | A_i \cap A_j \cap A_k | - \cdots + (-1)^{n-1} | A_1 \cap \cdots \cap A_n |
+
+    Demostración.
+
+    Si $ n = 1 $ entonces es claro que $ | A_1 | = | A_1 | $. De esta manera, se aplicará inducción matemática sobre $ n \req 2 $.
+    \begin{enumerate}
+        \item Base de inducción: Para $ n = 2 $ se demostrará que $ | A_1 \cup A_2 | = | A_1 | + | A_2 | - | A_1 \cap A_2 | $.
+
+        Sean $ | A_1 | = k $ y $ | A_2 | = l $. Suponiendo que 
+
+        $ A_1 = \left\lbrace a_1, a_2, \dots, a_{k-m}, c_1, c_2, \ldots, c_m \right\rbrace $
+    \end{enumerate}
+\end{document}
