@@ -1,0 +1,54 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+
+\begin{document}
+    \begin{enumerate}
+        \item Sea $ r \in \mathbb{Q} $ se da que $ r-1 \in r^* $, pues $ r - 1 < r $. Así, $ r^* \neq \emptyset $.
+
+            Ahora, $ r + 1 \in \mathbb{Q} $ pero $ r < r+1 $, por lo que $ r+1 \in r^* $. De esta forma, $ r^* \subsetneq \mathbb{Q} $.
+
+        \item Sean $ p \in r^* $ y $ q \in \mathbb{Q} $ tales que $ q < p $. Como $ q < p < r $, se obtiene que $ q < r $, por lo cual $ q \in r^* $.
+
+        \item Sea $ p \in r^* $, se tiene que
+
+            $ p < r \Longrightarrow 2p < r + p \Longrightarrow p < \dfrac{r + p}{2} $ y $ p < r \Longrightarrow p + r < 2r \Longrightarrow \dfrac{p + r}{2} < r $.
+
+            Por lo que $ p < \dfrac{r + p}{2} < r $. De esta manera, $ \dfrac{r + p}{2} \in r^* $ y es mayor que p. Así, existe un racional en $ r^* $ que es mayor a $ p $ y pertenece a $ r^* $.
+    \end{enumerate}
+
+    Por lo tanto, $ r^* $ es una cortadura.
+
+
+
+
+    \begin{enumerate}
+        \item[$ \right. \subseteq \left] $] Sea $ p \in (r + s)^* $. Por demostrar $ p \in r^* + s^* $.
+
+            Como $ p \in (r + s)^* $ se tiene que 
+            \begin{align*}
+                p < r + s & \Longrightarrow p - s < r \textnormal{ y } p - r < s \\
+                & \Longrightarrow p - s + r < 2r \textnormal{ y } p - r + s < 2s \\
+                & \Longrightarrow \dfrac{p - s + r}{2} < r \textnormal{ y } \dfrac{p - r + s}{2} < s \\
+                & \Longrightarrow \dfrac{p - s + r}{2} \in r^* \textnormal{ y } \dfrac{p - r + s}{2} \in s^* \\
+                & \Longrightarrow \dfrac{p - s + r}{2} + \dfrac{p - r + s}{2} \in r^* + s^*
+            \end{align*}
+            Pero $ \dfrac{p - s + r}{2} + \dfrac{p - r + s}{2} = p $, por lo que $ p \in r^* + s^* $. De esta forma, $ (r + s)^* \subseteq r^* + s^* $.
+
+        \item[$ \right. \subseteq \left] $] Sea $ p \in r^* + s^* $. Por demostrar $ p \in (r + s)^* $.
+
+            Ya que $ p \in r^* + s^* $ existen $ a \in r^* $ y $ b \in s^* $ tles que $ p = a + b $. Debido a que $ a \in r^* $ y $ b \in s^* $ se da que $ a < r $ y $ b <s $, lo que implica que $ a + b < r + s $, es decir, $ p < r + s $. De esta manera, $ p \in (r + s)^* $. De esto se obtiene que $ (r + s)^* \supseteq r^* + s^* $
+    \end{enumerate}
+
+    Por lo tanto, $ (r + s)^* = r^* + s^* $.
+
+
+
+
+    Suponiendo que $ r \neq s $. Sean $ a \in r^* $ y $ b \in s^* $, se tiene que
+
+    \begin{}
+
+    \end{}
+\end{document}
