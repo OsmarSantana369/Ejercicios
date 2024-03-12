@@ -1,0 +1,105 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin = 24mm]{geometry}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\begin{document}
+    \textbf{Proposición.} Sean $ f: U \subseteq \mathbb{R}^n \to \mathbb{R}^m $, con $ U $ un abierto de $ \mathbb{R}^m $. Si existen las derivadas parciales de $ f $ y como funciones son continuas en $ U $ entonces $ f $ es diferenciable.
+
+    \textbf{Demostración.}
+
+    Sean $ \overline{y} = \left( y_1, y_2, \ldots, y_n \right) \in \mathbb{R}^n $ fijo y $ f = \left( f_1, f_2, \ldots, f_n \right) $.
+
+    P.d. $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{ \partial f_i }{ \partial x_j } (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|} }{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, 2, \ldots, m $.
+
+    Para todo $ i = 1, 2, \ldots, m $ y $ j = 1, 2, \ldots, n $ sea $ g : \mathbb{R} \to \mathbb{R} $ dada por $ g_j(x) = f_i\left( x_1, \ldots, x_{j-1}, x, y_{j+1}, \ldots, y_n \right) $, donde $ \overline{x} = \left( x_1, x_2, \ldots, x_n \right) \in U $. Luego, para cada $ i = 1, 2, \ldots, m $, se tiene que
+    \begin{equation*}
+        \begin{split}
+            f_i(\overline{x}) - f_i(\overline{y}) &= f_i\left( x_1, x_2, \ldots, x_n \right) - f_i\left( x_1, x_2, \ldots, y_n \right) + f_i\left( x_1, x_2, \ldots, y_n \right) - \\
+            & \qquad f_i\left( x_1, x_2, \ldots, y_{n-1}, y_n \right) + f_i\left( x_1, x_2, \ldots, y_{n-1}, y_n \right) - \cdots - \\
+            & \qquad f_i\left( x_1, \ldots, x_{j-1}, y_j, y_{j+1}, \ldots, y_n \right) + f_i\left( x_1, \ldots, x_{j-1}, y_j, y_{j+1}, \ldots, y_n \right) - \cdots - \\
+            & \qquad f_i\left( x_1, y_2, \ldots, y_n \right) + f_i\left( x_1, y_2, \ldots, y_n \right) - f_i\left( y_1, y_2, \ldots, y_n \right) \\
+            %
+            &= g_n(x_n) - g_n(y_n) + g_{n-1}(x_{n-1}) - g_{n-1}(y_{n-1}) + g_{n-2}(x_{n-1}) - \cdots - \\
+            & \qquad g_j(y_j) + g_{j-1}(x_{j-1}) - \cdots - g_2(y_2) + g_1(x_1) - g_1(y_1)
+        \end{split}
+    \end{equation*}
+    Ya que $ f_i $ es diferenciable en $ U $, se tiene que, para todo $ j = 1, 2, \ldots, n $, $ g_j $ también lo es. Así, por el Teorema del Valor Medio, para cada $ j = 1, 2, \ldots, n $ existe $ a_j \in \bigl[ \min \left\lbrace x_j, y_j \right\rbrace, \max \left\lbrace x_j, y_j \right\rbrace \bigr] $ tal que \mbox{$ g_j(x_j) - g_j(y_j) = g_j(a_j) \left( x_j - y_j \right) $}. De este modo,
+    \begin{equation*}
+        \begin{split}
+            f_i(\overline{x}) - f_i(\overline{y}) &= g'_n(a_n) \left( x_n - y_n \right) + g'_{n-1}(a_{n-1}) \left( x_{n-1} - y_{n-1} \right) + \cdots + g'_j(a_j) \left( x_j - y_j \right) + \cdots + g'_1(a_1) \left( x_1 - y_1 \right) \\
+            %
+            &= \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \left( x_1 - y_1 \right) + \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \left( x_2 - y_2 \right) + \cdots + \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \left( x_j - y_j \right) + \cdots + \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \left( x_n - y_n \right)
+        \end{split}
+    \end{equation*}
+    donde $ \overline{z_j} = (x_1, \ldots, x_{j-1}, a_j, y_{j+1}, \ldots, y_n) $. Posteriormente,
+    \begin{equation*}
+        \begin{split}
+            f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) &= \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \left( x_1 - y_1 \right) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \left( x_1 - y_1 \right) + \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \left( x_2 - y_2 \right) - \\
+            & \qquad \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \left( x_2 - y_2 \right) + \cdots + \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \left( x_j - y_j \right) - \\
+            & \qquad \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) + \cdots + \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \left( x_n - y_n \right) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \left( x_n - y_n \right) \\
+            %
+            &= \left( \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right) \left( x_1 - y_1 \right) + \\
+            & \qquad \left( \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) - \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \right) \left( x_2 - y_2 \right) + \cdots + \\
+            & \qquad \left( \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right) \left( x_j - y_j \right) + \cdots + \\
+            & \qquad \left( \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \right) \left( x_n - y_n \right)
+        \end{split}
+    \end{equation*}
+    \begin{equation*}
+        \begin{split}
+            \Longrightarrow \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert &= \left\lvert \left( \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right) \left( x_1 - y_1 \right) + \right. \\
+            & \qquad \left( \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) - \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \right) \left( x_2 - y_2 \right) + \cdots + \\
+            & \qquad \left( \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right) \left( x_j - y_j \right) + \cdots + \\
+            & \qquad \left. \left( \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \right) \left( x_n - y_n \right) \right\rvert \\
+            %
+            &\leq \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right\rvert \left\lvert x_1 - y_1 \right\rvert + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) - \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \right\rvert \left\lvert x_2 - y_2 \right\rvert + \cdots + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right\rvert \left\lvert x_j - y_j \right\rvert + \cdots + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \right\rvert \left\lvert x_n - y_n \right\rvert \\
+            %
+            &\leq \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right\rvert \left\lVert \overline{x} - \overline{y} \right\rVert + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) - \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \right\rvert \left\lVert \overline{x} - \overline{y} \right\rVert + \cdots + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right\rvert \left\lVert \overline{x} - \overline{y} \right\rVert + \cdots + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \right\rvert \left\lVert \overline{x} - \overline{y} \right\rVert \\
+            %
+            &= \Biggl( \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \Biggr. \\
+            & \qquad \Biggl. \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert \Biggr) \left\lVert \overline{x} - \overline{y} \right\rVert
+        \end{split}
+    \end{equation*}
+    \begin{equation*}
+        \begin{split}
+            \Longrightarrow \dfrac{\left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j}(\overline{x}) \left( x_j - y_j \right) \right\rvert}{\left\lVert \overline{x} - \overline{y} \right\rVert} &\leq \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert
+        \end{split}
+    \end{equation*}
+    Después, como las derivadas parciales son continuas en $ U $ se da que $ \displaystyle \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{y}) \right\rvert = 0 $, y puesto que $ \overline{z_j} = (x_1, \ldots, x_{j-1}, a_j, y_{j+1}, \ldots, y_n) $ con $ a_j \in \bigl[ \min \left\lbrace x_j, y_j \right\rbrace, \max \left\lbrace x_j, y_j \right\rbrace \bigr] $, se tiene que $ \overline{z_j} $ tiende a $ \overline{y} $ conforme $ \overline{x} $ tiende a $ \overline{y} $, para todo $ j = 1, 2, \ldots, n $. De esta manera, 
+
+    \begin{equation*}
+        \begin{split}
+            0 \leq \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } &\leq \lim_{\overline{x} \to \overline{y}} \Biggl( \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \Biggr. \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \\
+            & \qquad \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \\
+            & \qquad \Biggl. \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert \Biggr) \\
+        \end{split}
+    \end{equation*}
+    \begin{equation*}
+        \begin{split}
+            \phantom{\lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert }} &= \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \\
+            & \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \\
+            & \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert \\
+            %
+            &= \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{y}) \right\rvert + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{y}) \right\rvert + \cdots + \\
+            & \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{y}) \right\rvert + \cdots + \\
+            & \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{y}) \right\rvert \\
+            &= 0
+        \end{split}
+    \end{equation*}
+    De esta manera, $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, \ldots, m $.
+
+    Por último, 
+    \begin{equation*}
+        0 \leq \lim_{\overline{x} \to \overline{y}} \dfrac{ \left\lVert f(\overline{x}) - f(\overline{y}) - Df(\overline{y}) \left( \overline{x} - \overline{y} \right) \right\rVert }{ \left\lVert \overline{x} - \overline{y} \right\rVert } \leq \sum_{i=1}^{m} \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0
+    \end{equation*}
+    Ya que $ \overline{y} $ fue arbitrario, se concluye que $ f $ es diferenciable en $ U $. \hfill $ \blacksquare $
+\end{document}
