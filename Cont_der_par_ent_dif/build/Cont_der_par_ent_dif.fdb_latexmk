@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1710073068.23191 "c:/Users/CONTROL/Desktop/Cont_der_par_ent_dif/Cont_der_par_ent_dif.tex" "build/Cont_der_par_ent_dif.pdf" "Cont_der_par_ent_dif" 1710073071.96847 0
+["pdflatex"] 1710903865.64183 "c:/Users/CONTROL/Desktop/Ejercicios/Cont_der_par_ent_dif/Cont_der_par_ent_dif.tex" "build/Cont_der_par_ent_dif.pdf" "Cont_der_par_ent_dif" 1710903872.89375 0
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1710068868 521568 111a3120d06768c55d238414cca37a17 ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1710069516 24234088 2e1156039a3535b144241088827dffab ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -50,9 +50,9 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty" 1665066333 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1708427688 30006 3d512c0edd558928ddea1690180ef77e ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/parskip/parskip.sty" 1615976160 4288 94714aa7f535440f33181fec52a31963 ""
-  "Cont_der_par_ent_dif.tex" 1710073064 14061 a2c3e6ce76ec2d4cbbe2f41db5f74c6f ""
-  "build/Cont_der_par_ent_dif.aux" 1710073070 194 d12d2f42a1ce5499c2e0a2e2f9926e09 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Cont_der_par_ent_dif/Cont_der_par_ent_dif.tex" 1710073064 14061 a2c3e6ce76ec2d4cbbe2f41db5f74c6f ""
+  "Cont_der_par_ent_dif.tex" 1710903846 14061 efa1401b6b96eab0615384a90f9aaa9c ""
+  "build/Cont_der_par_ent_dif.aux" 1710903871 194 d12d2f42a1ce5499c2e0a2e2f9926e09 "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Cont_der_par_ent_dif/Cont_der_par_ent_dif.tex" 1710903846 14061 efa1401b6b96eab0615384a90f9aaa9c ""
   (generated)
   "build/Cont_der_par_ent_dif.aux"
   "build/Cont_der_par_ent_dif.log"
