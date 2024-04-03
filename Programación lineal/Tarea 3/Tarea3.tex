@@ -1,0 +1,57 @@
+\documentclass[fleqn, 12pt]{article}
+\usepackage[a4paper, margin = 21mm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{parskip}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\usepackage[proportional,scaled=1.064]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-12pt}%
+    \setlength\belowdisplayskip{4pt}%
+}
+
+\begin{document}
+	\begin{enumerate}
+		\setcounter{enumi}{2}
+		\item Demuestre que el hiperplano $ H = \left\{ x \colon px = k \right\} $ y un semiespacio $ H^+ = \left\{ x \colon px \geq k \right\} $ son conjuntos convexos.
+		
+		\textbf{Demostración.}
+
+		Sean $ x,y \in H $ y $ \lambda \in \left[ 0,1 \right] $, se tiene que
+
+		\begin{align*}
+			& px = k \quad \text{y} \quad py = k \\
+			& \Longrightarrow \lambda px = \lambda k \quad \text{y} \quad \left( 1 - \lambda \right) py = \left( 1 - \lambda \right) k \\
+			& \Longrightarrow \lambda px + \left( 1 - \lambda \right) py = \lambda k + \left( 1 - \lambda \right) k \\
+			& \Longrightarrow p \left( \lambda x + \left( 1 - \lambda \right) y \right) = k \\
+			& \Longrightarrow \lambda x + \left( 1 - \lambda \right) y \in H
+		\end{align*}
+
+		Por lo tanto, $ H $ es convexo.
+
+		Ahora, sean $ a,b \in H^+ $ y $ \lambda \in \left[ 0,1 \right] $, se obtiene que
+
+		\begin{align*}
+			& pa \geq k \quad \text{y} \quad pb \geq k \\
+			& \Longrightarrow \lambda pa \geq \lambda k \quad \text{y} \quad \left( 1 - \lambda \right) pb \geq \left( 1 - \lambda \right) k \\
+			& \Longrightarrow \lambda pa + \left( 1 - \lambda \right) pb \geq \lambda k + \left( 1 - \lambda \right) k \\
+			& \Longrightarrow p \left( \lambda a + \left( 1 - \lambda \right) b \right) \geq k \\
+			& \Longrightarrow \lambda a + \left( 1 - \lambda \right) b \in H^+
+		\end{align*}
+
+		Por lo tanto, $ H^+ $ es convexo.
+
+		\item Considere el conjunto $ X = \left\{ \left( x_1, x_2 \right) \colon x_1 \geq 0, x_2 \geq 0, x_1 + x_2 \geq 2, x_2 \leq 4 \right\} $. Encuentre un hiperplano $ H $ tal que $ X $ y el punto $ \left( 3, -2 \right) $ estén en lados diferentes del hiperplano. Escriba la ecuación del hiperplano.
+		
+		\textbf{Solución.}
+
+		Sea $ H = \left\{ (x,y) \in \mathbb{R}^2 \colon \begin{pmatrix} 0 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = k \right\} $
+		\item 
+	\end{enumerate}
+\end{document}
