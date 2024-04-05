@@ -6,10 +6,8 @@
 \usepackage{enumerate}
 \usepackage{graphicx}
 
-\usepackage[proportional,scaled=1.064]{erewhon}
-\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
-\usepackage[T1]{fontenc}
-\renewcommand*\oldstylenums[1]{\textosf{#1}}
+\usepackage[p,osf]{scholax}
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}
 
 \expandafter\def\expandafter\normalsize\expandafter{%
     \setlength\abovedisplayskip{-12pt}%
@@ -51,7 +49,55 @@
 		
 		\textbf{Solución.}
 
-		Sea $ H = \left\{ (x,y) \in \mathbb{R}^2 \colon \begin{pmatrix} 0 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = k \right\} $
-		\item 
+		Sea $ H = \left\{ (x,y) \in \mathbb{R}^2 \colon \begin{pmatrix} 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = -1 \right\} $ un hiperplano. Este hiperplano genera dos subespacios en $ \mathbb{R}^2 $, los cuales son: $ S_1 = \left\{ (x,y) \in \mathbb{R}^2 \colon \begin{pmatrix} 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} \leq -1 \right\} $ y \\ $ S_2 = \left\{ (x,y) \in \mathbb{R}^2 \colon \begin{pmatrix} 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} \geq -1 \right\} $. 
+
+		Luego, ya que el conjunto $ X $ consta de puntos cuya segunda entrada toma valores no negativos, se tiene que $ X \subset S_2 $. Por otro lado, la segunda entrada del punto $ \left( 3, -2 \right) $ es menor a $ -1 $, por lo cual, $ \left( 3, -2 \right) \in S_1 $.
+
+		Por lo tanto, el hiperplano $ H $, con ecuación $ \begin{pmatrix} 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = y = -1 $, cumple con los criterios solicitados.
+		
+		\item Sean $ a_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} ; a_2 = \begin{pmatrix} 2 \\ 3 \end{pmatrix} ; a_3 = \begin{pmatrix} -1 \\ 4 \end{pmatrix} ; a_4 = \begin{pmatrix} 5 \\ -3 \end{pmatrix} $ y $ a_5 = \begin{pmatrix} -4 \\ 3 \end{pmatrix} $. Ilustre geométricamente la colección de todas las combinaciones convexas de estos cinco puntos.
+		
+		\item Demuestre que el conjunto de las soluciones factibles del siguiente programa lineal es convexo.
+		
+		\begin{center}
+			\begin{minipage}{4cm}
+				\begin{align*}
+					\textnormal{Minimizar } z = c^t x & \phantom{1} \\
+					\textnormal{sujeto a } Ax = b & \phantom{2} \\
+					x \geq 0 & \phantom{3}
+				\end{align*}
+			\end{minipage}
+		\end{center}
+
+		\textbf{Demostración.}
+
+		Sean $ x, y $ soluciones factibles del programa lineal y $ \lambda \in \left[ 0,1 \right] $, se tiene que
+
+		\begin{align*}
+			& Ax = b \quad \textnormal{y} \quad Ay = b \\
+			& \Longrightarrow \lambda Ax = \lambda b \quad \textnormal{y} \quad \left( 1 - \lambda \right) Ay = \left( 1 - \lambda \right) b \\
+			& \Longrightarrow A \left[ \lambda x + \left( 1 - \lambda \right) y \right] = \lambda Ax + \left( 1 - \lambda \right) Ay = \lambda b + \left( 1 - \lambda \right) b = b 
+		\end{align*}
+
+		Además, $ x \geq 0 $ \, y \, $ y \geq 0 $ implica que $ \lambda x \geq 0 $ \, y \, $ \left( 1 - \lambda \right) y \geq 0 $, por lo que $ \lambda x + \left( 1 - \lambda \right) y \geq 0 $. De esta manera, $ \lambda x + \left( 1 - \lambda \right) y $ es un punto factible del programa lineal. Por lo tanto, la región factible es un conjunto convexo.
+
+		\item Demuestre que si C es un cono convexo, entonces C tiene cuando mucho un punto extremo; a saber, el origen.
+		
+		\textbf{Demostración.}
+
+		Sea $ \lambda \in \left( 0,1 \right) $. Ya que $ \overline{0} \in C $, donde $ \overline{0} $ es el vector nulo, y como $ C $ es convexo, se da que existen $ x, y \in C $ tales que $ \lambda x + \left( 1 - \lambda \right) y = \overline{0} $. Así, $ \lambda x = \left( \lambda - 1 \right) y $ y puesto que $ \lambda > 0 $, se da que $ \lambda x \in C $, es decir, $ \left( \lambda - 1 \right) y \in C $. De esta manera, $ \left( \lambda - 1 \right) y = \left( \lambda - 1 \right) \left( \alpha_1 a_1 + \alpha_2 a_2 + \cdots + \alpha_n a_n \right) $, donde $ \alpha_i \geq 0 $ y $ a_i $ es un vector que genera el cono, para todo $ i = 1, \ldots, n $. Pero 
+		
+		$ \left( \lambda - 1 \right) y = \left[\left( \lambda - 1 \right) \alpha_1\right] a_1 + \left[\left( \lambda - 1 \right) \alpha_2\right] a_2 + \cdots +\left[  \left( \lambda - 1 \right)\alpha_n \right] a_n $
+
+		De este modo, $ \left( \lambda - 1 \right) y $ se puede expresar como combinacición lineal de los generadores de la base pero con coeficientes negativos, lo cual no puede ser, pues todo elemento de $ C $ debería expresarse como combinación lineal de los puntos que lo generan, con coeficientes posotivos. Por lo tanto, para que $ \lambda x + \left( 1 - \lambda \right) y = \overline{0} $, $ x = y = \overline{0} $, por lo que $ \overline{0} $ es un punto extremo de $ C $.
+
+		\item Demuestre que $ C $ es un cono convexo si y sólo si $ x $ e $ y \in C $ implica que $ \lambda x + \mu y \in C $ para todo $ \lambda \geq 0 $ y $ \mu \geq 0 $.
+		
+		\textbf{Demostración.}
+
+		\begin{itemize}
+			\item[$ \Longrightarrow $ \hspace{-4mm} ]] Suponiendo que $ C $ es un cono convexo. Sean $ x, y \in C $, $ \lambda \geq 0 $ y $ \mu \geq 0 $, se tiene que $ \lambda x, \mu y \in C $. Luego, tanto $ \lambda x $ como $ \mu y $ se pueden escribir como combinación lineal de los vectores que generan al cono, por lo que su suma también es una combinación lineal de vectores que generan al cono. Por lo tanto, $ \lambda x + \mu y \in C $ para todo $ \lambda \geq 0 $ y $ \mu \geq 0 $.
+			\item[$ \Longleftarrow $ \hspace{-4mm} ]] Suponiendo que para todos $ x $ e $ y \in C $ implica que $ \lambda x + \mu y \in C $ para todo $ \lambda \geq 0 $ y $ \mu \geq 0 $. Sean $ x,y \in C $ y $ \lambda \geq 0 $, por hipótesis se tiene que $ \lambda x + 0 \cdot y \in C $, es decir, $ \lambda x \in C $. De esta manera, $ C $ es convexo.
+		\end{itemize}
 	\end{enumerate}
 \end{document}
