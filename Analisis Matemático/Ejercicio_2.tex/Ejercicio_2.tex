@@ -1,0 +1,13 @@
+\documentclass[fleqn,12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[margin = 24mm]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+
+\begin{document}
+	\textbf{Proposición.} Sean $ A, B \subseteq \mathbb{R} $ no vacíos. Si $ a \leq b $ para todo $ a \in A $ y para todo $ b \in B $, entonces $ A $ está acotada superiormente y $ B $ está acotado inferiormente, y además, $ \sup (A) \leq \inf (B) $.
+
+	\textbf{Demostración.} 
+
+	Sea $ b \in B $, ya que $ a \leq b $ para todo $ a \in A $, se tiene que $ A $ está acotado superiormente. De igual forma, sea $ a \in A $ como $ a \leq b $ para todo $ b \in B $, se da que $ B $ está acotado inferiormente. Además, dado que $ A $ y $ B $ son no vacíos, se obtiene que el supremo y el ínfimo de $ A $ y $ B $ existen, respectivamente. Como todo elemento de $ B $ es cota superior de $ A $ se tiene que $ \sup (A) $ es una cota inferior de $ B $. Por lo tanto, $ \sup (A) \leq \inf (B) $, pues $ \inf(B) $ es la mayor cota inferior de $ B $.
+\end{document}
