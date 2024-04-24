@@ -1,22 +1,24 @@
 \documentclass[fleqn, 12pt]{article}
 \usepackage[spanish]{babel}
-\usepackage[margin = 24mm]{geometry}
+\usepackage[margin = 15mm, top = 12mm]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{parskip}
 \usepackage{tcolorbox}       % Agregar cajas con colores
+\usepackage{tikz}
 \tcbuselibrary{theorems}       % Crear entornos para teoremas
 \tcbuselibrary{breakable}       % Para que los entornos de teoremas puedan sobrepasar una página
 \usepackage{colortbl}
 \usepackage{array, tabularx}       % Insertar tablas en cajas de texto
 \usepackage[pdftex, hidelinks]{hyperref}       %Poner al final de los paquetes
 \tcbuselibrary{skins}
+\usetikzlibrary{shadings}
 \usepackage{enumerate}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{setspace}
 
-\usepackage[proportional,scaled=1.064]{erewhon}
+\usepackage[proportional,scaled=1]{erewhon}
 \usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
 \usepackage[T1]{fontenc}
 \renewcommand*\oldstylenums[1]{\textosf{#1}}
@@ -25,26 +27,23 @@
 \date{\today}
 
 \expandafter\def\expandafter\normalsize\expandafter{%
-    \setlength\abovedisplayskip{-12pt}%
-    \setlength\belowdisplayskip{4pt}%
+    \setlength\abovedisplayskip{-3pt}%
+    \setlength\belowdisplayskip{15pt}%
 }
 
 \tcbset{theorem full label supplement={hypertarget={#1}}}
 
 \newtcbtheorem{defi}{D\hspace{0.1mm}e\hspace{0.1mm}f\hspace{0.4mm}i\hspace{0.1mm}n\hspace{0.1mm}i\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}ó\hspace{0.1mm}n}{colback = red!9, colframe = red!72!black, fonttitle = \bfseries, separator sign = {\hspace{2mm}}}{def}
 
-\newtcbtheorem[auto counter]{ejer}{E\hspace{0.1mm}j\hspace{0.1mm}e\hspace{0.1mm}r\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}o}{colback = white!98!black, colframe = black!99!white, fonttitle = \bfseries, separator sign = {\hspace{2mm}}, drop fuzzy shadow=black!50!white}{ejer}
+\newtcbtheorem[auto counter]{ejer}{E\hspace{0.1mm}j\hspace{0.1mm}e\hspace{0.1mm}r\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}o}{colback = white!98!black, colframe = black!99!white, fonttitle = \bfseries, separator sign = {\hspace{2mm}}}{ejer}
 
 \newenvironment{definicion}[1]{\begin{defi}[breakable, pad at break = 5mm]{}{#1}}{\end{defi}}
-\newenvironment{ejercicio}[1]{\begin{ejer}[breakable, pad at break = 5mm]{}{#1}}{\end{ejer}}
+\newenvironment{ejercicio}[1]{\begin{ejer}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm]{}{#1}}{\end{ejer}}
 
 \newcommand{\paratodo}{\, \forall \,}
 \newcommand{\existe}{\exists \,}
+\newcommand{\talque}{\; \middle| \;}
 \newcommand{\rsi}[1]{\mathcal{R}(#1)}
-
-\expandafter\def\expandafter\normalsize\expandafter{%
-    \setlength\parskip{12pt}
-}
 
 \begin{document}
 	\begin{ejercicio}{diferenciabilidad}
@@ -52,20 +51,13 @@
 
 		\tcblower
 
-		\textbf{Demostración.}
+		\textbf{Demostración.} \medskip
 
-		jknvjkdfnvjkdnjkdnv
-		dnvjknvjdfnvjdfn \medskip
+		Sean $ \overline{y} = \left( y_1, y_2, \ldots, y_n \right) \in \mathbb{R}^n $ fijo y $ f = \left( f_1, f_2, \ldots, f_n \right) $. \bigskip
 
-		jnvjknvjdnvnvkdnvnv
+		P.d. $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{ \partial f_i }{ \partial x_j } (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|} }{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, 2, \ldots, m $. \bigskip
 
-		jknvjkdnvjdnvkjdnvjdnvkdmvlkcmvlv nbbkdnk  kdfddj   i o fjdj kdf df  gd jg kks kdfks kfdfnkfvdfnvnd kl vvd vlfk vdf vdfvnklmvk nvk v  v nvlknvksn v vvdfnvdfvksnvkvnjkfioeh tuught vn n  oa vnj nod
-
-		Sean $ \overline{y} = \left( y_1, y_2, \ldots, y_n \right) \in \mathbb{R}^n $ fijo y $ f = \left( f_1, f_2, \ldots, f_n \right) $.
-
-		P.d. $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{ \partial f_i }{ \partial x_j } (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|} }{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, 2, \ldots, m $.
-
-		Para todo $ i = 1, 2, \ldots, m $ y $ j = 1, 2, \ldots, n $ sea $ g : \mathbb{R} \to \mathbb{R} $ dada por $ g_j(x) = f_i\left( x_1, \ldots, x_{j-1}, x, y_{j+1}, \ldots, y_n \right) $, donde $ \overline{x} = \left( x_1, x_2, \ldots, x_n \right) \in U $. Luego, para cada $ i = 1, 2, \ldots, m $, se tiene que
+		Para todo $ i = 1, 2, \ldots, m $ \, y \, $ j = 1, 2, \ldots, n $, sea $ g : \mathbb{R} \to \mathbb{R} $ dada por \\ $ g_j(x) = f_i\left( x_1, \ldots, x_{j-1}, x, y_{j+1}, \ldots, y_n \right) $, donde $ \overline{x} = \left( x_1, x_2, \ldots, x_n \right) \in U $. Luego, para cada \\ $ i = 1, 2, \ldots, m $, se tiene que 
 
 		\begin{equation*}
 			\begin{split}
@@ -83,9 +75,11 @@
 
 		\begin{equation*}
 			\begin{split}
-				f_i(\overline{x}) - f_i(\overline{y}) &= g'_n(a_n) \left( x_n - y_n \right) + g'_{n-1}(a_{n-1}) \left( x_{n-1} - y_{n-1} \right) + \cdots + g'_j(a_j) \left( x_j - y_j \right) + \cdots + g'_1(a_1) \left( x_1 - y_1 \right) \\
+				f_i(\overline{x}) - f_i(\overline{y}) &= g'_n(a_n) \left( x_n - y_n \right) + g'_{n-1}(a_{n-1}) \left( x_{n-1} - y_{n-1} \right) + \cdots + g'_j(a_j) \left( x_j - y_j \right) + \cdots + \\
+				& \qquad g'_1(a_1) \left( x_1 - y_1 \right) \\
 				%
-				&= \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \left( x_1 - y_1 \right) + \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \left( x_2 - y_2 \right) + \cdots + \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \left( x_j - y_j \right) + \cdots + \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \left( x_n - y_n \right)
+				&= \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \left( x_1 - y_1 \right) + \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \left( x_2 - y_2 \right) + \cdots + \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \left( x_j - y_j \right) + \cdots + \\
+				& \qquad \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \left( x_n - y_n \right)
 			\end{split}
 		\end{equation*}
 
@@ -95,9 +89,14 @@
 			\begin{split}
 				f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) &= \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \left( x_1 - y_1 \right) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \left( x_1 - y_1 \right) + \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \left( x_2 - y_2 \right) - \\
 				& \qquad \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \left( x_2 - y_2 \right) + \cdots + \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \left( x_j - y_j \right) - \\
-				& \qquad \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) + \cdots + \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \left( x_n - y_n \right) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \left( x_n - y_n \right) \\
-				%
-				&= \left( \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right) \left( x_1 - y_1 \right) + \\
+				& \qquad \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) + \cdots + \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \left( x_n - y_n \right) - \\
+				& \qquad \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \left( x_n - y_n \right)
+			\end{split}
+		\end{equation*}
+
+		\begin{equation*}
+			\begin{split}
+				\phantom{ f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) } &= \left( \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right) \left( x_1 - y_1 \right) + \\
 				& \qquad \left( \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) - \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \right) \left( x_2 - y_2 \right) + \cdots + \\
 				& \qquad \left( \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right) \left( x_j - y_j \right) + \cdots + \\
 				& \qquad \left( \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \right) \left( x_n - y_n \right)
@@ -129,7 +128,7 @@
 		\begin{equation*}
 			\begin{split}
 				\Longrightarrow \dfrac{\left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j}(\overline{x}) \left( x_j - y_j \right) \right\rvert}{\left\lVert \overline{x} - \overline{y} \right\rVert} &\leq \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \\
-				& \qquad \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert
+				& \quad \; \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert
 			\end{split}
 		\end{equation*}
 
@@ -137,26 +136,22 @@
 
 		\begin{equation*}
 			\begin{split}
-				0 \leq \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } &\leq \lim_{\overline{x} \to \overline{y}} \Biggl( \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \Biggr. \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \\
-				& \qquad \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \\
+				0 \leq \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } &\leq \lim_{\overline{x} \to \overline{y}} \Biggl( \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \Biggr. \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \right. \\
+				& \left. \qquad \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \\
 				& \qquad \Biggl. \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert \Biggr) \\
-			\end{split}
-		\end{equation*}
-
-		\begin{equation*}
-			\begin{split}
-				\phantom{\lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert }} &= \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \\
-				& \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \\
+				%
+				&= \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) \right\rvert + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \right. \\
+				& \qquad \left. \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) \right\rvert + \cdots + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) \right\rvert + \cdots + \\
 				& \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) \right\rvert \\
 				%
-				&= \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{y}) \right\rvert + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \dfrac{\partial f_i}{\partial x_2} (\overline{y}) \right\rvert + \cdots + \\
-				& \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{y}) \right\rvert + \cdots + \\
+				&= \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_1} (\overline{x}) - \dfrac{\partial f_i}{\partial x_1} (\overline{y}) \right\rvert + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_2} (\overline{x}) - \right. \\
+				& \qquad \left. \dfrac{\partial f_i}{\partial x_2} (\overline{y}) \right\rvert + \cdots + \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_j} (\overline{x}) - \dfrac{\partial f_i}{\partial x_j} (\overline{y}) \right\rvert + \cdots + \\
 				& \qquad \lim_{\overline{x} \to \overline{y}} \left\lvert \dfrac{\partial f_i}{\partial x_n} (\overline{x}) - \dfrac{\partial f_i}{\partial x_n} (\overline{y}) \right\rvert \\
 				&= 0
 			\end{split}
 		\end{equation*}
 
-		De esta manera, $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, \ldots, m $.
+		De esta manera, $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, \ldots, m $. \bigskip
 
 		Por último, 
 
@@ -164,32 +159,103 @@
 			0 \leq \lim_{\overline{x} \to \overline{y}} \dfrac{ \left\lVert f(\overline{x}) - f(\overline{y}) - Df(\overline{y}) \left( \overline{x} - \overline{y} \right) \right\rVert }{ \left\lVert \overline{x} - \overline{y} \right\rVert } \leq \sum_{i=1}^{m} \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0
 		\end{equation*}
 
-		Ya que $ \overline{y} $ fue arbitrario, se concluye que $ f $ es diferenciable en $ U $. \hfill $ \blacksquare $ \\
+		Ya que $ \overline{y} $ fue arbitrario, se concluye que $ f $ es diferenciable en $ U $. \hfill $ \blacksquare $
 	\end{ejercicio}
-
-	
 
 %--------------------------------------------------------------------------------------------------------------------
 
-	\newpage
+	\begin{ejercicio}{conjuntos}
+		Sean $ A, B \subseteq \mathbb{R} $ no vacíos. Si $ a \leq b $ para todo $ a \in A $ y para todo $ b \in B $, entonces $ A $ está acotada superiormente y $ B $ está acotado inferiormente, y además, $ \sup (A) \leq \inf (B) $.
 
-	\textbf{Proposición.} Sean $ A, B \subseteq \mathbb{R} $ no vacíos. Si $ a \leq b $ para todo $ a \in A $ y para todo $ b \in B $, entonces $ A $ está acotada superiormente y $ B $ está acotado inferiormente, y además, $ \sup (A) \leq \inf (B) $.
+		\tcblower
+		
+		\textbf{Demostración.} \medskip
 
-	\textbf{Demostración.} 
+		Sea $ b \in B $, ya que $ a \leq b $ para todo $ a \in A $, se tiene que $ A $ está acotado superiormente. De igual forma, sea $ a \in A $ como $ a \leq b $ para todo $ b \in B $, se da que $ B $ está acotado inferiormente. Además, dado que $ A $ y $ B $ son no vacíos, se obtiene que el supremo y el ínfimo de $ A $ y $ B $ existen, respectivamente. Como todo elemento de $ B $ es cota superior de $ A $ se tiene que $ \sup (A) $ es una cota inferior de $ B $. Por lo tanto, $ \sup (A) \leq \inf (B) $, pues $ \inf(B) $ es la mayor cota inferior de $ B $.
+	\end{ejercicio}
+	
+%--------------------------------------------------------------------------------------------------------------------
 
-	Sea $ b \in B $, ya que $ a \leq b $ para todo $ a \in A $, se tiene que $ A $ está acotado superiormente. De igual forma, sea $ a \in A $ como $ a \leq b $ para todo $ b \in B $, se da que $ B $ está acotado inferiormente. Además, dado que $ A $ y $ B $ son no vacíos, se obtiene que el supremo y el ínfimo de $ A $ y $ B $ existen, respectivamente. Como todo elemento de $ B $ es cota superior de $ A $ se tiene que $ \sup (A) $ es una cota inferior de $ B $. Por lo tanto, $ \sup (A) \leq \inf (B) $, pues $ \inf(B) $ es la mayor cota inferior de $ B $.
+	\begin{ejercicio}{suma}
+		Si $ f \in \rsi{\alpha} $ en $ [a,b] $ y $ a < c < b $ entonces $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $ y
 
-	%------------------------------------------------------------------------------------------------------------------
+		\begin{equation*}
+			\int_{a}^{b} f \; \mathrm{d} \alpha = \int_{a}^{c} f \; \mathrm{d} \alpha + \int_{c}^{b} f \; \mathrm{d} \alpha
+		\end{equation*}
 
-	\newpage
+		\tcblower
 
-	c) Si $ f \in \rsi{\alpha} $ en $ [a,b] $ y $ a < c < b $ entonces $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $ y
+		\textbf{Demostración.} \medskip
 
-	\begin{equation*}
-		\int_{a}^{b} f \; \mathrm{d} \alpha = \int_{a}^{c} f \; \mathrm{d} \alpha + \int_{c}^{b} f \; \mathrm{d} \alpha
-	\end{equation*}
+		\textbf{Afirmación.} $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $. \bigskip
 
-	\textbf{Demostración.}
+		Sea $ \varepsilon > 0 $. Ya que $ f \in \rsi{\alpha} $ en $ [a,b] $ existe $ P_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[a,b]}} $} tal que \\ $ U(f,P_\varepsilon,\alpha) - L(f,P_\varepsilon,\alpha) < \varepsilon $. Luego, para cada $ j = 1, \ldots, n $ sean $ M_j = \sup \left\lbrace f(x) \talque x \in \left[ x_{j-1}, x_j \right] \right\rbrace $ y $ m_j = \inf \left\lbrace f(x) \talque x \in \left[ x_{j-1}, x_j \right] \right\rbrace $. Ya que $ a < c < b $, existe $ i = 1, \ldots, n $ tal que $ x_{i-1} < c \leq x_i $, por lo que se definen $ M'_c = \sup \left\lbrace f(x) \talque x \in \left[ x_{i-1}, c \right] \right\rbrace $, $ M''_c = \sup \left\lbrace f(x) \talque x \in \left[ c, x_i \right] \right\rbrace $, $ m'_c = \inf \left\lbrace f(x) \talque x \in \left[ x_{i-1}, c \right] \right\rbrace $ y $ m''_c = \inf \left\lbrace f(x) \talque x \in \left[ c, x_i \right] \right\rbrace $. \bigskip
 
-	Sea $ \varepsilon > 0 $. Ya que $ f \in \rsi{\alpha} $ en $ [a,b] $ existe $ P_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_n = b \right\rbrace \in \gamma_{[a,b]} $ tal que $ U(f,P_\varepsilon,\alpha) - L(f,P_\varepsilon,\alpha) < \varepsilon $. Luego, sean $ P'_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_{i-1}, c \right\rbrace \in \gamma_{[a,c]} $ y $ P''_\varepsilon = \left\lbrace a = c, x_i, x_{i+1}, \ldots, x_n \right\rbrace \in \gamma_{[c,b]} $, se tiene que
+		Después, considerando las particiones $ P'_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_{i-1}, c \right\rbrace \in $ {\large $ \gamma_{_{[a,c]}} $} y \\ $ P''_\varepsilon = \left\lbrace c, x_i, x_{i+1}, \ldots, x_n \right\rbrace \in $ {\large $ \gamma_{_{[c,b]}} $}, se tiene que
+		
+		\begin{align*}
+			&\mathcal{U} \left( f, P'_\varepsilon, \alpha \right) = \sum_{j=1}^{i-1} M_j \Delta \alpha_j + M'_c \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right], \\
+			%
+			&\mathcal{U} \left( f, P''_\varepsilon, \alpha \right) = M''_c \left[ \alpha(x_i) - \alpha\left( c \right) \right] + \sum_{j=i+1}^{n} M_j \Delta \alpha_j, \\
+		\end{align*}
+		
+		\begin{align*}
+			&\mathcal{L} \left( f, P'_\varepsilon, \alpha \right) = \sum_{j=1}^{i-1} m_j \Delta \alpha_j + m'_c \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right] \qquad \mbox{y} \\
+		    %
+			&\mathcal{L} \left( f, P''_\varepsilon, \alpha \right) = m''_c \left[ \alpha(x_i) - \alpha\left( c \right) \right] + \sum_{j=i+1}^{n} m_j \Delta \alpha_j.
+		\end{align*}
+
+		Puesto que $ \left[ x_{i-1}, c \right] \cup \left[ c, x_i \right] = \left[ x_{i-1}, x_i \right] $ se da que $ M'_c \leq M_i, M''_c \leq M_i, m_i \leq m'_c $ y $ m_i \leq m''_c $. Así,
+
+		\begin{align*}
+			\mathcal{U} \left( f, P'_\varepsilon, \alpha \right) + \mathcal{U} \left( f, P''_\varepsilon, \alpha \right) &= \sum_{j=1}^{i-1} M_j \Delta \alpha_j + M'_c \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right] + M''_c \left[ \alpha(x_i) - \alpha\left( c \right) \right] + \\
+			& \qquad \sum_{j=i+1}^{n} M_j \Delta \alpha_j \\
+			%
+			&\leq \sum_{j=1}^{i-1} M_j \Delta \alpha_j + M_i \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right] + M_i \left[ \alpha(x_i) - \alpha\left( c \right) \right] + \\
+			& \qquad \sum_{j=i+1}^{n} M_j \Delta \alpha_j \\
+			%
+			&= \sum_{j=1}^{n} M_j \Delta \alpha_j \\
+			%
+			&= U(f,P_\varepsilon,\alpha)
+		\end{align*}
+		
+		y
+
+		\begin{align*}
+			- \mathcal{L} \left( f, P'_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P''_\varepsilon, \alpha \right) &= - \sum_{j=1}^{i-1} m_j \Delta \alpha_j - m'_c \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right] - m''_c \left[ \alpha(x_i) - \alpha\left( c \right) \right]  \\
+			& \qquad - \sum_{j=i+1}^{n} m_j \Delta \alpha_j \\
+			%
+			&\leq - \sum_{j=1}^{i-1} m_j \Delta \alpha_j - m_i \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right] - m_i \left[ \alpha(x_i) - \alpha\left( c \right) \right] - \\
+			& \qquad\sum_{j=i+1}^{n} m_j \Delta \alpha_j \\
+			%
+			&= \sum_{j=1}^{n} m_j \Delta \alpha_j \\
+			%
+			&= -\mathcal{L} (f,P_\varepsilon,\alpha)
+		\end{align*}
+
+		De esta manera, 
+		
+		\begin{align*}
+			&\mathcal{U} \left( f, P'_\varepsilon, \alpha \right) + \mathcal{U} \left( f, P''_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P'_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P''_\varepsilon, \alpha \right) \leq U(f,P_\varepsilon,\alpha) -\mathcal{L} (f,P_\varepsilon,\alpha) < \varepsilon \\
+			%
+			&\Longrightarrow \mathcal{U} \left( f, P'_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P'_\varepsilon, \alpha \right) + \mathcal{U} \left( f, P''_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P''_\varepsilon, \alpha \right) < \varepsilon \\
+			%
+			&\Longrightarrow \mathcal{U} \left( f, P'_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P'_\varepsilon, \alpha \right) < \varepsilon \quad \mbox{ y } \quad \mathcal{U} \left( f, P''_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P''_\varepsilon, \alpha \right) < \varepsilon
+		\end{align*}
+		
+		Por lo que $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $. \medskip
+
+		Ahora, sea $ P = \left\lbrace a = x_0, x_1, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[a,b]}} $}, procediendo como antes, se da que existen $ P' = \left\lbrace a = x_0, x_1, \ldots, x_{i-1}, c \right\rbrace \in $ {\large $ \gamma_{_{[a,c]}} $} y $ P'' = \left\lbrace c, x_i, x_{i+1}, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[c,b]}} $} tales que $ \mathcal{U} \left( f, P', \alpha \right) + \mathcal{U} \left( f, P'', \alpha \right) \leq \mathcal{U} \left( f, P, \alpha \right) $ y $ \mathcal{L} \left( f, P', \alpha \right) + \mathcal{L} \left( f, P'', \alpha \right) \geq \mathcal{L} \left( f, P, \alpha \right) $. Posteriormente, se tiene que
+
+		\begin{align*}
+			&\mathcal{L} \left( f, P', \alpha \right) \leq \int_{a}^{c} f \; \mathrm{d} \alpha \leq \mathcal{U} \left( f, P', \alpha \right) \quad \hbox{y} \quad \mathcal{L} \left( f, P'', \alpha \right) \leq \int_{c}^{b} f \; \mathrm{d} \alpha \leq \mathcal{U} \left( f, P'', \alpha \right) \\
+			%
+			&\Longrightarrow \mathcal{L} \left( f, P', \alpha \right) + \mathcal{L} \left( f, P'', \alpha \right) \leq \int_{a}^{c} f \; \mathrm{d} \alpha + \int_{c}^{b} f \; \mathrm{d} \alpha \leq \mathcal{U} \left( f, P', \alpha \right) + \mathcal{U} \left( f, P'', \alpha \right) \\
+			%
+			&\Longrightarrow \mathcal{L} \left( f, P, \alpha \right) \leq \int_{a}^{c} f \; \mathrm{d} \alpha + \int_{c}^{b} f \; \mathrm{d} \alpha \leq \mathcal{U} \left( f, P, \alpha \right)
+		\end{align*}
+
+		Como $ P $ fue arbitraria, se obtiene que $ \displaystyle \int_{a}^{b} f \; \mathrm{d} \alpha = \int_{a}^{c} f \; \mathrm{d} \alpha + \int_{c}^{b} f \; \mathrm{d} \alpha $.
+	\end{ejercicio}
+	
 \end{document}
