@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1713942549.88987 "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" "build/Ejercicio_2.pdf" "Ejercicio_2" 1713942572.76391 0
+["pdflatex"] 1714976890.11674 "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" "build/Ejercicio_2.pdf" "Ejercicio_2" 1714976903.58017 0
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1713768334 554708 b32cb56de5530a3e55a3c51430e6248f ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1710069516 24234088 2e1156039a3535b144241088827dffab ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_kjdw2u.enc" 1652661580 3223 915011f8d7e28d650438bce58171e7fb ""
@@ -143,7 +143,6 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1705273579 20144 147463a6a579f4597269ef9565205cfe ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/atbegshi-ltx.sty" 1705273578 3045 273c666a54e60b9f730964f431a56c1b ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/atveryend-ltx.sty" 1705273579 2462 6bc53756156dbd71c1ad550d30a3b93f ""
-  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/fleqn.clo" 1705273579 4807 4a9ac821b9dc64f850693df4c0259635 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty" 1705273578 5119 a04a8b68ab4f6ce800a41f7f8012a10e ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/ifthen.sty" 1705273578 5319 2b738d02ce36ada6dcdd9534940db0ee ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/base/size12.clo" 1705273578 8449 f07039d8e4e89f21078d9b5137579bfc ""
@@ -223,10 +222,10 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "Ejercicio_2.tex" 1713942545 23487 efcd591c264453d765f611a58326c4f5 ""
-  "build/Ejercicio_2.aux" 1713942569 489 0aed0c0efa0a5f1a5743bb456834ef8c "pdflatex"
-  "build/Ejercicio_2.out" 1713942566 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" 1713942545 23487 efcd591c264453d765f611a58326c4f5 ""
+  "Ejercicio_2.tex" 1714976886 29112 6c2f190dc70b48da99ffef1fef53439e ""
+  "build/Ejercicio_2.aux" 1714976901 820 269856aaff391bf124ba845f57bfd8c8 "pdflatex"
+  "build/Ejercicio_2.out" 1714976899 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" 1714976886 29112 6c2f190dc70b48da99ffef1fef53439e ""
   (generated)
   "build/Ejercicio_2.aux"
   "build/Ejercicio_2.log"

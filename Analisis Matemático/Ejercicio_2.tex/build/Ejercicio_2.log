@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.10)  24 APR 2024 01:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.10)  6 MAY 2024 00:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -9,16 +9,7 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.clo
-File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
-\mathindent=\skip48
-Applying: [2015/01/01] Make \[ robust on input line 50.
-LaTeX Info: Redefining \[ on input line 51.
-Already applied: [0000/00/00] Make \[ robust on input line 62.
-Applying: [2015/01/01] Make \] robust on input line 74.
-LaTeX Info: Redefining \] on input line 75.
-Already applied: [0000/00/00] Make \] robust on input line 83.
-) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+(C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count188
@@ -29,8 +20,8 @@ File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count193
 \c@figure=\count194
 \c@table=\count195
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
 \bibindent=\dimen140
 ) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2024/02/07 v24.2 The Babel package
@@ -81,7 +72,7 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@dimlist=\toks19
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip51
+\@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -138,8 +129,8 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \totwidth@=\dimen157
 \lineht@=\dimen158
 \@envbody=\toks23
-\multlinegap=\skip52
-\multlinetaggap=\skip53
+\multlinegap=\skip51
+\multlinetaggap=\skip52
 \mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
@@ -417,12 +408,12 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \ar@mcellbox=\box76
 \extrarowheight=\dimen269
 \NC@list=\toks39
-\extratabsurround=\skip54
-\backup@length=\skip55
+\extratabsurround=\skip53
+\backup@length=\skip54
 \ar@cellbox=\box77
 )
 \everycr=\toks40
-\minrowclearance=\skip56
+\minrowclearance=\skip55
 \rownum=\count305
 ) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
@@ -526,7 +517,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip57
+\Hy@SectionHShift=\skip56
 ) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzfill.image.sty
@@ -547,9 +538,9 @@ Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
 \@enLab=\toks42
 ) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip58
+\multirow@colwidth=\skip57
 \multirow@cntb=\count318
-\multirow@dima=\skip59
+\multirow@dima=\skip58
 \bigstrutjot=\dimen279
 ) (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
@@ -565,8 +556,8 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \page@free=\dimen282
 \premulticols=\dimen283
 \postmulticols=\dimen284
-\multicolsep=\skip60
-\multicolbaselineskip=\skip61
+\multicolsep=\skip59
+\multicolbaselineskip=\skip60
 \partial@page=\box80
 \last@line=\box81
 \mc@boxedresult=\box82
@@ -782,12 +773,12 @@ LaTeX Font Info:    Font shape `T1/erewhon-TLF/m/n' will be
 )
 \c@tcb@cnt@defi=\count335
 \c@tcb@cnt@ejer=\count336
-LaTeX Font Info:    Trying to load font information for T1+erewhon-LF on input line 48.
+LaTeX Font Info:    Trying to load font information for T1+erewhon-LF on input line 50.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/erewhon\t1erewhon-lf.fd
 File: T1erewhon-LF.fd 2014/09/11 (autoinst) Font definitions for T1/erewhon-LF.
 )
 LaTeX Font Info:    Font shape `T1/erewhon-LF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 48.
+(Font)              scaled to size 12.0pt on input line 50.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count337
@@ -798,46 +789,46 @@ LaTeX Info: Redefining \% on input line 11.
 )
 \openout1 = `Ejercicio_2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/zutmi/m/it on input line 48.
-LaTeX Font Info:    Trying to load font information for OML+zutmi on input line 48.
+LaTeX Font Info:    Checking defaults for OML/zutmi/m/it on input line 50.
+LaTeX Font Info:    Trying to load font information for OML+zutmi on input line 50.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlzutmi.fd
 File: omlzutmi.fd 2014/04/14 Fontinst v1.933 font definitions for OML/zutmi.
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 48.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 48.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 50.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 50.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 48.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 48.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 50.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 50.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 48.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 48.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 50.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 50.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Info: Redefining \. on input line 48.
-LaTeX Info: Redefining \% on input line 48.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -873,8 +864,8 @@ LaTeX Info: Redefining \% on input line 48.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Command `\dddot' is already robust on input line 48.
-LaTeX Info: Command `\ddddot' is already robust on input line 48.
+LaTeX Info: Command `\dddot' is already robust on input line 50.
+LaTeX Info: Command `\ddddot' is already robust on input line 50.
 (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count338
@@ -900,7 +891,7 @@ Package grfext Info: Graphics extension search list:
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 48.
+Package hyperref Info: Link coloring OFF on input line 50.
  (c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.out) (c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.out)
 \@outlinefile=\write4
 \openout4 = `Ejercicio_2.out'.
@@ -908,48 +899,48 @@ Package hyperref Info: Link coloring OFF on input line 48.
 \c@mv@tabular=\count344
 \c@mv@boldtabular=\count345
 LaTeX Font Info:    Font shape `T1/erewhon-LF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 49.
-LaTeX Font Info:    Trying to load font information for OT1+erewhon-TLF on input line 50.
+(Font)              scaled to size 12.0pt on input line 51.
+LaTeX Font Info:    Trying to load font information for OT1+erewhon-TLF on input line 52.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/erewhon\ot1erewhon-tlf.fd
 File: OT1erewhon-TLF.fd 2022/05/15 (autoinst) Font definitions for OT1/erewhon-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 50.
+(Font)              scaled to size 12.0pt on input line 52.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 8.8pt on input line 50.
+(Font)              scaled to size 8.8pt on input line 52.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 50.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+(Font)              scaled to size 6.6pt on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 50.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 52.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 50.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 52.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 50.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 52.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 ) [1
 
 {C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_kjdw2u.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_qqbsse.enc}] [2] [3]
 LaTeX Font Info:    Font shape `T1/erewhon-LF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 192.
+(Font)              scaled to size 14.4pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 192.
+(Font)              scaled to size 14.4pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 10.5pt on input line 192.
+(Font)              scaled to size 10.5pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 7.9pt on input line 192.
- [4] [5] [6] (c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.aux
+(Font)              scaled to size 7.9pt on input line 194.
+ [4] [5] [6] [7] (c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -961,17 +952,17 @@ Package rerunfilecheck Info: File `Ejercicio_2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29637 strings out of 474435
- 570657 string characters out of 5740989
- 2005190 words of memory out of 5000000
- 51428 multiletter control sequences out of 15000+600000
+ 29664 strings out of 474435
+ 571175 string characters out of 5740989
+ 2006190 words of memory out of 5000000
+ 51447 multiletter control sequences out of 15000+600000
  605484 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,15n,107p,1081b,1084s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,21n,107p,1072b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/erewMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/erewMR.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaSTbb.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.pdf" (6 pages, 173022 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.pdf" (7 pages, 183276 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
+ 115 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\documentclass[fleqn, 12pt]{article}
+\documentclass[12pt]{article}
 \usepackage[spanish]{babel}
 \usepackage[margin = 15mm, top = 12mm]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
@@ -27,8 +27,8 @@
 \date{\today}
 
 \expandafter\def\expandafter\normalsize\expandafter{%
-    \setlength\abovedisplayskip{-3pt}%
-    \setlength\belowdisplayskip{15pt}%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{6pt}%
 }
 
 \tcbset{theorem full label supplement={hypertarget={#1}}}
@@ -37,27 +37,29 @@
 
 \newtcbtheorem[auto counter]{ejer}{E\hspace{0.1mm}j\hspace{0.1mm}e\hspace{0.1mm}r\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}c\hspace{0.1mm}i\hspace{0.1mm}o}{colback = white!98!black, colframe = black!99!white, fonttitle = \bfseries, separator sign = {\hspace{2mm}}}{ejer}
 
-\newenvironment{definicion}[1]{\begin{defi}[breakable, pad at break = 5mm]{}{#1}}{\end{defi}}
-\newenvironment{ejercicio}[1]{\begin{ejer}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm]{}{#1}}{\end{ejer}}
+\newenvironment{definicion}[1]{\begin{defi}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm]{}{#1}}{\end{defi}}
+\newenvironment{ejercicio}[1]{\begin{ejer}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm, fontlower = \setlength{\parskip}{2mm}]{}{#1}}{\end{ejer}}
 
-\newcommand{\paratodo}{\, \forall \,}
+\newcommand{\paratodo}{\, \forall \,} %A ver si sí
 \newcommand{\existe}{\exists \,}
 \newcommand{\talque}{\; \middle| \;}
 \newcommand{\rsi}[1]{\mathcal{R}(#1)}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\real}{\mathbb{R}}
 
 \begin{document}
 	\begin{ejercicio}{diferenciabilidad}
-		Sean $ f: U \subseteq \mathbb{R}^n \to \mathbb{R}^m $, con $ U $ un abierto de $ \mathbb{R}^n $. Si existen las derivadas parciales de $ f $ y como funciones son continuas en $ U $ entonces $ f $ es diferenciable.
+		Sean $ f: U \subseteq \real^n \to \real^m $, con $ U $ un abierto de $ \real^n $. Si existen las derivadas parciales de $ f $ y como funciones son continuas en $ U $ entonces $ f $ es diferenciable.
 
 		\tcblower
 
-		\textbf{Demostración.} \medskip
+		\textbf{Demostración.} 
 
-		Sean $ \overline{y} = \left( y_1, y_2, \ldots, y_n \right) \in \mathbb{R}^n $ fijo y $ f = \left( f_1, f_2, \ldots, f_n \right) $. \bigskip
+		Sean $ \overline{y} = \left( y_1, y_2, \ldots, y_n \right) \in \real^n $ fijo y $ f = \left( f_1, f_2, \ldots, f_n \right) $.
 
-		P.d. $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{ \partial f_i }{ \partial x_j } (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|} }{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, 2, \ldots, m $. \bigskip
+		P.d. $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{ \partial f_i }{ \partial x_j } (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|} }{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, 2, \ldots, m $.
 
-		Para todo $ i = 1, 2, \ldots, m $ \, y \, $ j = 1, 2, \ldots, n $, sea $ g : \mathbb{R} \to \mathbb{R} $ dada por \\ $ g_j(x) = f_i\left( x_1, \ldots, x_{j-1}, x, y_{j+1}, \ldots, y_n \right) $, donde $ \overline{x} = \left( x_1, x_2, \ldots, x_n \right) \in U $. Luego, para cada \\ $ i = 1, 2, \ldots, m $, se tiene que 
+		Para todo $ i = 1, 2, \ldots, m $ \, y \, $ j = 1, 2, \ldots, n $, sea $ g : \real \to \real $ dada por \\ $ g_j(x) = f_i\left( x_1, \ldots, x_{j-1}, x, y_{j+1}, \ldots, y_n \right) $, donde $ \overline{x} = \left( x_1, x_2, \ldots, x_n \right) \in U $. Luego, para cada \\ $ i = 1, 2, \ldots, m $, se tiene que 
 
 		\begin{equation*}
 			\begin{split}
@@ -96,7 +98,7 @@
 
 		\begin{equation*}
 			\begin{split}
-				\phantom{ f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) } &= \left( \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right) \left( x_1 - y_1 \right) + \\
+				\phantom{f_i(\overline{x}) - f_i(\overline{y}) - \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right)} &= \left( \dfrac{\partial f_i}{\partial x_1} (\overline{z_1}) - \dfrac{\partial f_i}{\partial x_1} (\overline{x}) \right) \left( x_1 - y_1 \right) + \\
 				& \qquad \left( \dfrac{\partial f_i}{\partial x_2} (\overline{z_2}) - \dfrac{\partial f_i}{\partial x_2} (\overline{x}) \right) \left( x_2 - y_2 \right) + \cdots + \\
 				& \qquad \left( \dfrac{\partial f_i}{\partial x_j} (\overline{z_j}) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right) \left( x_j - y_j \right) + \cdots + \\
 				& \qquad \left( \dfrac{\partial f_i}{\partial x_n} (\overline{z_n}) - \dfrac{\partial f_i}{\partial x_n} (\overline{x}) \right) \left( x_n - y_n \right)
@@ -151,7 +153,7 @@
 			\end{split}
 		\end{equation*}
 
-		De esta manera, $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, \ldots, m $. \bigskip
+		De esta manera, $ \displaystyle \lim_{\overline{x} \to \overline{y}} \dfrac{ \phantom{|} \left\lvert f_i(\overline{x}) - f_i(\overline{y}) - \displaystyle \sum_{j=1}^{n} \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \left( x_j - y_j \right) \right\rvert \phantom{|}}{ \left\lVert \overline{x} - \overline{y} \right\rVert } = 0 \quad \forall \, i = 1, \ldots, m $.
 
 		Por último, 
 
@@ -165,11 +167,11 @@
 %--------------------------------------------------------------------------------------------------------------------
 
 	\begin{ejercicio}{conjuntos}
-		Sean $ A, B \subseteq \mathbb{R} $ no vacíos. Si $ a \leq b $ para todo $ a \in A $ y para todo $ b \in B $, entonces $ A $ está acotada superiormente y $ B $ está acotado inferiormente, y además, $ \sup (A) \leq \inf (B) $.
+		Sean $ A, B \subseteq \real $ no vacíos. Si $ a \leq b $ para todo $ a \in A $ y para todo $ b \in B $, entonces $ A $ está acotada superiormente y $ B $ está acotado inferiormente, y además, $ \sup (A) \leq \inf (B) $.
 
 		\tcblower
 		
-		\textbf{Demostración.} \medskip
+		\textbf{Demostración.} 
 
 		Sea $ b \in B $, ya que $ a \leq b $ para todo $ a \in A $, se tiene que $ A $ está acotado superiormente. De igual forma, sea $ a \in A $ como $ a \leq b $ para todo $ b \in B $, se da que $ B $ está acotado inferiormente. Además, dado que $ A $ y $ B $ son no vacíos, se obtiene que el supremo y el ínfimo de $ A $ y $ B $ existen, respectivamente. Como todo elemento de $ B $ es cota superior de $ A $ se tiene que $ \sup (A) $ es una cota inferior de $ B $. Por lo tanto, $ \sup (A) \leq \inf (B) $, pues $ \inf(B) $ es la mayor cota inferior de $ B $.
 	\end{ejercicio}
@@ -185,11 +187,11 @@
 
 		\tcblower
 
-		\textbf{Demostración.} \medskip
+		\textbf{Demostración.} 
 
-		\textbf{Afirmación.} $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $. \bigskip
+		\textbf{Afirmación.} $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $.
 
-		Sea $ \varepsilon > 0 $. Ya que $ f \in \rsi{\alpha} $ en $ [a,b] $ existe $ P_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[a,b]}} $} tal que \\ $ U(f,P_\varepsilon,\alpha) - L(f,P_\varepsilon,\alpha) < \varepsilon $. Luego, para cada $ j = 1, \ldots, n $ sean $ M_j = \sup \left\lbrace f(x) \talque x \in \left[ x_{j-1}, x_j \right] \right\rbrace $ y $ m_j = \inf \left\lbrace f(x) \talque x \in \left[ x_{j-1}, x_j \right] \right\rbrace $. Ya que $ a < c < b $, existe $ i = 1, \ldots, n $ tal que $ x_{i-1} < c \leq x_i $, por lo que se definen $ M'_c = \sup \left\lbrace f(x) \talque x \in \left[ x_{i-1}, c \right] \right\rbrace $, $ M''_c = \sup \left\lbrace f(x) \talque x \in \left[ c, x_i \right] \right\rbrace $, $ m'_c = \inf \left\lbrace f(x) \talque x \in \left[ x_{i-1}, c \right] \right\rbrace $ y $ m''_c = \inf \left\lbrace f(x) \talque x \in \left[ c, x_i \right] \right\rbrace $. \bigskip
+		Sea $ \varepsilon > 0 $. Ya que $ f \in \rsi{\alpha} $ en $ [a,b] $ existe $ P_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[a,b]}} $} tal que \\ $ U(f,P_\varepsilon,\alpha) - L(f,P_\varepsilon,\alpha) < \varepsilon $. Luego, para cada $ j = 1, \ldots, n $ sean $ M_j = \sup \left\lbrace f(x) \talque x \in \left[ x_{j-1}, x_j \right] \right\rbrace $ y $ m_j = \inf \left\lbrace f(x) \talque x \in \left[ x_{j-1}, x_j \right] \right\rbrace $. Ya que $ a < c < b $, existe $ i = 1, \ldots, n $ tal que $ x_{i-1} < c \leq x_i $, por lo que se definen $ M'_c = \sup \left\lbrace f(x) \talque x \in \left[ x_{i-1}, c \right] \right\rbrace $, $ M''_c = \sup \left\lbrace f(x) \talque x \in \left[ c, x_i \right] \right\rbrace $, $ m'_c = \inf \left\lbrace f(x) \talque x \in \left[ x_{i-1}, c \right] \right\rbrace $ y $ m''_c = \inf \left\lbrace f(x) \talque x \in \left[ c, x_i \right] \right\rbrace $.
 
 		Después, considerando las particiones $ P'_\varepsilon = \left\lbrace a = x_0, x_1, \ldots, x_{i-1}, c \right\rbrace \in $ {\large $ \gamma_{_{[a,c]}} $} y \\ $ P''_\varepsilon = \left\lbrace c, x_i, x_{i+1}, \ldots, x_n \right\rbrace \in $ {\large $ \gamma_{_{[c,b]}} $}, se tiene que
 		
@@ -197,9 +199,7 @@
 			&\mathcal{U} \left( f, P'_\varepsilon, \alpha \right) = \sum_{j=1}^{i-1} M_j \Delta \alpha_j + M'_c \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right], \\
 			%
 			&\mathcal{U} \left( f, P''_\varepsilon, \alpha \right) = M''_c \left[ \alpha(x_i) - \alpha\left( c \right) \right] + \sum_{j=i+1}^{n} M_j \Delta \alpha_j, \\
-		\end{align*}
-		
-		\begin{align*}
+			%
 			&\mathcal{L} \left( f, P'_\varepsilon, \alpha \right) = \sum_{j=1}^{i-1} m_j \Delta \alpha_j + m'_c \left[ \alpha(c) - \alpha\left( x_{i-1} \right) \right] \qquad \mbox{y} \\
 		    %
 			&\mathcal{L} \left( f, P''_\varepsilon, \alpha \right) = m''_c \left[ \alpha(x_i) - \alpha\left( c \right) \right] + \sum_{j=i+1}^{n} m_j \Delta \alpha_j.
@@ -243,7 +243,7 @@
 			&\Longrightarrow \mathcal{U} \left( f, P'_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P'_\varepsilon, \alpha \right) < \varepsilon \quad \mbox{ y } \quad \mathcal{U} \left( f, P''_\varepsilon, \alpha \right) - \mathcal{L} \left( f, P''_\varepsilon, \alpha \right) < \varepsilon
 		\end{align*}
 		
-		Por lo que $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $. \medskip
+		Por lo que $ f \in \rsi{\alpha} $ en $ [a,c] $ y en $ [c,b] $. 
 
 		Ahora, sea $ P = \left\lbrace a = x_0, x_1, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[a,b]}} $}, procediendo como antes, se da que existen $ P' = \left\lbrace a = x_0, x_1, \ldots, x_{i-1}, c \right\rbrace \in $ {\large $ \gamma_{_{[a,c]}} $} y $ P'' = \left\lbrace c, x_i, x_{i+1}, \ldots, x_n = b \right\rbrace \in $ {\large $ \gamma_{_{[c,b]}} $} tales que $ \mathcal{U} \left( f, P', \alpha \right) + \mathcal{U} \left( f, P'', \alpha \right) \leq \mathcal{U} \left( f, P, \alpha \right) $ y $ \mathcal{L} \left( f, P', \alpha \right) + \mathcal{L} \left( f, P'', \alpha \right) \geq \mathcal{L} \left( f, P, \alpha \right) $. Posteriormente, se tiene que
 
@@ -256,6 +256,115 @@
 		\end{align*}
 
 		Como $ P $ fue arbitraria, se obtiene que $ \displaystyle \int_{a}^{b} f \; \mathrm{d} \alpha = \int_{a}^{c} f \; \mathrm{d} \alpha + \int_{c}^{b} f \; \mathrm{d} \alpha $.
+	\end{ejercicio}
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{ejercicio}{convergenciaycontinuidad}
+		Sea $ f \colon (X, \mathrm{d}_X) \to (Y, \mathrm{d}_Y) $. Si $ f $ es continua y $ \lbrace p_n \rbrace_{n \in \nat} $ es una sucesión en $ X $ tal que $ p_n \to p $, entonces $ f(p_n) \to f(p) $.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sea $ \varepsilon > 0 $. Como $ f $ es continua, existe $ \delta > 0 $ tal que si $ x \in X $ y $ \mathrm{d}_X(x,p) < \delta $ entonces \\ $ \mathrm{d}_Y \bigl( f(x),f(p) \bigr) < \varepsilon $. Luego, ya que $ p_n \to p $, para $ \delta $ existe $ N \in \nat $ tal que $ \mathrm{d}_X(p_n, p) < \delta $, para todo $ n \geq N $. Así, $ \mathrm{d}_Y \bigl( f(p_n), f(p) \bigr) < \varepsilon $, para todo $ n \geq N $. 
+
+		Por lo tanto, $ f(p_n) \to f(p) $.
+	\end{ejercicio}
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{definicion}{funcioncontractiva}
+		Sea $ f \colon (X, \mathrm{d}_X) \to (Y, \mathrm{d}_Y) $ una función entre espacios métricos. Se dice que $ f $ es \textbf{contractiva} si existe $ c \in [0,1) $ tal que 
+
+		\begin{equation*}
+			\mathrm{d}_Y \bigl( f(x), f(y) \bigr) \leq c \mathrm{d}_X(x,y) \quad \paratodo x, y \in X
+		\end{equation*}
+	\end{definicion}
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{ejercicio}{contractivaesuniformementecontinua}
+		Si $ f \colon (X, \mathrm{d}_X) \to (Y, \mathrm{d}_Y) $ es contractiva entonces $ f $ es uniformemente continua.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sea $ \varepsilon > 0 $. Ya que $ f $ es contractiva, para todo $ x, y \in X $ tal que $ \mathrm{d}_X(x, y) < \varepsilon $, existe $ c \in [0,1) $ tal que $ \mathrm{d}_Y \bigl( f(x), f(y) \bigr) \leq c \mathrm{d}_X(x,y) < c \varepsilon < \varepsilon $. 
+
+		Por lo tanto, $ f $ es uniformemente continua.
+	\end{ejercicio}
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{definicion}{puntofijo}
+		Sea $ f \colon A \to B $ y $ x \in A $. Se dice que $ x $ es un \textbf{punto fijo} si $ f(x) = x $.
+	\end{definicion}
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{ejercicio}{contractivaentoncesfijo}
+		Sea $ X $ un espacio completo. Si $ f \colon (X, \mathrm{d}) \to (X, \mathrm{d}) $ es contractiva entonces $ f $ tiene un único punto fijo.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Primero se demostrará que $ f $ tiene punto fijo. Sea $ x_0 \in X $, se define la sucesión $ \lbrace x_n \rbrace_{n \in \nat \cup \{0\}} $ como \\ $ x_{n+1} = f(x_n) $. 
+
+		\textbf{Afirmación.} Para todo $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $. 
+
+		\hfill \begin{minipage}{0.98\linewidth}
+			\setlength{\parskip}{1mm}
+
+			Procediendo por inducción:
+
+			Para $ n = 1 $ se da que $ \mathrm{d}(x_0, x_1) \leq c \mathrm{d}(x_0, x_1) $, para cualquier $ c \in [0,1) $.
+
+			Luego, suponiendo que para cada $ k < n $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{k-1}, x_k) \leq c^k \mathrm{d} (x_0, x_1) $. Como $ f $ es contractiva, se tiene que
+
+			\begin{align*}
+				\mathrm{d} (x_{n-1}, x_n) &= \mathrm{d} \bigl( f(x_{n-2}), f(x_{n-1}) \bigr) & \\
+				%
+				&\leq c_1 \mathrm{d} (x_{n-2}, x_{n-1}) & \bigl( \mbox{para algún $ c_1 \in [0,1) $} \bigr) \\
+				%
+				&\leq c_1 c_2^{n-1} \mathrm{d} (x_0, x_1) & \bigl( \mbox{para algún $ c_2 \in [0,1) $ y por hipótesis de inducción} \bigr) \\
+				&\leq c^n \mathrm{d} (x_0, x_1) & \bigl( \mbox{donde $ c = \max \{ c_1, c_2 \} $}\bigr)
+			\end{align*}
+
+			Por lo tanto, para cada $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $.
+		\end{minipage}
+
+		\textbf{Afirmación.} Para cada $ n, m \in \nat \cup \{0\} $ tal que $ n < m $, existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} $. 
+
+		\hfill \begin{minipage}{0.98\linewidth}
+			\setlength{\parskip}{1mm}
+
+			Sea $ m \in \nat $. Procediendo por inducción sobre $ n $:
+
+			Para $ n = 0 $ se da que
+
+			\begin{equation*}
+				\mathrm{d} (x_0, x_m) \leq \sum_{i=1}^{m} \mathrm{d} (x_{i-1}, x_i)
+			\end{equation*}
+
+			Por la afirmación anterior, para cada $ i = 1, 2, \ldots, m $, existe $ c_i \in [0,1) $ tal que $ \mathrm{d} (x_{i-1}, x_i) \leq c_i^i \mathrm{d} (x_0, x_1) $. Así,
+
+			\begin{align*}
+				\mathrm{d} (x_0, x_m) &\leq \sum_{i=1}^{m} c_i^i \mathrm{d} (x_0, x_1) & \\
+				%
+				&\leq \sum_{i=1}^{m} c^i \mathrm{d} (x_0, x_1) & \mbox{donde $ c = \max \{ c_1, c_2, \ldots, c_m \} $} \\
+				%
+				&= \mathrm{d} (x_0, x_1) \dfrac{c-c^{m+1}}{1-c} & \mbox{donde $ c = \max \{ c_1, c_2, \ldots, c_m \} $}
+			\end{align*}
+
+			y como $ 0 \leq c < 1 \Longrightarrow 0 \leq c^m < 1 \Longrightarrow -1 < -c^m \leq 0 \Longrightarrow 0 < 1 - c^m \leq 1 \Longrightarrow 0 < c - c^{m+1} \leq c $, se obtiene que $ \mathrm{d} (x_0, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c $. De esta manera, se cumple la afirmación.
+
+			Después, suponiendo que para $ k < n $
+
+			Por lo tanto, para cada $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $.
+		\end{minipage}
 	\end{ejercicio}
 	
 \end{document}
