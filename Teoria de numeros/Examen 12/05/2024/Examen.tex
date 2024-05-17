@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[margin = 21mm, top = 24mm]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{tcolorbox}       % Agregar cajas con colores
+\usepackage{colortbl}
+\usepackage{array, tabularx}       % Insertar tablas en cajas de texto
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\usepackage[proportional,scaled=1]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\title{}
+\author{Osmar Dominique Santana Reyes}
+\date{\today}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{6pt}%
+}
+
+\newcommand{\paratodo}{\, \forall \,}
+\newcommand{\existe}{\exists \,}
+\newcommand{\talque}{\; \middle| \;}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\ent}{\mathbb{Z}}
+
+\begin{document}
+	\hfill \today
+
+	\textbf{Teoría de números}
+
+	Osmar Dominique Santana Reyes
+
+	\begin{enumerate}
+		\item Sea $ m = 1, 2, 4, p^\alpha, 2p^\alpha $, con $ p $ primo impar y $ \alpha \in \nat $, y $ a \in \ent $. $ x^n \equiv a (\bmod m) $ tiene $ (n, \phi(m)) $ soluciones si y solo si $ a^{\frac{\phi(m)}{(n, \phi(m))}} \equiv 1 (\bmod m) $.
+		
+		\textbf{Demostración.}
+
+		Sea $ g $ raíz primitiva módulo $ m $ e $ i \in \lbrace 1, 2, \ldots, \phi(m) \right $ tal que $ g^i \equiv a (\bmod m) $.
+		
+		Primero, si se supone que $ x^n \equiv a (\bmod m) $ tiene $ (n, \phi(m)) $ soluciones, entonces sea $ x_0 $ una de estas soluciones y $ u $ tal que $ x_0 \equiv g^u (\bmod m) $, se tiene que
+
+		\begin{equation*}
+			g^i \equiv a \equiv x_0^n \equiv g^{un} (\bmod m)
+		\end{equation*}
+
+		\item 
+	\end{enumerate}
+\end{document}

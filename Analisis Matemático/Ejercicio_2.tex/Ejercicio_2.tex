@@ -40,7 +40,7 @@
 \newenvironment{definicion}[1]{\begin{defi}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm]{}{#1}}{\end{defi}}
 \newenvironment{ejercicio}[1]{\begin{ejer}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm, fontlower = \setlength{\parskip}{2mm}]{}{#1}}{\end{ejer}}
 
-\newcommand{\paratodo}{\, \forall \,} %A ver si sí
+\newcommand{\paratodo}{\, \forall \,}
 \newcommand{\existe}{\exists \,}
 \newcommand{\talque}{\; \middle| \;}
 \newcommand{\rsi}[1]{\mathcal{R}(#1)}
@@ -313,7 +313,7 @@
 
 		Primero se demostrará que $ f $ tiene punto fijo. Sea $ x_0 \in X $, se define la sucesión $ \lbrace x_n \rbrace_{n \in \nat \cup \{0\}} $ como \\ $ x_{n+1} = f(x_n) $. 
 
-		\textbf{Afirmación.} Para todo $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $. 
+		\textbf{Afirmación 1.} Para cada $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $. 
 
 		\hfill \begin{minipage}{0.98\linewidth}
 			\setlength{\parskip}{1mm}
@@ -322,49 +322,68 @@
 
 			Para $ n = 1 $ se da que $ \mathrm{d}(x_0, x_1) \leq c \mathrm{d}(x_0, x_1) $, para cualquier $ c \in [0,1) $.
 
-			Luego, suponiendo que para cada $ k < n $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{k-1}, x_k) \leq c^k \mathrm{d} (x_0, x_1) $. Como $ f $ es contractiva, se tiene que
+			Luego, suponiendo que para $ n = k $ existe $ c_0 \in [0,1) $ tal que $ \mathrm{d} (x_{k-1}, x_k) \leq c_0^k \mathrm{d} (x_0, x_1) $. Como $ f $ es contractiva, para $ n = k + 1 $ se tiene que
 
 			\begin{align*}
-				\mathrm{d} (x_{n-1}, x_n) &= \mathrm{d} \bigl( f(x_{n-2}), f(x_{n-1}) \bigr) & \\
+				\mathrm{d} (x_k, x_{k+1}) &= \mathrm{d} \bigl( f(x_{k-1}), f(x_k) \bigr) & \\
 				%
-				&\leq c_1 \mathrm{d} (x_{n-2}, x_{n-1}) & \bigl( \mbox{para algún $ c_1 \in [0,1) $} \bigr) \\
+				&\leq c_1 \mathrm{d} (x_{k-1}, x_k) & \bigl( \mbox{para algún $ c_1 \in [0,1) $} \bigr) \\
 				%
-				&\leq c_1 c_2^{n-1} \mathrm{d} (x_0, x_1) & \bigl( \mbox{para algún $ c_2 \in [0,1) $ y por hipótesis de inducción} \bigr) \\
-				&\leq c^n \mathrm{d} (x_0, x_1) & \bigl( \mbox{donde $ c = \max \{ c_1, c_2 \} $}\bigr)
+				&\leq c_1 c_0^k \mathrm{d} (x_0, x_1) & \bigl( \mbox{por hipótesis de inducción} \bigr) \\
+				%
+				&\leq c^{k+1} \mathrm{d} (x_0, x_1) & \bigl( \mbox{donde $ c = \max \{ c_1, c_0 \} $}\bigr)
 			\end{align*}
 
 			Por lo tanto, para cada $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $.
 		\end{minipage}
 
-		\textbf{Afirmación.} Para cada $ n, m \in \nat \cup \{0\} $ tal que $ n < m $, existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} $. 
+		\textbf{Afirmación 2.} Para cada $ n, m \in \nat \cup \lbrace 0 \rbrace $ tal que $ n < m $, existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} $. 
 
 		\hfill \begin{minipage}{0.98\linewidth}
 			\setlength{\parskip}{1mm}
 
-			Sea $ m \in \nat $. Procediendo por inducción sobre $ n $:
-
-			Para $ n = 0 $ se da que
+			Sean $ n, m \in \nat \cup \lbrace 0 \rbrace $ tales que $ n < m $, se tiene que
 
 			\begin{equation*}
-				\mathrm{d} (x_0, x_m) \leq \sum_{i=1}^{m} \mathrm{d} (x_{i-1}, x_i)
+				\mathrm{d} (x_n, x_m) \leq \sum_{i=n+1}^{m} \mathrm{d} (x_{i-1}, x_i) \\
 			\end{equation*}
 
-			Por la afirmación anterior, para cada $ i = 1, 2, \ldots, m $, existe $ c_i \in [0,1) $ tal que $ \mathrm{d} (x_{i-1}, x_i) \leq c_i^i \mathrm{d} (x_0, x_1) $. Así,
-
+			Por la afirmación anterior, para cada $ i = n+1, n+2, \ldots, m $ existe $ c_i \in [0,1) $ tal que 
+			
 			\begin{align*}
-				\mathrm{d} (x_0, x_m) &\leq \sum_{i=1}^{m} c_i^i \mathrm{d} (x_0, x_1) & \\
+				\mathrm{d} (x_n, x_m) &\leq \sum_{i=n+1}^{m} c_i^i \mathrm{d} (x_0, x_1) & \\
 				%
-				&\leq \sum_{i=1}^{m} c^i \mathrm{d} (x_0, x_1) & \mbox{donde $ c = \max \{ c_1, c_2, \ldots, c_m \} $} \\
+				&\leq \sum_{i=n+1}^{m} c^i \mathrm{d} (x_0, x_1) & \mbox{donde $ c = \max \{ c_{n+1}, c_{n+2}, \ldots, c_m \} $} \\
 				%
-				&= \mathrm{d} (x_0, x_1) \dfrac{c-c^{m+1}}{1-c} & \mbox{donde $ c = \max \{ c_1, c_2, \ldots, c_m \} $}
+				&= \mathrm{d} (x_0, x_1) \dfrac{c^{n+1}-c^{m+1}}{1-c} & \\
+				%
+				&\leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} &
 			\end{align*}
 
-			y como $ 0 \leq c < 1 \Longrightarrow 0 \leq c^m < 1 \Longrightarrow -1 < -c^m \leq 0 \Longrightarrow 0 < 1 - c^m \leq 1 \Longrightarrow 0 < c - c^{m+1} \leq c $, se obtiene que $ \mathrm{d} (x_0, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c $. De esta manera, se cumple la afirmación.
-
-			Después, suponiendo que para $ k < n $
-
-			Por lo tanto, para cada $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $.
+			Por lo tanto, para cada $ n, m \in \nat \cup \lbrace 0 \rbrace $ tal que $ n < m $, existe $ c \in [0,1) $ tal que \\ $ \mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} $. 
 		\end{minipage}
+
+		\textbf{Afirmación 3.} Para cada $ \varepsilon > 0 $ existe $ N \in \nat $ tal que $ \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon $ para cualquier $ c \in [0,1) $. 
+
+		\hfill \begin{minipage}{0.98\linewidth}
+			\setlength{\parskip}{1mm}
+
+			Sea $ \varepsilon > 0 $ y $ c \in [0,1) $ para $ \varepsilon \dfrac{1-c}{\mathrm{d} (x_0, x_1)} > 0 $, existe un $ N \in \nat $ tal que $ c^N < \varepsilon \dfrac{1-c}{\mathrm{d} (x_0, x_1)} $. Por lo tanto, $ \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon $. 
+		\end{minipage}
+
+		Ahora, sea $ \varepsilon > 0 $, por la afirmación anterior, existe $ N \in \nat $ tal que $ \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon $ para cualquier $ c \in [0,1) $. Luego, para todo $ m > n \geq N $ existe $ c \in [0,1) $ tal que
+
+		\begin{align*}
+			\mathrm{d} (x_n, x_m) &\leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} & \mbox{por la Afirmación 2} \\
+			%
+			&\leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{N+1} & \\
+			%
+			&< \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N & \\
+			% 
+			&< \varepsilon
+		\end{align*}
+
+		De este modo, $ \lbrace x_n \rbrace_{n \in \nat \cup \{0\}} $ es de Cauchy y como $ X $ es un espacio completo $ x_n \to x $, para algún $ x \in X $. Luego, por el Ejercicio \ref{ejer:contractivaesuniformementecontinua}, $ f $ es uniformemente continua, lo cual implica que es continua. Así, 
 	\end{ejercicio}
 	
 \end{document}
