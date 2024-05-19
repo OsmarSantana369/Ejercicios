@@ -27,8 +27,8 @@
 \date{\today}
 
 \expandafter\def\expandafter\normalsize\expandafter{%
-    \setlength\abovedisplayskip{-9pt}%
-    \setlength\belowdisplayskip{6pt}%
+    \setlength\abovedisplayskip{-10pt}%
+    \setlength\belowdisplayskip{7pt}%
 }
 
 \tcbset{theorem full label supplement={hypertarget={#1}}}
@@ -42,7 +42,7 @@
 
 \newcommand{\paratodo}{\, \forall \,}
 \newcommand{\existe}{\exists \,}
-\newcommand{\talque}{\; \middle| \;}
+\newcommand{\talque}{\; \mathbf{\colon}}
 \newcommand{\rsi}[1]{\mathcal{R}(#1)}
 \newcommand{\nat}{\mathbb{N}}
 \newcommand{\real}{\mathbb{R}}
@@ -337,7 +337,7 @@
 			Por lo tanto, para cada $ n \in \nat $ existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_{n-1}, x_n) \leq c^n \mathrm{d} (x_0, x_1) $.
 		\end{minipage}
 
-		\textbf{Afirmación 2.} Para cada $ n, m \in \nat \cup \lbrace 0 \rbrace $ tal que $ n < m $, existe $ c \in [0,1) $ tal que $ \mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} $. 
+		\textbf{Afirmación 2.} Para cada $ n, m \in \nat \cup \lbrace 0 \rbrace $ tal que $ n < m $, existe $ c \in [0,1) $ tal que \\ $ \mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} $. 
 
 		\hfill \begin{minipage}{0.98\linewidth}
 			\setlength{\parskip}{1mm}
@@ -371,19 +371,50 @@
 			Sea $ \varepsilon > 0 $ y $ c \in [0,1) $ para $ \varepsilon \dfrac{1-c}{\mathrm{d} (x_0, x_1)} > 0 $, existe un $ N \in \nat $ tal que $ c^N < \varepsilon \dfrac{1-c}{\mathrm{d} (x_0, x_1)} $. Por lo tanto, $ \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon $. 
 		\end{minipage}
 
-		Ahora, sea $ \varepsilon > 0 $, por la afirmación anterior, existe $ N \in \nat $ tal que $ \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon $ para cualquier $ c \in [0,1) $. Luego, para todo $ m > n \geq N $ existe $ c \in [0,1) $ tal que
+		Ahora, sea $ \varepsilon > 0 $, por la afirmación anterior, existe $ N \in \nat $ tal que $ \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon $ para todo $ c \in [0,1) $. Luego, para todo $ m > n \geq N $, y por la Afirmación 2, existe $ c \in [0,1) $ tal que \vspace{-3mm}
 
-		\begin{align*}
-			\mathrm{d} (x_n, x_m) &\leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} & \mbox{por la Afirmación 2} \\
-			%
-			&\leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{N+1} & \\
-			%
-			&< \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N & \\
-			% 
-			&< \varepsilon
-		\end{align*}
+		\begin{equation*}
+			\mathrm{d} (x_n, x_m) \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{n+1} \leq \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^{N+1} < \dfrac{\mathrm{d} (x_0, x_1)}{1-c} c^N < \varepsilon
+		\end{equation*}
+		
+		De este modo, $ \lbrace x_n \rbrace_{n \in \nat \cup \{0\}} $ es de Cauchy y como $ X $ es un espacio completo $ x_n \to x $, para algún $ x \in X $. Luego, por el Ejercicio \ref{ejer:contractivaesuniformementecontinua}, $ f $ es uniformemente continua, lo cual implica que es continua. Así, $ f(x_n) \to f(x) $, pero por cómo se definió $ \lbrace x_n \rbrace_{n \in \nat \cup \{0\}} $, se tiene que $ \lbrace x_n \rbrace_{n \in \nat} = \lbrace f(x_n) \rbrace_{n \in \nat \cup \{0\}} $, por lo que $ f(x_n) \to x $. De esta forma, $ f(x) = x $, de modo que $ f $ tiene un punto fijo.
 
-		De este modo, $ \lbrace x_n \rbrace_{n \in \nat \cup \{0\}} $ es de Cauchy y como $ X $ es un espacio completo $ x_n \to x $, para algún $ x \in X $. Luego, por el Ejercicio \ref{ejer:contractivaesuniformementecontinua}, $ f $ es uniformemente continua, lo cual implica que es continua. Así, 
+		Posteriormente, suponiendo que $ f $ tiene dos puntos fijos distintos, $ x $ y $ y $, se da que \vspace{-3mm}
+		
+		\begin{equation*}
+			\mathrm{d} (x, y) = \mathrm{d} \bigl( f(x), f(y) \bigr) \leq c \mathrm{d} (x, y) \qquad \mbox{para algún } c \in [0,1)
+		\end{equation*}
+
+		y como $ \mathrm{d} (x, y) > 0 $, se da que $ 1 \leq c $, lo cual no puede ser. Por lo tanto, $ f $ tiene un único punto fijo.
 	\end{ejercicio}
 	
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{ejercicio}{cantorintegrable}
+		Sean $ \mathcal{C} $ el conjunto de Cantor, $ f \colon [0,1] \to \real $ acotada y continua en $ [0,1] \setminus \mathcal{C} $. Demostrar que $ f \in \mathcal{R} $ en $ [0,1] $.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sean $ \epsilon > 0 $, $ M = \sup \bigl\lbrace \lvert f(x) \rvert \talque x \in [0,1] \bigr\rbrace $ y $ \displaystyle U = \bigcup_{i=1}^m (a_i, b_i) $ una cubierta abierta finita de $ \mathcal{C} $ tal que $ \displaystyle \sum_{i=1}^{m} (b_i - a_i) < \dfrac{\varepsilon}{4M} $. Ya que $ [0,1] \setminus \mathcal{C} $ es cerrado y acotado, se obtiene que $ [0,1] \setminus \mathcal{C} $ es cerrado, por lo cual $ f $ es uniformemente continua en $ [0,1] \setminus \mathcal{C} $. Así, para $ \dfrac{\varepsilon}{2} > 0 $, existe $ \delta > 0 $ tal que si $ x, y \in [0,1] \setminus \mathcal{C} $ y $ \lvert x - y \rvert < \delta $ entonces $ \lvert f(x) - f(y) \rvert < \dfrac{\varepsilon}{2} $.
+
+		Luego, sea $ P = \lbrace 0 = t_0, t_1, \ldots, t_n = 1 \rbrace $ una partición de $ [0,1] $ tal que $ t_j - t_{j-1} < \delta $ y $ a_j, b_j \in P $ para todo $ j = 1, \ldots, n $ y sea $ A = \left\lbrace j \in \lbrace 1, \ldots, n \rbrace \talque [t_{j-1}, t_j] \subseteq [0,1] \setminus U \right\rbrace $ se tiene que 
+
+		\begin{align*}
+			\mathcal{U} (f, P) - \mathcal{L} (f, P) &= \sum_{j=1}^{n} (M_j - m_j)(t_j - t_{j-1}) \\
+			%
+			&= \sum_{j \in A} (M_j - m_j)(t_j - t_{j-1}) + \sum_{j \notin A} (M_j - m_j)(t_j - t_{j-1}) \\
+			%
+			&\leq \dfrac{\varepsilon}{2} \sum_{j \in A} (t_j - t_{j-1}) + 2M \sum_{j \notin A} (t_j - t_{j-1}) \\
+			%
+			&< \dfrac{\varepsilon}{2} + 2M \dfrac{\varepsilon}{4M} \\
+			%
+			&= \dfrac{\varepsilon}{2} + \dfrac{\varepsilon}{2} \\
+			%
+			&= \varepsilon
+		\end{align*}
+
+		Por lo tanto, $ f \in \mathcal{R} $ en $ [0,1] $.
+	\end{ejercicio}
 \end{document}

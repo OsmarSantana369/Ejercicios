@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.10)  16 MAY 2024 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.10)  19 MAY 2024 01:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -940,6 +940,18 @@ LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
 (Font)              scaled to size 10.5pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
 (Font)              scaled to size 7.9pt on input line 194.
+LaTeX Font Info:    Font shape `OT1/erewhon-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 194.
+LaTeX Font Info:    Font shape `OT1/erewhon-TLF/b/n' will be
+(Font)              scaled to size 8.8pt on input line 194.
+LaTeX Font Info:    Font shape `OT1/erewhon-TLF/b/n' will be
+(Font)              scaled to size 6.6pt on input line 194.
+LaTeX Font Info:    Font shape `OT1/erewhon-TLF/b/n' will be
+(Font)              scaled to size 14.4pt on input line 196.
+LaTeX Font Info:    Font shape `OT1/erewhon-TLF/b/n' will be
+(Font)              scaled to size 10.5pt on input line 196.
+LaTeX Font Info:    Font shape `OT1/erewhon-TLF/b/n' will be
+(Font)              scaled to size 7.9pt on input line 196.
  [4] [5] [6] [7] [8] (c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
@@ -952,17 +964,17 @@ Package rerunfilecheck Info: File `Ejercicio_2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29665 strings out of 474435
- 571187 string characters out of 5740989
+ 29676 strings out of 474435
+ 571420 string characters out of 5740989
  2006190 words of memory out of 5000000
- 51447 multiletter control sequences out of 15000+600000
- 605484 words of font info for 129 fonts, out of 8000000 for 9000
+ 51455 multiletter control sequences out of 15000+600000
+ 612696 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,21n,107p,1072b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/erewMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/erewMR.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaSTbb.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.pdf" (8 pages, 186420 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Analisis Matemático\Ejercicio_2.tex\build\Ejercicio_2.pdf" (8 pages, 190822 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
