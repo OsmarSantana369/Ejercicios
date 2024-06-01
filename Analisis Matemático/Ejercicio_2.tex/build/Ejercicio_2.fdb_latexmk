@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1716103557.62069 "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" "build/Ejercicio_2.pdf" "Ejercicio_2" 1716103568.87455 0
+["pdflatex"] 1717220465.38943 "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" "build/Ejercicio_2.pdf" "Ejercicio_2" 1717220483.19847 0
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1713768334 554708 b32cb56de5530a3e55a3c51430e6248f ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1710069516 24234088 2e1156039a3535b144241088827dffab ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_kjdw2u.enc" 1652661580 3223 915011f8d7e28d650438bce58171e7fb ""
@@ -223,10 +223,10 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "Ejercicio_2.tex" 1716103542 32834 2b1387f1e4fbfd135cc454061bc0f1cc ""
-  "build/Ejercicio_2.aux" 1716103567 881 9068f2668ec2793759af36922bb61928 "pdflatex"
-  "build/Ejercicio_2.out" 1716103565 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" 1716103542 32834 2b1387f1e4fbfd135cc454061bc0f1cc ""
+  "Ejercicio_2.tex" 1717220461 36237 3a0ecf662b35bba7a8f0283f74bb7b94 ""
+  "build/Ejercicio_2.aux" 1717220480 951 f4fc714602178addfe74a2a766cd9a45 "pdflatex"
+  "build/Ejercicio_2.out" 1717220474 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Analisis Matemático/Ejercicio_2.tex/Ejercicio_2.tex" 1717220461 36237 3a0ecf662b35bba7a8f0283f74bb7b94 ""
   (generated)
   "build/Ejercicio_2.aux"
   "build/Ejercicio_2.log"

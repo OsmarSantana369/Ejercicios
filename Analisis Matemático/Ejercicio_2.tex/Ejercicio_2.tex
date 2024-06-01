@@ -46,6 +46,7 @@
 \newcommand{\rsi}[1]{\mathcal{R}(#1)}
 \newcommand{\nat}{\mathbb{N}}
 \newcommand{\real}{\mathbb{R}}
+\newcommand{\intg}[4]{\int_{#1}^{#2} #3 \, \mathrm{d} #4}
 
 \begin{document}
 	\begin{ejercicio}{diferenciabilidad}
@@ -417,4 +418,66 @@
 
 		Por lo tanto, $ f \in \mathcal{R} $ en $ [0,1] $.
 	\end{ejercicio}
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	\begin{ejercicio}{impropiacoincideintegral}
+		Sea $f$ una función real definida sobre $ [0,1] $ tal que $ f \in \mathcal{R} $ sobre $ [c,1] $ para cada $ c > 0 $. Se define $ \displaystyle \intg{0}{1}{f(x)}{x} = \lim_{c \to 0} \intg{c}{1}{f(x)}{x} $ si el límite existe y es finito.
+
+		Si $ f \in [0,1] $ mostrar que esta definición de la integral coincide con la definición antigua.
+		
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sean $ \varepsilon > 0 $, $ M = \sup \bigl\lbrace |f(x)| \talque x \in [0,1] \bigr\rbrace $ y $ c \in (0,1) \cap \left( 0, \dfrac{\varepsilon}{6M} \right) $ fijo. Como $ f \in \mathcal{R} $ en $ [0,1] $ existe $ P_\varepsilon = \left\lbrace 0 = t_0, t_1, \ldots, t_n = 1 \right\rbrace $ una partición de $ [0,1] $ tal que $ \mathcal{U} (f,P_\epsilon) - \mathcal{L} (f,P_\epsilon) < \dfrac{\varepsilon}{3} $. Supongamos, sin pérdida de generalidad, que $ c \in P_\varepsilon $, es decir, que $ c = t_j $ para algún $ j = 1, 2, \ldots, n-1 $.
+
+		Luego, sea $ Q = \left\lbrace c = t_j, t_{j+1}, \ldots, t_n = 1 \right\rbrace $, $Q$ es partición de $ [0,1] $ y se tiene que:
+
+		\begin{align*}
+			\bigl\lvert \mathcal{U} (f,Q) - \mathcal{L} (f,Q) \bigr\rvert &= \left\lvert \sum_{i=j+1}^{n} (M_i - m_i) (t_i - t_{i-1}) \right\rvert & \\
+			%
+			&\leq \sum_{i=j+1}^{n} \bigl( \left\lvert M_i \right\rvert + \left\lvert m_i \right\rvert \bigr) (t_i - t_{i-1}) & \\
+			%
+			&\leq \sum_{i=j+1}^{n} 2M (t_i - t_{i-1}) & \\
+			%
+			&< 2M & \\
+			%
+			&< 2 \dfrac{\varepsilon}{6c} & \left( \mbox{pues } c < \dfrac{\varepsilon}{6M} \Longrightarrow M < \dfrac{\varepsilon}{6c} \right) \\
+			%
+			&= \dfrac{\varepsilon}{3c} & \\
+			%
+			&< \dfrac{\varepsilon}{3} & \left( \mbox{pues } 0 < c < 1 \Longrightarrow 0 < \dfrac{1}{c} < 1 \Longrightarrow 0 < \dfrac{1}{3c} < \dfrac{1}{3} \right)
+		\end{align*}
+
+		Después,
+
+		\begin{align*}
+			\left\lvert \mathcal{L} (f,Q) - \mathcal{U} (f,P_\varepsilon) \right\rvert &= \left\lvert \sum_{i=j+1}^{n} m_i (t_i - t_{i-1}) - \sum_{i=1}^{n} M_i (t_i - t_{i-1}) \right\rvert \\
+			%
+			&\leq \sum_{i=j+1}^{n} \left\lvert m_i \right\rvert (t_i - t_{i-1}) + \sum_{i=1}^{n} \left\lvert M_i \right\rvert (t_i - t_{i-1}) \\
+			%
+			&\leq \sum_{i=j+1}^{n} M (t_i - t_{i-1}) + \sum_{i=1}^{n} M (t_i - t_{i-1}) \\
+			%
+			&< 2M \\
+			%
+			&< \dfrac{\varepsilon}{3}
+		\end{align*}
+
+		Así,
+
+		\begin{align*}
+			\left\lvert \intg{c}{1}{f(x)}{x} - \intg{0}{1}{f(x)}{x} \right\rvert &\leq \left\lvert \intg{c}{1}{f(x)}{x} - \mathcal{L} (f,Q) \right\rvert + \bigl\lvert \mathcal{L} (f,Q) - \mathcal{U} (f,P_\varepsilon) \bigr\rvert + \\
+			&\quad \left\lvert \mathcal{U} (f,P_\varepsilon) - \intg{0}{1}{f(x)}{x} \right\rvert \\
+			%
+			&\leq \left\lvert \mathcal{U} (f,Q) - \mathcal{L} (f,Q) \right\rvert + \left\lvert \mathcal{L} (f,Q) - \mathcal{U} (f,P_\varepsilon) \right\rvert + \left\lvert \mathcal{U} (f,P_\varepsilon) - \mathcal{L} (f,P_\varepsilon) \right\rvert \\
+			%
+			&< \dfrac{\varepsilon}{3} + \dfrac{\varepsilon}{3} + \dfrac{\varepsilon}{3} \\
+			%
+			&= \varepsilon
+		\end{align*}
+
+		Por lo tanto, $ \displaystyle \lim_{c \to 0} \intg{c}{1}{f(x)}{x} = \intg{0}{1}{f(x)}{x} $.
+	\end{ejercicio}
+
 \end{document}
