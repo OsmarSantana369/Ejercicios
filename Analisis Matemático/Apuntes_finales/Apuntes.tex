@@ -1,0 +1,678 @@
+\documentclass[fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage[margin = 15mm, top = 12mm]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{tcolorbox}       % Agregar cajas con colores
+\usepackage{tikz}
+\tcbuselibrary{theorems}       % Crear entornos para teoremas
+\tcbuselibrary{breakable}       % Para que los entornos de teoremas puedan sobrepasar una página
+\usepackage{colortbl}
+\usepackage{array, tabularx}       % Insertar tablas en cajas de texto
+\usepackage[pdftex, hidelinks]{hyperref}       %Poner al final de los paquetes
+\tcbuselibrary{skins}
+\usetikzlibrary{shadings}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\usepackage[proportional,scaled=1]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\author{Osmar Dominique Santana Reyes}
+\date{\today}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-10pt}%
+    \setlength\belowdisplayskip{7pt}%
+}
+
+\tcbset{theorem full label supplement={hypertarget={#1}}}
+
+\newcounter{teore}
+\setcounter{teore}{15}
+
+\newtcbtheorem[use counter = teore]{teo}{Teorema 8.\!}{colback = white!98!blue, colframe = blue!96!white, fonttitle = \bfseries, separator sign = {.}}{teo}
+
+\newtcbtheorem[use counter from = teo]{defi}{Definición 8.\!}{colback = white!98!red, colframe = red!93!white, fonttitle = \bfseries, separator sign = {.}}{def}
+
+\newtcbtheorem{ejer}{Ejercicio}{colback = white!98!black, colframe = black!99!white, fonttitle = \bfseries, separator sign none}{ejer}
+
+\newtcbtheorem[auto counter]{cor}{Corolario}{colback = white!98!cyan, colframe = cyan!93!white, coltitle = black!99!white, fonttitle = \bfseries, separator sign = {.}}{cor}
+
+\newtcbtheorem[auto counter]{lem}{Lema}{colback = white!98!yellow, colframe = yellow!99!white, coltitle = black!99!white, fonttitle = \bfseries, separator sign = {.}}{lem}
+
+\newenvironment{definicion}[1]{\begin{defi}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm]{}{#1}}{\end{defi}}
+
+\newenvironment{teorema}[2]{\begin{teo}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm, fontupper = \setlength{\parskip}{2mm}, fontlower = \setlength{\parskip}{2mm}]{#1}{#2}}{\end{teo}}
+
+\newenvironment{ejercicio}[2]{\begin{ejer*}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm, fontupper = \setlength{\parskip}{2mm}, fontlower = \setlength{\parskip}{2mm}]{#1}{#2}}{\end{ejer*}}
+
+\newenvironment{corolario}[2]{\begin{cor}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm, fontupper = \setlength{\parskip}{2mm}, fontlower = \setlength{\parskip}{2mm}]{#1}{#2}}{\end{cor}}
+
+\newenvironment{lema}[2]{\begin{lem}[breakable, pad at break = 5mm, leftrule = 0.7mm, rightrule = 0.7mm, right = 2mm, left = 2mm, enlarge bottom finally by = 3mm, fontupper = \setlength{\parskip}{2mm}, fontlower = \setlength{\parskip}{2mm}]{#1}{#2}}{\end{lem}}
+
+\newcommand{\paratodo}{\, \forall \,}
+\newcommand{\existe}{\exists \,}
+\newcommand{\talque}{\; \mathbf{\colon}}
+\newcommand{\rsi}[1]{\mathcal{R}(#1)}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\ent}{\mathbb{Z}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\intg}[4]{\int_{#1}^{#2} \!\! #3 \, \mathrm{d} #4}
+
+\begin{document}
+	\begin{ejercicio}{11 del Capítulo 6}{}
+		Sean $ \alpha $ una función creciente sobre $ [a,b] $ y $ u \in \rsi{\alpha} $. Se define
+
+		\begin{equation*}
+			\lVert u \rVert_2 = \sqrt{\intg{a}{b}{ \lvert u \rvert^2 }{\alpha}}.
+		\end{equation*}
+
+		Si $ f, g, h \in \rsi{\alpha} $ entonces $ \lVert f - h \rVert_2 \leq \lVert f - g \rVert_2 + \lVert g - h \rVert_2 $.
+		
+		\tcblower
+
+		La demostración se hizo en clase.
+	\end{ejercicio}
+
+	\begin{ejercicio}{12 del Capítulo 6}{}
+		Si $ f \in \rsi{\alpha} $ entonces para todo $ \varepsilon > 0 $ existe una función continua $ g $ sobre $ [a,b] $ tal que $ \lVert f - g \rVert_2 < \varepsilon $.
+
+		\tcblower
+
+		La demostración se hizo en clase.
+	\end{ejercicio}
+
+	\begin{corolario}{}{periodica}
+		Sean $ \alpha $ una función creciente sobre $ [-c,c] $, con $ c > 0 $, y $ f \in \rsi{\alpha} $ en $ [-c,c] $.
+		Si $f$ es una función con periodo $ 2c $, entonces para todo $ \varepsilon > 0 $ existe una función continua $ g $ con periodo $ 2c $ tal que $ \lVert f - g \rVert_2 < \varepsilon $.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sean $ \epsilon > 0 $, $ M = \sup \bigl\lbrace \lvert f(x) \rvert \talque x \in [-c,c] \bigr\rbrace $, $ P = \lbrace -c = x_0, x_1, \ldots, x_n = c \rbrace $ una partición de $ [-c,c] $ tal que $ \mathcal{U} (f,P,\alpha) - \mathcal{L} (f,P,\alpha) < \dfrac{\varepsilon^2}{2M} $ y $ g \colon [-c,c] \to \real $ dada por
+		
+		\begin{equation*}
+			g(t) = \dfrac{x_i - t}{\Delta x_i} f(x_{i-1}) + \dfrac{t - x_{i-1}}{\Delta x_i} f(x_i) \quad \mbox{donde} \quad x_{i-1} \leq t \leq x_i.
+		\end{equation*}
+		
+		Por el ejercicio anterior, $ g $ es continua en $ [-c,c] $ y es tal que $ \lVert f - g \rVert_2 < \varepsilon $. Luego, 
+		
+		\begin{align*}
+			g(-c) &= \dfrac{x_1 - (-c)}{\Delta x_1} f(-c) + \dfrac{-c - (-c)}{\Delta x_1} f(x_1) & \\
+			%
+			&= f(-c) & \\
+			%
+			&= f(c) & (\mbox{pues } f \mbox{ es periódica}) \\
+			%
+			&= \dfrac{c - c}{\Delta x_n} f(x_{n-1}) + \dfrac{c - x_{n-1}}{\Delta x_n} f(c) & \\
+			%
+			&= g(c) &
+		\end{align*}
+
+		Así, se puede extender el dominio de $g$ a $ \real $ si para todo $ m \in \ent $ se hace $ g(t+2mc) = g(t) $ para cada $ t \in [-c,c] $. De esta manera, $g$ tiene periodo $ 2c $.
+	\end{corolario}
+
+	\begin{teorema}{Teorema de Parseval}{Teorema_de_Parseval}
+		Sean $ f,g \in \mathcal{R} $ con periodo $ 2 \pi $. Si 
+
+		\begin{equation*}
+			f(x) \thicksim \sum_{-\infty}^{\infty} c_n e^{inx} \quad \mbox{y} \quad g(x) \thicksim \sum_{-\infty}^{\infty} \gamma_n e^{inx},
+		\end{equation*}
+
+		entonces
+
+		\begin{align*}
+			& \lim_{N \to \infty} \dfrac{1}{2\pi} \intg{-\infty}{\infty}{\bigl\lvert f - s_N(f) \bigr\rvert^2}{x} = 0, \\
+			%
+			& \dfrac{1}{2\pi} \intg{-\pi}{\pi}{f(x) \overline{g(x)}}{x} = \sum_{-\infty}^{\infty} c_n \overline{\gamma_n} \quad \mbox{y} \\
+			%
+			& \dfrac{1}{2\pi} \intg{-\pi}{\pi}{\bigl\lvert f(x) \bigr\rvert^2}{x} = \sum_{-\infty}^{\infty} \lvert c_n \rvert^2
+		\end{align*}
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sea $ \varepsilon > 0 $. Como $ f \in \mathcal{R} $ en $ [-\pi, \pi] $ y tiene periodo $ 2 \pi $, por el Corolario \ref{cor:periodica}, existe $ h $ una función continua que tiene periodo $ 2 \pi $ tal que 
+		
+		\begin{equation}
+			\lVert f - h \rVert_2 < \dfrac{\sqrt{2 \pi \varepsilon}}{3}
+			\label{desigualdad1}
+		\end{equation}
+		
+		Así, por el Teorema 8.15, existe un polinomio trigonométrico $ P $ tal que $ \lvert h(x) - P(x) \rvert < \dfrac{\sqrt{\varepsilon}}{3} $, para todo $ x \in \real $. Luego,
+
+		\begin{align*}
+			\lvert h(x) - P(x) \rvert < \dfrac{\sqrt{\varepsilon}}{3} &\Longrightarrow \lvert h(x) - P(x) \rvert^2 < \dfrac{\varepsilon}{9} \\
+			%
+			&\Longrightarrow \intg{-\pi}{\pi}{\lvert h(x) - P(x) \rvert^2}{x} < \intg{-\pi}{\pi}{\dfrac{\varepsilon}{9}}{x} = \dfrac{2 \pi \varepsilon}{9} \\
+			%
+			&\Longrightarrow \lVert h - P \rVert_2 < \dfrac{\sqrt{2 \pi \varepsilon}}{3}
+		\end{align*}
+
+		Sea $ N_0 $ el grado de $ P $, por el Teorema 8.11 se tiene que 
+
+		\begin{align}
+			\intg{-\pi}{\pi}{\lvert h - s_{N_0}(h) \rvert^2}{x} \leq \intg{-\pi}{\pi}{\lvert h - P \rvert^2}{x} \notag \\
+			%
+			\Longrightarrow \lVert h - s_{N_0}(h) \rVert_2 \leq \lVert h - P \rVert_2 < \dfrac{\sqrt{2 \pi \varepsilon}}{3} \notag \\
+			%
+			\Longrightarrow \lVert h - s_N (h) \rVert_2 < \dfrac{\sqrt{2 \pi \varepsilon}}{3} \quad \mbox{para todo } N \geq N_0 \label{desigualdad2}
+		\end{align}
+
+		Ahora, \colorbox{yellow}{por 76} y \eqref{desigualdad1}, se obtiene que para todo $ N \geq N_0 $
+
+		\begin{equation}
+			s_N (h) - s_N (f) = s_N(h - f) \Longrightarrow \lVert s_N (h) - s_N (f) \rVert_2 = \lVert s_N(h - f) \rVert_2 \leq \lVert h - f \rVert_2 < \dfrac{\sqrt{2 \pi \varepsilon}}{3} \label{desigualdad3}
+		\end{equation}
+
+		De esta forma, por el Ejercicio 11 del Capítulo 6, y las desigualdades \eqref{desigualdad1}, \eqref{desigualdad2} y \eqref{desigualdad3}, para todo $ N \geq N_0 $ se da que
+		
+		\begin{align*}
+			&\lVert f - s_N (f) \rVert_2 \leq \lVert f - h \rVert_2 + \lVert h - s_N (h) \rVert_2 + \lVert s_N (h) - s_N (f) \rVert_2 < \dfrac{\sqrt{2 \pi \varepsilon}}{3} + \dfrac{\sqrt{2 \pi \varepsilon}}{3} + \dfrac{\sqrt{2 \pi \varepsilon}}{3} = \sqrt{2 \pi \varepsilon} \\
+			%
+			&\Longrightarrow \intg{-\pi}{\pi}{\lvert f - s_N (f) \rvert^2}{x} < 2 \pi \varepsilon \\
+			%
+			&\Longrightarrow \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{\lvert f - s_N (f) \rvert^2}{x} < \varepsilon
+		\end{align*}
+
+		Por lo tanto, $ \displaystyle \lim_{N \to \infty} \dfrac{1}{2\pi} \intg{-\pi}{\pi}{\bigl\lvert f - s_N(f) \bigr\rvert^2}{x} = 0 $.
+
+		Por otro lado, por la desigualdad de Schwarz, se tiene que
+		
+		\begin{align*}
+			\left\lvert \intg{-\pi}{\pi}{f \overline{g}}{x} - \intg{-\pi}{\pi}{s_N (f) \overline{g}}{x} \right\rvert &= \left\lvert \intg{-\pi}{\pi}{\bigl[ f - s_N (f) \bigr] \overline{g}}{x} \right\rvert & \\
+			%
+			&\leq \sqrt{\intg{-\pi}{\pi}{\left\lvert f - s_N (f) \right\rvert^2}{x}} \; \sqrt{\intg{-\pi}{\pi}{\lvert g \rvert^2}{x}} & \\
+			%
+			\Longrightarrow \lim_{N \to \infty} \left\lvert \intg{-\pi}{\pi}{f \overline{g}}{x} - \intg{-\pi}{\pi}{s_N (f) \overline{g}}{x} \right\rvert &\leq \lim_{N \to \infty} \sqrt{\intg{-\pi}{\pi}{\left\lvert f - s_N (f) \right\rvert^2}{x}} \; \sqrt{\intg{-\pi}{\pi}{\lvert g \rvert^2}{x}} = 0 & (\mbox{por el límite anterior}) \\
+			%
+			\Longrightarrow \lim_{N \to \infty} \intg{-\pi}{\pi}{s_N (f) \overline{g}}{x} = \intg{-\pi}{\pi}{f \overline{g}}{x},
+		\end{align*}
+
+		pero
+
+		\begin{equation*}
+			\dfrac{1}{2 \pi} \intg{-\pi}{\pi}{s_N (f) \overline{g}}{x} = \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{\sum_{n = -N}^{N} c_n e^{inx} \overline{g}}{x} = \sum_{n = -N}^{N} c_n \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{e^{inx} \overline{g}}{x} = \sum_{n = -N}^{N} c_n \overline{\gamma_n},
+		\end{equation*}
+
+		por lo cual
+
+		\begin{equation*}
+			\sum_{n = -\infty}^{\infty} c_n \overline{\gamma_n} = \lim_{N \to \infty} \sum_{n = -N}^{N} c_n \overline{\gamma_n} = \lim_{N \to \infty} \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{s_N (f) \overline{g}}{x} = \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{f \overline{g}}{x}
+		\end{equation*}
+
+		Por último, si $ f = g $ entonces de la igualdad anterior se obtiene que 
+
+		\begin{equation*}
+			\sum_{n = -\infty}^{\infty} \lvert c_n \rvert^2 = \sum_{n = -\infty}^{\infty} c_n \overline{\gamma_n} = \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{f \overline{g}}{x} = \dfrac{1}{2 \pi} \intg{-\pi}{\pi}{ \lvert f \rvert^2}{x}
+		\end{equation*}
+	\end{teorema}
+
+	\section*{LA FUNCIÓN GAMMA}
+
+	\vspace{9mm}
+
+	\begin{definicion}{}{}
+		Se define la función gamma como $ \Gamma \colon (0, \infty) \to \real^+ $ dada por $ \displaystyle \Gamma(x) = \intg{0}{\infty}{t^{x-1} e^{-t}}{t} $. 
+
+		\tcblower
+
+		Escribiendo la función gamma como $ \Gamma(x) = \intg{0}{1}{t^{x-1} e^{-t}}{t} + \intg{1}{\infty}{t^{x-1} e^{-t}}{t} $. Ya que $ t^{x-1} e^{-t} $ es una función continua para todo $ t > 0 $, se tiene que
+		
+		$ \displaystyle \lim_{t \to 0} \dfrac{t^{x-1} e^{-t}}{t^{x-1}} = \lim_{t \to 0} e^{-t} = 1 $ implica que $ \intg{0}{1}{t^{x-1} e^{-t}}{t} $ converge, pues $ \intg{0}{1}{t^{x-1}}{t} $ también converge. 
+		
+		Además, $ \displaystyle \lim_{t \to \infty} \dfrac{t^{x-1} e^{-t}}{t^{-2}} = \lim_{t \to \infty} \dfrac{t^{x+1}}{e^t} = 0 $ implica que $ \intg{1}{\infty}{t^{x-1} e^{-t}}{t} $ converge, pues $ \intg{1}{\infty}{t^{-2}}{t} $ también converge.
+
+		Por lo tanto, la función Gamma converge para todo $ x > 0 $.
+	\end{definicion}
+
+	\begin{lema}{}{integralfactorial}
+		Si $ \varepsilon > 0 $ y $ n \in \nat $, entonces
+
+		\begin{equation*}
+			\intg{0}{1}{x^\varepsilon (1-x)^n}{x} = \dfrac{n!}{(\varepsilon + 1)(\varepsilon + 2) \cdots (\varepsilon + n + 1)}
+		\end{equation*}
+
+		\tcblower
+
+		Procediendo por inducción sobre $n$:
+
+		Para $ n = 1 $ se tiene que
+
+		\begin{equation*}
+			\intg{0}{1}{x^\varepsilon (1-x)}{x} = \intg{0}{1}{x^\varepsilon - x^{\varepsilon + 1}}{x} = \left[ \dfrac{x^{\varepsilon + 1}}{\varepsilon + 1} - \dfrac{x^{\varepsilon + 2}}{\varepsilon + 2} \right]_0^1 = \dfrac{1}{\varepsilon + 1} - \dfrac{1}{\varepsilon + 2} = \dfrac{1}{(\varepsilon + 1)(\varepsilon + 2)}
+		\end{equation*}
+
+		Luego, suponiendo que para $ n = k $ se cumple que $ \displaystyle \intg{0}{1}{x^\varepsilon (1-x)^k}{x} = \dfrac{k!}{(\varepsilon + 1)(\varepsilon + 2) \cdots (\varepsilon + k + 1)} $, se obtiene que
+
+		\begin{align*}
+			\intg{0}{1}{x^\varepsilon (1-x)^{k+1}}{x} &= \left[ \dfrac{x^{\varepsilon + 1}}{\varepsilon + 1} (1-x)^{k+1} \right]_0^1 + \intg{0}{1}{\dfrac{x^{\varepsilon + 1}}{\varepsilon + 1} (k+1)(1-x)^k}{x} \\
+			%
+			&= \dfrac{(k+1)}{\varepsilon + 1} \intg{0}{1}{x^{\varepsilon + 1} (1-x)^k}{x} \\
+			%
+			&= \dfrac{(k+1)}{\varepsilon + 1} \dfrac{k!}{(\varepsilon + 2)(\varepsilon + 3) \cdots (\varepsilon + (k+1) + 1)} \\
+			%
+			&= \dfrac{(k+1)!}{(\varepsilon + 1)(\varepsilon + 2)(\varepsilon + 3) \cdots (\varepsilon + (k+1) + 1)}
+		\end{align*}
+
+		Por lo tanto, $ \displaystyle \intg{0}{1}{x^\varepsilon (1-x)^n}{x} = \dfrac{n!}{(\varepsilon + 1)(\varepsilon + 2) \cdots (\varepsilon + n + 1)} $ para todo $ n \in \nat $.
+	\end{lema}
+
+	\begin{lema}{}{equivalencia_gamma}
+		\vspace{3mm}
+
+		\begin{equation*}
+			\Gamma (x) = \lim_{n \to \infty} \dfrac{n! n^x}{x(x+1) \cdots (x+n)}
+		\end{equation*}
+
+		\tcblower
+
+		\vspace{3mm}
+		
+		\begin{align*}
+			\Gamma (x) = \intg{0}{\infty}{t^{x-1} e^{-t}}{t} &= \intg{0}{\infty}{t^{x-1} \lim_{n \to \infty} \left( 1 - \dfrac{t}{n} \right)^n}{t} \\
+			%
+			&= \lim_{n \to \infty} \intg{0}{n}{t^{x-1} \left( 1 - \dfrac{t}{n} \right)^n}{t} & \mbox{por la continuidad de } \left( 1 - \dfrac{t}{n} \right)^n
+		\end{align*}
+
+		Si $ s = \dfrac{t}{n} $ entonces $ \mathrm{d}s = \dfrac{1}{n} \mathrm{d} t $, por lo que
+
+		\begin{align*}
+			\Gamma (x) &= \lim_{n \to \infty} \intg{0}{1}{n (ns)^{x-1} (1 - s)^n}{s} \\
+			%
+			&= \lim_{n \to \infty} \intg{0}{1}{n^x s^{x-1} (1 - s)^n}{s} \\
+			%
+			&= \lim_{n \to \infty} n^x \intg{0}{1}{s^{x-1} (1 - s)^n}{s}
+		\end{align*}
+
+		\textbf{Afirmación.} $ \displaystyle \intg{0}{1}{s^{x-1} (1 - s)^n}{s} = \dfrac{n!}{x(x + 1) \cdots (x + n)} $.
+
+		\hfill \begin{minipage}{0.99\linewidth}
+			\setlength{\parskip}{2mm}
+
+			Procediendo por inducción sobre $ n $:
+
+			Para $ n = 1 $ se da que 
+			
+			\begin{align*}
+				\intg{0}{1}{s^{x-1} (1 - s)}{s} &= \intg{0}{1}{s^{x-1} - s^x}{s} \\
+				%
+				&= \left( \dfrac{s^x}{x} - \dfrac{s^{x+1}}{x+1} \right) \Big|_0^1 \\
+				%
+				= \dfrac{1}{x} - \dfrac{1}{x+1} \\
+				%
+				= \dfrac{1}{x(x+1)}
+			\end{align*}
+			Suponiendo que para $ n = k $ se cumple que $ \displaystyle \intg{0}{1}{s^{x-1} (1 - s)^k}{s} = \dfrac{k!}{x(x + 1) \cdots (x + k)} $. Sea $ u = (1 - s)^{k+1} $ y $ \mathrm{d} v = s^{x-1} \mathrm{d} s $ entonces $ \mathrm{d} u = -(k+1) (1-s)^k \mathrm{d} s $ y $ v = \dfrac{s^x}{x} $, por lo que
+		\end{minipage}
+
+		\begin{minipage}{0.99\linewidth}
+			\setlength{\parskip}{2mm}
+
+			\begin{align*}
+				\intg{0}{1}{s^{x-1} (1 - s)^{k+1}}{s} &= \left[ (1 - s)^{k+1} \dfrac{s^x}{x} \right]_0^1 + \intg{0}{1}{(k+1) (1-s)^k \dfrac{s^x}{x}}{s} \\
+				%
+				&= \dfrac{(k+1)}{x} \intg{0}{1}{s^x (1-s)^k}{s} \\
+				% 
+				&= \dfrac{(k+1)}{x} \dfrac{k!}{(x + 1)(x + 2) \cdots (x + (k + 1))} \\
+				%
+				&= \dfrac{(k+1)!}{x(x + 1)(x + 2) \cdots (x + (k + 1))}
+			\end{align*}
+
+			Por lo tanto, $ \displaystyle \intg{0}{1}{s^{x-1} (1 - s)^n}{s} = \dfrac{n!}{x(x + 1) \cdots (x + n)} $ para todo $ n \in \nat $.
+		\end{minipage}
+
+		Así, 
+
+		\begin{equation*}
+			\Gamma(x) = \lim_{n \to \infty} n^x \intg{0}{1}{s^{x-1} (1 - s)^n}{s} = \lim_{n \to \infty} \dfrac{n! n^x}{x(x + 1) \cdots (x + n)}
+		\end{equation*}
+	\end{lema}
+
+	\begin{teorema}{}{propiedades_gamma}
+		\begin{enumerate}[a)]
+			\item $ \Gamma(x+1) = x \Gamma(x) $, para todo $ x > 0 $.
+			\item $ \Gamma(n+1) = n! $ para $ n \in \nat $.
+			\item $ \log(\Gamma) $ es convexa sobre $ (0, \infty) $.
+		\end{enumerate}
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		\begin{enumerate}[a)]
+			\item Sea $ x > 0 $, se da que $ \displaystyle \Gamma(x+1) = \intg{0}{\infty}{t^x e^{-t}}{t} = (-t^x e^{-t})|_0^\infty + \intg{0}{\infty}{x t^{x-1} e^{-t}}{t} = 0 + x \intg{0}{\infty}{t^{x-1} e^{-t}}{t} = x \Gamma(x) $.
+			
+			\item Procediendo por inducción sobre n:
+			
+			Para n = 1, y por el inciso a), se tiene que $ \displaystyle \Gamma(1+1) = 1 \Gamma(1) = \intg{0}{\infty}{e^{-t}}{t} = (-e^{-t})|_0^\infty = 1 = 1! $
+
+			Suponiendo que para $ n = k $ se cumple que $ \Gamma(k+1) = k! $, por el inciso a) se obtiene que $ \Gamma \bigl( (k+1) + 1 \bigr) = (k+1) \Gamma(k+1) = (k+1) k! = (k+1)! $
+
+			Por lo tanto, $ \Gamma(n+1) = n! $ para todo $ n \in \nat $.
+
+			\item Sean $ x, y \in \real^+ $ y $ 0 < \lambda < 1 $, se tiene que
+			
+			\begin{align*}
+				\Gamma \bigl( \lambda x + (1 - \lambda)y \bigr) &= \intg{0}{\infty}{t^{\lambda x + (1 - \lambda)y - 1} e^{-t}}{t} & \\
+				%
+				&= \intg{0}{\infty}{\left( t^{\lambda x - \lambda} e^{-\lambda t} \right) \left( t^{(1 - \lambda)y - (1 - \lambda)} e^{-(1 - \lambda) t} \right)}{t} & \\
+				%
+				&\leq \left( \intg{0}{\infty}{\! \left( t^{\lambda x - \lambda} e^{-\lambda t} \right)^{\frac{1}{\lambda}} \!}{t} \right)^\lambda  \left( \intg{0}{\infty}{\! \left( t^{(1 - \lambda)y - (1 - \lambda)} e^{-(1 - \lambda) t} \right)^{\frac{1}{1 - \lambda}} \!}{t} \right)^{1 - \lambda} & (\mbox{por la desigualdad de H\"odel}) \\
+				%
+				&= \left( \intg{0}{\infty}{t^{x - 1} e^{-t}}{t} \right)^\lambda  \left( \intg{0}{\infty}{t^{y - 1} e^{-t}}{t} \right)^{1 - \lambda} & \\
+				%
+				&= \bigl( \Gamma(x) \bigr)^\lambda  \bigl( \Gamma(y) \bigr)^{1 - \lambda} &
+			\end{align*}
+
+			\begin{align*}
+				\Longrightarrow \ln \Bigl( \Gamma \bigl( \lambda x + (1 - \lambda)y \bigr) \Bigr) &\leq \ln \Bigl( \bigl( \Gamma(x) \bigr)^\lambda  \bigl( \Gamma(y) \bigr)^{1 - \lambda} \Bigr) \\
+				%
+				&= \lambda \ln \bigl( \Gamma(x) \bigr) + (1 - \lambda) \ln \bigl( \Gamma(y) \bigr)
+			\end{align*}
+
+			Por lo tanto, $ \ln (\Gamma) $ es convexa.
+		\end{enumerate}
+	\end{teorema}
+
+	\begin{teorema}{}{gamma_unica}
+		Si $f$ es una función positiva sobre $ (0, \infty) $ tal que
+
+		\begin{enumerate}[a)]
+			\item $ f(x+1) = x f(x) $,
+			\item $ f(1) = 1 $,
+			\item $ \ln(f) $ es convexa.
+		\end{enumerate}
+		
+		entonces $ f(x) = \Gamma(x) $.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		\textbf{Afirmación.} Para todo $ n \in \nat $, $ f(n+1) = n! $.
+
+		\hfill \begin{minipage}{0.99\linewidth}
+			\setlength{\parskip}{2mm}
+
+			Procediendo por inducción sobre $ n $:
+
+			Para $ n = 1 $ se da que $ f(1+1) = 1 f(1) = 1 $, por los incisos a) y b).
+
+			Suponiendo que para $ n = k $ se cumple que $ f(k+1) = k! $, se obtiene que $ f((k+1)+1) = (k+1) f(k+1) = (k+1) k! = (k+1)! $.
+
+			Por lo tanto, $ f(n+1) = n! $ para todo $ n \in \nat $.
+		\end{minipage}
+
+		Como $ \Gamma $ satisface a), b) y c), es suficiente demostrar que $ f $ se determina de manera única por a), b), c), para todo $ x > 0 $. Por el inciso a), es suficiente hacerlo para $ x \in (0, 1] $.
+
+		Sea $ x \in (0, 1] $ y $ n \in \nat $, se tiene que
+
+		\begin{align*}
+			\ln \bigl( f(n + 1 + x) \bigr) &= \ln \bigl( f(x(n+2) + (1-x)(n+1)) \bigr) & \\
+			%
+			&\leq x \ln \bigl( f(n + 2) \bigr) + (1-x) \ln \bigl( f(n + 1) \bigr) & (\mbox{pues } \ln(f) \mbox{ es convexa}) \\
+			%
+			&= x \ln \bigl( (n+1) f(n + 1) \bigr) + (1-x) \ln \bigl( f(n + 1) \bigr) & \\
+			%
+			&= x \ln \bigl( (n+1) n! \bigr) + (1-x) \ln (n!) & (\mbox{por la afirmación anterior}) \\
+			%
+			&= x \ln (n+1) + x \ln (n!) + \ln (n!) - x\ln (n!) & \\
+			%
+			&= x \ln (n+1) + \ln (n!) & \\
+			%
+			\Longrightarrow f(n + 1 + x) &= n! (n+1)^x & 
+		\end{align*}
+		
+		\begin{align*}
+			\ln (n!) = \ln \bigl( f(n+1) \bigr) &= \ln \Bigl( f \bigl( x(n+x) + (1-x)(n+x+1) \bigr) \Bigr) \\
+			%
+			&\leq x \ln \bigl( f (n+x) \bigr) + (1-x) \ln \bigl( f (n+x+1) \bigr) & (\mbox{pues } \ln(f) \mbox{ es convexa}) \\
+			%
+			&= x \ln \bigl( f (n+x) \bigr) + \ln \bigl( f (n+x+1) \bigr) - x \ln \bigl( (n+x) f(n+x) \bigr) \\
+			%
+			&= x \ln \bigl( f (n+x) \bigr) + \ln \bigl( f (n+x+1) \bigr) - x \ln(n+x) - x \ln \bigl( f(n+x) \bigr) \\
+			%
+			&= \ln \bigl( f (n+x+1) \bigr) + \ln \bigl( (n+x)^{-x} \bigr) \\
+			%
+			\Longrightarrow n! &\leq f (n+x+1) (n+x)^{-x}
+		\end{align*}
+
+		Y aplicando el inciso a) repetidamente
+
+		\begin{align*}
+			f(n+x+1) = (n+x) f(n+x) = (n+x)(n-1+x) f(n-1+x) = \cdots = (n+x)(n-1+x) \cdots (x+1)x f(x)
+		\end{align*}
+
+		Por todo lo anterior se obtiene que
+
+		\begin{align*}
+			& n! (n+x)^x \leq (n+x)(n-1+x) \cdots (x+1)x f(x) \leq n! (n+1)^x \\
+			%
+			& \Longrightarrow \dfrac{n! (n+x)^x}{n^x} \leq \dfrac{(n+x)(n-1+x) \cdots (x+1)x f(x)}{n^x} \leq \dfrac{n! (n+1)^x}{n^x} \\
+			%
+			& \Longrightarrow n! \left( \dfrac{n+x}{n} \right)^x \leq \dfrac{(n+x)(n-1+x) \cdots (x+1)x f(x)}{n^x} \leq n! \left( \dfrac{n+1}{n} \right)^x \\
+			%
+			& \Longrightarrow \left( 1 + \dfrac{x}{n} \right)^x \leq \dfrac{(n+x)(n-1+x) \cdots (x+1)x f(x)}{n! n^x} \leq \left( 1 + \dfrac{1}{n} \right)^x \\
+			%
+			& \Longrightarrow \lim_{n \to \infty} \left( 1 + \dfrac{x}{n} \right)^x \leq \lim_{n \to \infty} \dfrac{(n+x)(n-1+x) \cdots (x+1)x f(x)}{n! n^x} \leq \lim_{n \to \infty} \left( 1 + \dfrac{1}{n} \right)^x
+		\end{align*}	
+
+		\begin{align*}
+			& \Longrightarrow \left( \lim_{n \to \infty} 1 + \dfrac{x}{n} \right)^x \leq \lim_{n \to \infty} \dfrac{(n+x)(n-1+x) \cdots (x+1)x f(x)}{n! n^x} \leq \left( \lim_{n \to \infty} 1 + \dfrac{1}{n} \right)^x \\
+			%
+			& \Longrightarrow 1 = 1^x \leq \lim_{n \to \infty} \dfrac{(n+x)(n-1+x) \cdots (x+1)x f(x)}{n! n^x} \leq 1^x = 1 \\
+			%
+			& \Longrightarrow \Gamma(x) = \lim_{n \to \infty} \dfrac{n! n^x}{(n+x)(n-1+x) \cdots (x+1)x} = f(x) \quad (\mbox{por el Lema \ref{lem:equivalencia_gamma}})
+		\end{align*}
+
+		Por lo tanto, $ \Gamma(x) = f(x) $ para todo $ x > 0 $.
+	\end{teorema}
+
+	\begin{teorema}{}{funcion_beta}
+		Si $ x,y \in \real^+ $, entonces
+
+		\begin{equation*}
+			\beta(x,y) = \intg{0}{1}{t^{x-1} (1-t)^{y-1}}{t} = \dfrac{\Gamma(x) \Gamma(y)}{\Gamma(x+y)}.
+		\end{equation*}
+
+		A $ \beta $ se le llama la función beta.
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Sean $ \displaystyle f(x) = \dfrac{\Gamma(x + y)}{\Gamma(y)} \beta(x,y) $, donde $ y > 0 $, $ x,w \in \real^+ $ y $ \lambda \in (0,1) $. Para cada $ y > 0 $ se tiene que 
+
+		\vspace{1mm}
+		
+		\begin{align*}
+			f(x+1) &= \dfrac{\Gamma(x + 1 + y)}{\Gamma(y)} \beta(x + 1,y) \\
+			%
+			&= \dfrac{(x+y) \Gamma(x + y)}{\Gamma(y)} \intg{0}{1}{t^x (1-t)^{y-1}}{t} \\
+			%
+			&= \dfrac{(x+y) \Gamma(x + y)}{\Gamma(y)} \intg{0}{1}{\left( \dfrac{t}{1-t} \right)^x (1-t)^{x+y-1}}{t} \\
+			%
+			&= \dfrac{(x+y) \Gamma(x + y)}{\Gamma(y)} \left\lbrace \left[ - \left( \dfrac{t}{1-t} \right)^x \dfrac{(1-t)^{x+y}}{x+y} \right]_0^1 + \intg{0}{1}{x \left( \dfrac{t}{1-t} \right)^{x-1} \left( \dfrac{1}{(1-t)^2} \right) \left( \dfrac{(1-t)^{x+y}}{x+y} \right)}{t} \right\rbrace \\
+			%
+			&= x \dfrac{(x+y) \Gamma(x + y)}{\Gamma(y) (x+y)} \intg{0}{1}{t^{x-1} (1-t)^{y-1}}{t} \\
+			%
+			&= x \dfrac{\Gamma(x + y)}{\Gamma(y)} \beta(x,y) \\
+			%
+			&= x f(x),
+		\end{align*}
+
+		\begin{align*}
+			f(1) &= \dfrac{\Gamma(1 + y)}{\Gamma(y)} \beta(1,y) \\
+			%
+			&= \dfrac{y \Gamma(y)}{\Gamma(y)} \intg{0}{1}{(1-t)^{y-1}}{t} \\
+			%
+			&= y \left[ - \dfrac{(1-t)^y}{y} \right]_0^1 \\
+			%
+			&= y \dfrac{1}{y} \\
+			%
+			&= 1,
+		\end{align*}
+
+		\begin{align*}
+			\beta(\lambda x + (1 - \lambda)w, y) &= \intg{0}{1}{t^{\lambda x + (1 - \lambda)w - 1} (1-t)^{y-1}}{t} \\
+			%
+			&= \intg{0}{1}{t^{\lambda x - \lambda} (1-t)^{\lambda y - \lambda} t^{(1 - \lambda) w - (1 - \lambda)} (1-t)^{(1 - \lambda) y - (1 - \lambda)}}{t} \\
+			%
+			&\leq \left( \intg{0}{1}{t^{x - 1} (1-t)^{y-1}}{t} \right)^\lambda \left( \intg{0}{1}{t^{w - 1} (1-t)^{y-1}}{t} \right)^{1 - \lambda} \quad (\mbox{por la desigualdad de H\"odel}) \\
+			%
+			&= \left( \beta(x,y) \right)^\lambda \left( \beta(w,y) \right)^{1 - \lambda} \\
+			%
+			\Longrightarrow \ln \left( \beta(\lambda x + (1 - \lambda)w, y) \right) &\leq \ln \left( \left( \beta(x,y) \right)^\lambda \left( \beta(w,y) \right)^{1 - \lambda} \right) = \lambda \ln \left( \beta(x,y) \right) + (1 - \lambda) \ln \left( \beta(w,y) \right)
+		\end{align*}
+
+		Y
+
+		\begin{align*}
+			f \left( \lambda x + (1 - \lambda)w \right) &= \ln \left( \dfrac{\Gamma(\lambda x + (1 - \lambda)w + y)}{\Gamma(y)} \right) \beta(\lambda x + (1 - \lambda)w, y) \\
+			%
+			&= \ln \left( \Gamma(\lambda x + (1 - \lambda)w + y) \right) - \ln \left( \Gamma(y) \right) + \ln \left( \beta(\lambda x + (1 - \lambda)w, y) \right) \\
+			%
+			&= \ln \left( \Gamma(\lambda x +  + \lambda y + (1 - \lambda)w + (1 - \lambda)y) \right) - \lambda \ln \left( \Gamma(y) \right) - \\
+			&\qquad (1 - \lambda) \ln \left( \Gamma(y) \right) + \ln \left( \beta(\lambda x + (1 - \lambda)w, y) \right) \\
+			%
+			&\leq \lambda \ln \bigl( \Gamma(x+y) \bigr) + (1 - \lambda) \ln \bigl( \Gamma(w+y) \bigr) - \lambda \ln \left( \Gamma(y) \right) - \\
+			&\qquad (1 - \lambda) \ln \left( \Gamma(y) \right) + \lambda \ln \left( \beta(x,y) \right) + (1 - \lambda) \ln \left( \beta(w,y) \right) \\
+			%
+			&= \lambda \ln \left( \dfrac{\Gamma(x+y)}{\Gamma(y)} \beta(x,y) \right) + (1 - \lambda) \ln \left( \dfrac{\Gamma(w+y)}{\Gamma(y)} \beta(w,y) \right) \\
+			%
+			&= \lambda f(x) + (1 - \lambda) f(w)
+		\end{align*}
+
+		De esta manera, $ \displaystyle \dfrac{\Gamma(x + y)}{\Gamma(y)} \beta(x,y) = f(x) = \Gamma(x) $, por el Teorema 8.\ref{teo:gamma_unica}. Por lo tanto, $ \displaystyle \beta(x,y) = \dfrac{\Gamma(x) \Gamma(y)}{\Gamma(x+y)} $.
+	\end{teorema}
+
+	\begin{teorema}{}{algunas_consecuencias}
+		\begin{enumerate}[a)]
+			\item $ \Gamma \left( \dfrac{1}{2} \right) = \sqrt{\pi} $.
+			\item $ \Gamma(x) = \dfrac{2^{x-1}}{\sqrt{\pi}} \Gamma \left( \dfrac{x}{2} \right) \Gamma \left( \dfrac{x+1}{2} \right) $.
+		\end{enumerate}
+
+		\tcblower
+
+		\textbf{Demostración.}
+
+		\begin{enumerate}[a)]
+			\item \begin{align*}
+				\beta \left( \dfrac{1}{2}, \dfrac{1}{2} \right) = \intg{0}{1}{t^{-\frac{1}{2}} (1-t)^{-\frac{1}{2}}}{t} 
+			\end{align*}
+
+			Si $ t = \sen^2 (\theta) $ entonces $ \mathrm{d} t = 2 \sen(\theta) \cos(\theta) \mathrm{d} \theta $. Así,
+
+			\begin{align*}
+				\beta \left( \dfrac{1}{2}, \dfrac{1}{2} \right) = \intg{0}{\frac{\pi}{2}}{2}{\theta} = \pi
+			\end{align*}
+
+			Y por el Teorema 8.\ref{teo:funcion_beta}, se obtiene que 
+
+			\begin{align*}
+				& \pi = \beta \left( \dfrac{1}{2}, \dfrac{1}{2} \right) = \dfrac{\Gamma \left( \dfrac{1}{2} \right) \Gamma \left( \dfrac{1}{2} \right)}{\Gamma\left( \dfrac{1}{2} + \dfrac{1}{2} \right)} = \left( \Gamma \left( \dfrac{1}{2} \right) \right)^2 \\
+				%
+				& \Longrightarrow \Gamma \left( \dfrac{1}{2} \right) = \sqrt{\pi}
+			\end{align*}
+
+			\item Ya que
+			
+			\begin{align*}
+				\dfrac{2^{x}}{\sqrt{\pi}} \Gamma \left( \dfrac{x+1}{2} \right) \Gamma \left( \dfrac{x+2}{2} \right) &= \dfrac{2^{x}}{\sqrt{\pi}} \Gamma \left( \dfrac{x+1}{2} \right) \Gamma \left( \dfrac{x}{2} \right) \dfrac{x}{2} \\
+				%
+				&= x \dfrac{2^{x-1}}{\sqrt{\pi}} \Gamma \left( \dfrac{x}{2} \right) \Gamma \left( \dfrac{x+1}{2} \right),
+			\end{align*}
+
+			\begin{align*}
+				\dfrac{2^{1-1}}{\sqrt{\pi}} \Gamma \left( \dfrac{1}{2} \right) \Gamma \left( \dfrac{1+1}{2} \right) = \dfrac{\sqrt{\pi}}{\sqrt{\pi}} = 1,
+			\end{align*}
+
+			y si $ \lambda \in (0,1) $ entonces
+
+			\begin{align*}
+				\ln \left[ \dfrac{2^{\lambda x + (1 - \lambda)y - 1}}{\sqrt{\pi}} \Gamma \left( \dfrac{\lambda x + (1 - \lambda)y}{2} \right) \Gamma \left( \dfrac{\lambda x + (1 - \lambda)y + 1}{2} \right) \right] &= \ln \left[ \dfrac{2^{\lambda x - \lambda}}{\sqrt{\pi}} \cdot \dfrac{2^{(1 - \lambda) y - (1 - \lambda)}}{\sqrt{\pi}} \Gamma \left( \lambda \dfrac{x}{2} + (1 - \lambda) \dfrac{y}{2} \right) \right. \\
+				&\qquad \left. \Gamma \left( \lambda \dfrac{x+1}{2} + (1 - \lambda) \dfrac{y+1}{2} \right) \right] \\
+				%
+				&\leq \lambda \ln \left( \dfrac{2^{x - 1}}{\sqrt{\pi}} \right) + (1 - \lambda) \ln \left( \dfrac{2^{y - 1}}{\sqrt{\pi}} \right) + \lambda \ln \left( \Gamma \left( \dfrac{x}{2} \right) \right) + \\
+				&\qquad (1 - \lambda) \ln \left( \Gamma \left( \dfrac{y}{2} \right) \right) + \lambda \ln \left( \Gamma \left( \dfrac{x+1}{2} \right) \right) + \\
+				&\qquad (1 - \lambda) \ln \left( \Gamma \left( \dfrac{y+1}{2} \right) \right) \\
+				%
+				&= \lambda \ln \left[ \dfrac{2^{x - 1}}{\sqrt{\pi}} \Gamma \left( \dfrac{x}{2} \right) \Gamma \left( \dfrac{x+1}{2} \right) \right] + \\
+				&\qquad (1 - \lambda) \ln \left[ \dfrac{2^{y - 1}}{\sqrt{\pi}} \Gamma \left( \dfrac{y}{2} \right) \Gamma \left( \dfrac{y+1}{2} \right) \right]
+			\end{align*}
+
+			De esta forma, por el Teorema 8.\ref{teo:gamma_unica}, se tiene que $ \Gamma(x) = \dfrac{2^{x-1}}{\sqrt{\pi}} \Gamma \left( \dfrac{x}{2} \right) \Gamma \left( \dfrac{x+1}{2} \right) $.
+		\end{enumerate}
+	\end{teorema}
+
+	\begin{teorema}{}{Stirling} 
+		\vspace{3mm}
+
+		\begin{equation*}
+			\lim_{x \to \infty} \dfrac{\Gamma(x+1)}{\left( \dfrac{x}{e} \right)^x \sqrt{2 \pi x}} = 1
+		\end{equation*}
+		
+		\tcblower
+
+		\textbf{Demostración.}
+
+		Para $ x > 0 $ se da que
+
+		\begin{align*}
+			\Gamma(x+1) = \intg{0}{\infty}{t^x e^{-t}}{t}
+		\end{align*}
+
+		Si $ t = xu $ entonces $ \mathrm{d} t = x \mathrm{d} u $. De este modo,
+
+		\begin{align*}
+			\Gamma(x+1) &= x^{x+1} \intg{0}{\infty}{u^x e^{-xu}}{u}
+		\end{align*}
+
+		Si $ u = 1 + \dfrac{s}{\sqrt{x}} $ entonces $ \mathrm{d} u = \dfrac{1}{\sqrt{x}} \mathrm{d} s $. Así,
+
+		\vspace{1mm}
+
+		\begin{align*}
+			\Gamma(x+1) &= x^{x+1} \dfrac{e^{-x}}{\sqrt{x}} \intg{-\sqrt{x}}{\infty}{\left( 1 + \dfrac{s}{\sqrt{x}} \right)^x e^{-s \sqrt{x}}}{s} \\
+			%
+			&= \left( \dfrac{x}{e} \right)^x \sqrt{x} \intg{-\sqrt{x}}{\infty}{e^{x \ln \left( 1 + \frac{s}{\sqrt{x}} \right) - s \sqrt{x}}}{s}
+		\end{align*}
+
+		Ahora, obteniendo el polinomio de Maclaurin de $ \ln(1+x) $ se obtiene que
+
+		\begin{align*}
+			& \ln (1+x) = x - \dfrac{x^2}{2} + \dfrac{x^3}{3} - \dfrac{x^4}{4} + \cdots \\
+			%
+			& \Longrightarrow \ln \left( 1 + \dfrac{s}{\sqrt{x}} \right) = \dfrac{s}{\sqrt{x}} - \dfrac{s^2}{2x} + \dfrac{s^3}{3x \sqrt{x}} - \dfrac{s^4}{4x^2} + \cdots \\
+			%
+			& \Longrightarrow x \ln \left( 1 + \dfrac{s}{\sqrt{x}} \right) = s \sqrt{x} - \dfrac{s^2}{2} + \dfrac{s^3}{3 \sqrt{x}} - \dfrac{s^4}{4x} + \cdots \\
+			%
+			& \Longrightarrow x \ln \left( 1 + \dfrac{s}{\sqrt{x}} \right) - s \sqrt{x} = - \dfrac{s^2}{2} + \dfrac{s^3}{3 \sqrt{x}} - \dfrac{s^4}{4x} + \cdots \\
+			%
+			& \Longrightarrow \lim_{x \to \infty} \left[ x \ln \left( 1 + \dfrac{s}{\sqrt{x}} \right) - s \sqrt{x} \right] = \lim_{x \to \infty} \left[ - \dfrac{s^2}{2} + \dfrac{s^3}{3 \sqrt{x}} - \dfrac{s^4}{4x} + \cdots \right] = -\dfrac{s^2}{2} 
+		\end{align*}
+
+		De esta forma,
+
+		\begin{align*}
+			\lim_{x \to \infty} \dfrac{\Gamma(x+1)}{\left( \dfrac{x}{e} \right)^x \sqrt{2 \pi x}} &= \lim_{x \to \infty} \dfrac{\left( \dfrac{x}{e} \right)^x \sqrt{x} \intg{-\sqrt{x}}{\infty}{e^{x \ln \left( 1 + \frac{s}{\sqrt{x}} \right) - s \sqrt{x}}}{s}}{\left( \dfrac{x}{e} \right)^x \sqrt{2 \pi x}} \\
+			% 
+			&= \dfrac{1}{\sqrt{2\pi}} \lim_{x \to \infty} \intg{-\sqrt{x}}{\infty}{e^{x \ln \left( 1 + \frac{s}{\sqrt{x}} \right) - s \sqrt{x}}}{s} \\
+			%
+			&= \dfrac{1}{\sqrt{2\pi}} \intg{-\infty}{\infty}{e^{-\frac{s^2}{2}}}{s} \\
+			%
+			&= \dfrac{1}{\sqrt{2\pi}} \sqrt{2\pi} \\
+			%
+			&= 1
+		\end{align*}
+	\end{teorema}
+\end{document}
