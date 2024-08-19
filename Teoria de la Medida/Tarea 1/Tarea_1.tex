@@ -1,0 +1,59 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage[margin = 15mm, top = 12mm]{geometry}
+
+\begin{document}
+	\textbf{Teorema 3.} Si $ \mathcal{Y} $ es un semianillo, entonces $ \mathcal{R} (\mathcal{Y}) $ coincide con el sistema $ \mathcal{L} $ de todos los conjuntos $ A $ que tienen expansiones finitas
+	%
+	\begin{equation*}
+		A = \bigcup_{k=1}^n A_k
+	\end{equation*}
+	%
+	con respecto a los conjuntos $ A_k \in \mathcal{Y} $.
+
+	\textbf{Demostración.}
+
+	Se empezará probando que $ \mathcal{L} $ es un anillo. Sean $ A, B \in \mathcal{L} $, por hipótesis, estos se pueden expresar como:
+	%
+	\begin{equation*}
+		A = \bigcup_{i=1}^{m} A_i \quad y \quad B = \bigcup_{j=1}^{n} B_j \qquad \mbox{donde } A_i, B_j \in \mathcal{L} \;\; \forall i = 1, \ldots, m \mbox{ y } \forall j = 1, \ldots, n
+	\end{equation*}
+	%
+	Luego, para cada $ i = 1, \ldots, m $ y $ j = 1, \ldots, n $, sea $ C_{ij} = A_i \cap B_j $, se tiene que $ C_{ij} \in \mathcal{Y} $ dado que es un semianillo. Como estos conjuntos son ajenos a pares y están contenidos en $ A_i $ y en $ B_j $, para todo $ i = 1, \ldots, m $ y para todo $ j = 1, \ldots, n $, por el lema 1, para cada $ i = 1, \ldots, m $ y para cada $ j = 1, \ldots, n $ existen las siguientes expansiones:
+	%
+	\begin{align*}
+		A_i = \left( \bigcup_{i=1}^n C_{ij} \right) \cup \left( \bigcup_{k=1}^{r_i} D_{ik} \right) \quad \left( \mbox{donde } D_{ik} \in \mathcal{Y} \mbox{ para todo } i = 1, \ldots, m \right) \\
+		%
+		B_j = \left( \bigcup_{j=1}^m C_{ij} \right) \cup \left( \bigcup_{l=1}^{s_j} E_{jl} \right) \quad \left( \mbox{donde } E_{jl} \in \mathcal{Y} \mbox{ para todo } j = 1, \ldots, n \right)
+	\end{align*}
+	%
+	De esta manera, 
+	%
+	\begin{align*}
+		A \cap B &= \left( \bigcup_{i=1}^{m} A_i \right) \cap \left( \bigcup_{j=1}^{n} B_j \right) \\
+		%
+		&= \left\lbrace \bigcup_{i=1}^{m} \left[ \left( \bigcup_{i=1}^n C_{ij} \right) \cup \left( \bigcup_{k=1}^{r_i} D_{ik} \right) \right] \right\rbrace \cap \left\lbrace \bigcup_{j=1}^{n} \left[ \left( \bigcup_{j=1}^m C_{ij} \right) \cup \left( \bigcup_{l=1}^{s_j} E_{jl} \right) \right] \right\rbrace \\
+		%
+		&= \left\lbrace \left[ \bigcup_{i=1}^{m} \left( \bigcup_{i=1}^n C_{ij} \right) \right] \cup \left[ \bigcup_{i=1}^{m} \left( \bigcup_{k=1}^{r_i} D_{ik} \right) \right] \right\rbrace \cap \left\lbrace \left[ \bigcup_{j=1}^{n} \left( \bigcup_{j=1}^m C_{ij} \right) \right] \cup \left[ \bigcup_{j=1}^{n} \left( \bigcup_{l=1}^{s_j} E_{jl} \right) \right] \right\rbrace \\
+		%
+		&= \bigcup_{i=1}^{m} \left( \bigcup_{i=1}^n C_{ij} \right) \in \mathcal{L} & ( \mbox{pues } C_{ij} \in \mathcal{Y} )
+	\end{align*}
+	y
+	\begin{align*}
+		A \vartriangle B &= (A \cup B) \setminus (A \cap B) \\
+		%
+		&= \left[ \left( \bigcup_{i=1}^{m} A_i \right) \cup \left( \bigcup_{j=1}^{n} B_j \right) \right] \mbox{\Huge \textbackslash} \left[ \left( \bigcup_{i=1}^{m} A_i \right) \cap \left( \bigcup_{j=1}^{n} B_j \right) \right] \\
+		%
+		&= \left\lbrace \bigcup_{i=1}^{m} \left[ \bigcup_{j=1}^{n} \left( A_i \cup B_j \right) \right] \right\rbrace \mbox{\Huge \textbackslash} \left\lbrace \bigcup_{i=1}^{m} \left[ \bigcup_{j=1}^{n} \left( A_i \cap B_j \right) \right] \right\rbrace \\
+		%
+		&= \left\lbrace \bigcup_{i=1}^{m} \left[ \bigcup_{j=1}^{n} \left( \left( \bigcup_{i=1}^n C_{ij} \right) \cup \left( \bigcup_{k=1}^{r_i} D_{ik} \right) \cup \left( \bigcup_{l=1}^{s_j} E_{jl} \right) \right) \right] \right\rbrace \mbox{\Huge \textbackslash} \left\lbrace \bigcup_{i=1}^{m} \left[ \bigcup_{j=1}^{n} \left( \bigcup_{i=1}^n C_{ij} \right) \right] \right\rbrace \\
+		%
+		&= \left[ \bigcup_{i=1}^{m} \left( \bigcup_{k=1}^{r_i} D_{ik} \right) \right] \cup \left[ \bigcup_{j=1}^{n} \left( \bigcup_{l=1}^{s_j} E_{jl} \right) \right] \in \mathcal{L} & ( \mbox{pues } D_{ik}, E_{jl} \in \mathcal{Y} )
+	\end{align*}
+	Por lo tanto, $ \mathcal{L} $ es un anillo y $ \mathcal{R} (\mathcal{Y}) \subseteq \mathcal{L} $.
+
+	Ahora, sea $ P = \bigcup_{i=1}^n P_i \in \mathcal{L} $, como cada $ P_i \in \mathcal{Y} $, con $ i = 1, \ldots, n $, y $ \mathcal{R} (\mathcal{Y}) $ es el anillo minimal generado por $ \mathcal{Y} $, se tiene que $ P_i \in \mathcal{R} (\mathcal{Y}) $, para todo $ i = 1, \ldots, n $, por lo que $ P = \bigcup_{i=1}^n P_i \in \mathcal{R} (\mathcal{Y}) $. En conclusión, $ \mathcal{R} (\mathcal{Y}) = \mathcal{L} $.
+\end{document}
