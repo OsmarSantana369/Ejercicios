@@ -1,37 +1,175 @@
 \documentclass[fleqn]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage[margin = 24mm]{geometry}
+\usepackage[spanish, es-lcroman]{babel}
+\usepackage[margin = 15mm]{geometry}
 \usepackage{parskip}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{enumerate}
 
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+%\renewcommand{\theenumi}{\roman{enumi}}
+
 \newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
 
 \begin{document}
-	\textbf{Ecuaciones Diferenciables Parciales} \\
-	\textbf{Tarea 1} \\
-	\textbf{Osmar Dominique Santana Reyes} \\
-	\textbf{No. de cuenta: 2125197}
+	\bfseries
+
+	Ecuaciones Diferenciables Parciales \\
+	Tarea 1 \\
+	Osmar Dominique Santana Reyes \\
+	No. de cuenta: 2125197 \\
 
 	Para cada EDP:
 
 	\begin{enumerate}[(i)]
 		\item Indica el orden y decide si es lineal, semilineal, cuasilineal o completamente no lineal.
-		\item Busca en Internet y describe un contexto físico o geométrico en el que la EDP sea relevante. En particular, ¿qué modelan la variable dependiente $ U $ y las variables independientes, y qué significan los parámetros de la EDP (ya sean las constantes o las funciones especificadas)? A menos que se especifique lo contrario, $ x \in \real $.
+		\item Busca en Internet y describe un contexto físico o geométrico en el que la EDP sea relevante. En particular, ¿qué modelan la variable dependiente $ U $ y las variables independientes, y qué significan los parámetros de la EDP (ya sean las constantes o las funciones especificadas)? A menos que se especifique lo contrario, $ x \in \real $ o $ x \in \real^3 $.
 		\item Si la EDP lleva el nombre de alguien, búsquelo en línea.
 	\end{enumerate}
 
+	\normalfont
+
 	\begin{enumerate}[(a)]
-		\item La ecuación de Schr\"odinger: $ U(x,t) $ resuelve $ i \hbar U_t = - \dfrac{h^2}{2m} \Delta U $, donde $ \hbar $ es la constante de Planck reducida.
-		\item La ecuación de Burgers (no viscosa): $ U(x,t) $ resuelve $ U_t + U U_x = 0 $.
-		\item La ecuación de Burgers completa: $ U(x,t) $ resuelve $ U_t + U U_x = \epsilon U_{xx} $.
-		\item La ecuación de Hamilton-Jacobi: $ U(x,t) $ resuelve $ U_t + H(\nabla U, x) = 0 $, donde $ H \colon \real^N \times \real^N \to \real $ está dado.
-		\item La ecuación KdV: $ U(x,t) $ resuelve $ U_t + U_{xxx} - 6UU_x = 0 $.
-		\item La ecuación Eikonal: $ U(x) $ resuelve $ \lVert \nabla U \rVert = f(x) $.
-		\item La ecuación del medio poroso: $ U(x,t) $ resuelve $ U_t = \Delta (U^m) $ para algún $ m > 1 $.
-		\item La ecuación de la viga: $ U(x,t) $ resuelve $ U_{tt} + k^2 U_{xxxx} = 0 $.
-		\item La ecuación de Black-Scholes: $ U(S,t) $ resuelve $ U_t + \dfrac{1}{2} \sigma^2 S^2 U_{SS} + rS U_{SS} - rU = 0, $ donde $ r $ y $ \sigma $ son constantes.
-		\item La ecuación de Monge-Ampere: $ U(x) $ resuelve $ \det(D^2 U) = f(x) $, donde $ D^2 U $ denota la matriz Hessiana (también denotada por $ H[U] $) y $ f $ está dada.
+		\item \textbf{La ecuación de Schr\"odinger: $ U(x,t) $ resuelve $ i \hbar U_t = - \dfrac{h^2}{2m} \Delta U $, donde $ \hbar $ es la constante de Planck reducida.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean $ F(U) = i \hbar U_t + \dfrac{h^2}{2m} \Delta U $, $ \lambda \in \real $ y $ W = W(x,t) $, se da que
+			
+			\begin{align*}
+				F(\lambda U + W) &= i \hbar \left( \lambda U + W \right)_t + \dfrac{h^2}{2m} \Delta \left( \lambda U + W \right) \\
+				%
+				&= i \hbar \left( \lambda U_t + W_t \right) + \dfrac{h^2}{2m} \left( \lambda \Delta U + \Delta W \right) \\
+				%
+				&= \lambda \left( i \hbar U_t + \dfrac{h^2}{2m} \Delta U \right) + \left( i \hbar W_t + \dfrac{h^2}{2m} \Delta W \right) \\
+				%
+				&= \lambda F(U) + F(W)
+			\end{align*}
+
+			Por lo tanto, la ecuación de Schr\"odinger es lineal de segundo orden.
+
+			\item Describe la evolución temporal de una partícula subatómica cuántica con masa en el contexto no relativista. Es de importancia central en la teoría de la mecánica cuántica ordinaria, donde representa para las partículas microscópicas un papel análogo a la segunda ley de Newton en la mecánica clásica. Donde $ i \in \complex $, $ \hbar $ es la constante de Planck reducida (tiene varias interpretaciones pero en términos generales es el producto de la energía implicada y el tiempo empleado de una partícula microscópica), $ U $ es la función de onda del sistema cuántico, $ t $ es el tiempo transcurrido y $ m $ es la "masa reducida" de la partícula. El lado derecho de la ecuación caracteriza la energía total de cualquier función de onda dada.
+			
+			\item La ecuación fue desarrollada por el físico austríaco Erwin Schrödinger en 1925 y publicada en el 1926. El realizó importantes contribuciones en los campos de la mecánica cuántica y la termodinámica. Recibió el Premio Nobel de Física en 1933 por haber desarrollado esta ecuación, compartido con Paul Dirac. Tras mantener una larga correspondencia con Albert Einstein propuso el experimento mental del gato de Schrödinger que mostraba las paradojas e interrogantes a los que abocaba la física cuántica.
+		\end{enumerate}
+
+		\item \textbf{La ecuación de Burgers (no viscosa): $ U(x,t) $ resuelve $ U_t + U U_x = 0 $.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean $ F(U) = U_t + U U_x $ y $ \lambda \in \real $, $ F $ es no lineal pues $ F(\lambda U) = \lambda U_t + (\lambda U)(\lambda U_x) = \lambda U_t + \lambda^2 U U_x \neq \lambda F(U) $. De esta forma la ecuación es no lineal. 
+			
+			Luego, sean $ G(U_t, U_x) = U_t + U U_x $, $ W = W(x,t) $ y $ \lambda \in \real $, se tiene que
+
+			\begin{align*}
+				G(\lambda (U_t, U_x) + (W_t, W_x)) &= G(\lambda U_t + W_t, \lambda U_x + W_x) \\
+				%
+				&= \lambda U_t + W_t + U (\lambda U_x + W_x) \\
+				%
+				&= \lambda (U_t + U U_x) + (W_t + U W_x) \\
+				%
+				&= \lambda G(U_t, U_x) + G(W_t, W_x)
+			\end{align*}
+			
+			Por lo tanto, la ecuación es cuasilineal de primer orden.
+
+			\item La ecuación representa un flujo unidimensional de un fluido no viscoso a través del tiempo, pero también es un prototipo para la ecuaciones de conservación que puede desarrollar discontinuidades, como la onda de choque. Aqui, $ U $ es la densidad del fluido, $ x $ es la posición del fluido y $ t $ es el tiempo transcurrido.
+			
+			\item Fue introducida por primera vez por Harry Bateman, (fue un matemático inglés que hizo un amplio estudio de las ecuaciones diferenciales aplicadas en su Conferencia Gibbs en 1943 titulada "El control de un fluido elástico") y luego estudiada por Johannes Martinus Burgers (fue un físico neerlandés que investigó sobre la dinámica de fluidos y trabajó en la teoría de la turbulencia).
+		\end{enumerate}
+
+		\item \textbf{La ecuación de Burgers completa: $ U(x,t) $ resuelve $ U_t + U U_x = \epsilon U_{xx} $.}
+		
+		\begin{enumerate}[(i)]
+			\item De igual manera que el inciso anterior, la ecuación es no lineal. Pero si es lineal, respecto a $ \epsilon U_{xx} $, y como la suma de operadores lineales es un operador lineal, se obtiene que la ecuación es semilineal de segundo orden.
+			
+			\item La ecuación de Burgers completa es una ecuación diferencial parcial fundamental que ocurre en varias áreas de la matemática aplicada, como la mecánica de fluidos, la acústica no lineal, la dinámica de gases y el flujo de tráfico. La notación usada es la misma que la del inciso anterior, agregando que $ \epsilon $ es el coeficiente de viscosidad de la sustancia y es positivo.
+		\end{enumerate}
+
+		\item \textbf{La ecuación de Hamilton-Jacobi: $ U(x,t) $ resuelve $ U_t + H(\nabla U, x) = 0 $, donde $ H \colon \real^N \times \real^N \to \real $ está dado.}
+		
+		\begin{enumerate}[(i)]
+			\item Ya que $ H $ es el Hamiltoniano y este no es lineal, se tiene que la ecuación es no lineal. Mas aún, es completamente no lineal, pues el Hamiltoniano depende de las derivadas de más alto orden.
+			
+			\item La ecuación une la mecánica, la óptica y las matemáticas, y ayudó a establecer la teoría ondulatoria de la luz. Además, permite una formulación alternativa a la mecánica lagrangiana y la mecánica hamiltoniana. Su empleo resulta ventajoso cuando se conoce alguna integral de movimiento sobre una partícula u onda. Aquí, $ x \in \real^2 $, $ t \in \real $ es el tiempo y $ H $ es el Hamiltoniano. 
+			
+			\item Carl Gustav Jakob Jacobi fue un matemático alemán de origen judío que contribuyó en varios campos de la matemática, principalmente en el área de las funciones elípticas, el álgebra, la teoría de números y las ecuaciones diferenciales. Por otro lado, William Rowan Hamilton fue un matemático, físico, y astrónomo irlandés, que hizo importantes contribuciones al desarrollo de la óptica, la dinámica, y el álgebra.
+		\end{enumerate}
+
+		\item \textbf{La ecuación KdV: $ U(x,t) $ resuelve $ U_t + U_{xxx} - 6UU_x = 0 $.}
+		
+		\begin{enumerate}[(i)]
+			\item La ecuación es no lineal debido a que el término $ U U_x $ es no lineal respecto a $ U $. Luego, sean $ F(U_t, U_x, U_{xxx}) = U_t + U_{xxx} - 6UU_x $, $ W = W(x,t) $ y $ \lambda \in \real $, se da que 
+			
+			\begin{align*}
+				F(\lambda (U_t, U_x, U_{xxx}) + (W_t, W_x, W_{xxx})) &= F(\lambda U_t + W_t, \lambda U_x + W_x, \lambda U_{xxx} + W_{xxx}) \\
+				%
+				&= \lambda U_t + W_t + \lambda U_{xxx} + W_{xxx} - 6U(\lambda U_x + W_x) \\
+				%
+				&= \lambda (U_t + U_{xxx} - 6UU_x) + (W_t + W_{xxx} - 6UW_x) \\
+				%
+				&= \lambda F(U_t, U_x, U_{xxx}) + F(W_t, W_x, W_{xxx})
+			\end{align*}
+
+			Por lo tanto, la ecuación es semilineal de tercer orden.
+			
+			\item La ecuación KdV (Korteweg-de Vries) describe, en una dimensión espacial, la propagación de ondas de longitud de onda larga en medios dispersivos. Donde $ x, t $ y $ U $ denotan posición espacial, temporal y amplitud, respectivamente. $ U_t $ representa la evolución temporal de la perturbación o campo $ v $ y $ U_{xxx} $ es un dispersivo.
+			
+			\item Diederik Johannes Korteweg fue un matemático holandés, quién realizó una tesis doctoral titulada \textit{``Sobre la propagación de ondas en tubos elásticos"}. Mientras que Gustav de Vries fue un matemático neerlandés, que, bajo la asesoría de Korteweg, completó su tesis doctoral \textit{``Contribución al conocimiento de las grandes olas"}.
+		\end{enumerate}
+
+		\item \textbf{La ecuación Eikonal: $ U(x) $ resuelve $ \lVert \nabla U \rVert = f(x) $.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean 
+			
+			\item Tal
+			
+			\item Fue
+		\end{enumerate}
+
+		\item \textbf{La ecuación del medio poroso: $ U(x,t) $ resuelve $ U_t = \Delta (U^m) $ para algún $ m > 1 $.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean 
+			
+			\item Tal
+			
+			\item Fue
+		\end{enumerate}
+
+		\item \textbf{La ecuación de la viga: $ U(x,t) $ resuelve $ U_{tt} + k^2 U_{xxxx} = 0 $.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean 
+			
+			\item Tal
+			
+			\item Fue
+		\end{enumerate}
+
+		\item \textbf{La ecuación de Black-Scholes: $ U(S,t) $ resuelve $ U_t + \dfrac{1}{2} \sigma^2 S^2 U_{SS} + rS U_{SS} - rU = 0, $ donde $ r $ y $ \sigma $ son constantes.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean 
+			
+			\item Tal
+			
+			\item Fue
+		\end{enumerate}
+
+		\item \textbf{La ecuación de Monge-Ampere: $ U(x) $ resuelve $ \det(D^2 U) = f(x) $, donde $ D^2 U $ denota la matriz Hessiana (también denotada por $ H[U] $) y $ f $ está dada.}
+		
+		\begin{enumerate}[(i)]
+			\item Sean 
+			
+			\item Tal
+			
+			\item Fue
+		\end{enumerate}
+
 	\end{enumerate}
 \end{document}
