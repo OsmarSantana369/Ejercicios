@@ -1,0 +1,37 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin = 24mm]{geometry}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{enumerate}
+
+\newcommand{\real}{\mathbb{R}}
+
+\begin{document}
+	\textbf{Ecuaciones Diferenciables Parciales} \\
+	\textbf{Tarea 1} \\
+	\textbf{Osmar Dominique Santana Reyes} \\
+	\textbf{No. de cuenta: 2125197}
+
+	Para cada EDP:
+
+	\begin{enumerate}[(i)]
+		\item Indica el orden y decide si es lineal, semilineal, cuasilineal o completamente no lineal.
+		\item Busca en Internet y describe un contexto físico o geométrico en el que la EDP sea relevante. En particular, ¿qué modelan la variable dependiente $ U $ y las variables independientes, y qué significan los parámetros de la EDP (ya sean las constantes o las funciones especificadas)? A menos que se especifique lo contrario, $ x \in \real $.
+		\item Si la EDP lleva el nombre de alguien, búsquelo en línea.
+	\end{enumerate}
+
+	\begin{enumerate}[(a)]
+		\item La ecuación de Schr\"odinger: $ U(x,t) $ resuelve $ i \hbar U_t = - \dfrac{h^2}{2m} \Delta U $, donde $ \hbar $ es la constante de Planck reducida.
+		\item La ecuación de Burgers (no viscosa): $ U(x,t) $ resuelve $ U_t + U U_x = 0 $.
+		\item La ecuación de Burgers completa: $ U(x,t) $ resuelve $ U_t + U U_x = \epsilon U_{xx} $.
+		\item La ecuación de Hamilton-Jacobi: $ U(x,t) $ resuelve $ U_t + H(\nabla U, x) = 0 $, donde $ H \colon \real^N \times \real^N \to \real $ está dado.
+		\item La ecuación KdV: $ U(x,t) $ resuelve $ U_t + U_{xxx} - 6UU_x = 0 $.
+		\item La ecuación Eikonal: $ U(x) $ resuelve $ \lVert \nabla U \rVert = f(x) $.
+		\item La ecuación del medio poroso: $ U(x,t) $ resuelve $ U_t = \Delta (U^m) $ para algún $ m > 1 $.
+		\item La ecuación de la viga: $ U(x,t) $ resuelve $ U_{tt} + k^2 U_{xxxx} = 0 $.
+		\item La ecuación de Black-Scholes: $ U(S,t) $ resuelve $ U_t + \dfrac{1}{2} \sigma^2 S^2 U_{SS} + rS U_{SS} - rU = 0, $ donde $ r $ y $ \sigma $ son constantes.
+		\item La ecuación de Monge-Ampere: $ U(x) $ resuelve $ \det(D^2 U) = f(x) $, donde $ D^2 U $ denota la matriz Hessiana (también denotada por $ H[U] $) y $ f $ está dada.
+	\end{enumerate}
+\end{document}
