@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1724348622.08265 "c:/Users/GabDomDal/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 1/Tarea_1.tex" "build/Tarea_1.pdf" "Tarea_1" 1724348622.98446 0
+["pdflatex"] 1724407950.70661 "c:/Users/GabDomDal/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 1/Tarea_1.tex" "build/Tarea_1.pdf" "Tarea_1" 1724407952.81788 0
   "C:/Users/GabDomDal/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1724336677 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/GabDomDal/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1724335102 24267221 9e3807f1f4ca0c3bfd99bdbe1f768bbc ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -19,6 +19,7 @@
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1247596667 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1719641066 146636 00e6e4b5a5b72cebe149cf3066d53b30 ""
@@ -52,9 +53,9 @@
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1716480499 29785 9f93ab201fe5dd053afcc6c1bcf7d266 ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/tex/latex/parskip/parskip.sty" 1615976160 4288 94714aa7f535440f33181fec52a31963 ""
   "C:/Users/GabDomDal/AppData/Local/Programs/MiKTeX/tex/latex/tools/enumerate.sty" 1718356376 3468 ad69b54642e68f9fdf39ec1a16dd7341 ""
-  "Tarea_1.tex" 1724348621 9919 2be689c884a1376b99cfc83b9b695441 ""
-  "build/Tarea_1.aux" 1724348622 194 d12d2f42a1ce5499c2e0a2e2f9926e09 "pdflatex"
-  "c:/Users/GabDomDal/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 1/Tarea_1.tex" 1724348621 9919 2be689c884a1376b99cfc83b9b695441 ""
+  "Tarea_1.tex" 1724407948 14028 bf6546599b515a6b6ddbc45cc9bfbe3c ""
+  "build/Tarea_1.aux" 1724407952 194 d12d2f42a1ce5499c2e0a2e2f9926e09 "pdflatex"
+  "c:/Users/GabDomDal/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 1/Tarea_1.tex" 1724407948 14028 bf6546599b515a6b6ddbc45cc9bfbe3c ""
   (generated)
   "build/Tarea_1.aux"
   "build/Tarea_1.log"

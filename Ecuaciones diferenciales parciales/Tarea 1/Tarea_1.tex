@@ -18,7 +18,6 @@
 
 \begin{document}
 	\bfseries
-
 	Ecuaciones Diferenciables Parciales \\
 	Tarea 1 \\
 	Osmar Dominique Santana Reyes \\
@@ -124,51 +123,86 @@
 		\item \textbf{La ecuación Eikonal: $ U(x) $ resuelve $ \lVert \nabla U \rVert = f(x) $.}
 		
 		\begin{enumerate}[(i)]
-			\item Sean 
+			\item La ecuación es no lineal ya que la norma no es una función lineal. Por esta misma razón, la ecuación es completamente no lineal de primer orden.
 			
-			\item Tal
-			
-			\item Fue
+			\item Es una ecuación encontrada en propagación de ondas, cuando la ecuación de onda es aproximada usando la teoría WKB. Esto es derivable desde las ecuaciones de Maxwell de electromagnetismo, y proveen un enlace entre óptica física (onda) y óptica geométrica. Aquí, $ x \in \real^3 $, $ U $ es el tiempo más corto necesario para viajar desde la frontera del dominio de $ U $ a $ x $ y $ F(x) $ es el coste en términos de tiempo (y no de velocidad) en $ x $.
 		\end{enumerate}
 
 		\item \textbf{La ecuación del medio poroso: $ U(x,t) $ resuelve $ U_t = \Delta (U^m) $ para algún $ m > 1 $.}
 		
 		\begin{enumerate}[(i)]
-			\item Sean 
+			\item La ecuación se puede reeescribir como 
 			
-			\item Tal
+			\begin{align*}
+				U_t &= \Delta \left( U^m \right) \\
+				%
+				&= \left( U^m \right)_{tt} + \left( U^m \right)_{xx} \\
+				%
+				&= \left( m U^{m-1} U_t \right)_t + \left( m U^{m-1} U_x \right)_x \\
+				%
+				&= \left( m(m-1) U^{m-2} (U_t)^2 + m U^{m-1} U_{tt} \right) + \left( m(m-1) U^{m-2} (U_x)^2 + m U^{m-1} U_{xx} \right) \\
+				%
+				&= m(m-1) U^{m-2} \left( (U_t)^2 + (U_x)^2 \right) + m U^{m-1} \left( U_{tt} + U_{xx} \right)
+			\end{align*}
+
+			Ya que las potencias no actuan como operador lineal, se tiene que la ecuación del medio poroso no es lineal respecto a $ U $ ni respecto a las primeras derivadas, pero si respecto a las derivadas de segundo orden, pues solo aparece su suma. Por lo tanto, la ecuación es cuasilineal de segundo orden.
 			
-			\item Fue
+			\item Modela un fluido incompresible que fluye por un medio poroso. $ U $ es la velocidad del fluido, $ t $ el tiempo transcurrido y $ x \in \real^3 $ es la posición del fluido.
 		\end{enumerate}
 
 		\item \textbf{La ecuación de la viga: $ U(x,t) $ resuelve $ U_{tt} + k^2 U_{xxxx} = 0 $.}
 		
 		\begin{enumerate}[(i)]
-			\item Sean 
+			\item Sean $ F(U) = U_{tt} + k^2 U_{xxxx} $, $ W = W(x,t) $ y $ \lambda \in \real $, se da que
 			
-			\item Tal
+			\begin{align*}
+				F(\lambda U + W) &= (\lambda U + W)_{tt} + k^2 (\lambda U + W)_{xxxx} \\
+				%
+				&= \lambda U_{tt} + W_{tt} + k^2 (\lambda U_{xxxx} + W_{xxxx}) \\
+				%
+				&= \lambda (U_{tt} + k^2 U_{xxxx}) + (W_{tt} + k^2 W_{xxxx}) \\
+				%
+				&= \lambda F(U) + F(W)
+			\end{align*}
+
+			Por lo tanto, la ecuación es lineal de cuarto orden.
 			
-			\item Fue
+			\item Representa una viga con carga distribuida variable empotrada en un extremo y con el otro extremo libre. $ x $ representa la distancia horizontal de la viga desde un extremo, $ k^2 $ la rigidez de la viga y $ U $ es la fuerza que se le aplica a la viga en cierto punto.
 		\end{enumerate}
 
 		\item \textbf{La ecuación de Black-Scholes: $ U(S,t) $ resuelve $ U_t + \dfrac{1}{2} \sigma^2 S^2 U_{SS} + rS U_{SS} - rU = 0, $ donde $ r $ y $ \sigma $ son constantes.}
 		
 		\begin{enumerate}[(i)]
-			\item Sean 
+			\item Ya que cada término de la ecuación es un operador lineal, se tiene que la ecuación es lineal de segundo orden.
 			
-			\item Tal
+			\item Es una ecuación usada para determinar el precio de determinados activos financieros. $ t $ es el tiempo transcurrido, $ S $ es el precio de un activo, $ \sigma $ es la volatilidad, que mide la desviación estándar de los retornos, $ r $ es una medida del crecimiento promedio del precio del activo, y $ U $ es el valor actual del activo.
 			
-			\item Fue
+			\item Fischer Sheffey Black fue un economista estadounidense y Myron S. Scholes es un economista, matemático y abogado canadiense.  En conjunto, publicaron el documento ``El precio de las opciones y los pasivos corporativos" en el ``The Journal of Political Economy".
 		\end{enumerate}
 
 		\item \textbf{La ecuación de Monge-Ampere: $ U(x) $ resuelve $ \det(D^2 U) = f(x) $, donde $ D^2 U $ denota la matriz Hessiana (también denotada por $ H[U] $) y $ f $ está dada.}
 		
 		\begin{enumerate}[(i)]
-			\item Sean 
+			\item Reescribiendo la ecuación: 
 			
-			\item Tal
+			\begin{align*}
+				f(x) &= \det(D^2 U) \\
+				%
+				&= \det \begin{pmatrix}
+					U_{x_1 x_1} & U_{x_2 x_1} & U_{x_3 x_1} \\
+					U_{x_1 x_2} & U_{x_2 x_2} & U_{x_3 x_2} \\
+					U_{x_1 x_3} & U_{x_2 x_3} & U_{x_3 x_3} \\
+				\end{pmatrix} \\
+				%
+				&= U_{x_1 x_1} \left( U_{x_2 x_2} U_{x_3 x_3} - U_{x_3 x_2} U_{x_2 x_3} \right) - U_{x_2 x_1} \left( U_{x_1 x_2} U_{x_3 x_3} - U_{x_3 x_2} U_{x_1 x_3} \right) + \\
+				& \qquad U_{x_3 x_1} \left( U_{x_1 x_2} U_{x_2 x_3} - U_{x_2 x_2} U_{x_1 x_3} \right)
+			\end{align*}
+
+			Como las derivadas se multiplican, es fácil ver que la ecuación es no lineal, más aún, es completamente no lineal.
 			
-			\item Fue
+			\item Surge con frecuencia en la geometría diferencial, por ejemplo, en los problemas de Weyl y Minkowski en geometría diferencial de superficies. Primero fueron estudiados por Gaspard Monge en 1784 y más tarde por André-Marie Ampère en 1820. $ x \in \real^3 $.
+			
+			\item Gaspard Monge, conde de Peluse, fue un matemático francés, inventor de la geometría descriptiva, mientras que André-Marie Ampère fue un matemático y físico francés, que formuló la teoría de la electrodinámica.
 		\end{enumerate}
 
 	\end{enumerate}
