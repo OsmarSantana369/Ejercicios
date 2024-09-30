@@ -1,0 +1,50 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage[margin = 15mm, top = 12mm]{geometry}
+
+\begin{document}
+	Problema 6. Mostrar que la cardinalidad del conjunto de todos los subconjuntos medibles del intervalo $ [0,1] $ es más grande que la cardinalidad del continuo.
+
+	Demostración.
+
+	Sean $ \mathcal{M} $ el conjunto de todos los subconjuntos medibles del intervalo $ [0,1] $ y $ f \colon \mathcal{M} \to [0,1] $ definida como $ f(A) = \inf(A) $ y $ f(\emptyset) = 0 $. Esta función está bien definida pues cualquier subconjunto no vacío y medible del intervalo $ [0,1] $ está acotado inferiormente por $ 0 $, por lo que existe su ínfimo y este es único.
+
+	Luego, para cualquier $ x \in [0,1] $, se tiene que el intervalo $ [x,1] \subseteq [0,1] $ es medible y $ \inf([x,1]) = x $, es decir, $ f([x,1]) = x $. Así, $ f $ es sobreyectiva lo cual implica que $ \lvert f(\mathcal{M})  \rvert \geq \lvert [0,1] \rvert $.
+
+	Después, dado que $ f([0,1]) = 0 = f(\emptyset) $, se obtiene que $ f $ no es inyectiva. De esta manera, $ \lvert f(\mathcal{M})  \rvert > \lvert [0,1] \rvert $, que es lo que se quería demostrar. 
+
+	Problema 7. Sea $ C $ un círculo de circunferencia 1, y sea $ \alpha $ un número irracional. Supongamos que todos los puntos de $ C $ que se pueden obtener entre sí girando $ C $ a través de un ángulo $ n \alpha \pi $ (donde $n$ es cualquier número entero, positivo, negativo o cero) se asignan a la misma clase. Claramente, cada una de esas clases contiene incontables puntos. Sea $ \Phi_0 $ cualquier conjunto que contenga un punto de cada clase. Demuestre que $ \Phi_0 $ no es medible.
+
+	Demostración.
+
+	Para cada $ c \in C $, se denotará al ángulo de $ c $ como $ \theta_c $.
+
+	Sea $ \Phi_0 $ un conjunto que contenga un punto de cada clase. Para cada $ z \in \mathbb{Z} $, se define $ \Phi_z $ un conjunto formado por los puntos de $ \Phi_0 $ rotados en un ángulo $ z \alpha \pi $. Es inmediato que para todo $ z \in \mathbb{Z} $, $ \Phi_z \subseteq C $. Luego, sea $ c \in C $, existe $ c' \in \Phi_0 $, tal que $ \theta_c + z_0 \alpha \pi $ es el ángulo de $ c' $, para algún $ z_0 \in \mathbb{Z} $. De este modo, se tiene que $ c \in \Phi_{-z_0} $. De lo anterior se obtiene que:
+
+	\begin{equation*}
+		C = \bigcup_{z \in \mathbb{Z}} \Phi_z
+	\end{equation*}
+
+	Afirmación: Si $ x,y,w \in C $ son tales que $ x $ y $ y $ se obtienen al rotar $ w $ en un ángulo de $ m \alpha \pi $ y en otro de $ n \alpha \pi $, con $ m \neq n $, respectivamente, entonces $ x \neq y $.
+
+	Suponiendo que $ x = y $, se tiene que $ \theta_x = \theta_y $, por lo que $ \theta_w + m \alpha \pi = \theta_w + n \alpha \pi $ lo cual implica que $ m = n $, lo cual es una contradicción. Por lo tanto, $ x \neq y $.
+
+	Lo anterior demuestra que dos elementos que pertenecen a una misma clase y se obtienen al de rotar un punto en distintos múltiplos de $ \alpha \pi $, son distintos.
+
+	Ahora, suponiendo que existen $ m, n \in \mathbb{Z} $ distintos tales que $ \Phi_m \cap \Phi_n \neq \emptyset $, entonces sea $ x \in \Phi_m \cap \Phi_n $, existen $ y_1, y_2 \in \Phi_0 $ tales que $ \theta_x = \theta_{y_1} + m \alpha \pi = \theta_{y_2} + n \alpha \pi $. Así, $ \theta_{y_1} = \theta_{y_2} + (n-m) \alpha \pi $, por lo que $ y_1 $ y $ y_2 $ son de la misma clase y como ambos son resultado de rotar a $ x $ en distintos múltiplos de $ \alpha \pi $, se obtiene que $ y_1 \neq y_2 $, por la afirmación anterior. Luego, como $ y_1 $ y $ y_2 $ son de la misma clase, existe $ w \in C $ tal que $ \theta_w + m_1 \alpha \pi = \theta_{y_1} $ y $ \theta_w + n_1 \alpha \pi = \theta_{y_2} $, donde $ m_1 \neq n_1 $, pues $ y_1 \neq y_2 $. De esta forma, $ x $ se obtiene al rotar a $ w $ en un ángulo de $ (m + m_1) \alpha \pi $ y en un ángulo de $ (n + n_1) \alpha \pi $, los cuales son distintos pues $ m \neq n $ y $ m_1 \neq n_1 $. Esto es una contradicción puesto que, por la afirmación, se tendría que $ x \neq x $.
+
+	De esta manera, $ \Phi_m \cap \Phi_n = \emptyset $ para cualesquiera $ m,n \in \mathbb{Z} $, con $ m \neq n $.
+
+	Por último, suponiendo que $ \Phi_0 $ es medible, se tiene que para todo $ z \in \mathbb{Z} $, $ \Phi_z $ también lo es. Aun más, $ \mu (\Phi_0) = \mu (\Phi_z) $ para todo $ z \in \mathbb{Z} $. Así,
+
+	\begin{equation*}
+		\sum_{z \in \mathbb{Z}} \mu (\Phi_0) = \sum_{z \in \mathbb{Z}} \mu (\Phi_z) = \mu \left( \bigcup_{z \in \mathbb{Z}} \Phi_z \right) = \mu (C) = 1
+	\end{equation*}
+
+	lo cual no puede ser, ya que $ \mu (\Phi_0) \geq 0 $, por lo que $ \displaystyle \sum_{z \in \mathbb{Z}} \mu (\Phi_0) $ es cero o infinito.
+
+	Por lo tanto, $ \Phi_0 $ no es medible.
+\end{document}

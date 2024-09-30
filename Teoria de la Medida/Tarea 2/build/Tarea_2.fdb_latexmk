@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1724408476.90267 "c:/Users/CONTROL/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 1/Tarea_1.tex" "build/Tarea_1.pdf" "Tarea_1" 1724408479.54273 0
+["pdflatex"] 1725427491.09607 "c:/Users/CONTROL/Desktop/Ejercicios/Teoria de la Medida/Tarea 2/Tarea_2.tex" "build/Tarea_2.pdf" "Tarea_2" 1725427494.93901 0
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1724297915 554840 00cf0e8b65bc8cee7b27b82517dd5a03 ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1710069516 24234088 2e1156039a3535b144241088827dffab ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -9,9 +9,6 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1233951854 908 2921f8a10601f252058503cc6570e581 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1233951854 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
-  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
-  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
-  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
@@ -20,8 +17,8 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
-  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
+  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1247596673 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1707324350 146276 10a40dabec03ce18494af0c3a51bcbdc ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel-es.ini" 1707324351 4345 33a8cc6f0a7c6afcb84895b2c963a4e5 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel-spanish.tex" 1707324351 336 a1c472f674f6f0c25a2c95ad8c7ad024 ""
@@ -52,12 +49,11 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty" 1665066333 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1708427688 30006 3d512c0edd558928ddea1690180ef77e ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/parskip/parskip.sty" 1615976160 4288 94714aa7f535440f33181fec52a31963 ""
-  "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/tools/enumerate.sty" 1700599895 3468 0ef513f22d965f96b06adb5cff671cd7 ""
-  "Tarea_1.tex" 1724408452 14028 bf6546599b515a6b6ddbc45cc9bfbe3c ""
-  "build/Tarea_1.aux" 1724408478 194 d12d2f42a1ce5499c2e0a2e2f9926e09 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 1/Tarea_1.tex" 1724408452 14028 bf6546599b515a6b6ddbc45cc9bfbe3c ""
+  "Tarea_2.tex" 1725427487 4807 71700397004f3ad202c0596c1b461830 ""
+  "build/Tarea_2.aux" 1725427493 194 72658fb03bfd53fc103956ba2036b889 "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Teoria de la Medida/Tarea 2/Tarea_2.tex" 1725427487 4807 71700397004f3ad202c0596c1b461830 ""
   (generated)
-  "build/Tarea_1.aux"
-  "build/Tarea_1.log"
-  "build/Tarea_1.pdf"
+  "build/Tarea_2.aux"
+  "build/Tarea_2.log"
+  "build/Tarea_2.pdf"
   (rewritten before read)

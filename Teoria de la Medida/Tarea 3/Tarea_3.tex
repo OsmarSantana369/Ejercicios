@@ -1,0 +1,37 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{enumerate}
+\usepackage[margin = 18mm]{geometry}
+
+\begin{document}
+	Problema 5. Dada una medida $m$ en un semianillo $ \mathcal{Y}_m $ sin unidad, sea $ \mu $ la extensión de Lebesgue de $m$ y $ \mathcal{Y}_\mu $ el correspondiente sistema de todos los conjuntos medibles. Probar que
+
+	\begin{enumerate}[a)]
+		\item $ \mathcal{Y}_\mu $ es un $ \delta $-anillo;
+		
+		\textbf{Demostración.}
+
+		Sean $ A_1, A_2, \ldots, A_n, \ldots \in \mathcal{Y}_\mu $, $ \displaystyle A = \bigcap_{n \in \mathbb{N}} A_n $ y $ \displaystyle A' = \bigcup_{n \in \mathbb{N}} A_n $. Ya que $ A \subseteq A' $ y $ \mathcal{Y}_\mu $ es un anillo, por definición, existen $ B_1, B_2, \ldots, B_t \in \mathcal{Y}_\mu $ tales que $ \displaystyle A' = A \cup \bigcup_{i = 1}^t B_i $, por lo que $ \displaystyle \left( A' \right) \mbox{\Huge \textbackslash} \left( \bigcup_{i = 1}^t B_i \right) = A $.
+
+		Luego, para cada $ n \in \mathbb{N} $ sea $ A'_1 = A_1 $ y $ \displaystyle A'_n = A_n \mbox{\huge \textbackslash} \bigcup_{k=1}^{n-1} A_k $, estos conjuntos son disjuntos a pares y medibles, además $ \displaystyle A' = \bigcup_{n \in N} A'_n $.
+
+		Después, para cada $ N \in \mathbb{N} $ se obtiene que $ \displaystyle \sum_{n=1}^N \mu (A'_n) = \mu \left( \bigcup_{n=1}^N A'_n \right) \leq \mu^* (A') $. De esta forma, la serie $ \displaystyle \sum_{n=1}^\infty \mu (A'_n) $ converge y para $ \epsilon > 0 $ dado, existe $ M \in \mathbb{N} $ tal que $ \displaystyle \sum_{n>M} \mu (A'_n) < \dfrac{\epsilon}{2} $. Puesto que $ \displaystyle C = \bigcup_{n=1}^M A'_n $ es medible, existe $ B \in \mathcal{R} (\mathcal{Y}_m) $ tal que $ \displaystyle \mu^* (C \triangle B) < \dfrac{\epsilon}{2} $. Y debido a que $  \displaystyle A' \triangle B \subseteq (C \triangle B) \cup \left( \bigcup_{n>M} A'_n \right) $, se tiene que $ \displaystyle \mu^* (A' \triangle B) < \displaystyle \mu^* \left((C \triangle B) \cup \left( \bigcup_{n>M} A'_n \right) \right) = \mu^* (C \triangle B) + \mu^* \left( \bigcup_{n>M} A'_n \right) < \epsilon $. Así, $ A' $ es medible y por lo tanto $ A $ lo es.	
+
+		Por lo tanto, $ \mathcal{Y}_\mu $ es un $ \delta $-anillo.
+
+		\item El conjunto
+		
+		\begin{equation*}
+			A = \bigcup_{k \in \mathbb{N}} A_k \quad \mbox{donde } A_k \in \mathcal{Y}_\mu \forall k \in \mathbb{N}
+		\end{equation*}
+
+		pertenece a $ \mathcal{Y}_\mu $ si y solo si hay una constante $ C > 0 $ tal que
+
+		\begin{equation*}
+			\mu \left( \bigcup_{k=1}^n A_k \right) \leq C \quad n \in \mathbb{N}
+		\end{equation*}
+	\end{enumerate}
+\end{document}
