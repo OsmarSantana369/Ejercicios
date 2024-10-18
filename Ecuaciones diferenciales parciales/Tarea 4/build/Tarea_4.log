@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.10)  15 OCT 2024 22:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.10)  18 OCT 2024 01:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -280,45 +280,66 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Ejer1.jpg, id=1, 586.44093pt x 347.04657pt>
 File: Ejer1.jpg Graphic file (type jpg)
 <use Ejer1.jpg>
-Package pdftex.def Info: Ejer1.jpg  used on input line 56.
-(pdftex.def)             Requested size: 483.31195pt x 286.0151pt.
+Package pdftex.def Info: Ejer1.jpg  used on input line 57.
+(pdftex.def)             Requested size: 459.14487pt x 271.71196pt.
  [1
 
 {C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Ejer1.jpg>]
 <Ejer2.png, id=15, 585.387pt x 136.71075pt>
 File: Ejer2.png Graphic file (type png)
 <use Ejer2.png>
-Package pdftex.def Info: Ejer2.png  used on input line 86.
-(pdftex.def)             Requested size: 483.31195pt x 112.87328pt.
+Package pdftex.def Info: Ejer2.png  used on input line 89.
+(pdftex.def)             Requested size: 459.14487pt x 107.22845pt.
 <Ejer3.png, id=17, 776.9025pt x 320.397pt>
 File: Ejer3.png Graphic file (type png)
 <use Ejer3.png>
-Package pdftex.def Info: Ejer3.png  used on input line 111.
-(pdftex.def)             Requested size: 483.31195pt x 199.32362pt.
- [2 <./Ejer2.png>]
-<Ejer4.jpg, id=22, 586.44093pt x 203.25937pt>
+Package pdftex.def Info: Ejer3.png  used on input line 116.
+(pdftex.def)             Requested size: 459.14487pt x 189.35524pt.
+ [2 <./Ejer2.png> <./Ejer3.png>]
+<Ejer4.jpg, id=23, 586.44093pt x 203.25937pt>
 File: Ejer4.jpg Graphic file (type jpg)
 <use Ejer4.jpg>
-Package pdftex.def Info: Ejer4.jpg  used on input line 141.
-(pdftex.def)             Requested size: 483.31195pt x 167.51425pt.
- [3 <./Ejer3.png> <./Ejer4.jpg>]
-<Ejer5.png, id=27, 767.86874pt x 136.71075pt>
-File: Ejer5.png Graphic file (type png)
-<use Ejer5.png>
-Package pdftex.def Info: Ejer5.png  used on input line 171.
-(pdftex.def)             Requested size: 483.31195pt x 86.05103pt.
-<Ejer6s.png, id=28, 591.4095pt x 151.767pt>
-File: Ejer6s.png Graphic file (type png)
-<use Ejer6s.png>
-Package pdftex.def Info: Ejer6s.png  used on input line 205.
-(pdftex.def)             Requested size: 483.31195pt x 124.02594pt.
- [4 <./Ejer5.png>]
-<Ejer6c.png, id=33, 604.05675pt x 107.2005pt>
-File: Ejer6c.png Graphic file (type png)
-<use Ejer6c.png>
-Package pdftex.def Info: Ejer6c.png  used on input line 211.
-(pdftex.def)             Requested size: 483.31195pt x 85.77522pt.
- [5 <./Ejer6s.png> <./Ejer6c.png>] (c:\Users\CONTROL\Desktop\Ejercicios\Ecuaciones diferenciales parciales\Tarea 4\build\Tarea_4.aux
+Package pdftex.def Info: Ejer4.jpg  used on input line 148.
+(pdftex.def)             Requested size: 459.14487pt x 159.13715pt.
+ [3 <./Ejer4.jpg>]
+<Ejer5.jpg, id=27, 526.21594pt x 97.86563pt>
+File: Ejer5.jpg Graphic file (type jpg)
+<use Ejer5.jpg>
+Package pdftex.def Info: Ejer5.jpg  used on input line 180.
+(pdftex.def)             Requested size: 459.14487pt x 85.39476pt.
+<Ejer6s.jpg, id=28, 465.99094pt x 100.87688pt>
+File: Ejer6s.jpg Graphic file (type jpg)
+<use Ejer6s.jpg>
+Package pdftex.def Info: Ejer6s.jpg  used on input line 215.
+(pdftex.def)             Requested size: 459.14487pt x 99.39893pt.
+ [4 <./Ejer5.jpg> <./Ejer6s.jpg>]
+<Ejer6c.jpg, id=32, 699.36281pt x 85.82062pt>
+File: Ejer6c.jpg Graphic file (type jpg)
+<use Ejer6c.jpg>
+Package pdftex.def Info: Ejer6c.jpg  used on input line 229.
+(pdftex.def)             Requested size: 459.14487pt x 56.3432pt.
+<Ejer7s.jpg, id=33, 733.99219pt x 286.06876pt>
+File: Ejer7s.jpg Graphic file (type jpg)
+<use Ejer7s.jpg>
+Package pdftex.def Info: Ejer7s.jpg  used on input line 261.
+(pdftex.def)             Requested size: 459.14487pt x 178.95404pt.
+ [5 <./Ejer6c.jpg> <./Ejer7s.jpg>]
+<Ejer7c.jpg, id=39, 733.99219pt x 234.1247pt>
+File: Ejer7c.jpg Graphic file (type jpg)
+<use Ejer7c.jpg>
+Package pdftex.def Info: Ejer7c.jpg  used on input line 277.
+(pdftex.def)             Requested size: 459.14487pt x 146.45975pt.
+<Ejer8s.jpg, id=40, 700.86844pt x 292.09125pt>
+File: Ejer8s.jpg Graphic file (type jpg)
+<use Ejer8s.jpg>
+Package pdftex.def Info: Ejer8s.jpg  used on input line 310.
+(pdftex.def)             Requested size: 459.14487pt x 191.35458pt.
+ [6 <./Ejer7c.jpg>]
+File: Ejer7c.jpg Graphic file (type jpg)
+<use Ejer7c.jpg>
+Package pdftex.def Info: Ejer7c.jpg  used on input line 326.
+(pdftex.def)             Requested size: 459.14487pt x 146.45975pt.
+ [7 <./Ejer8s.jpg>] (c:\Users\CONTROL\Desktop\Ejercicios\Ecuaciones diferenciales parciales\Tarea 4\build\Tarea_4.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -328,17 +349,17 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5346 strings out of 474435
- 84807 string characters out of 5740989
- 1951190 words of memory out of 5000000
- 27631 multiletter control sequences out of 15000+600000
+ 5371 strings out of 474435
+ 85232 string characters out of 5740989
+ 1950190 words of memory out of 5000000
+ 27656 multiletter control sequences out of 15000+600000
  560076 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,620b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ecuaciones diferenciales parciales\Tarea 4\build\Tarea_4.pdf" (5 pages, 521398 bytes).
+<C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ecuaciones diferenciales parciales\Tarea 4\build\Tarea_4.pdf" (7 pages, 789807 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

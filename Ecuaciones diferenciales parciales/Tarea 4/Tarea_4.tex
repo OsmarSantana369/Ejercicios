@@ -29,6 +29,7 @@
 		\item Construya la serie de Fourier completa de la función dada $f$. En cada caso, utilice esquemas apropiados y analice la convergencia de la serie en el intervalo $ [-L,L] $ donde $f$ está definida.
 		
 		\begin{enumerate}[(1)]
+			%----------------------------------------Ejercicio 1-------------------------------------------------------
 			\item $ f(x) = \begin{cases}
 				-2, & -1 \leq x \leq 0 \\
 				3, & 0 < x \leq 1 \\
@@ -53,9 +54,11 @@
 
 			Así, $ \displaystyle f(x) \sim \dfrac{1}{2} + \sum_{n=1}^{\infty} \dfrac{5(1 - (-1)^n)}{n \pi} \sen (n \pi x) $
 
-			\includegraphics[width=\linewidth]{Ejer1.jpg}
+			\includegraphics[width=0.95\linewidth]{Ejer1.jpg}
 
 			Luego, como $f$ es suave por tramos en $ [-1,1] $, se tiene que la serie de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \ent $ y a $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{3-2}{2} = \dfrac{1}{2} $ en todo $ x \in \ent $.
+
+			%----------------------------------------Ejercicio 2-------------------------------------------------------
 
 			\bfseries 
 			\item $ f(x) = \begin{cases}
@@ -83,9 +86,11 @@
 
 			Así, $ \displaystyle f(x) \sim -\dfrac{1}{4} + \sum_{n=1}^{\infty} \left[ \dfrac{(-1)^n - 1}{\pi^2 n^2} \cos (n \pi x) - \dfrac{2(-1)^n + 1}{n \pi} \sen (n \pi x) \right] $
 
-			\includegraphics[width=\linewidth]{Ejer2.png}
+			\includegraphics[width=0.95\linewidth]{Ejer2.png}
 
 			Luego, como $f$ es suave por tramos en $ [-1,1] $, se tiene que la serie de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \ent $, a $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{0-1}{2} = -\dfrac{1}{2} $ en todo $ x $ entero par y en $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{1-1}{2} = 0 $ en todo $ x $ entero impar.
+
+			%----------------------------------------Ejercicio 3-------------------------------------------------------
 
 			\bfseries
 			\item $ 1 - 2x, -2 \leq x \leq 2 $
@@ -108,9 +113,11 @@
 
 			Así, $ \displaystyle f(x) \sim 1 + \sum_{n=1}^{\infty} \dfrac{8(-1)^n}{n \pi} \sen \left( \dfrac{n \pi x}{2} \right) $
 
-			\includegraphics[width=\linewidth]{Ejer3.png}
+			\includegraphics[width=0.95\linewidth]{Ejer3.png}
 
 			Luego, como $f$ es suave por tramos en $ [-2,2] $, se tiene que la serie de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \{ x \in \ent \colon x \equiv 2 (\hspace{-2mm} \mod 4) \} $ y a $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-3+5}{2} = 1 $ en todo $ x \in \{ x \in \ent \colon x \equiv 2 (\hspace{-2mm} \mod 4) \} $.
+
+			%----------------------------------------Ejercicio 4-------------------------------------------------------
 
 			\bfseries
 			\item $ f(x) = \begin{cases}
@@ -138,9 +145,11 @@
 
 			Así, $ \displaystyle f(x) \sim \dfrac{7}{6} + \sum_{n=1}^{\infty} \left[ \dfrac{4(-1)^n - 2}{\pi^2 n^2} \cos (n \pi x) + \dfrac{1 - 2(-1)^n}{n \pi} \sen (n \pi x) \right] $
 
-			\includegraphics[width=\linewidth]{Ejer4.jpg}
+			\includegraphics[width=0.95\linewidth]{Ejer4.jpg}
 
 			Luego, como $f$ es suave por tramos en $ [-1,1] $, se tiene que la serie de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \ent $, a $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{0+1}{2} = \dfrac{1}{2} $ en todo $ x $ entero par y en $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{3+1}{2} = 2 $ en todo $ x $ entero impar.
+
+			%----------------------------------------Ejercicio 5-------------------------------------------------------
 
 			\bfseries
 			\item $ f(x) = \begin{cases}
@@ -166,9 +175,9 @@
 				&= \dfrac{-1}{n \pi} \left( 3(-1)^n + \dfrac{2}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \right)
 			\end{align*}
 
-			Así, $ \displaystyle f(x) \sim \dfrac{9}{8} + \sum_{n=1}^{\infty} \left[ \dfrac{-2}{\pi^2 n^2} \left( \cos \left( \dfrac{n \pi}{2} \right) - (-1)^n \right) \cos (\dfrac{n \pi x}{2}) - \dfrac{2}{n \pi} \left( 3(-1)^n + \dfrac{2}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \right) \sen (\dfrac{n \pi x}{2}) \right] $
+			Así, $ \displaystyle f(x) \sim \dfrac{9}{8} - \sum_{n=1}^{\infty} \left[ \dfrac{2}{\pi^2 n^2} \left( \cos \left( \dfrac{n \pi}{2} \right) - (-1)^n \right) \cos \left( \dfrac{n \pi x}{2} \right) + \dfrac{1}{n \pi} \left( 3(-1)^n + \dfrac{2}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \right) \sen \left( \dfrac{n \pi x}{2} \right) \right] $
 
-			\includegraphics[width=\linewidth]{Ejer5.png}
+			\includegraphics[width=0.95\linewidth]{Ejer5.jpg}
 
 			Luego, como $f$ es suave por tramos en $ [-2,2] $, se tiene que la serie de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \{ x \in \ent \colon x \equiv 2 (\hspace{-2mm} \mod 4) \} $ y en $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{3+0}{2} = \dfrac{3}{2} $ en todo $ x \in \{ x \in \ent \colon x \equiv 2 (\hspace{-2mm} \mod 4) \} $.
 
@@ -178,6 +187,7 @@
 		\item Construya la serie de senos de Fourier y la serie de cosenos de Fourier de la función dada $f$. En cada caso, utilice esquemas apropiados y analice la convergencia de la serie en el intervalo $ [0,L] $ donde $f$ está definida.
 		
 		\begin{enumerate}[(1)]
+			%----------------------------------------Ejercicio 6-------------------------------------------------------
 			\item $ f(x) = \begin{cases}
 				0, & 0 \leq x \leq 1 \\
 				1, & 1 < x \leq 2 \\
@@ -202,17 +212,25 @@
 
 			Así, la serie de senos de $ f $ es: $ \displaystyle \sum_{n=1}^{\infty} \dfrac{2}{n \pi} \left( \cos \left( \dfrac{n \pi}{2} \right) - (-1)^n \right) \sen \left( \dfrac{n \pi x}{2} \right) $.
 
-			\includegraphics[width=\linewidth]{Ejer6s.png}
+			\includegraphics[width=0.95\linewidth]{Ejer6s.jpg}
 
-			Como se ve en el dibujo, la serie de senos de $f$ solo convergerá puntualmente a $f$ en los intervalos $ [4n, 4n+2] $, esto debido a que la función no es impar.
+			Después, ya que $f$ es suave por tramos en $ [-2,2] $, se tiene que la serie de senos de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \{ x \in \ent \colon x \neq 4n, \mbox{ con } n \in \ent \} $ y en
 
-			Y la serie de cosenos es: $ \displaystyle \dfrac{1}{2} + \sum_{n=1}^{\infty} \dfrac{-2}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \cos \left( \dfrac{n \pi x}{2} \right) $.
+			\begin{itemize}
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{0+1}{2} = \dfrac{1}{2} $ para todo $ x \in \{ x \in \ent \colon x \equiv 1 (\hspace{-2mm} \mod 4) \} $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{1-1}{2} = 0 $ para todo $ x \in \{ x \in \ent \colon x \equiv 2 (\hspace{-2mm} \mod 4) \} $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-1+0}{2} = -\dfrac{1}{2} $ para todo $ x \in \{ x \in \ent \colon x \equiv 3 (\hspace{-2mm} \mod 4) \} $.
+			\end{itemize}
 
-			\includegraphics[width=\linewidth]{Ejer6c.png}
+			Por otro lado, la serie de cosenos es: $ \displaystyle \dfrac{1}{2} - \sum_{n=1}^{\infty} \dfrac{2}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \cos \left( \dfrac{n \pi x}{2} \right) $.
 
-			Nuevamente, la serie de cosenos de $f$ solo convergerá puntualmente a $f$ en los intervalos $ [4n, 4n+2] $, esto debido a que la función no es par.
+			\includegraphics[width=0.95\linewidth]{Ejer6c.jpg}
 
-			Luego, como $f$ es suave por tramos en $ [-1,1] $, se tiene que la serie de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \ent $ y a $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{3-2}{2} = \dfrac{1}{2} $ en todo $ x \in \ent $.
+			Luego, ya que $f$ es suave por tramos en $ [-2,2] $, se tiene que la serie de cosenos de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \{ x \in \ent \colon x = 2n-1, \mbox{ con } n \in \ent \} $ y en $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{0+1}{2} = \dfrac{1}{2} $ para todo $ x \in \{ x \in \ent \colon x = 2n-1, \mbox{ con } n \in \ent \} $.
+
+			%----------------------------------------Ejercicio 7-------------------------------------------------------
 
 			\bfseries
 			\item $ f(x) = \begin{cases}
@@ -224,7 +242,43 @@
 
 			\normalfont
 
+			\begin{equation*}
+				a_0 = \dfrac{1}{\pi} \intg{0}{\pi}{f(x)} = \dfrac{1}{\pi} \intg{0}{\frac{\pi}{2}}{-2} + \dfrac{1}{\pi} \intg{\frac{\pi}{2}}{\pi}{3} = -1 + \dfrac{3}{2} = \dfrac{1}{2}
+			\end{equation*}
 
+			\begin{align*}
+				a_n &= \dfrac{2}{\pi} \intg{0}{\pi}{f(x) \cos \left( \dfrac{n \pi x}{\pi} \right)} = \dfrac{2}{\pi} \intg{0}{\frac{\pi}{2}}{-2 \cos \left( n x \right)} + \dfrac{2}{\pi} \intg{\frac{\pi}{2}}{\pi}{3 \cos \left( n x \right)} \\
+				&= -\dfrac{4}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) - \dfrac{6}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) = - \dfrac{10}{n \pi} \sen \left( \dfrac{n \pi}{2} \right)
+			\end{align*}
+
+			\begin{align*}
+				b_n &= \dfrac{2}{\pi} \intg{0}{\pi}{f(x) \sen \left( \dfrac{n \pi x}{\pi} \right)} = \dfrac{2}{\pi} \intg{0}{\frac{\pi}{2}}{-2 \sen \left( n x \right)} + \dfrac{2}{\pi} \intg{\frac{\pi}{2}}{\pi}{3 \sen \left( n x \right)} \\
+				&= \dfrac{4}{n \pi} \left( \cos \left( \dfrac{n \pi}{2} \right) - 1 \right) + \dfrac{6}{n \pi} \left( \cos \left( \dfrac{n \pi}{2} \right) - (-1)^n \right) = \dfrac{2}{n \pi} \left( 5 \cos \left( \dfrac{n \pi}{2} \right) - 3(-1)^n - 2 \right)
+			\end{align*}
+
+			Así, la serie de senos de $ f $ es: $ \displaystyle \sum_{n=1}^{\infty} \dfrac{2}{n \pi} \left( 5 \cos \left( \dfrac{n \pi}{2} \right) - 3(-1)^n - 2 \right) \sen (n x) $.
+
+			\includegraphics[width=0.95\linewidth]{Ejer7s.jpg}
+
+			Después, ya que $f$ es suave por tramos en $ [-\pi,\pi] $, se tiene que la serie de senos de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \left\lbrace x \in \real \colon x = \dfrac{n \pi}{2}, \mbox{ con } n \in \ent \right\rbrace $ y en
+
+			\begin{itemize}
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{2-2}{2} = 0 $ para todo $ x \in \{ x \in \real \colon x = 2n \pi, \mbox{ con } n \in \ent \} $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-2+3}{2} = \dfrac{1}{2} $ para todo $ x \in \left\lbrace x \in \real \colon x = (4n + 1) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{3-3}{2} = 0 $ para todo $ x \in \left\lbrace x \in \real \colon x = (2n + 1) \pi, \mbox{ con } n \in \ent \right\rbrace $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-3+2}{2} = -\dfrac{1}{2} $ para todo $ x \in \left\lbrace x \in \real \colon x = (4n + 3) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $.
+			\end{itemize}
+
+			Por otro lado, la serie de cosenos es: $ \displaystyle \dfrac{1}{2} - \sum_{n=1}^{\infty} \dfrac{10}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \cos (n x) $.
+
+			\includegraphics[width=0.95\linewidth]{Ejer7c.jpg}
+
+			Luego, ya que $f$ es suave por tramos en $ [-\pi,\pi] $, se tiene que la serie de cosenos de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \left\lbrace x \in \real \colon x = (2n+1) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $ y en $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-2+3}{2} = \dfrac{1}{2} $ para todo $ x \in \left\lbrace x \in \real \colon x = (2n+1) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $.
+
+			%----------------------------------------Ejercicio 8-------------------------------------------------------
 
 			\bfseries
 			\item $ f(x) = \begin{cases}
@@ -236,7 +290,44 @@
 
 			\normalfont
 
+			\begin{equation*}
+				a_0 = \dfrac{1}{2} \intg{0}{2}{f(x)} = \dfrac{1}{2} \intg{0}{1}{x} + \dfrac{1}{2} \intg{1}{2}{-2} = \dfrac{1}{4} - 1 = -\dfrac{3}{4}
+			\end{equation*}
 
+			\begin{align*}
+				a_n &= \dfrac{2}{2} \intg{0}{2}{f(x) \cos \left( \dfrac{n \pi x}{2} \right)} = \intg{0}{1}{x \cos \left( \dfrac{n \pi x}{2} \right)} + \intg{1}{2}{-2 \cos \left( \dfrac{n \pi x}{2} \right)} \\
+				&= \dfrac{2}{n^2 \pi^2} \left( n \pi \sen \left( \dfrac{n \pi}{2} \right) + 2 \cos \left( \dfrac{n \pi}{2} \right) - 2 \right) + \dfrac{4}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) = \dfrac{2}{n^2 \pi^2} \left( 3n \pi \sen \left( \dfrac{n \pi}{2} \right) + 2 \cos \left( \dfrac{n \pi}{2} \right) - 2 \right)
+			\end{align*}
+
+			\begin{align*}
+				b_n &= \dfrac{2}{2} \intg{0}{2}{f(x) \sen \left( \dfrac{n \pi x}{2} \right)} = \intg{0}{1}{x \sen \left( \dfrac{n \pi x}{2} \right)} + \intg{1}{2}{-2 \sen \left( \dfrac{n \pi x}{2} \right)} \\
+				&= \dfrac{2}{n^2 \pi^2} \left( 2 \sen \left( \dfrac{n \pi}{2} \right) - n \pi \cos \left( \dfrac{n \pi}{2} \right) \right) + \dfrac{4}{n \pi} \left( (-1)^n - \cos \left( \dfrac{n \pi}{2} \right) \right) \\
+				&= \dfrac{2}{n^2 \pi^2} \left( 2 \sen \left( \dfrac{n \pi}{2} \right) - 3n \pi \cos \left( \dfrac{n \pi}{2} \right) + 2 \pi n (-1)^n \right)
+			\end{align*}
+
+			Así, la serie de senos de $ f $ es: $ \displaystyle \sum_{n=1}^{\infty} \dfrac{2}{n^2 \pi^2} \left( 2 \sen \left( \dfrac{n \pi}{2} \right) - 3n \pi \cos \left( \dfrac{n \pi}{2} \right) + 2 \pi n (-1)^n \right) \sen \left( \dfrac{n \pi x}{2} \right) $.
+
+			\includegraphics[width=0.95\linewidth]{Ejer8s.jpg}
+
+			Después, ya que $f$ es suave por tramos en $ [-\pi,\pi] $, se tiene que la serie de senos de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \left\lbrace x \in \real \colon x = \dfrac{n \pi}{2}, \mbox{ con } n \in \ent \right\rbrace $ y en
+
+			\begin{itemize}
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{2-2}{2} = 0 $ para todo $ x \in \{ x \in \real \colon x = 2n \pi, \mbox{ con } n \in \ent \} $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-2+3}{2} = \dfrac{1}{2} $ para todo $ x \in \left\lbrace x \in \real \colon x = (4n + 1) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{3-3}{2} = 0 $ para todo $ x \in \left\lbrace x \in \real \colon x = (2n + 1) \pi, \mbox{ con } n \in \ent \right\rbrace $.
+				
+				\item $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-3+2}{2} = -\dfrac{1}{2} $ para todo $ x \in \left\lbrace x \in \real \colon x = (4n + 3) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $.
+			\end{itemize}
+
+			Por otro lado, la serie de cosenos es: $ \displaystyle \dfrac{1}{2} - \sum_{n=1}^{\infty} \dfrac{10}{n \pi} \sen \left( \dfrac{n \pi}{2} \right) \cos (n x) $.
+
+			\includegraphics[width=0.95\linewidth]{Ejer7c.jpg}
+
+			Luego, ya que $f$ es suave por tramos en $ [-\pi,\pi] $, se tiene que la serie de cosenos de fourier de $f$ converge puntualmente a la extensión periódica de $f$ a $ \real $ en todo $ x \in \real \setminus \left\lbrace x \in \real \colon x = (2n+1) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $ y en $ \dfrac{f(x^-) + f(x^+)}{2} = \dfrac{-2+3}{2} = \dfrac{1}{2} $ para todo $ x \in \left\lbrace x \in \real \colon x = (2n+1) \dfrac{\pi}{2}, \mbox{ con } n \in \ent \right\rbrace $.
+
+			%----------------------------------------Ejercicio 9-------------------------------------------------------
 
 			\bfseries
 			\item $ f(x) = \begin{cases}
@@ -249,6 +340,8 @@
 			\normalfont
 
 
+
+			%----------------------------------------Ejercicio 10-------------------------------------------------------
 
 			\bfseries
 			\item $ f(x) = x + \sen (x), 0 \leq x \leq \pi $
