@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[margin = 21mm]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\usepackage[proportional,scaled=1]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+\begin{document}
+	\textbf{4.2 Teoría del muestreo aleatorio estratificado.}
+
+	Sea $ \Omega $ una población finita de $ N $ elementos y $ \left\lbrace \Omega_1, \Omega_2, \ldots, \Omega_m \right\rbrace $ una partición de $ \Omega $. A cada $ \Omega_i = \left\lbrace y_{i1}, y_{i2}, \ldots, y_{i N_i} \right\rbrace $ de tamaño $ N_i $, con $ i = 1, \ldots, m $, se le llama \textbf{estrato de la población}.
+
+    Luego, para cada $ i = 1, \ldots, m $, sea $ \mathcal{S}_i $ una muestra aleatoria obtenida del estrato $ \Omega_i $ de tamaño $ n_i $. Las muestras obtenidas de cada estrato se juntan para formar una muestra de la población total, $ \Omega $.
+\end{document}
