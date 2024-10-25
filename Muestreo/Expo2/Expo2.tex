@@ -1,10 +1,11 @@
-\documentclass[12pt]{article}
+\documentclass[12pt, fleqn]{article}
 \usepackage[spanish]{babel}
 \usepackage[margin = 21mm]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{parskip}
 \usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{urwchancal}
 
 \usepackage[proportional,scaled=1]{erewhon}
 \usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
@@ -16,10 +17,81 @@
     \setlength\belowdisplayskip{5pt}%
 }
 
+\newcommand{\gorro}[1]{\widehat{\hspace{0.7mm} #1 \hspace{0.7mm}}}
+\newcommand{\E}[1]{\mathrm{E} \left[ #1 \right]}
+\newcommand{\V}[1]{\mathrm{V} \left( #1 \right)}
+
 \begin{document}
 	\textbf{4.2 Teoría del muestreo aleatorio estratificado.}
 
 	Sea $ \Omega $ una población finita de $ N $ elementos y $ \left\lbrace \Omega_1, \Omega_2, \ldots, \Omega_m \right\rbrace $ una partición de $ \Omega $. A cada $ \Omega_i = \left\lbrace y_{i1}, y_{i2}, \ldots, y_{i N_i} \right\rbrace $ de tamaño $ N_i $, con $ i = 1, \ldots, m $, se le llama \textbf{estrato de la población}.
 
-    Luego, para cada $ i = 1, \ldots, m $, sea $ \mathcal{S}_i $ una muestra aleatoria obtenida del estrato $ \Omega_i $ de tamaño $ n_i $. Las muestras obtenidas de cada estrato se juntan para formar una muestra de la población total, $ \Omega $.
+    Luego, para cada $ i = 1, \ldots, m $, sea $ \mathcal{S}_i $ una muestra aleatoria obtenida del estrato $ \Omega_i $ de tamaño $ n_i $. Los estadísticos de la población son los siguientes:
+
+    \begin{align*}
+        t_i = \sum_{j=1}^{N_i} y_{ij} \quad \mbox{es el total de la población en el estrato } \Omega_i \mbox{ para cada } i = 1, \ldots, m
+    \end{align*}
+
+    \begin{align*}
+        t = \sum_{i=1}^{m} t_i \quad \mbox{es el total de la población total}
+    \end{align*}
+
+    \begin{align*}
+        \overline{y_{Ui}} = \dfrac{t_i}{N_i} = \dfrac{1}{N_i} \sum_{j=1}^{N_i} y_{ij} \quad \mbox{es la media de la población en el estrato } \Omega_i \mbox{ para cada } i = 1, \ldots, m
+    \end{align*}
+
+    \begin{align*}
+        \overline{y_{U}} = \dfrac{t}{N} = \dfrac{1}{N} \sum_{i=1}^{m} t_i = \dfrac{1}{N} \sum_{i=1}^{m} \sum_{j=1}^{N_i} y_{ij} \quad \mbox{es la media de la población total}
+    \end{align*}
+
+    \begin{align*}
+        S_i^2 = \dfrac{1}{N_i - 1} \sum_{j=1}^{N_i} \left( y_{ij} - \overline{y_{Ui}} \right)^2 \quad & \mbox{es la varianza de la población en el estrato } \Omega_i \mbox{ para cada } \\ & i = 1, \ldots, m
+    \end{align*}
+
+    Como en cada estrato se hace un muestreo aleatorio simple, se tiene que
+
+    \begin{enumerate}
+        \item $ \displaystyle \overline{y_i} = \dfrac{1}{n_i} \sum_{j \in \mathscr{S}_i} y_{ij} $ es estimador insesgado de $ \overline{y_{Ui}} $ para cada $ i = 1, \ldots, m $.
+        \item $ \displaystyle \gorro{t_i} = N_i \overline{y_i} = \dfrac{N_i}{n_i} \sum_{j \in \mathscr{S}_i} y_{ij} $ es estimador insesgado de $ t_i $ para cada $ i = 1, \ldots, m $.
+        \item $ \displaystyle \gorro{S_i^2} = \dfrac{1}{n_i - 1} \sum_{j \in \mathscr{S}_i} \left( y_{ij} - \overline{y_i} \right)^2 $ es estimador insesgado de $ S_i^2 $ para cada $ i = 1, \ldots, m $.
+    \end{enumerate}
+
+    \textbf{Proposición.}  
+        \begin{enumerate}
+            \item $ \displaystyle \gorro{t} = \sum_{i=1}^{m} \gorro{t_i} = \sum_{i=1}^{m} N_i \overline{y_i} $ es estimador insesgado de $t$.
+            \item $ \displaystyle \overline{y} = \dfrac{\gorro{t}}{N} = \dfrac{1}{N} \sum_{i=1}^{m} t_i $ es estimador insesgado de $ \overline{y_U} $.
+            \item $ \displaystyle \V{\overline{y}} = \sum_{i=1}^{m} \left( 1 - \dfrac{n_i}{N_i} \right) \left( \dfrac{N_i}{N} \right)^2 \dfrac{\gorro{S_i^2}}{n_i} $.
+        \end{enumerate}
+
+    \textbf{Demostración.} 
+
+    \begin{enumerate}
+        \item Se tiene que
+        
+        \begin{align*}
+            \E{\gorro{t}} = \E{\sum_{i=1}^{m} \gorro{t_i}} = \sum_{i=1}^{m} \E{\gorro{t_i}} = \sum_{i=1}^{m} t_i = t
+        \end{align*}
+
+        Por lo tanto, $ \gorro{t} $ es un estimador insesgado de $t$.
+
+        \item Por el inciso anterior, se obtiene que
+        
+        \begin{align*}
+            \E{\overline{y}} = \E{\dfrac{\gorro{t}}{N}} = \dfrac{1}{N} \E{\gorro{t}} = \dfrac{t}{N} = \overline{y_U}
+        \end{align*}
+
+        Por lo tanto, $ \overline{y} $ es un estimador insesgado de $ \overline{y_U} $.
+
+        \item Se da que
+        
+        \begin{align*}
+            \V{\overline{y}} &= \V{\dfrac{1}{N} \sum_{i=1}^{m} t_i} \\
+            %
+            &= \dfrac{1}{N^2} \sum_{i=1}^{m} \V{t_i} \\
+            %
+            &= \dfrac{1}{N^2} \sum_{i=1}^{m} N_i^2 \left( 1 - \dfrac{n_i}{N_i} \right) \dfrac{\gorro{S_i^2}}{n} \\
+        \end{align*}
+    \end{enumerate}
+
+
 \end{document}
