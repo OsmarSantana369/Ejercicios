@@ -108,8 +108,98 @@
         %
         -z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \leq \overline{y} - \overline{y_{U}} \leq z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \\
         %
-        \overline{y} - z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \leq \overline{y_{U}} \leq \overline{y} + z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \\
+        \overline{y} - z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \leq \overline{y_{U}} \leq \overline{y} + z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}}
     \end{align*}
 
-    Así, $ \left( \displaystyle \overline{y} - z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}}, \overline{y} + z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \right) $ es el intervalo de confianza de $ (1 - \alpha) 100 \% $ para $ \overline{y_{U}} $.
+    Así, $ \left( \displaystyle \overline{y} - z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}}, \overline{y} + z_{\frac{\alpha}{2}} \sqrt{\V{\overline{y}}} \right) $ es un intervalo de confianza de $ (1 - \alpha) 100 \% $ para $ \overline{y_{U}} $.
+
+    \textbf{Ejemplo.}
+
+    En enero y a principios de febrero de 1962, se realizaron pruebas de campo para estimar el tamaño de la manada Nelchina del caribú de Alaska. Dichas pruebas indicaron a los investigadores que algunas unidades de muestreo propuestas, como ``igual tiempo de vuelo'', eran difíciles de establecer en la práctica y que una unidad de muestreo conocida como ``igual área'' de 4 millas cuadradas serviría para este estudio. Los biólogos emplearon las estimaciones preliminares de las densidades del caribú para dividir el área de interés en 6 estratos; cada estrato se dividía, entonces, en una retícula de unidades de muestreo de 4 millas cuadradas. Se obtuvieron los siguientes datos y estimaciones:
+
+    \begin{table}[h]
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+            \hline
+            Estrato & $N_i$ & $n_i$ & $\overline{y_i}$ & $\gorro{s_i^2}$ & $\gorro{t_i} = N_i \overline{y_i}$ & $\V{t_i} = N_i^2 \left( 1 - \dfrac{n_i}{N_i} \right) \dfrac{\gorro{S_i^2}}{n_i}$ \\
+            \hline
+            A       & 400   & 98    & 24.1             & 5,575           & 9,640                              & 6,782,040.82 \\
+            \hline
+            B       & 30    & 10    & 25.6             & 4,064           & 768                                & 243,840 \\
+            \hline
+            C       & 61    & 37    & 267.6            & 347,556         & 16,324                             & 13,751,945.51 \\
+            \hline
+            D       & 18    & 6     & 179              & 22,798          & 3,222                              & 820,728 \\
+            \hline
+            E       & 70    & 39    & 293.7            & 123,578         & 20,559                             & 6,876,006.67 \\
+            \hline
+            F       & 120   & 21    & 33.2             & 9,795           & 3,984                              & 5,541,171.43 \\
+            \hline
+            Total   & 699   & 211   &                  &                 & 54,497                             & 34,105,732.43 \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    Por lo tanto, la población estimada de caribús es de 54,497 con una desviación estándar de \\ $ \sqrt{34,105,732 \ldotp 43} = 5840 \ldotp 01 $. Además, un intervalo de confianza del 95$\%$ para el número total de caribús es 
+
+    \begin{align*}
+        54,497 \pm 1.96(5840 \ldotp 01) = 54,497 \pm 11,446 \ldotp 42
+    \end{align*}
+
+    es decir, $ \left( 43050.58, 65943.42 \right) $.
+
+    \textbf{Muestreo aleatorio estratificado para proporciones.}
+
+    Si se trabaja con una proporción, entonces $ \gorro{p_i} = \overline{y_i} $ es un estimador insesgado para $ p_i = \overline{y_{Ui}} $, para cada $ i = 1, \ldots, m $. Además, 
+
+    \begin{align*}
+        \gorro{S_i^2} &= \dfrac{n_i}{n_i - 1} \gorro{p_i} \left( 1 - \gorro{p_i} \right) \quad \mbox{para cada } i = 1, \ldots, m, \\
+        %
+        \gorro{p} &= \overline{y} = \dfrac{\gorro{t}}{N} = \dfrac{1}{N} \sum_{i=1}^{m} \gorro{t_i} = \dfrac{1}{N} \sum_{i=1}^{m} N_i \gorro{p_i} \quad \mbox{es estimador insesgado de } p = \overline{y_U}, \\
+        %
+        \V{\gorro{p}} &= \sum_{i=1}^{m} \left( 1 - \dfrac{n_i}{N_i} \right) \left( \dfrac{N_i}{N} \right)^2 \dfrac{\dfrac{n_i}{n_i - 1} \gorro{p_i} \left( 1 - \gorro{p_i} \right)}{n_i} \\
+        %
+        &= \sum_{i=1}^{m} \left( 1 - \dfrac{n_i}{N_i} \right) \left( \dfrac{N_i}{N} \right)^2 \dfrac{\gorro{p_i} \left( 1 - \gorro{p_i} \right)}{n_i - 1} \\
+        %
+        \gorro{t} &= \sum_{i=1}^{m} N_i \gorro{p_i} = N \gorro{p} \quad \mbox{y} \\
+        % 
+        \V{\gorro{t}} &= N^2 \V{\gorro{p}} = N^2 \sum_{i=1}^{m} \left( 1 - \dfrac{n_i}{N_i} \right) \left( \dfrac{N_i}{N} \right)^2 \dfrac{\gorro{p_i} \left( 1 - \gorro{p_i} \right)}{n_i - 1} = \sum_{i=1}^{m} N_i^2 \left( 1 - \dfrac{n_i}{N_i} \right) \dfrac{\gorro{p_i} \left( 1 - \gorro{p_i} \right)}{n_i - 1}
+    \end{align*}
+
+    \textbf{Ejemplo.}
+
+    El American Council of Learned Societies (ACLS) usó una muestra aleatoria estratificada de algunas sociedades ACLS en siete disciplinas, para estudiar los patrones de publicación y el uso de computadoras y bibliotecas entre los estudiosos. Los datos son los siguientes:
+
+    \begin{table}[h]
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            Disciplina         & Membresía ($N_i$) & Respuestas válidas ($n_i$) & Mujeres ($\%$) \\
+            \hline
+            Literatura         & 9100      & 636                & 38 \\
+            \hline
+            Clásicos           & 1950      & 451                & 27 \\
+            \hline
+            Filosofía          & 5500      & 481                & 18 \\
+            \hline
+            Historia           & 10850     & 611                & 19 \\
+            \hline
+            Linguística        & 2100      & 493                & 36 \\
+            \hline 
+            Ciencias políticas & 5500      & 575                & 13  \\
+            \hline
+            Sociología         & 9000      & 588                & 26  \\
+            \hline \hline
+            Totales            & 44000     & 5835               & \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    De esta manera, 
+
+    \begin{align*}
+        \gorro{p} = \dfrac{1}{N} \sum_{i=1}^{7} N_i \gorro{p_i} = 0.2465 \quad \mbox{y} \\
+        %
+        \V{\gorro{t}} = \sum_{i=1}^{m} \left( 1 - \dfrac{n_i}{N_i} \right) \left( \dfrac{N_i}{44000} \right)^2 \dfrac{\gorro{p_i} \left( 1 - \gorro{p_i} \right)}{n_i - 1} = 0.00005041
+    \end{align*} 
+
+    Por lo tanto, el número total estimado de mujeres que pertenecen a las sociedades es 44000 $\cdot$ 0.2465 = 10847, con una desviación estándar de 44000 $ \cdot \sqrt{0.00005041} = $ 312.
 \end{document}
