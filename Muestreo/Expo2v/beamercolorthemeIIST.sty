@@ -1,0 +1,63 @@
+%----------------------------------------------------%
+%           Written by Gaurav Gupta                  %
+%    SC21B026, Aerospace Engineering (2021 Batch)    %
+%       Inspired by the CALTECH Beamer Theme         %
+%----------------------------------------------------%
+
+\ProvidesPackage{beamercolorthemeIIST}
+\mode<presentation>  % Invoke presentation mode
+
+% Updated Color Definitions
+\definecolor{Primary}{HTML}{009BF2}    % IIST Blue (Primary Color)
+\definecolor{Secondary}{HTML}{E6E6E6}  % Light Gray (Sidebar Background)
+\definecolor{Tertiary}{HTML}{404040}   % Dark Gray (Block Backgrounds)
+
+\definecolor{Teal}{HTML}{66CDAA}  % Soft Teal (Accent Color)
+\definecolor{Red}{HTML}{88071A}  % Bright Red (Highlight Color)
+\definecolor{Blue}{HTML}{005B96}  % Dark Blue (Neutral Text)
+
+\definecolor{White}{RGB}{255,255,255}
+\definecolor{Black}{RGB}{0,0,0}
+
+% Sidebar and Section Colors
+\setbeamercolor{sidebar}{bg=Secondary}
+\setbeamercolor{section in sidebar}{fg=Blue}
+
+% Title, Author, and Date Colors
+\setbeamercolor{titlelike}{fg=Primary}
+\setbeamercolor{author}{fg=Black}
+\setbeamercolor{date}{fg=Black}
+\setbeamercolor{institute}{fg=Black}
+
+% Frame Title and Subtitle Colors
+\setbeamercolor{frametitle}{fg=Primary}
+\setbeamercolor{framesubtitle}{fg=Blue}
+
+% Text Colors
+\setbeamercolor{normal text}{fg=Black}
+\setbeamercolor{structure}{fg=Primary}
+\setbeamercolor{alerted text}{fg=Red}
+\setbeamercolor{example text}{fg=Teal}
+
+% Block Title Colors
+\setbeamercolor{block title}{use=structure,fg=White,bg=structure.fg!75!Black}
+\setbeamercolor{block title alerted}{use=alerted text,fg=White,bg=alerted text.fg}
+\setbeamercolor{block title example}{use=example text,fg=White,bg=example text.fg!75!Black}
+
+% Block Body Colors
+\setbeamercolor{block body}{bg=Tertiary!25!White,fg=Black}
+\setbeamercolor{block body alerted}{bg=Tertiary!25!White,fg=Black}
+\setbeamercolor{block body example}{bg=Tertiary!25!White,fg=Black}
+
+% Table of Contents Section Colors
+\setbeamercolor{section in toc}{fg=Black,bg=White}
+
+% Navigation Symbols Color
+\setbeamercolor{navigation symbols}{fg=Primary}
+
+% Beamer Color Box and Footer Colors
+\setbeamercolor{footline}{bg=Secondary}
+\setbeamercolor{title in head/foot}{fg=Primary}
+\setbeamercolor{author in head/foot}{fg=Blue}
+
+\mode<all>

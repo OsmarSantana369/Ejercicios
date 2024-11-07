@@ -1,0 +1,102 @@
+%----------------------------------------------------%
+%           Written by Gaurav Gupta                  %
+%    SC21B026, Aerospace Engineering (2021 Batch)    %
+%       Inspired by the CALTECH Beamer Theme         %
+%----------------------------------------------------%
+
+% Formally establish Beamer theme package
+\ProvidesPackage{beamerthemeIIST}
+
+% --------  Invoke presentation mode  ----------------
+\mode<presentation>
+
+% --------  Set color, inner theme, frame title formats, etc.  ------------
+\usecolortheme{IIST}
+\useinnertheme{circles}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{footnote}{size=\tiny}
+% --------  Define behavior for theme option "minimal"  -----------
+\DeclareOptionBeamer{minimal}{
+    \setbeamertemplate{frametitle}
+    {
+        \nointerlineskip
+        \begin{beamercolorbox}[sep=0.3cm,ht=40pt,wd=\paperwidth]{frametitle}
+            \vbox{}\vskip-2ex%
+            \strut\insertframetitle\strut
+            \vskip-0.8ex%
+        \end{beamercolorbox}
+    } % Reference: https://bloerg.net/2012/06/21/customizing-the-frametitle-of-beamer-presentation.html
+    \logo{\includegraphics[width=1.5cm]{./figures/UAEMex.jpg}}
+}
+
+% Define the width of the sidebar
+\newlength{\sidebarwidth}
+\setlength{\sidebarwidth}{50pt} % Adjust this if your sidebar width changes
+
+% Define the height of the sidebar
+\newlength{\sidebarHeight}
+\setlength{\sidebarHeight}{\dimexpr\paperheight - 1ex} 
+
+\newlength{\mainfooterwidth}
+\setlength{\mainfooterwidth}{\dimexpr\paperwidth - \sidebarwidth}
+
+%\setbeamerfont{section in sidebar}{size=\scriptsize}
+% --------  Define behavior for theme option "sidebarleft"  ----------- 
+\DeclareOptionBeamer{sidebarleft}{
+    \useoutertheme[width=\sidebarwidth,left]{sidebar}
+    \logo{\includegraphics[width=1.25cm]{./figures/UAEMex.jpg}}
+    % Use the default sidebar navigation for sections and subsections
+    \setbeamertemplate{sidebar left}{
+        \vbox{
+            \vspace{5pt} % Add vertical space at the top of the sidebar
+            \hspace{2pt}  % Add horizontal space on the left of the sidebar
+            % Automatically show sections and subsections
+            \beamer@currentsubsection=0
+            \insertverticalnavigation{\the\sidebarHeight}
+            \vfill
+        }
+    }
+}
+
+% --------  Define behavior for theme option "sidebarright"  ----------- 
+\DeclareOptionBeamer{sidebarright}{
+    \useoutertheme[width=\sidebarwidth,right]{sidebar}
+    \logo{\includegraphics[width=1.25cm]{./figures/UAEMex.jpg}}
+    % Use the default sidebar navigation for sections and subsections
+    \setbeamertemplate{sidebar right}{
+        \vbox{
+            \vspace{5pt} % Add vertical space at the top of the sidebar
+            \hspace{2pt}  % Add horizontal space on the left of the sidebar
+            % Automatically show sections and subsections
+            \beamer@currentsubsection=0
+            \insertverticalnavigation{\the\sidebarHeight}
+            \vfill
+        }
+    }
+}
+
+
+% Custom footer with title, separator, and author name centered in the main content area
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\sidebarwidth,ht=1ex,dp=2.5ex,center]{}
+    \insertframenumber
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=\mainfooterwidth,ht=1ex,dp=2.5ex,center]{}%
+    \usebeamerfont{title in head/foot}\insertshorttitle \quad | \quad
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\ProcessOptionsBeamer
+
+% --------  Set the font themes to be used here  -----------------
+%\usepackage{helvet}  % use Helvetica as text fonts
+
+% --------  Remove navigation symbols from appearing  ----------------
+\setbeamertemplate{navigation symbols}{}
+
+% --------  Invoke all mode
+\mode<all>
