@@ -1,0 +1,74 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-lcroman]{babel}
+\usepackage[margin = 15mm]{geometry}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{enumerate}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+\newcommand{\despar}[3]{\dfrac{\mathrm{d}^#1 #2}{\mathrm{d} #3^#1}}
+\newcommand{\depar}[2]{\dfrac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+\begin{document}
+	\bfseries
+	Ecuaciones Diferenciables Parciales \\
+	Tarea 5 \\
+	Osmar Dominique Santana Reyes \\
+	No. de cuenta: 2125197 \\
+
+	\begin{enumerate}[I.]
+		\item Verifique si el problema dado es un problema de auto valor de S-L regular.
+		
+		\begin{enumerate}
+			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f(0) + 2 f'(0) = 0 $, $ f'(1) = 0 $.
+			\item $ f''(x) - x f(x) + \lambda (x^2 + 1) f(x) = 0 $, $ 0 < x < 1 $, $ f(0) = 0 $, $ f'(1) = 0 $.
+		\end{enumerate}
+
+		\item Calcule los valores propios y las funciones propias del problema regular S-L dado.
+		
+		\begin{enumerate}
+			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < \pi $, $ f(0) = 0 $, $ f'(\pi) = 0 $.
+			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f'(0) = 0 $, $ f(1) = 0 $.
+			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f(0) - f'(0) = 0 $, $ f(1) = 0 $.
+			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f'(0) = 0 $, $ f(1) + f'(1) = 0 $.
+		\end{enumerate}
+
+		\item Construya la expansión de la serie de Fourier generalizada para la función dada $U$ en las funciones propias.
+		
+		\begin{equation*}
+			\left\lbrace \sen \left( \dfrac{(2n - 1) x}{2} \right) \right\rbrace_{n=1}^{\infty}
+		\end{equation*}
+
+		Del problema S-L con $ L = \pi $.
+		
+		\begin{enumerate}
+			\item $ U(x) = 1 $, $ 0 \leq x \leq \pi $.
+			\item $ U(x) = 2x - 1 $, $ 0 \leq x \leq \pi $.
+		\end{enumerate}
+
+		\item Construya la expansión de la serie de Fourier generalizada para la función dada $U$ en las funciones propias.
+		
+		\begin{equation*}
+			\left\lbrace \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) \right\rbrace_{n=1}^{\infty}
+		\end{equation*}
+
+		Del problema S-L con $ L = 1 $.
+		
+		\begin{enumerate}
+			\item $ U(x) = \dfrac{1}{2} $, $ 0 \leq x \leq 1 $.
+			\item $ U(x) = x + 1 $, $ 0 \leq x \leq 1 $.
+		\end{enumerate}
+		
+		\item Usar el cociente de Rayleigh para obtener una cota superior (razonablemente precisa) del autovalor mínimo de los siguientes problemas.
+		
+		\begin{enumerate}
+			\item $ \despar{2}{\phi}{x} + (\lambda - x^2) \phi = 0 $ con $ \depar{\phi}{x} (0) = 0 $ y $ \phi (1) = 0 $.
+			\item $ \despar{2}{\phi}{x} + (\lambda - x) \phi = 0 $ con $ \depar{\phi}{x} (0) = 0 $ y $ \depar{\phi}{x} (0) + 2 \phi (1) = 0 $.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

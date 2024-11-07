@@ -1,0 +1,114 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{enumerate}
+\usepackage[margin = 18mm]{geometry}
+
+\begin{document}
+	5. Probar que la existencia de cualquiera de las integrales 
+
+	\begin{equation*}
+		\int_{A} f(x) \, \mathrm{d} \mu, \quad \int_{A} |f(x)| \, \mathrm{d} \mu
+	\end{equation*}
+
+	implica la existencia de la otra.
+
+	Demostración.
+
+	Suponiendo que $ \int_{A} f(x) \, \mathrm{d} \mu $ existe, se tiene que existe una sucesión $ \left\lbrace f_n \right\rbrace $ de funciones simples integrables que converge uniformemente a $f$ en $A$. Así, sea $ \epsilon > 0 $, existe $ N \in \mathbb{N} $ tal que para todo $ n \geq N $, se cumple que 
+
+	\begin{equation*}
+		\bigl| \left| f_n(x) \right| - \left| f(x) \right| \bigr| \leq \left| f_n(x) - f(x) \right| < \epsilon \quad \forall \, x \in A
+	\end{equation*}
+
+	De esta manera, la sucesión $ \left\lbrace | f_n | \right\rbrace $, que es de funciones simples integrables, converge uniformemente a $ |f| $. Por lo tanto, $ \int_{A} |f(x)| \, \mathrm{d} \mu $ existe.
+
+	Ahora, suponiendo que $ \int_{A} |f(x)| \, \mathrm{d} \mu $ existe, se obtiene que existe una sucesión $ \left\lbrace f_n \right\rbrace $ de funciones simples integrables que converge uniformemente a $ |f| $ en $A$. Luego, para cada $ n \in \mathbb{N} $, sea $ g_n \colon A \to \mathbb{R} $ dada por
+
+	\begin{equation*}
+		g_n (x) = \begin{cases}
+			f_n (x), & \mbox{si } f(x) \geq 0 \\
+			-f_n (x), & \mbox{si } f(x) < 0
+		\end{cases}
+	\end{equation*}
+
+	Sea $ \epsilon > 0 $. Como $ \left\lbrace f_n \right\rbrace $ converge uniformemente a $ |f| $ en $A$, existe $ N \in \mathbb{N} $ tal que para todo $ n \geq N $, se da que 
+
+	\begin{equation*}
+		\bigl| f_n(x) - \left| f(x) \right| \bigr| < \epsilon \quad \forall \, x \in A
+	\end{equation*}
+
+	\begin{itemize}
+		\item Si $ f(x) \geq 0 $, entonces $ \left| g_n(x) - f(x) \right| < \epsilon $.
+		
+		\item Si $ f(x) < 0 $, entonces $ \left| g_n(x) - f(x) \right| = \bigl| - f_n(x) + \left| f(x) \right| \bigr| < \epsilon $.
+	\end{itemize}
+
+	De este modo, $ \left\lbrace g_n \right\rbrace $ converge uniformemente a $ f $ en $A$. Por lo tanto, $ \int_{A} f(x) \, \mathrm{d} \mu $ existe.
+
+%--------------------------------------------------------------------------------------------------------------------
+
+	6. Sea 
+
+	\begin{equation*}
+		A = \bigcup_n A_n
+	\end{equation*}
+
+	una unión finita o contable de conjuntos disjuntos a pares, y suponiendo que $f$ es integrable en cada $ A_n $ y satisface la condición
+
+	\begin{equation*}
+		\sum_{n} \int_{A_n} | f(x) | \, \mathrm{d} \mu < \infty
+	\end{equation*}
+
+	Probar que $f$ es integrable en $A$.
+
+	Demostración.
+
+	\begin{itemize}
+		\item Si $f$ es simple, entonces $f$ toma valores a lo más contables $ y_1, y_2, \ldots, y_k, \ldots $. Luego, para cada $ k, n \in \mathbb{N} $ sean 
+		
+		\begin{equation*}
+			B_k = \left\lbrace x \in A \colon f(x) = y_k \right\rbrace \quad \mbox{y} \quad B_{nk} = \left\lbrace x \in A_n \colon f(x) = y_k \right\rbrace.
+		\end{equation*}
+
+		Para cada $ n \in \mathbb{N} $ se tiene que 
+
+		\begin{equation*}
+			\int_{A_n} | f(x) | \, \mathrm{d} \mu = \sum_{k} | y_k | \, \mu (B_{nk})
+		\end{equation*}
+
+		y dado que $ \displaystyle \sum_{n} \int_{A_n} | f(x) | \, \mathrm{d} \mu < \infty $, se obtiene que
+
+		\begin{equation*}
+			\sum_{n} \sum_{k} | y_k | \, \mu (B_{nk}) = \sum_{k} | y_k | \sum_{n} \mu (B_{nk}) = \sum_{k} | y_k | \, \mu (B_k)
+		\end{equation*}
+
+		converge. Por lo que $f$ es integrable en $A$.
+
+		\item Si $f$ no es simple, entonces dado $ \epsilon > 0 $, para cada $ A_n $ existe una función simple $ g_n $ integrable en $ A_n $ tal que $ | f(x) - g_n(x) | < \epsilon $ para todo $ x \in A_n $. De este modo,
+		
+		\begin{align*}
+			\left| \sum_{n} \int_{A_n} |f(x)| \, \mathrm{d} \mu - \sum_{n} \int_{A_n} |g_n(x)| \, \mathrm{d} \mu \right| &= \left| \sum_{n} \int_{A_n} |f(x)| - |g_n(x)| \, \mathrm{d} \mu \right| \\
+			%
+			&\leq \sum_{n} \left| \int_{A_n} |f(x)| - |g_n(x)| \, \mathrm{d} \mu \right| \\
+			%
+			&\leq \sum_{n} \int_{A_n} \bigl| |f(x)| - |g_n(x)| \bigr| \, \mathrm{d} \mu \\
+			%
+			&\leq \sum_{n} \int_{A_n} | f(x) - g_n(x) | \, \mathrm{d} \mu \\
+			%
+			&< \sum_{n} \int_{A_n} \epsilon \, \mathrm{d} \mu \\
+			%
+			&= \epsilon \mu (A)
+		\end{align*}
+		
+		Sea $ g(x) = g_i(x) $ para cada $ x \in A $, lo anterior se puede reescribir como
+
+		\begin{equation*}
+			\left| \sum_{n} \int_{A_n} |f(x)| \, \mathrm{d} \mu - \sum_{n} \int_{A_n} |g(x)| \, \mathrm{d} \mu \right| < \epsilon \mu (A)
+		\end{equation*}
+
+		Ya que $ \displaystyle \sum_{n} \int_{A_n} | f(x) | \, \mathrm{d} \mu < \infty $, se obtiene que $ \displaystyle \sum_{n} \int_{A_n} |g(x)| \, \mathrm{d} \mu $ converge. De esta manera, $g$ es integrable en $A$ y, dado que $ \epsilon $ fue arbitraria, $ f $ también lo es.
+	\end{itemize}
+\end{document}
