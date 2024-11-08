@@ -6,6 +6,11 @@
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{enumerate}
 
+\usepackage[proportional,scaled=1]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
 \expandafter\def\expandafter\normalsize\expandafter{%
     \setlength\abovedisplayskip{-9pt}%
     \setlength\belowdisplayskip{5pt}%
@@ -13,6 +18,7 @@
 
 \newcommand{\despar}[3]{\dfrac{\mathrm{d}^#1 #2}{\mathrm{d} #3^#1}}
 \newcommand{\depar}[2]{\dfrac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\real}{\mathbb{R}}
 
 \begin{document}
 	\bfseries
@@ -26,18 +32,130 @@
 		
 		\begin{enumerate}
 			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f(0) + 2 f'(0) = 0 $, $ f'(1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+			Sean $ p(x) = 1, q(x) = 0, \sigma(x) = 1, \alpha_1 = \beta_2 = 1, \beta_1 = 2 $ y $ \alpha_2 = 0 $, la ED se puede escribir como $ \left( p(x) f'(x) \right)' + \left[ q(x) + \lambda \sigma(x) \right] f(x) = 0 $, con $ 0 < x < 1, \; \alpha_1 f(0) + \beta_1 f'(0) = 0 $, $ \alpha_2 f(1) + \beta_2 f'(1) = 0 $. Además,
+
+			\begin{enumerate}[i)]
+				\item $ p(x) = 1, p'(x) = 0, q(x) = 0 $ y $ \sigma(x) = 1 $ son funciones reales y continuas sobre $ 0 < x < 1 $,
+				\item $ p(x) > 0 $ y $ \sigma(x) > 0 $ para todo $ 0 < x < 1 $ y
+				\item $ \alpha_1, \alpha_2, \beta_1, \beta_2 \in \real $ son tales que $ \alpha_1^2 + \beta_1^2 = 5 \neq 0 $ y $ \alpha_2^2 + \beta_2^2 = 1 \neq 0 $
+			\end{enumerate}
+
+			Por lo tanto, este es un problema de auto valor de S-L regular.
+
+			\bfseries
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
 			\item $ f''(x) - x f(x) + \lambda (x^2 + 1) f(x) = 0 $, $ 0 < x < 1 $, $ f(0) = 0 $, $ f'(1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+			Sean $ p(x) = 1, q(x) = -x, \sigma(x) = x^2 + 1, \alpha_1 = \beta_2 = 1 $ y $ \beta_1 = \alpha_2 = 0 $, la ED se puede escribir como $ \left( p(x) f'(x) \right)' + \left[ q(x) + \lambda \sigma(x) \right] f(x) = 0 $, con $ 0 < x < 1, \; \alpha_1 f(0) + \beta_1 f'(0) = 0 $, $ \alpha_2 f(1) + \beta_2 f'(1) = 0 $. Además,
+
+			\begin{enumerate}[i)]
+				\item $ p(x) = 1, p'(x) = 0, q(x) = -x $ y $ \sigma(x) = x^2 + 1 $ son funciones reales y continuas sobre $ 0 < x < 1 $,
+				\item $ p(x) > 0 $ y $ \sigma(x) > 0 $ para todo $ 0 < x < 1 $ y
+				\item $ \alpha_1, \alpha_2, \beta_1, \beta_2 \in \real $ son tales que $ \alpha_1^2 + \beta_1^2 = 1 \neq 0 $ y $ \alpha_2^2 + \beta_2^2 = 1 \neq 0 $
+			\end{enumerate}
+
+			Por lo tanto, este es un problema de auto valor de S-L regular.
+
 		\end{enumerate}
 
+		%-------------------------------------------------------------------------------------------------------------------------------
+		
+		\bfseries
+			
 		\item Calcule los valores propios y las funciones propias del problema regular S-L dado.
 		
 		\begin{enumerate}
 			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < \pi $, $ f(0) = 0 $, $ f'(\pi) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+			\begin{enumerate}[i)]
+				\item Si $ \lambda < 0 $ entonces, sea $ \lambda = - \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) - \mu^2 f(x) = 0 $
+				tiene como soluión general a $ f(x) = a \cosh(\mu x) + b \senh(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f(0) = a \cosh(\mu \cdot 0) + b \senh(\mu \cdot 0) = a
+				\end{equation*}
+
+				Así, $ f(x) = b \senh(\mu x) $ y 
+
+				\begin{align*}
+					0 = f'(\pi) = b \mu \cosh(\mu \pi) \Longrightarrow b = 0
+				\end{align*}
+				
+				De esta forma, $ f(x) = 0 $.
+
+				\item Si $ \lambda > 0 $ entonces, sea $ \lambda = \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) + \mu^2 f(x) = 0 $
+				tiene como soluión general a $ f(x) = a \cos(\mu x) + b \sen(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f(0) = a \cos(\mu \cdot 0) + b \sen(\mu \cdot 0) = a
+				\end{equation*}
+
+				Así, $ f(x) = b \sen(\mu x) $ y 
+
+				\begin{align*}
+					0 = f'(\pi) = b \mu \cos(\mu \pi) \Longrightarrow \cos(\mu \pi) = 0 \Longrightarrow \mu \pi = \dfrac{\pi}{2} + n \pi \quad \mbox{con } n = 0, 1, \ldots
+				\end{align*}
+				
+				De esta manera, los valores propios del problema son: $ \lambda_n = \dfrac{(2n + 1)^2}{4} $ \, con $ n = 0, 1, \ldots $, y las funciones propias son: $ f_n (x) = \sen \left( \dfrac{2n + 1}{2} x \right) $.
+			\end{enumerate}
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
+			\bfseries
+			
 			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f'(0) = 0 $, $ f(1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
+			\bfseries
+			
 			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f(0) - f'(0) = 0 $, $ f(1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
+			\bfseries
+			
 			\item $ f''(x) + \lambda f(x) = 0 $, $ 0 < x < 1 $, $ f'(0) = 0 $, $ f(1) + f'(1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+			
 		\end{enumerate}
 
+		%-------------------------------------------------------------------------------------------------------------------------------
+		
+		\bfseries
+			
 		\item Construya la expansión de la serie de Fourier generalizada para la función dada $U$ en las funciones propias.
 		
 		\begin{equation*}
@@ -48,9 +166,31 @@
 		
 		\begin{enumerate}
 			\item $ U(x) = 1 $, $ 0 \leq x \leq \pi $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
+			\bfseries
+			
 			\item $ U(x) = 2x - 1 $, $ 0 \leq x \leq \pi $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
 		\end{enumerate}
 
+		%-------------------------------------------------------------------------------------------------------------------------------
+
+		\bfseries
+			
 		\item Construya la expansión de la serie de Fourier generalizada para la función dada $U$ en las funciones propias.
 		
 		\begin{equation*}
@@ -61,14 +201,54 @@
 		
 		\begin{enumerate}
 			\item $ U(x) = \dfrac{1}{2} $, $ 0 \leq x \leq 1 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
+			\bfseries
+			
 			\item $ U(x) = x + 1 $, $ 0 \leq x \leq 1 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
 		\end{enumerate}
 		
+		%-------------------------------------------------------------------------------------------------------------------------------
+
+		\bfseries
+			
 		\item Usar el cociente de Rayleigh para obtener una cota superior (razonablemente precisa) del autovalor mínimo de los siguientes problemas.
 		
 		\begin{enumerate}
 			\item $ \despar{2}{\phi}{x} + (\lambda - x^2) \phi = 0 $ con $ \depar{\phi}{x} (0) = 0 $ y $ \phi (1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
+			%----------------------------------------------------------------------------------------------------------------------------
+
+			\bfseries
+			
 			\item $ \despar{2}{\phi}{x} + (\lambda - x) \phi = 0 $ con $ \depar{\phi}{x} (0) = 0 $ y $ \depar{\phi}{x} (0) + 2 \phi (1) = 0 $.
+			
+			Solución.
+			
+			\normalfont
+
+
+
 		\end{enumerate}
 	\end{enumerate}
 \end{document}
