@@ -19,6 +19,7 @@
 \newcommand{\despar}[3]{\dfrac{\mathrm{d}^#1 #2}{\mathrm{d} #3^#1}}
 \newcommand{\depar}[2]{\dfrac{\mathrm{d} #1}{\mathrm{d} #2}}
 \newcommand{\real}{\mathbb{R}}
+\newcommand{\nat}{\mathbb{N}}
 
 \begin{document}
 	\bfseries
@@ -49,7 +50,7 @@
 
 			\bfseries
 
-			%----------------------------------------------------------------------------------------------------------------------------
+			%------------------------------------------------------------------------------------------------------------
 
 			\item $ f''(x) - x f(x) + \lambda (x^2 + 1) f(x) = 0 $, $ 0 < x < 1 $, $ f(0) = 0 $, $ f'(1) = 0 $.
 			
@@ -69,7 +70,7 @@
 
 		\end{enumerate}
 
-		%-------------------------------------------------------------------------------------------------------------------------------
+		%----------------------------------------------------------------------------------------------------------------
 		
 		\bfseries
 			
@@ -84,7 +85,7 @@
 
 			\begin{enumerate}[i)]
 				\item Si $ \lambda < 0 $ entonces, sea $ \lambda = - \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) - \mu^2 f(x) = 0 $
-				tiene como soluión general a $ f(x) = a \cosh(\mu x) + b \senh(\mu x) $. Luego, por las condiciones de frontera se da que
+				tiene como solución general a $ f(x) = a \cosh(\mu x) + b \senh(\mu x) $. Luego, por las condiciones de frontera se da que
 				
 				\begin{equation*}
 					0 = f(0) = a \cosh(\mu \cdot 0) + b \senh(\mu \cdot 0) = a
@@ -98,8 +99,16 @@
 				
 				De esta forma, $ f(x) = 0 $.
 
+				\item Si $ \lambda = 0 $, entonces la ED, queda como $ f''(x) = 0 $, por lo que $ f(x) = Ax + B $ y, por las condiciones de frontera, se obtiene que 
+				
+				\begin{align*}
+					0 = f(0) = B \mbox{ y } 0 = f'(\pi) = A
+				\end{align*}
+
+				De este modo, $ f(x) = 0 $.
+				
 				\item Si $ \lambda > 0 $ entonces, sea $ \lambda = \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) + \mu^2 f(x) = 0 $
-				tiene como soluión general a $ f(x) = a \cos(\mu x) + b \sen(\mu x) $. Luego, por las condiciones de frontera se da que
+				tiene como solución general a $ f(x) = a \cos(\mu x) + b \sen(\mu x) $. Luego, por las condiciones de frontera se da que
 				
 				\begin{equation*}
 					0 = f(0) = a \cos(\mu \cdot 0) + b \sen(\mu \cdot 0) = a
@@ -108,13 +117,13 @@
 				Así, $ f(x) = b \sen(\mu x) $ y 
 
 				\begin{align*}
-					0 = f'(\pi) = b \mu \cos(\mu \pi) \Longrightarrow \cos(\mu \pi) = 0 \Longrightarrow \mu \pi = \dfrac{\pi}{2} + n \pi \quad \mbox{con } n = 0, 1, \ldots
+					0 = f'(\pi) = b \mu \cos(\mu \pi) \, \Longrightarrow \, \cos(\mu \pi) = 0 \, \Longrightarrow \, \mu \pi = \dfrac{\pi}{2} + n \pi, \quad \mbox{con } n \in \nat
 				\end{align*}
 				
-				De esta manera, los valores propios del problema son: $ \lambda_n = \dfrac{(2n + 1)^2}{4} $ \, con $ n = 0, 1, \ldots $, y las funciones propias son: $ f_n (x) = \sen \left( \dfrac{2n + 1}{2} x \right) $.
+				Por lo tanto, los valores propios del problema son: $ \lambda_n = \dfrac{(2n + 1)^2}{4} $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \sen \left( \dfrac{2n + 1}{2} x \right) $, \, con $ n \in \nat $.
 			\end{enumerate}
 
-			%----------------------------------------------------------------------------------------------------------------------------
+			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
@@ -124,9 +133,47 @@
 			
 			\normalfont
 
+			\begin{enumerate}[i)]
+				\item Si $ \lambda < 0 $ entonces, sea $ \lambda = - \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) - \mu^2 f(x) = 0 $
+				tiene como solución general a $ f(x) = a \cosh(\mu x) + b \senh(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f'(0) = a \mu \senh(\mu \cdot 0) + b \mu \cosh(\mu \cdot 0) = b \mu \, \Longrightarrow b = 0
+				\end{equation*}
 
+				Así, $ f(x) = a \cosh(\mu x) $ y 
 
-			%----------------------------------------------------------------------------------------------------------------------------
+				\begin{align*}
+					0 = f(1) = a \cosh(\mu) \Longrightarrow a = 0
+				\end{align*}
+				
+				De esta forma, $ f(x) = 0 $.
+
+				\item Si $ \lambda = 0 $, entonces la ED, queda como $ f''(x) = 0 $, por lo que $ f(x) = Ax + B $ y, por las condiciones de frontera, se obtiene que 
+				
+				\begin{align*}
+					0 = f'(0) = A \mbox{ y } 0 = f(1) = B
+				\end{align*}
+
+				De este modo, $ f(x) = 0 $.
+				
+				\item Si $ \lambda > 0 $ entonces, sea $ \lambda = \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) + \mu^2 f(x) = 0 $
+				tiene como solución general a $ f(x) = a \cos(\mu x) + b \sen(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f'(0) = -a \mu \sen (\mu \cdot 0) + b \mu \cos (\mu \cdot 0) = b \mu \Longrightarrow b = 0
+				\end{equation*}
+
+				Así, $ f(x) = a \cos(\mu x) $ y 
+
+				\begin{align*}
+					0 = f(1) = a \cos(\mu) \, \Longrightarrow \, \cos(\mu) = 0 \, \Longrightarrow \, \mu = \dfrac{\pi}{2} + n \pi, \quad \mbox{con } n \in \nat
+				\end{align*}
+				
+				Por lo tanto, los valores propios del problema son: $ \lambda_n = \dfrac{\pi^2 (2n + 1)^2}{4} $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \cos \left( \dfrac{2n + 1}{2} \pi x \right) $, \, con $ n \in \nat $.
+			\end{enumerate}
+
+			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
@@ -136,9 +183,47 @@
 			
 			\normalfont
 
+			\begin{enumerate}[i)]
+				\item Si $ \lambda < 0 $ entonces, sea $ \lambda = - \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) - \mu^2 f(x) = 0 $
+				tiene como solución general a $ f(x) = a \cosh(\mu x) + b \senh(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f(0) - f'(0) = a \cosh(\mu \cdot 0) + b \senh(\mu \cdot 0) - a \mu \senh(\mu \cdot 0) - b \mu \cosh(\mu \cdot 0) = a - b \mu \Longrightarrow a = b \mu
+				\end{equation*}
 
+				Así, $ f(x) = b \mu \cosh(\mu x) + b \senh(\mu x) $ y 
 
-			%----------------------------------------------------------------------------------------------------------------------------
+				\begin{align*}
+					0 = f(1) = b \mu \cosh(\mu) + b \senh(\mu) \Longrightarrow b \left( \mu + \tanh(\mu) \right) = 0 \Longrightarrow b = 0
+				\end{align*}
+				
+				De esta forma, $ f(x) = 0 $.
+
+				\item Si $ \lambda = 0 $, entonces la ED, queda como $ f''(x) = 0 $, por lo que $ f(x) = Ax + B $ y, por las condiciones de frontera, se obtiene que 
+				
+				\begin{align*}
+					0 = f(0) - f'(0) = B - A \mbox{ y } 0 = f(1) = A + B
+				\end{align*}
+
+				De este modo, $ A = B = 0 $ por lo que $ f(x) = 0 $.
+				
+				\item Si $ \lambda > 0 $ entonces, sea $ \lambda = \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) + \mu^2 f(x) = 0 $
+				tiene como solución general a $ f(x) = a \cos(\mu x) + b \sen(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f(0) - f'(0) = a \cos(\mu \cdot 0) + b \sen(\mu \cdot 0) + a \mu \sen (\mu \cdot 0) - b \mu \cos (\mu \cdot 0) = a - b \mu \Longrightarrow a = b \mu
+				\end{equation*}
+
+				Así, $ f(x) = b \mu \cos(\mu x) + b \sen(\mu x) $ y 
+
+				\begin{align*}
+					0 = f(1) = b \mu \cos(\mu) + b \sen(\mu) \, \Longrightarrow \, b \left( \mu + \tan(\mu) \right) = 0 \, \Longrightarrow \, \mu = - \tan (\mu)
+				\end{align*}
+				
+				Por lo tanto, los valores propios del problema son todos los $ \mu_n^2 $ tales que $ \mu_n = - \tan (\mu_n) $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \mu_n \cos(\mu_n x) + \sen(\mu_n x) $, \, con $ n \in \nat $.
+			\end{enumerate}
+
+			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
@@ -148,11 +233,49 @@
 			
 			\normalfont
 
+			\begin{enumerate}[i)]
+				\item Si $ \lambda < 0 $ entonces, sea $ \lambda = - \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) - \mu^2 f(x) = 0 $
+				tiene como solución general a $ f(x) = a \cosh(\mu x) + b \senh(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f'(0) = a \mu \senh(\mu \cdot 0) + b \mu \cosh(\mu \cdot 0) = b \mu \Longrightarrow b = 0 
+				\end{equation*}
 
+				Así, $ f(x) = a \cosh(\mu x) $ y 
+
+				\begin{align*}
+					0 = f(1) + f'(1) = a \cosh(\mu) + a \mu \senh(\mu) \Longrightarrow a \left( 1 + \mu \tanh(\mu) \right) = 0 \Longrightarrow a = 0
+				\end{align*}
+				
+				De esta forma, $ f(x) = 0 $.
+
+				\item Si $ \lambda = 0 $, entonces la ED, queda como $ f''(x) = 0 $, por lo que $ f(x) = Ax + B $ y, por las condiciones de frontera, se obtiene que 
+				
+				\begin{align*}
+					0 = f'(0) = A \mbox{ y } 0 = f(1) + f'(1) = B + 0 = B
+				\end{align*}
+
+				De este modo, $ A = B = 0 $ por lo que $ f(x) = 0 $.
+				
+				\item Si $ \lambda > 0 $ entonces, sea $ \lambda = \mu^2 $, con $ \mu \neq 0 $, se tiene que $ f''(x) + \mu^2 f(x) = 0 $
+				tiene como solución general a $ f(x) = a \cos(\mu x) + b \sen(\mu x) $. Luego, por las condiciones de frontera se da que
+				
+				\begin{equation*}
+					0 = f'(0) = -a \mu \sen(\mu \cdot 0) + b \mu \cos(\mu \cdot 0) = b \mu \Longrightarrow b = 0
+				\end{equation*}
+
+				Así, $ f(x) = a \cos(\mu x) $ y 
+
+				\begin{align*}
+					0 = f(1) + f'(1) = a \cos(\mu) - a \mu \sen(\mu) \, \Longrightarrow \, a \left( 1 - \mu \tan(\mu) \right) = 0 \, \Longrightarrow \, 1 = \mu \tan (\mu)
+				\end{align*}
+				
+				Por lo tanto, los valores propios del problema son todos los $ \mu_n^2 $ tales que $ 1 = \mu_n \tan (\mu_n) $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \cos(\mu_n x) $, \, con $ n \in \nat $.
+			\end{enumerate}
 			
 		\end{enumerate}
 
-		%-------------------------------------------------------------------------------------------------------------------------------
+		%----------------------------------------------------------------------------------------------------------------
 		
 		\bfseries
 			
@@ -173,7 +296,7 @@
 
 
 
-			%----------------------------------------------------------------------------------------------------------------------------
+			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
@@ -187,7 +310,7 @@
 
 		\end{enumerate}
 
-		%-------------------------------------------------------------------------------------------------------------------------------
+		%----------------------------------------------------------------------------------------------------------------
 
 		\bfseries
 			
@@ -208,7 +331,7 @@
 
 
 
-			%----------------------------------------------------------------------------------------------------------------------------
+			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
@@ -222,7 +345,7 @@
 
 		\end{enumerate}
 		
-		%-------------------------------------------------------------------------------------------------------------------------------
+		%----------------------------------------------------------------------------------------------------------------
 
 		\bfseries
 			
@@ -237,7 +360,7 @@
 
 
 
-			%----------------------------------------------------------------------------------------------------------------------------
+			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
