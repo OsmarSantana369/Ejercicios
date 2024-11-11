@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.22)  8 NOV 2024 02:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.22)  10 NOV 2024 23:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -326,12 +326,12 @@ File: T1erewhon-TLF.fd 2014/09/11 (autoinst) Font definitions for T1/erewhon-TLF
 LaTeX Font Info:    Font shape `T1/erewhon-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 116.
 )
-LaTeX Font Info:    Trying to load font information for T1+erewhon-LF on input line 24.
+LaTeX Font Info:    Trying to load font information for T1+erewhon-LF on input line 25.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/erewhon\t1erewhon-lf.fd
 File: T1erewhon-LF.fd 2014/09/11 (autoinst) Font definitions for T1/erewhon-LF.
 )
 LaTeX Font Info:    Font shape `T1/erewhon-LF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+(Font)              scaled to size 10.0pt on input line 25.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count293
@@ -342,42 +342,42 @@ LaTeX Info: Redefining \% on input line 8.
 )
 \openout1 = `Tarea_5.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/zutmi/m/it on input line 24.
-LaTeX Font Info:    Trying to load font information for OML+zutmi on input line 24.
+LaTeX Font Info:    Checking defaults for OML/zutmi/m/it on input line 25.
+LaTeX Font Info:    Trying to load font information for OML+zutmi on input line 25.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlzutmi.fd
 File: omlzutmi.fd 2014/04/14 Fontinst v1.933 font definitions for OML/zutmi.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 24.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 24.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 25.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 25.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 24.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 24.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 25.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 25.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 24.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 24.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 25.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 25.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Info: Redefining \. on input line 24.
-LaTeX Info: Redefining \% on input line 24.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -413,91 +413,91 @@ LaTeX Info: Redefining \% on input line 24.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Command `\dddot' is already robust on input line 24.
-LaTeX Info: Command `\ddddot' is already robust on input line 24.
+LaTeX Info: Command `\dddot' is already robust on input line 25.
+LaTeX Info: Command `\ddddot' is already robust on input line 25.
 \c@mv@tabular=\count294
 \c@mv@boldtabular=\count295
 LaTeX Font Info:    Font shape `T1/erewhon-LF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 25.
+(Font)              scaled to size 10.0pt on input line 26.
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--30
+Underfull \hbox (badness 10000) in paragraph at lines 27--31
 
  []
 
 LaTeX Font Info:    Font shape `T1/erewhon-LF/b/it' will be
-(Font)              scaled to size 10.0pt on input line 35.
-LaTeX Font Info:    Trying to load font information for OT1+erewhon-TLF on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
+LaTeX Font Info:    Trying to load font information for OT1+erewhon-TLF on input line 36.
 (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/erewhon\ot1erewhon-tlf.fd
 File: OT1erewhon-TLF.fd 2022/05/15 (autoinst) Font definitions for OT1/erewhon-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `OT1/erewhon-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
 LaTeX Font Info:    Font shape `OML/zutmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `OML/zutmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `OML/zutmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 35.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 35.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 36.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 35.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 36.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 35.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 36.
  (C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
+(Font)              scaled to size 10.0pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 35.
+(Font)              scaled to size 7.3pt on input line 36.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 35.
+(Font)              scaled to size 5.5pt on input line 36.
 
 
 [1
@@ -505,6 +505,11 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 {C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_kjdw2u.enc}{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_qqbsse.enc}]
 
 [2]
+Overfull \hbox (8.404pt too wide) detected at line 308
+[]
+ []
+
+
 
 [3]
 
@@ -518,15 +523,15 @@ L3 programming layer <2024-09-10>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7799 strings out of 473898
- 116190 string characters out of 5725534
- 514935 words of memory out of 5000000
- 30534 multiletter control sequences out of 15000+600000
+ 7800 strings out of 473898
+ 116195 string characters out of 5725534
+ 517961 words of memory out of 5000000
+ 30535 multiletter control sequences out of 15000+600000
  588586 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,9n,65p,620b,402s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,13n,65p,620b,402s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Bold.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-BoldItalic.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/erewMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaSTbb.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ecuaciones diferenciales parciales\Tarea 5\build\Tarea_5.pdf" (4 pages, 172899 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\Ecuaciones diferenciales parciales\Tarea 5\build\Tarea_5.pdf" (4 pages, 179143 bytes).
 PDF statistics:
  65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

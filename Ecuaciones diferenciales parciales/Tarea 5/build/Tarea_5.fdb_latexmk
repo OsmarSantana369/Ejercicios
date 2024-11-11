@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731055244.90583 "c:/Users/CONTROL/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 5/Tarea_5.tex" "build/Tarea_5.pdf" "Tarea_5" 1731055248.95209 0
+["pdflatex"] 1731302073.09731 "c:/Users/CONTROL/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 5/Tarea_5.tex" "build/Tarea_5.pdf" "Tarea_5" 1731302077.77954 0
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1729838818 185856 6ea306af55c11eddbba8a7be3ebcfa61 ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1729659500 11949223 9ebbaf35e53d63a8b755eed7ae49f499 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/erewhon/zut1_kjdw2u.enc" 1652661580 3223 915011f8d7e28d650438bce58171e7fb ""
@@ -110,9 +110,9 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/tools/enumerate.sty" 1718356376 3468 ad69b54642e68f9fdf39ec1a16dd7341 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "Tarea_5.tex" 1731055233 14247 fb9e58988c0a45b37516254ff6cd1048 ""
-  "build/Tarea_5.aux" 1731055247 232 24afd9b12cb36b06a4fa8c1b17b2b49b "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 5/Tarea_5.tex" 1731055233 14247 fb9e58988c0a45b37516254ff6cd1048 ""
+  "Tarea_5.tex" 1731302069 16833 bac266365feedc6893020d41c53b41be ""
+  "build/Tarea_5.aux" 1731302076 232 24afd9b12cb36b06a4fa8c1b17b2b49b "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Ecuaciones diferenciales parciales/Tarea 5/Tarea_5.tex" 1731302069 16833 bac266365feedc6893020d41c53b41be ""
   (generated)
   "build/Tarea_5.aux"
   "build/Tarea_5.log"

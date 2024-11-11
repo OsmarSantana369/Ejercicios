@@ -20,6 +20,7 @@
 \newcommand{\depar}[2]{\dfrac{\mathrm{d} #1}{\mathrm{d} #2}}
 \newcommand{\real}{\mathbb{R}}
 \newcommand{\nat}{\mathbb{N}}
+\newcommand{\integ}[3]{\displaystyle \int_{#1}^{#2} #3 \, \mathrm{d} x}
 
 \begin{document}
 	\bfseries
@@ -294,7 +295,33 @@
 			
 			\normalfont
 
+                Sean $ n, m \in \nat $ distintos, se tiene que
 
+                \begin{align*}
+                     \integ{0}{\pi}{\sen \left( \dfrac{(2n - 1) x}{2} \right) \sen \left( \dfrac{(2m - 1) x}{2} \right)} &= \dfrac{1}{2} \integ{0}{\pi}{ \cos \left( \left( \dfrac{2n - 1}{2} - \dfrac{2m - 1}{2} \right) x \right) - \cos \left( \left( \dfrac{2n - 1}{2} + \dfrac{2m - 1}{2} \right) x \right) } \\
+                     %
+                     &= \dfrac{1}{2} \integ{0}{\pi}{ \cos \left( \left( n - m \right) x \right) - \cos \left( \left( n + m - 1 \right) x \right) } \\
+                     %
+                     &= \dfrac{1}{2} \left[ \dfrac{\sen \left( (n - m) x \right)}{n - m} - \dfrac{\sen \left( (n + m - 1) x \right)}{n + m - 1} \right]_{0}^{\pi} \\
+                     %
+                     &= 0
+                \end{align*}
+
+                Así, $ \left\lbrace \sen \left( \dfrac{(2n - 1) x}{2} \right) \right\rbrace_{n=1}^{\infty} $ es ortogonal.
+
+                Después, calculando los coeficientes de la serie de Fourier generalizada:
+
+                \begin{align*}
+                    a_n = \dfrac{\integ{0}{\pi}{U(x) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n - 1) x}{2} \right)}} 
+                    %
+                    = \dfrac{\left[ \dfrac{2}{1 - 2n} \cos \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi}}{\dfrac{\pi}{2}} 
+                    %
+                    = \dfrac{\dfrac{2}{2n - 1}}{\dfrac{\pi}{2}} 
+                    %
+                    = \dfrac{4}{\pi (2n - 1)}
+                \end{align*}
+
+                Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -306,7 +333,19 @@
 			
 			\normalfont
 
+			Calculando los coeficientes de la serie de Fourier generalizada:
 
+                \begin{align*}
+                    a_n = \dfrac{\integ{0}{\pi}{U(x) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n - 1) x}{2} \right)}} 
+                    %
+                    = \dfrac{\left[ \dfrac{2}{1 - 2n} \cos \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi}}{\dfrac{\pi}{2}} 
+                    %
+                    = \dfrac{\dfrac{2}{2n - 1}}{\dfrac{\pi}{2}} 
+                    %
+                    = \dfrac{4}{\pi (2n - 1)}
+                \end{align*}
+
+                Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $
 
 		\end{enumerate}
 
