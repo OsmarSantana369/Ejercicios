@@ -295,33 +295,33 @@
 			
 			\normalfont
 
-                Sean $ n, m \in \nat $ distintos, se tiene que
+            Sean $ n, m \in \nat $ distintos, se tiene que
 
-                \begin{align*}
-                     \integ{0}{\pi}{\sen \left( \dfrac{(2n - 1) x}{2} \right) \sen \left( \dfrac{(2m - 1) x}{2} \right)} &= \dfrac{1}{2} \integ{0}{\pi}{ \cos \left( \left( \dfrac{2n - 1}{2} - \dfrac{2m - 1}{2} \right) x \right) - \cos \left( \left( \dfrac{2n - 1}{2} + \dfrac{2m - 1}{2} \right) x \right) } \\
-                     %
-                     &= \dfrac{1}{2} \integ{0}{\pi}{ \cos \left( \left( n - m \right) x \right) - \cos \left( \left( n + m - 1 \right) x \right) } \\
-                     %
-                     &= \dfrac{1}{2} \left[ \dfrac{\sen \left( (n - m) x \right)}{n - m} - \dfrac{\sen \left( (n + m - 1) x \right)}{n + m - 1} \right]_{0}^{\pi} \\
-                     %
-                     &= 0
-                \end{align*}
+            \begin{align*}
+                \integ{0}{\pi}{\sen \left( \dfrac{(2n - 1) x}{2} \right) \sen \left( \dfrac{(2m - 1) x}{2} \right)} &= \dfrac{1}{2}\integ{0}{\pi}{ \cos \left( \left( \dfrac{2n - 1}{2} - \dfrac{2m - 1}{2} \right) x \right) - \cos \left( \left(\dfrac{2n - 1}{2} + \dfrac{2m - 1}{2} \right) x \right) } \\
+                %
+                &= \dfrac{1}{2} \integ{0}{\pi}{ \cos \left( \left( n - m \right) x \right) - \cos \left( \left( n + m - 1 \right) x \right) } \\
+                %
+                &= \dfrac{1}{2} \left[ \dfrac{\sen \left( (n - m) x \right)}{n - m} - \dfrac{\sen \left( (n + m - 1) x \right)}{n +m -1} \right]_{0}^{\pi} \\
+                %
+                &= 0
+            \end{align*}
 
-                Así, $ \left\lbrace \sen \left( \dfrac{(2n - 1) x}{2} \right) \right\rbrace_{n=1}^{\infty} $ es ortogonal.
+            Así, $ \left\lbrace \sen \left( \dfrac{(2n - 1) x}{2} \right) \right\rbrace_{n=1}^{\infty} $ es ortogonal.
 
-                Después, calculando los coeficientes de la serie de Fourier generalizada:
+            Después, calculando los coeficientes de la serie de Fourier generalizada:
 
-                \begin{align*}
-                    a_n = \dfrac{\integ{0}{\pi}{U(x) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n - 1) x}{2} \right)}} 
-                    %
-                    = \dfrac{\left[ \dfrac{2}{1 - 2n} \cos \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi}}{\dfrac{\pi}{2}} 
-                    %
-                    = \dfrac{\dfrac{2}{2n - 1}}{\dfrac{\pi}{2}} 
-                    %
-                    = \dfrac{4}{\pi (2n - 1)}
-                \end{align*}
+            \begin{align*}
+                a_n = \dfrac{\integ{0}{\pi}{U(x) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n- 1) x}{2} \right)}} 
+                %
+                = \dfrac{\left[ \dfrac{2}{1 - 2n} \cos \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi}}{\dfrac{\pi}{2}} 
+                %
+                = \dfrac{\dfrac{2}{2n - 1}}{\dfrac{\pi}{2}} 
+                %
+                = \dfrac{4}{\pi (2n - 1)}
+            \end{align*}
 
-                Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $
+            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -335,18 +335,23 @@
 
 			Calculando los coeficientes de la serie de Fourier generalizada:
 
-                \begin{align*}
-                    a_n = \dfrac{\integ{0}{\pi}{U(x) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n - 1) x}{2} \right)}} 
-                    %
-                    = \dfrac{\left[ \dfrac{2}{1 - 2n} \cos \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi}}{\dfrac{\pi}{2}} 
-                    %
-                    = \dfrac{\dfrac{2}{2n - 1}}{\dfrac{\pi}{2}} 
-                    %
-                    = \dfrac{4}{\pi (2n - 1)}
-                \end{align*}
+            \begin{align*}
+                a_n &= \dfrac{\integ{0}{\pi}{U(x) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n - 1) x}{2} \right)}} 
+				%
+				= \dfrac{\integ{0}{\pi}{(2x - 1) \sen \left( \dfrac{(2n - 1) x}{2} \right)}}{\integ{0}{\pi}{\sen^2 \left( \dfrac{(2n - 1) x}{2} \right)}} \\
+                %
+                &= \dfrac{\left[ \dfrac{2(2x - 1)}{1 - 2n} \cos \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi} + \dfrac{4}{2n - 1} \integ{0}{\pi}{\cos \left( \dfrac{(2n - 1) x}{2} \right)}}{\dfrac{\pi}{2}} \\
+                %
+                &= \dfrac{\dfrac{2}{2n - 1} + \dfrac{4}{2n - 1} \left[ \dfrac{2}{2n - 1} \sen \left( \dfrac{(2n - 1) x}{2} \right) \right]_{0}^{\pi}}{\dfrac{\pi}{2}} 
+				%
+                = \dfrac{\dfrac{2}{2n - 1} + \dfrac{4}{2n - 1} \left[ \dfrac{2(-1)^{n+1}}{2n - 1} \right]}{\dfrac{\pi}{2}} 
+				%
+                = \dfrac{\dfrac{2}{2n - 1} + \dfrac{8(-1)^{n+1}}{(2n - 1)^2}}{\dfrac{\pi}{2}} \\
+                %
+                &= \dfrac{4}{\pi (2n - 1)} \left( 1 + \dfrac{4(-1)^{n+1}}{2n - 1} \right)
+            \end{align*}
 
-                Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $
-
+            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \left( 1 + \dfrac{4(-1)^{n+1}}{2n - 1} \right) \sen \left( \dfrac{(2n - 1) x}{2} \right) $
 		\end{enumerate}
 
 		%----------------------------------------------------------------------------------------------------------------
@@ -368,7 +373,33 @@
 			
 			\normalfont
 
+			Sean $ n, m \in \nat $ distintos, se tiene que
 
+            \begin{align*}
+                \integ{0}{1}{\cos \! \left( \dfrac{(2n \! - \! 1) \pi x}{2} \right) \cos \! \left( \dfrac{(2m \! - \! 1) \pi x}{2} \right) \! } &= \dfrac{1}{2}\integ{0}{1}{ \cos \! \left( \left( \dfrac{2n \! - \! 1}{2} - \dfrac{2m \! - \! 1}{2} \right) \! \pi x \right) + \cos \! \left( \left(\dfrac{2n \! - \! 1}{2} + \dfrac{2m \! - \! 1}{2} \right) \! \pi x \right) \! } \\
+                %
+                &= \dfrac{1}{2} \integ{0}{1}{ \cos \left( \left( n - m \right) \pi x \right) - \cos \left( \left( n + m - 1 \right) \pi x \right) } \\
+                %
+                &= \dfrac{1}{2} \left[ \dfrac{\sen \left( (n - m) \pi x \right)}{(n - m) \pi} - \dfrac{\sen \left( (n + m - 1) \pi x \right)}{(n + m - 1) \pi} \right]_{0}^{1} \\
+                %
+                &= 0
+            \end{align*}
+
+            Así, $ \left\lbrace \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) \right\rbrace_{n=1}^{\infty} $ es ortogonal.
+
+            Después, calculando los coeficientes de la serie de Fourier generalizada:
+
+            \begin{align*}
+                a_n = \dfrac{\integ{0}{1}{U(x) \cos \left( \dfrac{(2n - 1) \pi x}{2} \right)}}{\integ{0}{1}{\cos^2 \left( \dfrac{(2n- 1) \pi x}{2} \right)}} 
+                %
+                = \dfrac{\left[ \dfrac{1}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) \pi x}{2} \right) \right]_{0}^{1}}{\dfrac{1}{2}} 
+                %
+                = \dfrac{\dfrac{(-1)^{n+1}}{\pi (2n - 1)}}{\dfrac{1}{2}} 
+                %
+                = \dfrac{2(-1)^{n+1}}{\pi (2n - 1)}
+            \end{align*}
+
+            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{2(-1)^{n+1}}{\pi (2n - 1)} \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) $
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -380,7 +411,25 @@
 			
 			\normalfont
 
+			Calculando los coeficientes de la serie de Fourier generalizada:
 
+            \begin{align*}
+                a_n &= \dfrac{\integ{0}{1}{U(x) \cos \left( \dfrac{(2n - 1) \pi x}{2} \right)}}{\integ{0}{1}{\cos^2 \left( \dfrac{(2n - 1) x}{2} \right)}} 
+				%
+				= \dfrac{\integ{0}{1}{(x + 1) \cos \left( \dfrac{(2n - 1) \pi x}{2} \right)}}{\integ{0}{1}{\cos^2 \left( \dfrac{(2n - 1) x}{2} \right)}} \\
+                %
+                &= \dfrac{\left[ \dfrac{2(x + 1)}{(2n - 1) \pi} \sen \left( \dfrac{(2n - 1) \pi x}{2} \right) \right]_{0}^{1} - \dfrac{2}{(2n - 1) \pi} \integ{0}{1}{\sen \left( \dfrac{(2n - 1) \pi x}{2} \right)}}{\dfrac{1}{2}} \\
+                %
+                &= \dfrac{\dfrac{4(-1)^{n+1}}{(2n - 1) \pi} + \dfrac{2}{(2n - 1) \pi} \left[ \dfrac{2}{(2n - 1) \pi} \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) \right]_{0}^{1}}{\dfrac{1}{2}} 
+				%
+                = \dfrac{\dfrac{4(-1)^{n+1}}{(2n - 1) \pi} - \dfrac{4}{(2n - 1)^2 \pi^2}}{\dfrac{1}{2}} \\
+				%
+                &= \dfrac{8(-1)^{n+1}}{(2n - 1) \pi} - \dfrac{8}{(2n - 1)^2 \pi^2}
+                %
+                = \dfrac{8}{(2n - 1) \pi} \left( (-1)^{n+1} - \dfrac{1}{(2n - 1) \pi} \right)
+            \end{align*}
+
+            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty}\dfrac{8}{(2n - 1) \pi} \left( (-1)^{n+1} - \dfrac{1}{(2n - 1) \pi} \right) \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) $
 
 		\end{enumerate}
 		
