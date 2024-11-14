@@ -1,0 +1,123 @@
+\documentclass[12pt, fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage[margin = 21mm]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{urwchancal}
+
+\usepackage[proportional,scaled=1]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+\newcommand{\V}[1]{\mathrm{V} \! \left( #1 \right)}
+\newcommand{\F}[1]{\mathrm{F} \! \left( #1 \right)}
+\newcommand{\tray}[2]{$ #1 #2 $ -- trayectoria}
+
+\begin{document}
+	\begin{center}
+		{\huge \textsc{Teoría de Digráficas}}
+	
+		{\Large \textsc{Digráficas Acíclicas}}
+	
+		{\Large \textsc{Tarea 5}} \\
+		Osmar Dominique Santana Reyes \\
+		21 de Noviembre de 2024
+	\end{center} \vspace{3mm}
+
+	Resuelve con todo detalle cada uno de los siguientes ejercicios.
+
+	\begin{enumerate}
+		\setcounter{enumi}{41}
+		\item ¿Cómo son todas las digráficas tales que cada vértice forma una base?
+		
+		\emph{Solución.}
+
+		Sea $D$ una digráfica en la que cada uno de sus vértices forma una base.
+
+		Afirmación. $D$ es fuerte.
+
+		Sean $ u,v \in \V{D} $, ya que $ \lbrace u \rbrace $ es una base de $D$, se tiene que, para $v$, existe una \tray{v}{u} en $D$. De manera similar, $ \lbrace v \rbrace $ es una base de $D$ por lo que, para $u$, existe una \tray{u}{v} en $D$.
+
+		Por lo tanto, $D$ es fuerte. 
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Da un ejemplo de una digráfica con exactamente 6 bases y 4 cobases, donde cada base y cada cobase tenga por lo menos dos vértices.
+		
+		\emph{Solución.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item ¿Cómo son todas las digráficas tales que el cojunto de todos los vértices es una base de $D$.
+		
+		\emph{Solución.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Da un ejemplo de una digráfica tal que todas sus bases sean también cobases.
+		
+		\emph{Solución.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item ¿Cómo son todas las digráficas tales que todas sus bases son cobases?
+		
+		\emph{Solución.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Dá un ejemplo de una digráfica tal que tenga una base que también sea un conúcleo.
+		
+		\emph{Solución.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Decimos que una digráfica es transitiva si para cualesquiera tres vértices distintos $ u, v, w, $ tales que $ \left\lbrace (u, v), (v,w) \right\rbrace \subseteq \F{D} $ se tiene que $ (u,w) \in \F{D} $. Prueba que si $D$ es una digráfica transitiva entonces toda cobase de $D$ es un núcleo de $D$.
+		
+		\emph{Demostración.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Prueba que $D$ es una digráfica tal que toda cobase de $D$ es un núcleo entonces $D$ es transitiva.
+		
+		\emph{Demostración.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Para cada $ p \geq 3 $, dá un ejemplo de una digráfica semicompleta con $n$ vértices que no tenga núcleo.
+		
+		\emph{Solución.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Sea $D$ una digráfica transitiva, demuestra que $D$ tiene núcleo.
+		
+		\emph{Demostración.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item Decimos que una digráfica es núcleo imperfecta crítica si no tiene núcleo pero toda subdigráfica inducida sí tiene núcleo. Prueba que un ciclo dirigido de longitud impar es núcleo imperfecta crítica.
+		
+		\emph{Demostración.}
+
+		
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\end{enumerate}
+\end{document}
