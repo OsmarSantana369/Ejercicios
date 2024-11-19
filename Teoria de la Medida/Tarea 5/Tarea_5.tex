@@ -1,0 +1,49 @@
+\documentclass[fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{enumerate}
+\usepackage[margin = 18mm]{geometry}
+
+\begin{document}
+	1. Probar que
+
+	\begin{equation*}
+		\lim_{n \to \infty} \int_{A} f_n(x) g(x) \, \mathrm{d} \mu = \int_{A} f(x) g(x) \, \mathrm{d} \mu
+	\end{equation*}
+
+	si $ \lbrace f_n \rbrace $ es una sucesión de funciones que convergen a $f$ en $A$, $ \left| f_n (x) \right| \leq \phi (x) $ para todo $ x \in A $ y para todo $ n \in \mathbb{N} $, donde $ \phi $ es integrable en $A$, y $ \left| g(x) \right| \leq M $, con $ M > 0 $, para casi todo punto en $A$.
+
+	Demostración.
+
+	Sea $ A' = \left\lbrace x \in A \mid \left| g(x) \right| \leq M \right\rbrace $. Ya que $ \left| f_n (x) \right| \leq \phi (x) $ y $ \left| g(x) \right| \leq M $, para cada $ x \in A' $ y para cada $ n \in \mathbb{N} $, se tiene que $ \left| f_n (x) g(x) \right| = \left| f_n (x) \right| \left| g(x) \right| \leq M \phi (x) $, para cada $ x \in A' $ y para cada $ n \in \mathbb{N} $, por lo que $ f_n g $ es integrable en $A$. Además, la sucesión $ \lbrace f_n g \rbrace $ converge a $ fg $ y como $ M \phi (x) $ es integrable en $A$, por el Teorema 1, se obtiene que $ fg $ es integrable en $ A' $ y
+
+	\begin{align*}
+		\lim_{n \to \infty} \int_{A} f_n(x) g(x) \, \mathrm{d} \mu
+		%
+		&= \lim_{n \to \infty} \int_{A'} f_n(x) g(x) \, \mathrm{d} \mu & \left( \mbox{pues } \mu \left( A \setminus A' \right) = 0 \right) \\
+		%
+		&= \int_{A'} f(x) g(x) \, \mathrm{d} \mu
+	\end{align*}
+
+	Después, dado que $ \left| f_n (x) g(x) \right| \leq M \phi (x) $ para casi todo punto en $A$ y para cada $ n \in \mathbb{N} $, se da que $ \left| f(x) g(x) \right| \leq M \phi (x) $ para casi todo punto en $A$. También se tiene que $ M \phi (x) $ es integrable en $A$, lo cual implica que $ fg $ es integrable en $A$ y así $ \displaystyle \int_{A} f(x) g(x) \, \mathrm{d} \mu = \int_{A'} f(x) g(x) \, \mathrm{d} \mu $. Por lo tanto, 
+
+	\begin{equation*}
+		\lim_{n \to \infty} \int_{A} f_n(x) g(x) \, \mathrm{d} \mu = \int_{A} f(x) g(x) \, \mathrm{d} \mu.
+	\end{equation*}
+
+	4. \textbf{30.2. La integral de Lebesgue sobre un conjunto de medida infinita.} Hasta ahora, todas nuestras medidas han sido finitas, y por lo tanto, se ha entendido tácitamente que todo lo dicho sobre la integral de Lebesgue y sus propiedades se aplica solo al caso de funciones definidas en conjuntos de medida finita. Sin embargo, a menudo se ocupan funciones definidas en un conjunto $X$ de medida infinita, por ejemplo, la recta real con la medida ordinaria de Lebesgue. Nos limitaremos al caso de mayor interés práctico, donde $X$ puede representarse como
+
+	\begin{equation*}
+		X = \bigcup_{n} X_n,
+	\end{equation*}
+
+	es decir, la unión a lo más numerable de conjuntos, cada uno de medida finita con respecto a alguna medida $\sigma$-aditiva $\mu$ definida en un $\sigma$-anillo de subconjuntos de $X$ (los conjuntos de medida finita). Tal medida se llama $\sigma$-finita. 
+
+	¿Por qué hablamos sobre un $\sigma$-anillo en lugar de un $\sigma$-álgebra?
+
+	Solución.
+	
+	Si el $\sigma$-anillo tuviera unidad $E$, entonces $ X_n \subseteq E $ para cada $n$, por lo que $ X = \displaystyle \bigcup_{n} X_n \subseteq E $, pero $E$ también es un elemento del $\sigma$-anillo, por lo que $ X = E $, lo cual implica que $ \mu(X) = \mu(E) $. Sin embargo, la medida de $X$ es infinita, mientras que la de $E$ es finita, por ser elemento del $\sigma$-anillo, lo cual no puede ser. Por lo tanto, el $\sigma$-anillo no tiene unidad, razón por la cual no puede ser un $\sigma$-álgebra.
+\end{document}

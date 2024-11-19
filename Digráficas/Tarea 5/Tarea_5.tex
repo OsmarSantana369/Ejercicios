@@ -1,11 +1,15 @@
 \documentclass[12pt, fleqn]{article}
 \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage[margin = 21mm]{geometry}
+\usepackage[none]{hyphenat}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{parskip}
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{urwchancal}
+\usepackage{tikz}
+\usetikzlibrary{babel, arrows.meta, positioning, decorations.pathmorphing, backgrounds, fit, petri}
 
 \usepackage[proportional,scaled=1]{erewhon}
 \usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
@@ -48,76 +52,124 @@
 
 		Por lo tanto, $D$ es fuerte. 
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Da un ejemplo de una digráfica con exactamente 6 bases y 4 cobases, donde cada base y cada cobase tenga por lo menos dos vértices.
 		
 		\emph{Solución.}
 
-		
-		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		Sea $D$ la siguiente digráfica:
+
+		\begin{minipage}[h]{0.41\linewidth}
+			\begin{tikzpicture}
+				[inner sep = 1.1mm, bend angle = 21, hacia/.style = {black, line width = 1pt, -{Stealth[length=3mm]}}, desde/.style = {black, line width = 1pt, {Stealth[length=3mm]}-}, vertice/.style = {circle, draw = black, inner color = white, outer color = gray, line width = 1pt}]
+				%\draw[step = 10mm, gray, very thin] (0,0) grid (9,5);
+				\node[vertice] (u1) at (0, 1.5) [label = below:$u_1$] {};
+				\node[vertice] (u2) at (0, 3.5) [label = above:$u_2$] {};
+				\node[vertice] (u3) at (1, 2.5) [label = below:$u_3$] {}
+				edge [desde] (u1)
+				edge [hacia, bend right] (u2)
+				edge [desde, bend left] (u2);
+				\node[vertice] (u4) at (1, 5) [label = left:$u_4$] {}
+				edge [hacia] (u3);
+				\node[vertice] (u5) at (2, 4) [label = below:$u_5$] {}
+				edge[hacia, bend right] (u4)
+				edge[desde, bend left] (u4);
+				\node[vertice] (u6) at (3, 4) [label = above:$u_6$] {}
+				edge[hacia] (u5);
+				\node[vertice] (u7) at (4, 4) [label = above:$u_7$] {}
+				edge[hacia] (u6);
+				\node[vertice] (u8) at (6, 3) [label = below:$u_8$] {}
+				edge[hacia] (u7);
+				\node[vertice] (u9) at (4, 2) [label = right:$u_9$] {}
+				edge[hacia] (u8);
+				\node[vertice] (u10) at (5, 1) [label = below:$u_{10}$] {}
+				edge[hacia] (u9);
+				\node[vertice] (u11) at (3, 1) [label = below:$u_{11}$] {}
+				edge[hacia] (u10)
+				edge[hacia] (u7)
+				edge[desde] (u6);
+				\node[vertice] (u12) at (2, 1) [label = above:$u_{12}$] {}
+				edge[desde] (u11);
+				\node[vertice] (u13) at (1, 1) [label = above:$u_{13}$] {}
+				edge[hacia] (u12);
+				\node[vertice] (u14) at (1, 0) [label = left:$u_{14}$] {}
+				edge[hacia, bend right] (u12)
+				edge[desde, bend left] (u12);
+			\end{tikzpicture}
+		\end{minipage} \hfill \begin{minipage}[h]{0.57\linewidth}
+			Por la Proposición 20, se sabe que los vértices de ingrado 0 pertenencen a cualquier base de una digráfica, por lo que $ u_1 $ y $ u_{13} $ están en cualquier base. Luego, por el Teorema 21, no puede haber trayectorias entre dos vértices de una base, por lo que $ u_2, u_3, u_{12} $ y $ u_{14} $ no pueden ser elementos de alguna base, dado que existen las trayectorias $ (u_1, u_3, u_2), \; (u_1, u_3), \; (u_{13}, u_{12}) \; $ y $ \; (u_{13}, u_{12}, u_{14}) $, respectivamente. De esta manera, sea $ B $ una base de $D$, se sabe que $ u_1, u_{13} \in B $, pero $ u_2, u_3, u_{12}, u_{14} \notin B $. 
+		\end{minipage}
+
+		Además, para $ u_4 $ no existe ninguna \tray{u_1}{u_4} ni una \tray{u_{13}}{u_4} en $D$, por lo que $ B $ tiene más elementos. Ya que la trayectoria $ T = (u_{11}, u_{10}, u_9, u_8, u_7, u_6, u_5, u_4) $ contiene a los demás vértices de $D$, se tiene que solo uno de estos vértices pertenece a $ B $, pues si más de uno perteneciera, entonces es posible hallar una trayectoria contenida en $T$ entre dos vértices de $ B $, lo cual sería a una contradicción al Teorema 21. 
+
+		Ahora, $ u_4, u_5 \notin B $, ya que no es posible hallar una \tray{u_4}{u_6} ni una \tray{u_5}{u_6} en $D$. Pero si es posible hallar una \tray{u_i}{u_j} en $D$ para cada $ i = 6, \ldots, 11 $ y para cada $ j = 4, \ldots, 11 $. De esta forma, las siguientes son bases de $D$: 
+
+		$ B_1 = \left\lbrace u_1, u_{6}, u_{13} \right\rbrace, B_2 = \left\lbrace u_1, u_{7}, u_{13} \right\rbrace, B_3 = \left\lbrace u_1, u_{8}, u_{13} \right\rbrace, B_4 = \left\lbrace u_1, u_{9}, u_{13} \right\rbrace, B_5 = \left\lbrace u_1, u_{10}, u_{13} \right\rbrace$ y $ B_6 = \left\lbrace u_1, u_{11}, u_{13} \right\rbrace $.
+
+		Por otro lado, los vértices de ingrado cero y exgrado mayor a cero no pertenecen a ninguna co-base de $D$, puesto que no hay trayectorias que terminen en estos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item ¿Cómo son todas las digráficas tales que el cojunto de todos los vértices es una base de $D$.
 		
 		\emph{Solución.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Da un ejemplo de una digráfica tal que todas sus bases sean también cobases.
 		
 		\emph{Solución.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item ¿Cómo son todas las digráficas tales que todas sus bases son cobases?
 		
 		\emph{Solución.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Dá un ejemplo de una digráfica tal que tenga una base que también sea un conúcleo.
 		
 		\emph{Solución.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Decimos que una digráfica es transitiva si para cualesquiera tres vértices distintos $ u, v, w, $ tales que $ \left\lbrace (u, v), (v,w) \right\rbrace \subseteq \F{D} $ se tiene que $ (u,w) \in \F{D} $. Prueba que si $D$ es una digráfica transitiva entonces toda cobase de $D$ es un núcleo de $D$.
 		
 		\emph{Demostración.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Prueba que $D$ es una digráfica tal que toda cobase de $D$ es un núcleo entonces $D$ es transitiva.
 		
 		\emph{Demostración.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Para cada $ p \geq 3 $, dá un ejemplo de una digráfica semicompleta con $n$ vértices que no tenga núcleo.
 		
 		\emph{Solución.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Sea $D$ una digráfica transitiva, demuestra que $D$ tiene núcleo.
 		
 		\emph{Demostración.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Decimos que una digráfica es núcleo imperfecta crítica si no tiene núcleo pero toda subdigráfica inducida sí tiene núcleo. Prueba que un ciclo dirigido de longitud impar es núcleo imperfecta crítica.
 		
 		\emph{Demostración.}
 
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\end{enumerate}
 \end{document}
