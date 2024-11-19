@@ -47,7 +47,7 @@
 				\item $ \alpha_1, \alpha_2, \beta_1, \beta_2 \in \real $ son tales que $ \alpha_1^2 + \beta_1^2 = 5 \neq 0 $ y $ \alpha_2^2 + \beta_2^2 = 1 \neq 0 $
 			\end{enumerate}
 
-			Por lo tanto, este es un problema de auto valor de S-L regular.
+			Por lo tanto, este es un problema de auto valor de S-L regular. \vspace{3mm}
 
 			\bfseries
 
@@ -67,13 +67,13 @@
 				\item $ \alpha_1, \alpha_2, \beta_1, \beta_2 \in \real $ son tales que $ \alpha_1^2 + \beta_1^2 = 1 \neq 0 $ y $ \alpha_2^2 + \beta_2^2 = 1 \neq 0 $
 			\end{enumerate}
 
-			Por lo tanto, este es un problema de auto valor de S-L regular.
+			Por lo tanto, este es un problema de auto valor de S-L regular. 
 
 		\end{enumerate}
 
 		%----------------------------------------------------------------------------------------------------------------
 		
-		\bfseries
+		\bfseries \vspace{3mm}
 			
 		\item Calcule los valores propios y las funciones propias del problema regular S-L dado.
 		
@@ -122,7 +122,7 @@
 				\end{align*}
 				
 				Por lo tanto, los valores propios del problema son: $ \lambda_n = \dfrac{(2n + 1)^2}{4} $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \sen \left( \dfrac{2n + 1}{2} x \right) $, \, con $ n \in \nat $.
-			\end{enumerate}
+			\end{enumerate} \vspace{3mm}
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -172,7 +172,7 @@
 				\end{align*}
 				
 				Por lo tanto, los valores propios del problema son: $ \lambda_n = \dfrac{\pi^2 (2n + 1)^2}{4} $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \cos \left( \dfrac{2n + 1}{2} \pi x \right) $, \, con $ n \in \nat $.
-			\end{enumerate}
+			\end{enumerate} \vspace{3mm}
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -222,7 +222,7 @@
 				\end{align*}
 				
 				Por lo tanto, los valores propios del problema son todos los $ \mu_n^2 $ tales que $ \mu_n = - \tan (\mu_n) $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \mu_n \cos(\mu_n x) + \sen(\mu_n x) $, \, con $ n \in \nat $.
-			\end{enumerate}
+			\end{enumerate} \vspace{3mm}
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -274,7 +274,7 @@
 				Por lo tanto, los valores propios del problema son todos los $ \mu_n^2 $ tales que $ 1 = \mu_n \tan (\mu_n) $, \, con $ n \in \nat $. Mientras que las funciones propias son: $ f_n (x) = \cos(\mu_n x) $, \, con $ n \in \nat $.
 			\end{enumerate}
 			
-		\end{enumerate}
+		\end{enumerate} \vspace{3mm}
 
 		%----------------------------------------------------------------------------------------------------------------
 		
@@ -321,7 +321,7 @@
                 = \dfrac{4}{\pi (2n - 1)}
             \end{align*}
 
-            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $
+            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \sen \left( \dfrac{(2n - 1) x}{2} \right) $ \vspace{3mm}
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -352,7 +352,7 @@
             \end{align*}
 
             Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{4}{\pi (2n - 1)} \left( 1 + \dfrac{4(-1)^{n+1}}{2n - 1} \right) \sen \left( \dfrac{(2n - 1) x}{2} \right) $
-		\end{enumerate}
+		\end{enumerate} \vspace{3mm}
 
 		%----------------------------------------------------------------------------------------------------------------
 
@@ -399,7 +399,7 @@
                 = \dfrac{2(-1)^{n+1}}{\pi (2n - 1)}
             \end{align*}
 
-            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{2(-1)^{n+1}}{\pi (2n - 1)} \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) $
+            Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty} \dfrac{2(-1)^{n+1}}{\pi (2n - 1)} \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) $ \vspace{3mm}
 
 			%------------------------------------------------------------------------------------------------------------
 
@@ -431,7 +431,7 @@
 
             Por lo tanto, $ U(x) \sim \displaystyle \sum_{n=1}^{\infty}\dfrac{8}{(2n - 1) \pi} \left( (-1)^{n+1} - \dfrac{1}{(2n - 1) \pi} \right) \cos \left( \dfrac{(2n - 1) \pi x}{2} \right) $
 
-		\end{enumerate}
+		\end{enumerate} \vspace{3mm}
 		
 		%----------------------------------------------------------------------------------------------------------------
 
@@ -446,19 +446,51 @@
 			
 			\normalfont
 
+                Ya que $ p(x) = 1, q(x) = -x^2, \sigma(x) = 1 $ y $ \left. -p(x) \phi(x) \phi'(x) \right|_{0}^{1} = - \phi(1) \phi'(1) + \phi(0) \phi'(0) = 0 $, se obtiene que \\ $ \lambda_n \geq 0 \; \forall x \in [0,1] $.
 
+                Luego, proponiendo a la función test $ U(x) = Ax^2 + Bx + C$, por las condiciones de frontera se da que:
+
+                \begin{align*}
+                    0 = U'(0) = B \quad \mbox{y} \quad 0 = U(1) = A + C \Longrightarrow A = -C
+                \end{align*}
+
+                De esta forma, $ U(x) = x^2 - 1 $, si $ A = 1 $. Después obteniendo el cociente de Rayleigh:
+
+                \begin{align*}
+                    R(U) &= \dfrac{\integ{0}{1}{4x^2 + x^2(x^4 - 2x^2 + 1)}}{\integ{0}{1}{x^4 - 2x^2 + 1}} = \dfrac{\integ{0}{1}{x^6 - 2x^4 + 5x^2}}{\left[ \dfrac{x^5}{5} - \dfrac{2x^3}{3} + x \right]_{0}^{1}} = \dfrac{\left[ \dfrac{x^7}{7} - \dfrac{2x^5}{5} + \dfrac{5x^3}{3} \right]_{0}^{1}}{\dfrac{1}{5} - \dfrac{2}{3} + 1} \\
+                    %
+                    &= \dfrac{\dfrac{1}{7} - \dfrac{2}{5} + \dfrac{5}{3}}{\dfrac{3 - 10 + 15}{15}} = \dfrac{\dfrac{15 - 42 + 175}{105}}{\dfrac{3 - 10 + 15}{15}} = \dfrac{148 \cdot 15}{105 \cdot 8} = \dfrac{37}{14} 
+                \end{align*}
+
+                Por lo tanto, $ 0 \leq \lambda_1 \leq 2.6428 $. \vspace{3mm}
 
 			%------------------------------------------------------------------------------------------------------------
 
 			\bfseries
 			
-			\item $ \despar{2}{\phi}{x} + (\lambda - x) \phi = 0 $ con $ \depar{\phi}{x} (0) = 0 $ y $ \depar{\phi}{x} (0) + 2 \phi (1) = 0 $.
+			\item $ \despar{2}{\phi}{x} + (\lambda - x) \phi = 0 $ con $ \depar{\phi}{x} (0) = 0 $ y $ \depar{\phi}{x} (1) + 2 \phi (1) = 0 $.
 			
 			Solución.
 			
 			\normalfont
 
+                 Ya que $ p(x) = 1, q(x) = -x, \sigma(x) = 1 $ y $ \left. -p(x) \phi(x) \phi'(x) \right|_{0}^{1} = - \phi(1) \phi'(1) + \phi(0) \phi'(0) = 2\left( \phi(1) \right)^2 \geq 0 $, se obtiene que \\ $ \lambda_n \geq 0 \; \forall x \in [0,1] $.
 
+                Luego, proponiendo a la función test $ U(x) = Ax^2 + Bx + C$, por las condiciones de frontera se da que:
+
+                \begin{align*}
+                    0 = U'(0) = B \quad \mbox{y} \quad 0 = U'(1) + 2U(1) = 4A + 2C \Longrightarrow 2A = -C
+                \end{align*}
+
+                De esta forma, $ U(x) = x^2 - 2 $, si $ A = 1 $. Después obteniendo el cociente de Rayleigh:
+
+                \begin{align*}
+                    R(U) &= \dfrac{2 + \integ{0}{1}{4x^2 + x(x^4 - 4x^2 + 4)}}{\integ{0}{1}{x^4 - 4x^2 + 4}} = \dfrac{2 + \integ{0}{1}{x^5 - 4x^3 + 4x^2 + 4x}}{\left[ \dfrac{x^5}{5} - \dfrac{4x^3}{3} + 4x \right]_{0}^{1}} = \dfrac{2 + \left[ \dfrac{x^6}{6} - x^4 + \dfrac{4x^3}{3} + 2x^2 \right]_{0}^{1}}{\dfrac{1}{5} - \dfrac{4}{3} + 4} \\
+                    %
+                    &= \dfrac{2 + \dfrac{1}{6} - 1 + \dfrac{4}{3} + 2}{\dfrac{3 - 20 + 60}{15}} = \dfrac{\dfrac{9}{2}}{\dfrac{43}{15}} = \dfrac{9 \cdot 15}{43 \cdot 2} = \dfrac{135}{86} 
+                \end{align*}
+
+                Por lo tanto, $ 0 \leq \lambda_1 \leq 1.5697 $.
 
 		\end{enumerate}
 	\end{enumerate}
