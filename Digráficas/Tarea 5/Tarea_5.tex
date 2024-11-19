@@ -106,7 +106,11 @@
 
 		$ B_1 = \left\lbrace u_1, u_{6}, u_{13} \right\rbrace, B_2 = \left\lbrace u_1, u_{7}, u_{13} \right\rbrace, B_3 = \left\lbrace u_1, u_{8}, u_{13} \right\rbrace, B_4 = \left\lbrace u_1, u_{9}, u_{13} \right\rbrace, B_5 = \left\lbrace u_1, u_{10}, u_{13} \right\rbrace$ y $ B_6 = \left\lbrace u_1, u_{11}, u_{13} \right\rbrace $.
 
-		Por otro lado, los vértices de ingrado cero y exgrado mayor a cero no pertenecen a ninguna co-base de $D$, puesto que no hay trayectorias que terminen en estos
+		Por otro lado, los vértices de ingrado cero y exgrado mayor a cero no pertenecen a ninguna co-base de $D$, puesto que no hay trayectorias que terminen en estos. Así, sea $ C $ una co-base de $D$, se tiene que $ u_1, u_{13} \notin C $
+
+        Después, si $ u_4 $ o $ u_5 $ pertenecen a $C$, entonces $ u_i \notin C $, para cada $ i = 2, 3, 6, 7, \ldots, 11 $, pues $ u_j \leadsto u_i $, para cada $ j = 4, 5 $ y para cada $ i = 2, 3 $, y $ u_i \leadsto u_j $, para cada $ i = 6, 7, \ldots, 11 $ y para cada $ j = 4, 5 $. Sin embargo, para $ u_2 $, la única trayectoria que inicia en este vértice es $ (u_2, u_3) $, pero $ u_3 \notin C $, lo cual contradice que $C$ sea una co-base. De este modo, $ u_4, u_5 \notin C $.
+
+        Luego, si $ u_i \in C $, para algún $ i = 6, \ldots, 11 $, entonces $ C = \lbrace u_i \rbrace $, puesto que $ u_i \leadsto u_j $, para cada $ i = 6, 7, \ldots, 11 $ y para cada $ j = 2, 3, 4, 5, 12, 14 $. Sin embargo, para $ u_5 $, no existe ninguna trayectoria que inicie en este vértice y termine en $ u_i $, para cada $ i = 6, \ldots, 11 $, lo cual contradice que $C$ sea una co-base. De este modo, $ u_i \notin C $, para todo $ i = 6, \ldots, 11 $.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item ¿Cómo son todas las digráficas tales que el cojunto de todos los vértices es una base de $D$.
 		
