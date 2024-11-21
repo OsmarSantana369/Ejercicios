@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.17)  21 NOV 2024 00:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.17)  21 NOV 2024 11:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -903,13 +903,40 @@ Overfull \hbox (0.56126pt too wide) in paragraph at lines 141--142
 
 
 [2{C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-Overfull \hbox (11.54265pt too wide) in paragraph at lines 217--218
+Overfull \hbox (3.21678pt too wide) in paragraph at lines 216--217
+[][] 
+ []
+
+
+Underfull \hbox (badness 1178) in paragraph at lines 221--222
+[]\T1/erewhon-LF/m/n/12 Ya que $\OML/zutmi/m/it/12 u[]; u[]; u[]$ \T1/erewhon-LF/m/n/12 son de in-gra-do 0, se tie-ne que no
+ []
+
+
+Overfull \hbox (4.81352pt too wide) in paragraph at lines 233--234
+[]\T1/erewhon-LF/m/n/12 Sea $\OML/zutmi/m/it/12 C$ \T1/erewhon-LF/m/n/12 una co-ba-se de $\OML/zutmi/m/it/12 D$\T1/erewhon-LF/m/n/12 , por el Teo-re-ma 21', no hay tra-yec-to-rias en-tre los vér-ti-ces que per-te-ne-cen
+ []
+
+
+
+[3]
+Overfull \hbox (4.14482pt too wide) in paragraph at lines 252--253
+[]\T1/erewhon-LF/m/n/12 Prueba que si $\OML/zutmi/m/it/12 D$ \T1/erewhon-LF/m/n/12 es una di-grá-fi-ca tal que to-da co-ba-se de $\OML/zutmi/m/it/12 D$ \T1/erewhon-LF/m/n/12 es un nú-cleo en-ton-ces $\OML/zutmi/m/it/12 D$ \T1/erewhon-LF/m/n/12 es tran-si-ti-va. 
+ []
+
+
+Overfull \hbox (35.2781pt too wide) in paragraph at lines 256--257
+[]\T1/erewhon-LF/m/n/12 Suponiendo que el or-den de $\OML/zutmi/m/it/12 D$ \T1/erewhon-LF/m/n/12 es ma-yor o igual que 3. Sean $\OML/zutmi/m/it/12 u; v; w \LMS/ntxsy/m/n/12 2 \OT1/erewhon-TLF/m/n/12 V  []$ \T1/erewhon-LF/m/n/12 ta-les que $[] \LMS/ntxsy/m/n/12 ^^R
+ []
+
+
+Overfull \hbox (11.54265pt too wide) in paragraph at lines 279--280
 []\T1/erewhon-LF/m/n/12 Decimos que una di-grá-fi-ca es nú-cleo im-per-fec-ta crí-ti-ca si no tie-ne nú-cleo pe-ro to-da sub-di-grá-fi-ca
  []
 
 
 
-[3] (c:\Users\CONTROL\Desktop\Ejercicios\DigrÃ¡ficas\Tarea 5\build\Tarea_5.aux
+[4] (c:\Users\CONTROL\Desktop\Ejercicios\DigrÃ¡ficas\Tarea 5\build\Tarea_5.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -919,17 +946,17 @@ L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20627 strings out of 473681
- 399735 string characters out of 5718242
- 770782 words of memory out of 5000000
- 43275 multiletter control sequences out of 15000+600000
- 595581 words of font info for 95 fonts, out of 8000000 for 9000
+ 20640 strings out of 473681
+ 399992 string characters out of 5718242
+ 770784 words of memory out of 5000000
+ 43286 multiletter control sequences out of 15000+600000
+ 596176 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,8n,93p,701b,907s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Italic.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/Erewhon-Regular.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/erewhon/erewMI.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on "c:\Users\CONTROL\Desktop\Ejercicios\DigrÃ¡ficas\Tarea 5\build\Tarea_5.pdf" (3 pages, 138487 bytes).
+Output written on "c:\Users\CONTROL\Desktop\Ejercicios\DigrÃ¡ficas\Tarea 5\build\Tarea_5.pdf" (4 pages, 146274 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  19 words of extra memory for PDF output out of 10000 (max. 10000000)
 

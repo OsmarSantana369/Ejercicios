@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1732169440.38211 "c:/Users/CONTROL/Desktop/Ejercicios/Digráficas/Tarea 5/Tarea_5.tex" "build/Tarea_5.pdf" "Tarea_5" 1732169453.15302 0
+["pdflatex"] 1732210379.15464 "c:/Users/CONTROL/Desktop/Ejercicios/Digráficas/Tarea 5/Tarea_5.tex" "build/Tarea_5.pdf" "Tarea_5" 1732210397.6724 0
   "C:/Users/CONTROL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732157220 187507 2673da22ed701536d427cb339cfcd0fb ""
   "C:/Users/CONTROL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1731898057 11987907 40098d80280f63f9d9bb50015022ad47 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -200,9 +200,9 @@
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/CONTROL/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "Tarea_5.tex" 1732169436 12875 75a317b1741884b72702d480d3ebd15a ""
-  "build/Tarea_5.aux" 1732169451 232 e4374e8bf5cbf47e856857f0b4de3017 "pdflatex"
-  "c:/Users/CONTROL/Desktop/Ejercicios/Digráficas/Tarea 5/Tarea_5.tex" 1732169436 12875 75a317b1741884b72702d480d3ebd15a ""
+  "Tarea_5.tex" 1732210376 17421 477756b7429850f3db74f0d4c85778d9 ""
+  "build/Tarea_5.aux" 1732210396 232 24afd9b12cb36b06a4fa8c1b17b2b49b "pdflatex"
+  "c:/Users/CONTROL/Desktop/Ejercicios/Digráficas/Tarea 5/Tarea_5.tex" 1732210376 17421 477756b7429850f3db74f0d4c85778d9 ""
   (generated)
   "build/Tarea_5.aux"
   "build/Tarea_5.log"

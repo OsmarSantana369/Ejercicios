@@ -183,21 +183,83 @@
 		
 		\emph{Solución.}
 
-		
+		Sea $D$ la siguiente digráfica:
+
+		\begin{minipage}[h]{0.35\linewidth}
+			\begin{tikzpicture}
+				[inner sep = 1.1mm, bend angle = 21, hacia/.style = {black, line width = 1pt, -{Stealth[length=3mm]}}, desde/.style = {black, line width = 1pt, {Stealth[length=3mm]}-}, vertice/.style = {circle, draw = black, inner color = white, outer color = gray, line width = 1pt}]
+				%\draw[step = 10mm, gray, very thin] (0,0) grid (9,5);
+				\node[vertice] (u1) at (13.8, 2) [label = below:$u_1$] {};
+				\node[vertice] (u2) at (15.5, 3) [label = right:$u_2$] {}
+				edge[hacia] (u1);
+				\node[vertice] (u3) at (17.3, 3) [label = below:$u_3$] {};
+				\node[vertice] (u4) at (19, 2) [label = below:$u_4$] {}
+				edge[desde] (u3);
+				\node[vertice] (u5) at (16.4, 2) [label = below:$u_5$] {}
+				edge[hacia] (u1)
+				edge[desde] (u2)
+				edge[desde] (u3)
+				edge[desde] (u4);
+				\node[vertice] (u6) at (16.4, 6.5) [label = above:$u_6$] {};
+				\node[vertice] (u7) at (16.4, 4.5) [label = below:$u_7$] {}
+				edge[hacia] (u6);
+				\node[vertice] (u8) at (15.1, 4.2) [label = left:$u_8$] {}
+				edge[hacia] (u6)
+				edge[desde] (u7)
+				edge[desde] (u1)
+				edge[desde] (u2);
+				\node[vertice] (u9) at (17.7, 4.2) [label = right:$u_9$] {}
+				edge[hacia] (u4)
+				edge[desde] (u3)
+				edge[desde] (u6)
+				edge[desde] (u7);
+			\end{tikzpicture}
+		\end{minipage} \hfill \begin{minipage}[h]{0.6\linewidth}
+			\setlength{\parskip}{3mm}
+			Afirmación. $ B = \left\lbrace u_2, u_3, u_7 \right\rbrace $ es una base y un conúcleo de $D$.
+
+			Ya que $ u_2, u_3, u_7 $ son de ingrado 0, se tiene que no hay flechas ni trayectorias entre ellos, por lo que $ B $ es independiente y cumple el inciso $ (ii) $ del Teorema 21.
+
+			Luego, dado que $ u_1, u_4, u_5, u_6, u_8, u_9 \notin B $ y $ \left\lbrace (u_2, u_1), \right. $ $ \left. (u_2, u_5), (u_2, u_8), (u_3, u_4), (u_3, u_9), (u_7, u_6) \right\rbrace \subseteq \F{D} $, se obtiene que $B$ es absorbente y para cada $ u_i \in \V{D} $, con $ i = 1, \ldots, 9 $, existe $ v \in B $ tal que $ v \leadsto u_i $, cumpliéndose el inciso $ (i) $ del Teorema 21.
+		\end{minipage}
+
+		Por todo lo anterior, $ B $ es tanto base como conúcleo de $D$.
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Decimos que una digráfica es transitiva si para cualesquiera tres vértices distintos $ u, v, w, $ tales que $ \left\lbrace (u, v), (v,w) \right\rbrace \subseteq \F{D} $ se tiene que $ (u,w) \in \F{D} $. Prueba que si $D$ es una digráfica transitiva entonces toda cobase de $D$ es un núcleo de $D$.
 		
 		\emph{Demostración.}
 
-		
-		
+		Sea $ C $ una cobase de $D$, por el Teorema 21', no hay trayectorias entre los vértices que pertenecen a $C$, en particular, no hay flechas, lo cual implica que $C$ es un conjunto independiente de $D$. 
+
+		Después, para cada $ u \in C $, sea $ \tau_u = \left\lbrace v \in \V{D} \setminus \{ u \} \, : \, v \leadsto u \right\rbrace $, que es no vacío, pues de lo contrario $ C \setminus \{ u \} $, donde $ \tau_u = \emptyset $, también sería una cobase de $D$, lo cual contradice la definición de cobase. Luego, sea $ u \in C $ y para cada $ v \in \tau_u $ sea $ T_v^u $ una \tray{v}{u}.
+
+		Afirmación. $ (v, u) \in \F{D} $ para cada $ v \in \tau_u $.
+
+		Sea $ v \in \tau_u $. Procediendo por inducción sobre $ n = l(T_v^u) $:
+
+		Para $ n = 1 $: $ T_v^u = (v, u) $, por lo que $ (v, u) \in \F{D} $.
+
+		Para $ n = 2 $: $ T_v^u = (v, x, u) $, con $ x \in \V{D} $, por lo que $ \left\lbrace (v, x), (x, u) \right\rbrace \subseteq \F{D} $. Así, $ (v, u) \in \F{D} $, pues $D$ es transitiva.
+
+		Ahora, suponiendo que para \, $ n = k $ \, se cumple la afirmación. Si \, $ n = k+1 $ \, entonces $ T_v^u = (v = x_0, x_1, \ldots, x_{k+1} = u) $. Sea $ t_v^u = (x_1, \ldots, x_{k+1} = u) $, como $ l(t_v^u) = k $ y $ x_1 \in \tau_u $, por hipótesis de inducción, se obtiene que $ (x_1, u) \in \F{D} $. De esta manera, $ (v, u) \in \F{D} $, pues $ \left\lbrace (v, x_1), (x_1, u) \right\rbrace \subseteq \F{D} $ y $D$ es transitiva.
+
+		Por lo tanto, $ (v, u) \in \F{D} $ para cada $ v \in \tau_u $, y como $ u $ fue arbitrario, lo anterior se cumple para todo $ u \in C $. Así, para cada $ v \in \V{D} \setminus C $, existe $ u \in C $ tal que $ (v, u) \in \F{D} $, dado que $C$ es una cobase, por lo cual $C$ es absorbente. 
+
+		En conclusión, toda cobase de $D$ es un núcleo de $D$, pues $C$ fue arbitrario.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		\item Prueba que $D$ es una digráfica tal que toda cobase de $D$ es un núcleo entonces $D$ es transitiva.
+		\item Prueba que si $D$ es una digráfica tal que toda cobase de $D$ es un núcleo entonces $D$ es transitiva.
 		
 		\emph{Demostración.}
 
-		
+		Suponiendo que el orden de $D$ es mayor o igual que 3. Sean $ u, v, w \in \V{D} $ tales que $ \left\lbrace (u, v), (v, w) \right\rbrace \subseteq \F{D} $ y $C$ alguna cobase de $D$, ya que no puede haber trayectorias entre vértices de $C$, se tiene lo siguiente:
+
+		\begin{itemize}
+			\item $ u, v, w $ no pueden pertenecer a $C$ simultáneamente.
+			\item No puede ser que $ u, v \in C $, $ v, w \in C $ ni $ u, w \in C $ de manera simultánea.
+			\item Si $ u \in C $ entonces 
+		\end{itemize}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Para cada $ p \geq 3 $, dá un ejemplo de una digráfica semicompleta con $n$ vértices que no tenga núcleo.
