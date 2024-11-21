@@ -106,24 +106,70 @@
 
 		$ B_1 = \left\lbrace u_1, u_{6}, u_{13} \right\rbrace, B_2 = \left\lbrace u_1, u_{7}, u_{13} \right\rbrace, B_3 = \left\lbrace u_1, u_{8}, u_{13} \right\rbrace, B_4 = \left\lbrace u_1, u_{9}, u_{13} \right\rbrace, B_5 = \left\lbrace u_1, u_{10}, u_{13} \right\rbrace$ y $ B_6 = \left\lbrace u_1, u_{11}, u_{13} \right\rbrace $.
 
-		Por otro lado, los vértices de ingrado cero y exgrado mayor a cero no pertenecen a ninguna co-base de $D$, puesto que no hay trayectorias que terminen en estos. Así, sea $ C $ una co-base de $D$, se tiene que $ u_1, u_{13} \notin C $
+		Por otro lado, los vértices de ingrado cero y exgrado mayor a cero no pertenecen a ninguna cobase de $D$, puesto que no hay trayectorias que terminen en estos. Así, sea $ C $ una cobase de $D$, se tiene que $ u_1, u_{13} \notin C $
 
-        Después, si $ u_4 $ o $ u_5 $ pertenecen a $C$, entonces $ u_i \notin C $, para cada $ i = 2, 3, 6, 7, \ldots, 11 $, pues $ u_j \leadsto u_i $, para cada $ j = 4, 5 $ y para cada $ i = 2, 3 $, y $ u_i \leadsto u_j $, para cada $ i = 6, 7, \ldots, 11 $ y para cada $ j = 4, 5 $. Sin embargo, para $ u_2 $, la única trayectoria que inicia en este vértice es $ (u_2, u_3) $, pero $ u_3 \notin C $, lo cual contradice que $C$ sea una co-base. De este modo, $ u_4, u_5 \notin C $.
+        Después, si $ u_4 $ o $ u_5 $ pertenecen a $C$, entonces $ u_i \notin C $, para cada $ i = 2, 3, 6, 7, \ldots, 11 $, pues \, $ u_j \leadsto u_i $, para cada $ j = 4, 5 $ y para cada $ i = 2, 3 $, además de que $ u_i \leadsto u_j $, para cada $ i = 6, 7, \ldots, 11 $ y para cada $ j = 4, 5 $. Sin embargo, para $ u_2 $, la única trayectoria que inicia en este vértice es $ (u_2, u_3) $, pero $ u_3 \notin C $, lo cual contradice que $C$ sea una cobase. De este modo, $ u_4, u_5 \notin C $.
 
-        Luego, si $ u_i \in C $, para algún $ i = 6, \ldots, 11 $, entonces $ C = \lbrace u_i \rbrace $, puesto que $ u_i \leadsto u_j $, para cada $ i = 6, 7, \ldots, 11 $ y para cada $ j = 2, 3, 4, 5, 12, 14 $. Sin embargo, para $ u_5 $, no existe ninguna trayectoria que inicie en este vértice y termine en $ u_i $, para cada $ i = 6, \ldots, 11 $, lo cual contradice que $C$ sea una co-base. De este modo, $ u_i \notin C $, para todo $ i = 6, \ldots, 11 $.
+        Luego, si $ u_i \in C $, para algún $ i = 6, \ldots, 11 $, entonces $ C = \lbrace u_i \rbrace $, puesto que $ u_i \leadsto u_j $, para cada $ i = 6, 7, \ldots, 11 $ y para cada $ j = 2, 3, 4, 5, 12, 14 $. Sin embargo, para $ u_5 $, no existe ninguna trayectoria que inicie en este vértice y termine en $ u_i $, para cada $ i = 6, \ldots, 11 $, lo cual contradice que $C$ sea una cobase. De este modo, $ u_i \notin C $, para todo $ i = 6, \ldots, 11 $.
+
+		De esta forma, ya que para cada $ i = 1, 4, \ldots, 11 $ y para cada $ j = 2, 3 $, se da que $ u_i \leadsto u_j $ en $D$, además de que $ u_{13} \leadsto u_{12} $, $ u_{13} \leadsto u_{14} $ y $ (u_2, u_3), (u_3, u_2), (u_{12}, u_{14}), (u_{14}, u_{12}) \in \F{D} $, se tiene que las cobases de $D$ son:
+
+		$ C_1 = \left\lbrace u_2, u_{12} \right\rbrace, C_2 = \left\lbrace u_2, u_{14} \right\rbrace, C_3 = \left\lbrace u_3, u_{12} \right\rbrace $ y $ C_4 = \left\lbrace u_3, u_{14} \right\rbrace $.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		\item ¿Cómo son todas las digráficas tales que el cojunto de todos los vértices es una base de $D$.
+		\item ¿Cómo son todas las digráficas tales que el conjunto de todos los vértices es una base de $D$.
 		
 		\emph{Solución.}
 
-		
+		Sea $D$ una digráfica tal que $ \V{D} $ es una base de $D$.
+
+		Afirmación. $ \V{D} $ es la única base de $D$ y $ \F{D} = \emptyset $.
+
+		Como $ \V{D} $ es una base de $D$, se tiene que $ \V{D} $ es un conjunto minimal de $ \left( \mathcal{B}_D, \subseteq \right) $, pero todo elemento de este conjunto está contenido en $ \V{D} $, por lo que $ \mathcal{B}_D = \lbrace \V{D} \rbrace $. Así, $ \V{D} $ es la única base de $D$.
+
+		Ahora, por el Teorema 21, no puede haber trayectorias entre dos vértices de una base. De este modo, dado que $ \V{D} $ es la única base de $D$, se obtiene que entre cualquier par de vértices de $D$ no hay trayectorias, en particular, no hay flechas. Por lo tanto, $ \F{D} = \emptyset $.
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Da un ejemplo de una digráfica tal que todas sus bases sean también cobases.
 		
-		\emph{Solución.}
+		\begin{minipage}[h]{0.62\linewidth}
+			\setlength{\parskip}{3mm}
+			\emph{Solución.}
 
-		
+			Sea $D$ la digráfica de la izquierda. Ya que
+
+			$ C = \left( u_4, u_{10}, u_5, u_6, u_1, u_2, u_6, u_3, u_7, u_8, u_9, u_{10}, u_5, u_6, u_4 \right) $ 
+			
+			es un camino cerrado generador en $D$, se tiene que $D$ es fuerte. Así, para cada $ u \in \V{D} $, existe una \tray{u}{v} y una \tray{v}{u}, para todo $ v \in \V{D} $, pues $D$ es fuerte. De esta forma, por el Teorema 21, cualquier base y cobase de $D$ debe tener un solo elemento, más aún, cada vértice de $D$ forma una base y una cobase de $D$.
+		\end{minipage} \hfill \begin{minipage}[h]{0.36\linewidth}
+			\begin{tikzpicture}
+				[inner sep = 1.1mm, bend angle = 21, hacia/.style = {black, line width = 1pt, -{Stealth[length=3mm]}}, desde/.style = {black, line width = 1pt, {Stealth[length=3mm]}-}, vertice/.style = {circle, draw = black, inner color = white, outer color = gray, line width = 1pt}]
+				%\draw[step = 10mm, gray, very thin] (0,0) grid (9,5);
+				\node[vertice] (u1) at (0, 0) [label = below:$u_1$] {};
+				\node[vertice] (u2) at (0, 2) [label = above:$u_2$] {}
+				edge [desde] (u1);
+				\node[vertice] (u3) at (2, 3) [label = above:$u_3$] {};
+				\node[vertice] (u4) at (3, 2) [label = left:$u_4$] {};
+				\node[vertice] (u5) at (3, 0) [label = below:$u_5$] {};
+				\node[vertice] (u6) at (2, 1) [label = below:$u_6$] {}
+				edge [hacia] (u1)
+				edge [hacia] (u3)
+				edge [hacia] (u4)
+				edge [desde] (u2)
+				edge [desde] (u5);
+				\node[vertice] (u7) at (5, 2) [label = above:$u_7$] {}
+				edge [desde] (u3);
+				\node[vertice] (u8) at (5, 0) [label = below:$u_8$] {}
+				edge [desde] (u7);
+				\node[vertice] (u9) at (4, 0) [label = below:$u_9$] {}
+				edge [desde] (u8);
+				\node[vertice] (u10) at (4, 1) [label = right:$u_{10}$] {}
+				edge [hacia] (u5)
+				edge [hacia] (u7)
+				edge [desde] (u4)
+				edge [desde] (u9);
+			\end{tikzpicture}
+		\end{minipage}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item ¿Cómo son todas las digráficas tales que todas sus bases son cobases?
