@@ -24,6 +24,7 @@
 \newcommand{\V}[1]{\mathrm{V} \! \left( #1 \right)}
 \newcommand{\F}[1]{\mathrm{F} \! \left( #1 \right)}
 \newcommand{\tray}[2]{$ #1 #2 $ -- trayectoria}
+\newcommand{\cam}[2]{$ #1 #2 $ -- camino}
 
 \begin{document}
 	\begin{center}
@@ -51,6 +52,8 @@
 		Sean $ u,v \in \V{D} $, ya que $ \lbrace u \rbrace $ es una base de $D$, se tiene que, para $v$, existe una \tray{v}{u} en $D$. De manera similar, $ \lbrace v \rbrace $ es una base de $D$ por lo que, para $u$, existe una \tray{u}{v} en $D$.
 
 		Por lo tanto, $D$ es fuerte. 
+
+		\vspace{3mm}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Da un ejemplo de una digráfica con exactamente 6 bases y 4 cobases, donde cada base y cada cobase tenga por lo menos dos vértices.
@@ -115,7 +118,9 @@
 		De esta forma, ya que para cada $ i = 1, 4, \ldots, 11 $ y para cada $ j = 2, 3 $, se da que $ u_i \leadsto u_j $ en $D$, además de que $ u_{13} \leadsto u_{12} $, $ u_{13} \leadsto u_{14} $ y $ (u_2, u_3), (u_3, u_2), (u_{12}, u_{14}), (u_{14}, u_{12}) \in \F{D} $, se tiene que las cobases de $D$ son:
 
 		$ C_1 = \left\lbrace u_2, u_{12} \right\rbrace, C_2 = \left\lbrace u_2, u_{14} \right\rbrace, C_3 = \left\lbrace u_3, u_{12} \right\rbrace $ y $ C_4 = \left\lbrace u_3, u_{14} \right\rbrace $.
-
+		
+		\vspace{3mm}
+		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item ¿Cómo son todas las digráficas tales que el conjunto de todos los vértices es una base de $D$.
 		
@@ -176,7 +181,13 @@
 		
 		\emph{Solución.}
 
-		
+		\begin{enumerate}
+			\item Si alguna base de de $D$ solo tiene un elemento, digamos $u$, entonces $u$ es tanto fuente como pozo de $D$, pues por definición de base y cobase, para todo $ v \in \V{D} $ existen una \tray{u}{v} y una \tray{v}{u} en $D$.
+	
+			\item Si las bases (que también son cobases) tienen más de un elemento, entonces sean $ u \in \V{D} $ tal que no pertenece a niinguna base de $D$ y $B$ una base de $D$, existe $T_1$ una \tray{x}{u} en $D$, para algún $ x \in B $, y también existe $T_2$ una \tray{u}{y} en $D$, para algún $ y \in B $. Pero $ T_1 \cup T_2 $ es un \cam{x}{y} en $D$, el cual contiene una \tray{x}{y} de $D$, por lo que $ x = y $, pues de lo contrario se contradecería el Teorema 21. Así, $ T_1 \cup T_2 $ es un camino cerrado de $D$ y contiene un ciclo. De esta manera, $D$ no es acíclica.
+			
+			\item Si las bases tienen más de un elemento, entonces sean $B$ una base de $D$, $ u, v \in \V{D} $ tal que no pertenecen a niinguna base de $D$ y $ x, y \in B $ distintos tales que $ u \leadsto x $ y $ v \leadsto y $. Suponiendo, sin pérdida de generalidad, que $u \leadsto v$. Como $ v \leadsto y $, se da que $ u \leadsto y $ y puesto que $B$ también es cobase, se obtiene que $ x \leadsto u $, lo cual implica que $ x \leadsto y $, lo cual contradice que $B$ sea base y cobase. Por lo tanto, no hay trayectorias entre cualquier par de vértices que forman trayecorias con distintos elementos de una base. De esta manera, $D$ no es débil.
+		\end{enumerate}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Dá un ejemplo de una digráfica tal que tenga una base que también sea un conúcleo.
@@ -225,6 +236,8 @@
 
 		Por todo lo anterior, $ B $ es tanto base como conúcleo de $D$.
 		
+		\vspace{3mm}
+		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Decimos que una digráfica es transitiva si para cualesquiera tres vértices distintos $ u, v, w, $ tales que $ \left\lbrace (u, v), (v,w) \right\rbrace \subseteq \F{D} $ se tiene que $ (u,w) \in \F{D} $. Prueba que si $D$ es una digráfica transitiva entonces toda cobase de $D$ es un núcleo de $D$.
 		
@@ -248,39 +261,72 @@
 
 		En conclusión, toda cobase de $D$ es un núcleo de $D$, pues $C$ fue arbitrario.
 
+		\vspace{3mm}
+		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Prueba que si $D$ es una digráfica tal que toda cobase de $D$ es un núcleo entonces $D$ es transitiva.
 		
-		\emph{Demostración.}
-
-		Suponiendo que el orden de $D$ es mayor o igual que 3. Sean $ u, v, w \in \V{D} $ tales que $ \left\lbrace (u, v), (v, w) \right\rbrace \subseteq \F{D} $ y $C$ alguna cobase de $D$, ya que no puede haber trayectorias entre vértices de $C$, se tiene lo siguiente:
-
-		\begin{itemize}
-			\item $ u, v, w $ no pueden pertenecer a $C$ simultáneamente.
-			\item No puede ser que $ u, v \in C $, $ v, w \in C $ ni $ u, w \in C $ de manera simultánea.
-			\item Si $ u \in C $ entonces 
-		\end{itemize}
-		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		\item Para cada $ p \geq 3 $, dá un ejemplo de una digráfica semicompleta con $n$ vértices que no tenga núcleo.
+		\item Para cada $ n \geq 3 $, dá un ejemplo de una digráfica semicompleta con $n$ vértices que no tenga núcleo.
 		
-		\emph{Solución.}
+		\begin{minipage}[h]{0.56\linewidth}
+			\setlength{\parskip}{3mm}
+			\emph{Solución.}
 
+			Para cada $ n \geq 3 $, sea $D$ una digráfica semicompleta de orden $n$ en la que existen $ u, v \in \V{D} $ tales que:
 		
+			\begin{enumerate}
+				\item $ (x, u) \in \F{D} $ y $ (u, x) \notin \F{D} $ para cada \newline $ x \in \V{D} \setminus \{v\} $, 
+				\item $ (v, x) \in \F{D} $ y $ (x, v) \notin \F{D} $ para cada \newline $ x \in \V{D} \setminus \{u\} $ y
+				\item $ (u, v) \in \F{D} $.
+			\end{enumerate}
+		\end{minipage} \hfill \begin{minipage}[h]{0.42\linewidth}
+			\begin{tikzpicture}
+				[inner sep = 1.1mm, bend angle = 15, hacia/.style = {black, line width = 1pt, -{Stealth[length=3mm]}}, desde/.style = {black, line width = 1pt, {Stealth[length=3mm]}-}, vertice/.style = {circle, draw = black, inner color = white, outer color = gray, line width = 1pt}]
+				%\draw[step = 10mm, gray, very thin] (0,0) grid (9,5);
+				\node[vertice] (u1) at (-1.7, -2.4) {};
+				\node[vertice] (u2) at (1.7, -2.4) {}
+				edge [desde] (u1);
+				\node[vertice] (u3) at (3, 0) {}
+				edge [hacia] (u1)
+				edge [hacia, bend left] (u2);
+				\node[vertice] (u4) at (1.7, 2.4) {}
+				edge [hacia] (u1)
+				edge [hacia, bend left] (u3)
+				edge[hacia, bend right] (u2)
+				edge[desde, bend left] (u2);
+				\node[vertice] (u5) at (-1.7, 2.4) [label = left:$u$] {}
+				edge [desde] (u1)
+				edge [desde] (u2)
+				edge [desde] (u3)
+				edge [desde] (u4);
+				\node[vertice] (u6) at (-3, 0) [label = left:$v$] {}
+				edge [hacia] (u1)
+				edge [hacia] (u2)
+				edge [hacia] (u3)
+				edge [hacia] (u4)
+				edge [desde] (u5);
+			\end{tikzpicture}
+		\end{minipage}
+		
+		Ya que $D$ es semicompleta, los únicos conjuntos independientes de $D$ son los vértices. Pero ningún conjunto formado por un vértice es absorbente dado que $ u $ no es adyacente hacia todos los demás vértices, excepto $v$, y $ v $ solo es adyacente desde $u$.
+
+		Por lo tanto, $D$ no tiene núcleo, para todo $ n \geq 3 $.
+		
+		\vspace{3mm}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Sea $D$ una digráfica transitiva, demuestra que $D$ tiene núcleo.
-		
-		\emph{Demostración.}
-
-		
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\item Decimos que una digráfica es núcleo imperfecta crítica si no tiene núcleo pero toda subdigráfica inducida sí tiene núcleo. Prueba que un ciclo dirigido de longitud impar es núcleo imperfecta crítica.
 		
 		\emph{Demostración.}
 
-		
+		Sea $ C = \left\lbrace u_0, u_1, \ldots, u_n = u_0 \right\rbrace $ un ciclo de longitud impar. Suponiendo que $ C $ tiene un nucleo $ N $ y que $ u_i \in N $, para algún $ i = 0, 1, \ldots, n-1 $. Además, suponiendo, sin pérdida de generalidad que $ i $ es par, se tiene que $ u_{i-1}, u_{i+1} \notin N $, donde $ i-1, i+1 $ son impares. Siguiendo así, se obtiene que $ u_i \notin N $, para todo $ i = 0, \ldots, n-1 $ impar y $ u_i \in N $, para todo $ i = 0, \ldots, n-1 $ par. Pero $C$ es de longitud impar, por lo que $ u_n \notin N $, lo cual no puede ser pues $ u_0 \in N $ y $ u_0 = u_n $. De esta manera, $ C $ no tiene núcleo.
+
+		Ahora, ya que cualquier subdigráfica propia inducida de $ C $ es acíclica (pues de lo contrario el ciclo de esta subdigráfica
+		también está en $C$ pero al menos una flecha del ciclo no está en $ \F{C} $, lo cual no puede ser), se sabe que la subdigráfica tiene un núcleo. Por lo tanto, $C$ es núcleo imperfecta crítica.
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\end{enumerate}
