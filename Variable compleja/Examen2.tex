@@ -1,0 +1,116 @@
+\documentclass[12pt, fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 15mm, left = 12mm]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+\newcommand{\complejos}{\mathbb{C}}
+\newcommand{\cis}[2]{\cos \left( #1 \right) #2 i \sen \left( #1 \right)}
+\newcommand{\clase}[1]{$ \mathcal{C}^#1 $}
+
+\begin{document}
+	\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ejercicio 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item \begin{enumerate}
+			\item Solución.
+			
+			Se tiene que:
+
+			\begin{align*}
+				z^3 - 27i = 0 \Longleftrightarrow & z^3 = 27i \\
+				%
+				\Longleftrightarrow & z = \sqrt[3]{27} \left[ \cis{\dfrac{\dfrac{\pi}{2}}{3}}{+} \right] \mbox{ ó } \\
+				& z = \sqrt[3]{27} \left[ \cis{\dfrac{\dfrac{\pi}{2} + 2 \pi}{3}}{+} \right] \mbox{ ó } \\
+				& z = \sqrt[3]{27} \left[ \cis{\dfrac{\dfrac{\pi}{2} + 4 \pi}{3}}{+} \right] \\
+				%
+				\Longleftrightarrow & z = 3 \left[ \cis{\dfrac{\pi}{6}}{+} \right] \mbox{ ó } \\
+				& z = 3 \left[ \cis{\dfrac{5 \pi}{6}}{+} \right] \mbox{ ó } \\
+				& z = 3 \left[ \cis{\dfrac{9 \pi}{6}}{+} \right] \\
+				%
+				\Longleftrightarrow & z = \dfrac{3 \sqrt{3}}{2} + i \dfrac{3}{2} \mbox{ ó } \\
+				& z = - \dfrac{3 \sqrt{3}}{2} + i \dfrac{3}{2} \mbox{ ó } \\
+				& z = -3i \\
+			\end{align*}
+			
+			Ya que las funciones racionales son holomorfas en $ \complejos $, excepto en los valores donde se anula el denominador, por lo anterior, se concluye que $f$ es holomorfa en $ \complejos \setminus \left\lbrace \frac{3 \sqrt{3}}{2} + i \frac{3}{2}, - \frac{3 \sqrt{3}}{2} + i \frac{3}{2}, -3i \right\rbrace $. Además,
+
+			\begin{align*}
+				f'(z) &= \dfrac{(z^3 - 27i)(12z^3 - 4z) - (3z^4 - 2z^2 + i) (3z^2)}{(z^3 - 27i)^2} \\
+				%
+				&= \dfrac{12z^6 - 324 iz^3 - 4z^4 + 108iz - 9z^6 + 6z^4 - 3iz^2}{(z^3 - 27i)^2} \\
+				%
+				&= \dfrac{3z^6 - 324 iz^3 + 108iz + 2z^4 - 3iz^2}{(z^3 - 27i)^2} \\
+			\end{align*}
+
+			\item Demostración.
+			
+			Ya que $ f $ es holomorfa, se tiene que $f$ es de clase \clase{\infty}, por lo que, la segunda derivada de $f$ existe, por lo que las segundas derivadas de $u$ y $v$ existen. Luego, por las ecuaciones de Cauchy-Riemann, se obtiene que
+
+			\begin{align*}
+				u_x = v_y & \Longrightarrow u_{xx} = v_{yx} = v_{xy}, \\
+				%
+				& \Longrightarrow u_{xy} = v_{yy}, \\
+				%
+				u_y = -v_x & \Longrightarrow u_{yy} = -v_{xy} \mbox{ y }, \\
+				%
+				& \Longrightarrow u_{xy} = u_{yx} = -v_{xx},
+			\end{align*}
+
+			De esta forma, para todo $ z \in A $, se da que
+
+			\begin{align*}
+				u_{xx} (z) = -u_{yy} (z) \quad \mbox{y} \quad v_{yy} (z) = -v_{xx} (z) \\
+				%
+				\Longrightarrow u_{xx} (z) + u_{yy} (z) = 0 \quad \mbox{y} \quad v_{xx} (z) + v_{yy} (z) = 0
+			\end{align*}
+			
+			Por lo tanto, $u$ y $v$ son armónicas.
+		\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ejercicio 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item \begin{enumerate}
+			\item Demostración.
+			
+			Sea $ z = x + iy \in \complejos $, se tiene que
+
+			\begin{align*}
+				f(z) &= \sen (\overline{z}) \\
+				%
+				&= \dfrac{e^{i\overline{z}} - e^{-i\overline{z}}}{2i} \\
+				%
+				&= \dfrac{e^{i(x - iy)} - e^{-i(x - iy)}}{2i} \\
+				%
+				&= \dfrac{e^{y + ix} - e^{-y - ix}}{2i} \\
+				%
+				&= \dfrac{e^{y} \left( \cis{x}{+} \right) - e^{-y} \left( \cis{x}{-} \right)}{2i} \\
+				%
+				&= \dfrac{\left( e^{y} - e^{-y} \right) \cos(x)}{2i} + \dfrac{\left( e^{y} + e^{-y} \right) \sen(x)}{2}\\
+				%
+				&= \dfrac{\left( e^{y} + e^{-y} \right) \sen(x)}{2} + i \dfrac{\left( e^{-y} - e^{y} \right) \cos(x)}{2} \\
+			\end{align*}
+
+			Así, $ f(x + iy) = u(x, y) + iv(x,y) $, donde $ u(x,y) = \dfrac{\left( e^{y} + e^{-y} \right) \sen(x)}{2} $ y \newline $ v(x,y) = \dfrac{\left( e^{-y} - e^{y} \right) \cos(x)}{2} $. Estas funciones tienen derivada, por lo que
+
+			\begin{align*}
+				u_x &= \dfrac{\left( e^{y} + e^{-y} \right) \cos(x)}{2}, v_y = \dfrac{\left( -e^{-y} - e^{y} \right) \cos(x)}{2}, u_y = \dfrac{\left( e^{y} - e^{-y} \right) \sen(x)}{2} \quad \mbox{y} \\
+				v_x &= \dfrac{\left( e^{y} - e^{-y} \right) \sen(x)}{2}
+			\end{align*}
+
+			Pero $ u_x \neq v_y $ y $ u_y \neq -v_x $, es decir, $f$ no satisface las ecuaciones de Cauchy-Riemann, por lo que $f$ no es holomorfa en $z$. Por lo tanto, $f$ no es holomorfa en ningun punto del plano complejo, pues $z$ fue arbitrario.
+
+			\item Solución.
+			
+			Ya que $f$ es una función entera, se da que $ f'(z) = 4z^3 $. De este modo, $ f'(z) = 0 $ si $ z = 0 $, por lo cual $f$ no es conforme en $ z = 0 $, pero si en cualquier otro punto del plano complejo.
+
+			Luego, por una observación, se sabe que las funciones conformes conservan ángulos. Si se considera el segmento de recta que va del origen a $1$, la curva $ C_1 $, y el segmento de recta que va del origen a $i$, la curva $ C_2 $, entonces estas curvas se intersectan en el origen y el ángulo que hay entre ellas es de $ \frac{\pi}{2} $. Después, la imágen de $ C_1 $ y $ C_2 $, bajo $f$, es la curva $ C_1 $, en ambos casos, por lo que las imágenes, bajo $f$, de estas curvas tienen un ángulo de $0$. De esta manera, la propiedad de que los ángulos se preservan, se pierde, dado que $f$ no es conforme en $0$.
+
+			%Por último, sea $ U $ un abierto que contiene al origen, por definición de abierto, existe $ \epsilon > 0 $ tal que $ B_\epsilon (0) \subseteq U $. Si $ z_0 \in B_\epsilon (0) $, entonces existen $ w_0, w_1, w_2, w_3 \in \complejos $ tales que, bajo $f$, se transforman en $ z_0 $, ya que un complejo siempre tiene $n$ raíces $n$-ésimas.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
