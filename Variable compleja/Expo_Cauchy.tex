@@ -1,0 +1,144 @@
+\documentclass[12pt, fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 15mm, left = 12mm]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+\newcommand{\complejos}{\mathbb{C}}
+\newcommand{\enteros}{\mathbb{Z}}
+\newcommand{\naturales}{\mathbb{N}}
+\newcommand{\reales}{\mathbb{R}}
+\newcommand{\cis}[2]{\cos \left( #1 \right) #2 i \sen \left( #1 \right)}
+\newcommand{\clase}[1]{$ \mathcal{C}^#1 $}
+\newcommand{\integ}[3]{\int_{#1} #2 \, \mathrm{d} #3}
+
+\begin{document}
+	Lema (Integrales de tipo Cauchy). Sean $ \gamma \colon [a,b] \to \complejos $ una curva \clase{1} por tramos, $ \phi \colon \gamma([a,b]) \to \complejos $ continua y $ n \in \enteros \setminus \lbrace 0 \rbrace $. Si 
+
+	\begin{equation*}
+		g(z) = \integ{\gamma}{\phi(w)(w-z)^n}{w}
+	\end{equation*}
+
+	entonces $g$ es analítica y \clase{\infty} en el sentido complejo en $ \complejos \setminus \gamma([a,b]) $.
+
+	Además, si $ n = -1 $, entonces para cualquier $ k \in \naturales $,
+
+	\begin{equation*}
+		g^{(k)} (z) = k! \integ{\gamma}{\dfrac{\phi(w)}{(w-z)^{k+1}}}{w}.
+	\end{equation*}
+
+	\textbf{Demostración.}
+
+	Sean $ n \in \enteros \setminus \lbrace 0 \rbrace, z_0 \in \complejos \setminus \gamma([a,b]) $ y $ \lbrace h_p \rbrace_{p \in \naturales} $ una sucesión que converge a 0.
+
+	P.d. $ \dfrac{(w - z_0 - h_p)^n - (w - z_0)^n}{h_p} \to -n(w - z_0)^{n-1} \, \forall w \in \gamma([a,b]) $.
+
+	Sean $ w \in \gamma([a,b]) $ y $ u = w - z_0 $. Como $ \gamma $ es compacto en $ \complejos $, se tiene que $ N \leq \lvert u \rvert \leq M $ para algunos $ N, M \in \reales^+ $. Luego, 
+
+	\begin{itemize}
+		\item Si $ n > 0 $ entonces
+		
+		\begin{align*}
+			\left\lvert \dfrac{(u - h_p)^n - u^n}{h_p} + nu^{n-1} \right\rvert &= \left\lvert \dfrac{\sum_{k=0}^{n} \binom{n}{k} (-1)^k u^{n-k} h_p^k - u^n}{h_p} + nu^{n-1} \right\rvert \\
+			%
+			&= \left\lvert \dfrac{\sum_{k=1}^{n} \binom{n}{k} (-1)^k u^{n-k} h_p^k}{h_p} + nu^{n-1} \right\rvert \\
+			%
+			&= \left\lvert \sum_{k=1}^{n} \binom{n}{k} (-1)^k u^{n-k} h_p^{k-1} + nu^{n-1} \right\rvert \\
+			%
+			&= \left\lvert \sum_{k=2}^{n} \binom{n}{k} (-1)^k u^{n-k} h_p^{k-1} \right\rvert \\
+			%
+			&\leq \sum_{k=2}^{n} \binom{n}{k} \left\lvert u^{n-k} h_p^{k-1} \right\rvert \\
+			%
+			&< n^n M^n \sum_{k=2}^{n} \left\lvert h_p \right\rvert^{k-1}
+		\end{align*}
+
+		Por lo que
+
+		\begin{equation*}
+			\lim_{p \to \infty} \dfrac{(w - z_0 - h_p)^n - (w - z_0)^n}{h_p} = -n(w - z_0)^{n-1}
+		\end{equation*}
+
+		\item Si $ n < 0 $ entonces sea $ m = -n $, se da que
+		
+		\begin{align*}
+			\left\lvert \dfrac{(u - h_p)^n - u^n}{h_p} + nu^{n-1} \right\rvert &= \left\lvert \dfrac{1}{h_p} \left( \dfrac{1}{(u - h_p)^m} - \dfrac{1}{u^m} \right) - \dfrac{m}{u^{m+1}} \right\rvert \\
+			%
+			&= \left\lvert \dfrac{1}{h_p} \left( \dfrac{u^m - (u - h_p)^m}{(u - h_p)^m u^m} \right) - \dfrac{m}{u^{m+1}} \right\rvert \\
+			%
+			&= \left\lvert \dfrac{1}{h_p} \left( \dfrac{u^m - \sum_{k=0}^{m} \binom{m}{k} (-1)^k u^{m-k} h_p^k}{(u - h_p)^m u^m} \right) - \dfrac{m}{u^{m+1}} \right\rvert \\
+			%
+			&= \left\lvert \dfrac{1}{h_p} \left( \dfrac{\sum_{k=1}^{m} \binom{m}{k} (-1)^{k+1} u^{m-k} h_p^k}{(u - h_p)^m u^m} \right) - \dfrac{m}{u^{m+1}} \right\rvert \\
+			%
+			&= \left\lvert \left( \dfrac{\sum_{k=1}^{m} \binom{m}{k} (-1)^{k+1} u^{m-k} h_p^{k-1}}{(u - h_p)^m u^m} \right) - \dfrac{m}{u^{m+1}} \right\rvert \\
+			%
+			&\leq \left\lvert \dfrac{m}{(u - h_p)^m u} - \dfrac{m}{u^{m+1}} \right\rvert + \left\lvert \dfrac{\sum_{k=2}^{m} \binom{m}{k} (-1)^{k+1} u^{-k} h_p^{k-1}}{(u - h_p)^m} \right\rvert \\
+			%
+			&= \left\lvert \dfrac{m(u^m - (u - h_p)^m)}{(u - h_p)^m u^{m+1}} \right\rvert + \dfrac{\sum_{k=2}^{m} \binom{m}{k} \left\lvert u^{-k} h_p^{k-1} \right\rvert}{\left\lvert u - h_p \right\rvert^m} \\
+			%
+			&\leq \dfrac{m}{(N - h_p)^m N^{m+1}} \left\lvert u^m - (u - h_p)^m \right\rvert + \dfrac{m^m}{(N - h_p)^m N^m} \sum_{k=2}^{m} \left\lvert h_p \right\rvert^{k-1}
+		\end{align*}
+		
+		Por lo cual
+
+		\begin{equation*}
+			\lim_{p \to \infty} \dfrac{(w - z_0 - h_p)^n - (w - z_0)^n}{h_p} = -n(w - z_0)^{n-1}
+		\end{equation*}
+	\end{itemize}
+	
+	Luego, dado que $ \phi $ está definida en $ \gamma $ y es continua, se tiene que $ \phi $ es uniformemente continua, lo que implica que $ \phi $ está acotada. De este modo,
+
+	\begin{equation*}
+		\lim_{p \to \infty} \dfrac{(w - z_0 - h_p)^n - (w - z_0)^n}{h_p} \phi(w) = -n \phi(w) (w - z_0)^{n-1}
+	\end{equation*}
+
+	Y por el Teorema anterior, se obtiene que
+
+	\begin{align*}
+		g'(z_0) = \lim_{p \to \infty} \dfrac{g(z_0 + h_p) - g(z_0)}{h_p} &= \lim_{p \to \infty} \dfrac{\integ{\gamma}{\phi(w) \left[ (w - z_0 - h_p)^n - (w - z_0)^n \right] }{w}}{h_p} \\
+		%
+		&= \integ{\gamma}{\lim_{p \to \infty} \dfrac{\phi(w) \left[ (w - z_0 - h_p)^n - (w - z_0)^n \right] }{h_p}{w}} \\
+		%
+		&= -n \integ{\gamma}{\phi(w) (w - z_0)^{n-1}}{w}
+	\end{align*}
+
+	Como $ z $ fue arbitaria, la igualdad anterior se cumple para todo $ z \in \complejos \setminus \gamma([a,b]) $. Después, notemos que 
+
+	\begin{equation*}
+		g''(z_0) = -n \left( (1-n) \integ{\gamma}{\phi(w) (w - z_0)^{n-2}}{w} \right) = n(n-1) \integ{\gamma}{\phi(w) (w - z_0)^{n-2}}{w}
+	\end{equation*}
+
+	Y siguiendo así se concluye que $ g $ es \clase{\infty} en el sentido complejo en $ \complejos \setminus \gamma([a,b]) $, además de que es analítica.
+
+	Por último, si $ n = -1 $ entonces, procediendo por inducción sobre $k$, el orden de la derivada de $g$:
+
+	Si $ k = 1 $ entonces, por lo anterior se obtiene que 
+
+	\begin{equation*}
+		g'(z) = -(-1) \integ{\gamma}{\phi(w) (w - z)^{-1-1}}{w} = \integ{\gamma}{\dfrac{\phi(w)}{(w-z)^2}}{w}
+	\end{equation*}
+
+	Posteriormente, suponiendo que para $ k = m $ se cumple que
+
+	\begin{equation*}
+		g^{(m)} (z) = m! \integ{\gamma}{\dfrac{\phi(w)}{(w-z)^{m+1}}}{w}
+	\end{equation*}
+
+	Entonces para $ k = m + 1 $ se da que
+
+	\begin{equation*}
+		g^{(m+1)} (z) = m! \left( (m+1) \integ{\gamma}{\dfrac{\phi(w)}{(w-z)^{m+2}}}{w} \right) = (m+1)! \integ{\gamma}{\dfrac{\phi(w)}{(w-z)^{m+2}}}{w}
+	\end{equation*}
+
+	Por lo tanto, 
+
+	\begin{equation*}
+		g^{(k)} (z) = k! \integ{\gamma}{\dfrac{\phi(w)}{(w-z)^{k+1}}}{w}.
+	\end{equation*}
+\end{document}
