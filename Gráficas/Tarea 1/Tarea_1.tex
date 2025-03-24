@@ -1,0 +1,108 @@
+\documentclass[12pt, fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 21mm]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{urwchancal}
+\usepackage{tikz}
+\usetikzlibrary{babel, arrows.meta, positioning, decorations.pathmorphing, backgrounds, fit, petri}
+
+\usepackage[proportional,scaled=1]{erewhon}
+\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \setlength\abovedisplayskip{-9pt}%
+    \setlength\belowdisplayskip{5pt}%
+}
+
+\newcommand{\V}[1]{\mathrm{V} \! \left( #1 \right)}
+\newcommand{\F}[1]{\mathrm{F} \! \left( #1 \right)}
+\newcommand{\tray}[2]{$ #1 #2 $ -- trayectoria}
+\newcommand{\cam}[2]{$ #1 #2 $ -- camino}
+\newcommand{\grado}[2]{\mathrm{gr}_{#2} \left( #1 \right)}
+\newcommand{\dist}[2]{\mathrm{d}(#1,#2)}
+
+\begin{document}
+	\begin{center}
+		{\huge \textsc{Teoría avanzada de Gráficas}}
+
+		{\Large \textsc{Tarea 1}} \\
+		Osmar Dominique Santana Reyes \\
+		24 de Marzo de 2025
+	\end{center} \vspace{3mm}
+
+	\begin{enumerate}
+		\item Probar que si $ G $ es una gráfica conexa de orden 3 o más, entonces cada puente de $ G $ incide en un vértice de corte de $ G $.
+		
+		Demostración.
+
+		Sea $ G $ una gráfica conexa de orden mayor o igual a tres y $ e = uv $ un puente de $ G $. Como el orden de $ G $ es mayor o igual a 3 hay un vértice $ w \in \V{G} $, distinto de $ u $ y $ v $, tal que  
+
+		\item Probar que un vértice $ v $ en una gráfica $ G $ es un vértice de corte si y solo si hay dos vértices $ u $ y $ w $ distintos de $ v $ tales que $ v $ está en cada \tray{u}{w} en $ G $.
+		
+		Demostración.
+
+
+
+		\item Una arista $ e $ en una gráfica $ G $ es un puente si y solo si $ e $ no está contenido en un ciclo de $ G $.
+		
+		Demostración.
+
+
+
+		\item Para cada dos vértices $ u $ y $ v $ de una gráfica $ G $ no separable de orden 3 o más hay dos \tray{u}{v}s distintas en $ G $ que solo tienen a $ u $ y $ v $ en común.
+		
+		Demostración.
+
+
+
+		\item Cada gráfica conexa que contiene vértices de corte contiene al menos dos bloques terminales.
+		
+		Demostración.
+
+
+
+		\item Probar o dar un contraejemplo: Si $ B $ es un bloque de orden 3 o más en una gráfica conexa $ G $, entonces hay un ciclo en $ B $ que contiene a todos los vértices de $ B $.
+		\item Probar que si $ G $ es una gráfica de orden $ n \geq 3 $ tal que $ \grado{u}{G} + \grado{v}{G} \geq n $ para cada par $ u, v $ de vértices no adyacentes en $ G $, entonces $ G $ no es separable.
+		
+		Demostración.
+
+
+
+		\item Sea $ u $ un vértice de corte en una gráfica conexa $ G $ y sea $ v $ un vértice de $ G $ tal que $ \dist{u}{v} = k \geq 1 $. Mostrar que $ G $ contiene un vértice $ w $ tal que $ \dist{v}{w} > k $.
+		
+		Demostración.
+
+
+
+		\item Sea $ G $ una gráfica conexa de orden $ n $ y tamaño $ m $ tal que $ \V{G} = \left\{ v_1, v_2, \ldots, v_n \right\} $. Sea $ b(v_i) $ el número de bloques a los que $ v_i $ pertenece.
+		
+		\begin{enumerate}
+			\item Mostrar que $ \displaystyle \sum_{i=1}^{n} b(v_i) \leq 2m $.
+			
+			Demostración.
+
+
+
+			\item Mostrar que $ \displaystyle \sum_{i=1}^{n} b(v_i) = 2m $ si y solo si $ G $ es un árbol.
+			
+			Demostración.
+
+
+
+		\end{enumerate}
+
+		\item Determinar todos los árboles $ T $ tal que $ \overline{T} $ es también un árbol.
+		
+		Demostración.
+
+
+
+	\end{enumerate}
+\end{document}
