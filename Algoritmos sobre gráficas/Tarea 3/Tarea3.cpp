@@ -1,25 +1,25 @@
 #include <iostream>
-#include <locale>
+#include <locale.h>
 #include <vector>
 using namespace std;
 
 // Osmar Dominique Santana Reyes
 
-// Algoritmo de b˙squeda en profundidad
-// Este programa obtiene el ·rbol generador de una gr·fica dada (o bosque generador si la gr·fica es disconexa).
-// Para esto, se obtendr· una lista de aristas que inducir·n el ·rbol o bosque generador de la gr·fica original.
-// La funciÛn Buscar() asigna al vector *visitado* tantos ceros seg˙n el orden de la gr·fica, inicializa un Ìndice *id* en 0 y verifica quÈ vÈrtices de la gr·fica ya han sido visitados, es decir,
-// cu·les ya han sido cubiertos por las aristas. Esto ˙ltimo es importante en el caso de las gr·ficas disconexas, pues en lo que sigue del algoritmo se obtendr·n las aristas deseadas de solo una de las componentes conexas.
-// Si hay un vÈrtice que no haya sido visitado entonces se usa la funciÛn Visitar(), con entrada el vÈrtice no visitado. En caso contrario, no se hace nada.
-//     Luego, en esta funciÛn se aumenta en 1 la variable *id* y el valor de esta se le asigna al vector *visitado* en la entrada que corresponde al vÈrtice no visitado y se imprime la etiqueta del vÈrtice.
-//     Posteriormente, si el vÈrtice no visitado es adyacente a otro vÈrtice que tampoco ha sido visitado entonces ambos son registrados en el vector *Indaristas*,
-//     el cual contiene los pares de vÈrtices de cada arista que ser· parte del ·rbol generador, adem·s de que se volver· a ejecutar la funciÛn Visitar() pero cuya entrada es el otro vector no visitado.
-//     La funciÛn Visitar() se ejecutar· hasta que haya un vÈrtice que no sea adyacente a otro no visitado. Cuando esto pase, el programa,
-//     continuar· con los vÈrtices que se hayan quedado pendientes y terminar· de ejecutarse cuando todos los vÈrtices hayan sido visitados, es decir, cuando el vector *visitado* ya no tenga ceros.
-// Finalmente, se imprimen los vÈrtices terminales de las aristas que inducen el ·rbol o bosque generador de la gr·fica dada.
-// En caso, de haber vÈrtices no cubiertos por estas aristas, entonces estos vÈrtices son aislados.
+// Algoritmo de b√∫squeda en profundidad
+// Este programa obtiene el √°rbol generador de una gr√°fica dada (o bosque generador si la gr√°fica es disconexa).
+// Para esto, se obtendr√° una lista de aristas que inducir√°n el √°rbol o bosque generador de la gr√°fica original.
+// La funci√≥n Buscar() asigna al vector *visitado* tantos ceros seg√∫n el orden de la gr√°fica, inicializa un √≠ndice *id* en 0 y verifica qu√© v√©rtices de la gr√°fica ya han sido visitados, es decir,
+// cu√°les ya han sido cubiertos por las aristas. Esto √∫ltimo es importante en el caso de las gr√°ficas disconexas, pues en lo que sigue del algoritmo se obtendr√°n las aristas deseadas de solo una de las componentes conexas.
+// Si hay un v√©rtice que no haya sido visitado entonces se usa la funci√≥n Visitar(), con entrada el v√©rtice no visitado. En caso contrario, no se hace nada.
+//     Luego, en esta funci√≥n se aumenta en 1 la variable *id* y el valor de esta se le asigna al vector *visitado* en la entrada que corresponde al v√©rtice no visitado y se imprime la etiqueta del v√©rtice.
+//     Posteriormente, si el v√©rtice no visitado es adyacente a otro v√©rtice que tampoco ha sido visitado entonces ambos son registrados en el vector *Indaristas*,
+//     el cual contiene los pares de v√©rtices de cada arista que ser√° parte del √°rbol generador, adem√°s de que se volver√° a ejecutar la funci√≥n Visitar() pero cuya entrada es el otro vector no visitado.
+//     La funci√≥n Visitar() se ejecutar√° hasta que haya un v√©rtice que no sea adyacente a otro no visitado. Cuando esto pase, el programa,
+//     continuar√° con los v√©rtices que se hayan quedado pendientes y terminar√° de ejecutarse cuando todos los v√©rtices hayan sido visitados, es decir, cuando el vector *visitado* ya no tenga ceros.
+// Finalmente, se imprimen los v√©rtices terminales de las aristas que inducen el √°rbol o bosque generador de la gr√°fica dada.
+// En caso, de haber v√©rtices no cubiertos por estas aristas, entonces estos v√©rtices son aislados.
 
-// Orden
+// Orden: O((Indaristas.size()+1)/2 + tamano + orden^2)
 
 void IngresaAristas(int tamano, int M[30][30]);
 void ImprimeMatriz(int orden, int M[30][30]);
@@ -34,11 +34,10 @@ int i, j, orden, tamano, M[30][30], visitado[30];
 int main()
 {
     setlocale(LC_ALL, "");
-    cout
-    <<"Ingrese el orden de la gr·fica: ";
+    cout<<"Ingrese el orden de la gr√°fica: ";
     cin>>orden;
 
-    cout<<endl<<"Ingrese el tamaÒo de la gr·fica: ";
+    cout<<endl<<"Ingrese el tama√±o de la gr√°fica: ";
     cin>>tamano;
 
     IngresaAristas(tamano, M);
@@ -52,7 +51,7 @@ int main()
 
     cout<<endl<<endl;
 
-    cout<<"El ·rbol generador es la subgr·fica inducida por las aristas: "<<endl;
+    cout<<"El √°rbol (o bosque) generador es la subgr√°fica inducida por las aristas: "<<endl;
 
     for(i = 0; i < (Indaristas.size()+1)/2; i++)
     {
@@ -68,7 +67,7 @@ void IngresaAristas(int tamano, int M[30][30])
     char v1, v2;
     for(i = 1; i <= tamano; i++)
     {
-        cout<<endl<<"Inserte los vÈrtices de la "<<i<<"∞ arista: ";
+        cout<<endl<<"Inserte los v√©rtices de la "<<i<<"¬∞ arista: ";
         cin>>v1>>v2;
 
         int ver1 = v1;
