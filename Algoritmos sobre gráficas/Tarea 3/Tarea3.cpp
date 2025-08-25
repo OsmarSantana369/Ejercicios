@@ -7,7 +7,7 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra un árbol (o bosque) generador de una gráfica dada.
+Este programa encuentra un árbol (o bosque) generador de una gráfica dada (Algoritmo de búsqueda en profundidad).
 
 Para esto se usa la función Buscar() que rellena al vector *Insertado* con ceros y luego verifica qué vértices ya fueron visitados. Si hay alguno que no fue visitado, se utiliza la función Visitar(), para recorrer la gráfica y marcar los vértices visitados. 
 Es decir, se fija en los vértices adyacentes al que está visitando y si encuentra alguno que no fue visitado, se vuelve a ejecutar la función Visitar(), hasta que no encuentre más vértices adyacentes no visitados.
