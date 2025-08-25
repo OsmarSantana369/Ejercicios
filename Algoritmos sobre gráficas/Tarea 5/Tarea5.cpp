@@ -64,7 +64,7 @@ void IngresaAristas(int tamano, vector<vector<int>>& M)
             M[ver1][ver2] = 1;
             M[ver2][ver1] = 1;
         } else {
-            cout<<"Vértices fuera de rango. Intentelo nuevamente.\n";
+            cout<<"Vértices fuera de rango. Inténtelo nuevamente.\n";
             i--;
         }
     }
@@ -104,9 +104,9 @@ void Complemento(int orden, vector<vector<int>>& M)
     cout<<endl<<"Y sus aristas son:"<<endl;
 
     for (int i = 1; i <= orden; i++) {
-            for (int j = i+1; j <= orden; j++) {
-                if(MC[i][j] == 1)
-                    cout<<char(i+96)<<char(j+96)<<endl;
-            }
+        for (int j = i+1; j <= orden; j++) {
+            if(MC[i][j] == 1)
+                cout<<char(i+96)<<char(j+96)<<endl;
+        }
     }
 }

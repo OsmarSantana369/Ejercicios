@@ -1,4 +1,4 @@
-##include <iostream>
+#include <iostream>
 #include <locale>
 #include <vector>
 #include <cctype>
@@ -7,65 +7,72 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa obtiene la matriz de adyacencia de una gr√°fica y la imprime.
+Este programa encuentra un ·rbol (o bosque) generador de una gr·fica dada.
 
-Para esto se ingresa el orden y tama√±o de la gr√°fica, en caso de no ser los adecuados, se imprime un mensaje con esta aclaraci√≥n.
-Cuando s√≠ lo son se crea una matriz cuadrada de dimensi√≥n *orden* y se ejecuta la funci√≥n IngresaAristas() que solicita las adyacencias de la gr√°fica,
-a partir de las etiquetas de los v√©rtices (las letras del abecedario iniciando en la "a").
-Luego, se obtiene su √≠ndice dentro de la matriz de adyacencia y se coloca 1 en las entradas correspondientes.
-Si alg√∫n v√©rtice no corresponde a la gr√°fica se imprime un mensaje para volver a hacer la incersi√≥n.
-Despu√©s, se ejecuta la funci√≥n ImprimeMatriz() que imprime la matriz junto con encabezados de los v√©rtices que corresponden.
+Para esto se usa la funciÛn Buscar() que rellena al vector *Insertado* con ceros y luego verifica quÈ vÈrtices ya fueron visitados. Si hay alguno que no fue visitado, se utiliza la funciÛn Visitar(), para recorrer la gr·fica y marcar los vÈrtices visitados. 
+Es decir, se fija en los vÈrtices adyacentes al que est· visitando y si encuentra alguno que no fue visitado, se vuelve a ejecutar la funciÛn Visitar(), hasta que no encuentre m·s vÈrtices adyacentes no visitados.
 
-Orden del algoritmo: O(tamano + orden^2)
+Si la gr·fica no es conexa, la funciÛn Buscar() se encargar· de encontrar todas las componentes conexas y generar un bosque generador en lugar de un ·rbol generador.
+
+Por ˙ltimo, se imprimen las aristas que inducen el ·rbol (bosque) generador.
+
+Orden del algoritmo: O(orden^2 + tamano)
 */
 
 void IngresaAristas(int tamano, vector<vector<int>>& M);
 void ImprimeMatriz(int orden, vector<vector<int>>& M);
-void Buscar(int vector<int>& visitado);
-void Visitar(int k, int id);
+void Buscar(vector<int>& visitado, vector<vector<int>>& M);
+void Visitar(int k, int id, vector<int>& visitado, vector<vector<int>>& M);
 
 std::vector<char> Indaristas;
 char letra;
-int i, j, orden, tamano, M[30][30], visitado[30];
-
+int i, j, orden, tamano;
 
 int main()
 {
     setlocale(LC_ALL, "");
-    cout
-    <<"Ingrese el orden de la gr√°fica: ";
+
+    cout<<"Ingrese el orden de la gr·fica: ";
     cin>>orden;
 
-    cout<<endl<<"Ingrese el tama√±o de la gr√°fica: ";
+    if (orden <= 0) {
+        cout<<"Orden inv·lido. Debe ser mayor que 0.\n";
+        return 1;
+    }
+
+    cout<<"\nIngrese el tamaÒo de la gr·fica: ";
     cin>>tamano;
 
+    if (tamano < 0 || tamano > orden*(orden - 1)/2) {
+        cout<<"TamaÒo inv·lido para una gr·fica simple.\n";
+        return 1;
+    }
+
+    vector<vector<int>> M(orden+1, vector<int>(orden+1, 0));
+    vector<int> visitado(orden+1);
+
     IngresaAristas(tamano, M);
-
-    cout<<endl;
-
-    cout<<"La matriz de adyacencia es la siguiente:"<<endl;
     ImprimeMatriz(orden, M);
 
-    Buscar(visitado);
+    Buscar(visitado, M);
 
     cout<<endl<<endl;
 
-    cout<<"El √°rbol generador es la subgr√°fica inducida por las aristas: "<<endl;
+    cout<<"El ·rbol (bosque) generador es la subgr·fica inducida por las aristas: "<<endl;
 
-    for(i = 0; i < (Indaristas.size()+1)/2; i++)
-    {
-        cout<<Indaristas[2*i]<<Indaristas[2*i + 1]<<endl;
+    for(i = 0; i < Indaristas.size(); i += 2){
+        cout<<Indaristas[i]<<Indaristas[i+1]<<endl;
     }
 
     return 0;
 }
 
-//Funci√≥n para ingresar las adyacencias de la gr√°fica
+//funciÛn para ingresar las adyacencias de la gr·fica
 void IngresaAristas(int tamano, vector<vector<int>>& M)
 {
     char v1, v2;
     for (int i = 1; i <= tamano; i++) {
-        cout<<"\nInserte los v√©rtices de la "<<i<<"¬∞ arista: ";
+        cout<<"\nInserte los vÈrtices de la "<<i<<"∞ arista: ";
         cin>>v1>>v2;
 
         int ver1 = tolower(v1) - 96;
@@ -75,13 +82,13 @@ void IngresaAristas(int tamano, vector<vector<int>>& M)
             M[ver1][ver2] = 1;
             M[ver2][ver1] = 1;
         } else {
-            cout<<"V√©rtices fuera de rango. Intentelo nuevamente.\n";
+            cout<<"vÈrtices fuera de rango. IntÈntelo nuevamente.\n";
             i--;
         }
     }
 }
 
-// Funci√≥n para imprimir la matriz de adyacencia
+// funciÛn para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<int>>& M)
 {
     cout<<"\n ";
@@ -98,7 +105,7 @@ void ImprimeMatriz(int orden, vector<vector<int>>& M)
     cout<<endl;
 }
 
-void Buscar(int visitado[30])
+void Buscar(vector<int>& visitado, vector<vector<int>>& M)
 {
     int id, k;
     for(k = 1; k <= orden; k++)
@@ -109,11 +116,11 @@ void Buscar(int visitado[30])
     for(k = 1; k <= orden; k++)
     {
         if(visitado[k] == 0)
-            Visitar(k, id);
+            Visitar(k, id, visitado, M);
     }
 }
 
-void Visitar(int k, int id)
+void Visitar(int k, int id, vector<int>& visitado, vector<vector<int>>& M)
 {
     int x;
     id++;
@@ -128,8 +135,7 @@ void Visitar(int k, int id)
         {
             Indaristas.push_back(k+96);
             Indaristas.push_back(x+96);
-            Visitar(x, id);
+            Visitar(x, id, visitado, M);
         }
     }
 }
-

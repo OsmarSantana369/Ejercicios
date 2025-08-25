@@ -7,42 +7,40 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa obtiene la matriz de adyacencia de una gr√°fica y la imprime.
+Este programa verifica si una gr·fica tiene paseo euleriano cerrado, abierto o no lo tiene.
 
-Para esto se ingresa el orden y tama√±o de la gr√°fica, en caso de no ser los adecuados, se imprime un mensaje con esta aclaraci√≥n.
-Cuando s√≠ lo son se crea una matriz cuadrada de dimensi√≥n *orden* y se ejecuta la funci√≥n IngresaAristas() que solicita las adyacencias de la gr√°fica,
-a partir de las etiquetas de los v√©rtices (las letras del abecedario iniciando en la "a").
-Luego, se obtiene su √≠ndice dentro de la matriz de adyacencia y se coloca 1 en las entradas correspondientes.
-Si alg√∫n v√©rtice no corresponde a la gr√°fica se imprime un mensaje para volver a hacer la incersi√≥n.
-Despu√©s, se ejecuta la funci√≥n ImprimeMatriz() que imprime la matriz junto con encabezados de los v√©rtices que corresponden.
+Para esto se calcula el grado de cada vÈrtice a partir de su matriz de adyacencia y se cuenta cu·ntos vÈrtices tienen grado impar.
+Si todos los vÈrtices tienen grado par, la gr·fica tiene un paseo euleriano cerrado.
+Si exactamente dos vÈrtices tienen grado impar, la gr·fica tiene un paseo euleriano abierto.
+Si m·s de dos vÈrtices tienen grado impar, la gr·fica no tiene un paseo euleriano.
 
-Orden del algoritmo: O(tamano + orden^2)
+Orden del algoritmo: O(orden^2 + tamano)
 */
 
 void IngresaAristas(int tamano, vector<vector<int>>& M);
 void ImprimeMatriz(int orden, vector<vector<int>>& M);
 
 char letra;
-bool euleriana = true;
+bool euleriana = true, eulerianaAbierta = true;
 
 int main()
 {
     setlocale(LC_ALL, "");
     int orden, tamano, i, j;
 
-    cout<<"Ingrese el orden de la gr√°fica: ";
+    cout<<"Ingrese el orden de la gr·fica: ";
     cin>>orden;
 
     if (orden <= 0) {
-        cout<<"Orden inv√°lido. Debe ser mayor que 0.\n";
+        cout<<"Orden inv·lido. Debe ser mayor que 0.\n";
         return 1;
     }
 
-    cout<<"\nIngrese el tama√±o de la gr√°fica: ";
+    cout<<"\nIngrese el tamaÒo de la gr·fica: ";
     cin>>tamano;
 
     if (tamano < 0 || tamano > orden*(orden - 1)/2) {
-        cout<<"Tama√±o inv√°lido para una gr√°fica simple.\n";
+        cout<<"tamaÒo inv·lido para una gr·fica simple.\n";
         return 1;
     }
 
@@ -52,49 +50,47 @@ int main()
     IngresaAristas(tamano, M);
     ImprimeMatriz(orden, M);
 
-    cout<<endl<<"Los grados de cada v√©rtice son: "<<endl;
+    cout<<endl<<"Los grados de cada vÈrtice son: "<<endl;
 
-    for(i = 1; i <= orden; i++)
-    {
+    for(i = 1; i <= orden; i++){
         Grados[i] = 0;
 
         for(j = 1; j <= orden; j++)
-        {
             Grados[i] = Grados[i] + M[i][j];
-        }
     }
 
     letra = 'a';
 
-    for(i = 1; i <= orden; i++)
-    {
-        cout<<"gr("<<letra<<") = "<<Grados[i]<<endl;
+    for(i = 1; i <= orden; i++){
+        cout<<"gr("<<char(i+96)<<") = "<<Grados[i]<<endl;
         letra++;
     }
 
-    for(i = 1; i <= orden; i++)
-    {
-        if(Grados[i]%2 == 1)
-        {
+    j = 0;
+
+    for(i = 1; i <= orden; i++){
+        if(Grados[i]%2 == 1){
+            j++;
             euleriana = false;
-            break;
         }
     }
 
     if(euleriana)
-        cout<<"La gr√°fica es euleriana."<<endl;
+        cout<<endl<<"La gr·fica tiene un paseo euleriano cerrado."<<endl;
+    else if(j == 2)
+        cout<<endl<<"La gr·fica no tiene un paseo euleriano cerrado pero sÌ uno abierto."<<endl;
     else
-        cout<<"La gr√°fica no es euleriana."<<endl;
+        cout<<endl<<"La gr·fica no tiene alg˙n paseo euleriano."<<endl;
 
     return 0;
 }
 
-//Funci√≥n para ingresar las adyacencias de la gr√°fica
+// FunciÛn para ingresar las adyacencias de la gr·fica
 void IngresaAristas(int tamano, vector<vector<int>>& M)
 {
     char v1, v2;
     for (int i = 1; i <= tamano; i++) {
-        cout<<"\nInserte los v√©rtices de la "<<i<<"¬∞ arista: ";
+        cout<<"\nInserte los vÈrtices de la "<<i<<"∞ arista: ";
         cin>>v1>>v2;
 
         int ver1 = tolower(v1) - 96;
@@ -104,13 +100,13 @@ void IngresaAristas(int tamano, vector<vector<int>>& M)
             M[ver1][ver2] = 1;
             M[ver2][ver1] = 1;
         } else {
-            cout<<"V√©rtices fuera de rango. Intentelo nuevamente.\n";
+            cout<<"VÈrtices fuera de rango. IntÈntelo nuevamente.\n";
             i--;
         }
     }
 }
 
-// Funci√≥n para imprimir la matriz de adyacencia
+// FunciÛn para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<int>>& M)
 {
     cout<<"\n ";

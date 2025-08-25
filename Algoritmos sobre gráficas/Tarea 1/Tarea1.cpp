@@ -51,7 +51,7 @@ int main()
     return 0;
 }
 
-//Función para ingresar las adyacencias de la gráfica
+// Función para ingresar las adyacencias de la gráfica
 void IngresaAristas(int tamano, vector<vector<int>>& M)
 {
     char v1, v2;
@@ -66,7 +66,7 @@ void IngresaAristas(int tamano, vector<vector<int>>& M)
             M[ver1][ver2] = 1;
             M[ver2][ver1] = 1;
         } else {
-            cout<<"Vértices fuera de rango. Intentelo nuevamente.\n";
+            cout<<"Vértices fuera de rango. Inténtelo nuevamente.\n";
             i--;
         }
     }
