@@ -9,10 +9,10 @@ Osmar Dominique Santana Reyes
 
 Este programa encuentra un árbol (o bosque) generador de una gráfica dada (Algoritmo de búsqueda en profundidad).
 
-Se empieza por buscar el primer vértice (alfábeticamente) que no ha sido visitado y se usa la función Visitar() para añadirlo a *visitado*, mostrarlo en pantalla y buscar adyacencias que no esten en *visitado*.
+Se empieza por buscar el primer vértice (alfabéticamente) que no ha sido visitado y se usa la función Visitar() para añadirlo a *visitado*, mostrarlo en pantalla y buscar adyacencias que no esten en *visitado*.
     En caso de tener tales adyacencias, se añade la arista correspondiente a *Indaristas* y se usa Visitar() con el vértice encontrado.
     Este proceso se repite hasta que no haya más adyacencias por visitar, momento en el cual se regresa a Buscar() para repetir el proceso.
-El programa termina cuando todos los vértices están en *visitado*.
+El programa termina cuando todos los vértices estén en *visitado*.
 
 Si la gráfica no es conexa, la función Buscar() se encargará de encontrar todas las componentes conexas y generar un bosque generador en lugar de un árbol generador.
 
@@ -74,7 +74,7 @@ int main()
     return 0;
 }
 
-//función para ingresar las adyacencias de la gráfica
+//funciï¿½n para ingresar las adyacencias de la gráfica
 void IngresaAristas(int tamano, vector<vector<int>>& M){
     char v1, v2;
     for (int i = 1; i <= tamano; i++){
@@ -94,7 +94,7 @@ void IngresaAristas(int tamano, vector<vector<int>>& M){
     }
 }
 
-// función para imprimir la matriz de adyacencia
+// funciï¿½n para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<int>>& M){
     cout<<"\n ";
     for (int i = 1; i <= orden; i++){
