@@ -74,7 +74,7 @@ int main()
     return 0;
 }
 
-//funciï¿½n para ingresar las adyacencias de la gráfica
+//Función para ingresar las adyacencias de la gráfica
 void IngresaAristas(int tamano, vector<vector<int>>& M){
     char v1, v2;
     for (int i = 1; i <= tamano; i++){
@@ -94,7 +94,7 @@ void IngresaAristas(int tamano, vector<vector<int>>& M){
     }
 }
 
-// funciï¿½n para imprimir la matriz de adyacencia
+// Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<int>>& M){
     cout<<"\n ";
     for (int i = 1; i <= orden; i++){
