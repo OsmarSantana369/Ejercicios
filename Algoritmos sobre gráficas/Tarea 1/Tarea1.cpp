@@ -1,7 +1,6 @@
 #include <iostream>
 #include <locale>
 #include <vector>
-#include <cctype>
 using namespace std;
 
 /*
