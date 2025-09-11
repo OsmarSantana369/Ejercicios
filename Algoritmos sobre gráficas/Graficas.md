@@ -8,7 +8,7 @@
 
 ![Gráfica 2](Grafica2.png)
 
-3. abaeebbcceedfgifighg
+3. abadafbcbebfcdcecfdeef
 
 ![Gráfica 3](Grafica3.png)
 
@@ -23,7 +23,7 @@
 
 ![Gráfica 2](Grafica2.png)
 
-3. abaeebbcceedfgifighg   9 9 3 1 6 4 8 5 2 3
+3. abadafbcbebfcdcecfdeef   9 9 3 1 6 4 8 5 2 3 2
 
 ![Gráfica 3](Grafica3.png)
 
