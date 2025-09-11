@@ -25,12 +25,11 @@ Orden del algoritmo: O(orden^2 + tamano)
 
 void IngresaAristas(int tamano, vector<vector<float>>& M);
 void ImprimeMatriz(int orden, vector<vector<float>>& M);
-void Buscar(vector<vector<float>>& M);
-void Visitar(int k, vector<vector<float>>& M);
+void Buscar(vector<vector<float>>& M, int i, int orden, queue<char>& Indaristas[orden], queue<int>& PesosAristas[orden]);
+void Visitar(int k, vector<vector<float>>& M, int i, int orden, queue<char>& Indaristas[orden], queue<int>& PesosAristas[orden]);
 
-int i, j, orden, tamano;
+int i, j, orden, tamano, minax;
 stack<int> visitado;
-queue<char> Indaristas;
 
 int main()
 {
@@ -57,18 +56,38 @@ int main()
     IngresaAristas(tamano, M);
     ImprimeMatriz(orden, M);
 
-    Buscar(M);
+    cout << endl << "Inserte 0 si quiere obtener un árbol mínimo o 1 para un árbol máximo: ";
+    cin >> minax;
 
-    cout<<endl<<endl;
+    queue<int> PesosAristas[orden];
+    queue<char> Indaristas[orden];
 
-    cout<<"El árbol (bosque) generador es la subgráfica inducida por las aristas: "<<endl;
+    for(i = 1; i <= orden; i++){
+        Buscar(M, i, orden, Indaristas, PesosAristas);
 
-    while (!Indaristas.empty()) {
-		cout << Indaristas.front();
-		Indaristas.pop();
-		cout << Indaristas.front() << endl;
-		Indaristas.pop();
-	}
+        while(!visitado.empty())
+            visitado.pop();
+    }
+
+    cout<<endl;
+
+    for(i = 1; i <= orden; i++){
+        cout << "Empezando por :" << char(i+96) << endl;
+
+        if(minax == 0)
+            cout<<"El árbol (bosque) generador mínimo es la subgráfica inducida por las aristas: "<<endl;
+        else
+            cout<<"El árbol (bosque) generador máximo es la subgráfica inducida por las aristas: "<<endl;
+
+        while(!Indaristas[i].empty()){
+            cout << Indaristas[i].front();
+            Indaristas[i].pop();
+            cout << Indaristas[i].front();
+            Indaristas[i].pop();
+            cout << " con peso " << PesosAristas[i].front() << endl;
+            PesosAristas[i].pop();
+        }
+    }
 
     cout<<endl;
 
@@ -103,7 +122,7 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
                 cin >> peso;
                 M[i][j] = peso;
                 M[j][i] = peso;
-            }  
+            }
         }
     }
 }
@@ -116,7 +135,7 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M){
     }
 
     for (int i = 1; i <= orden; i++){
-        cout<<"\n"<<char(96 + i)<<"   ";
+        cout<<"\n"<<char(96 + i)<<"  ";
         for (int j = 1; j <= orden; j++){
             cout<<M[i][j]<<"   ";
         }
@@ -136,44 +155,53 @@ bool Encontrar(stack<int> fila, int elemento){
     return false;
 }
 
-void Buscar(vector<vector<float>>& M){
-    for (i = 1; i <= orden; i++){
-        if (!Encontrar(visitado, i))
-            Visitar(i, M);
+void Buscar(vector<vector<float>>& M, int i, int orden, queue<char>& Indaristas[orden], queue<int>& PesosAristas[orden]){
+    Visitar(i, M, i, orden, Indaristas, PesosAristas);
+
+    for (j = 1; j <= orden; j++){
+        if (!Encontrar(visitado, j))
+            Visitar(j, M, i, orden, Indaristas, PesosAristas);
     }
 }
 
-void Visitar(int k, vector<vector<float>>& M){
+void Visitar(int k, vector<vector<float>>& M, int i, int orden, queue<char>& Indaristas[orden], queue<int>& PesosAristas[orden]){
     visitado.push(k);
-    cout << endl << char(visitado.top()+96);
+    cout << char(visitado.top()+96) << endl;
     bool ady;
 
     do{
-        float pesoMenor = 0;
-        int verticeMenor;
+        float pesoM = 0;
+        int verticeM;
         ady = false;
 
         for(int x = 1; x <= orden; x++){
             if(M[k][x] != 0 && !Encontrar(visitado, x)){
                 if(ady){
-                    if(pesoMenor > M[k][x]){
-                        pesoMenor = M[k][x];
-                        verticeMenor = x;
+                    if(minax == 0){
+                        if(pesoM > M[k][x]){
+                            pesoM = M[k][x];
+                            verticeM = x;
+                        }
+                    } else {
+                        if(pesoM < M[k][x]){
+                            pesoM = M[k][x];
+                            verticeM = x;
+                        }
                     }
                 } else{
-                    pesoMenor = M[k][x];
-                    verticeMenor = x;
+                    pesoM = M[k][x];
+                    verticeM = x;
                     ady = true;
                 }
             }
         }
 
         if(ady){
-            Indaristas.push(k+96);
-            Indaristas.push(verticeMenor+96);
-            Visitar(verticeMenor, M);
+            Indaristas[i].push(k+96);
+            Indaristas[i].push(verticeM+96);
+            PesosAristas[i].push(pesoM);
+            Visitar(verticeM, M, i, orden, Indaristas, PesosAristas);
         }
 
     }while(ady);
-
 }
