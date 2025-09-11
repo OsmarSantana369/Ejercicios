@@ -83,25 +83,34 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
     for (int i = 1; i <= tamano; i++){
         cout<<"\nInserte los vértices de la "<<i<<"° arista: ";
         cin>>v1>>v2;
-        cout << "Inserte el peso de la arista: ";
-        cin >> peso;
 
         int ver1 = tolower(v1) - 96;
         int ver2 = tolower(v2) - 96;
 
-        if (ver1 > 0 && ver1 <= M.size() && ver2 > 0 && ver2 <= M.size()){
-            M[ver1][ver2] = peso;
-            M[ver2][ver1] = peso;
+        if (ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
+            M[ver1][ver2] = 1;
+            M[ver2][ver1] = 1;
         } else {
             cout<<"vértices fuera de rango. Inténtelo nuevamente.\n";
             i--;
+        }
+    }
+
+    for (int i = 1; i <= orden; i++){
+        for(int j = i+1; j <= orden; j++){
+            if(M[i][j] != 0){
+                cout << endl << "Ingrese el peso de la arista " << char(i+96) << char(j+96) << ": ";
+                cin >> peso;
+                M[i][j] = peso;
+                M[j][i] = peso;
+            }  
         }
     }
 }
 
 // Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
-    cout<<"\n ";
+    cout<<endl<<endl;
     for (int i = 1; i <= orden; i++){
         cout<<"   "<<char(96 + i);
     }
@@ -137,21 +146,23 @@ void Buscar(vector<vector<float>>& M){
 void Visitar(int k, vector<vector<float>>& M){
     visitado.push(k);
     cout << endl << char(visitado.top()+96);
-    bool ady = false;
-    float pesoMenor = 0;
-    int verticeMenor;
+    bool ady;
 
     do{
+        float pesoMenor = 0;
+        int verticeMenor;
+        ady = false;
+
         for(int x = 1; x <= orden; x++){
             if(M[k][x] != 0 && !Encontrar(visitado, x)){
                 if(ady){
                     if(pesoMenor > M[k][x]){
-                        float pesoMenor = M[k][x];
-                        int verticeMenor = x;
+                        pesoMenor = M[k][x];
+                        verticeMenor = x;
                     }
                 } else{
-                    float pesoMenor = M[k][x];
-                    int verticeMenor = x;
+                    pesoMenor = M[k][x];
+                    verticeMenor = x;
                     ady = true;
                 }
             }
