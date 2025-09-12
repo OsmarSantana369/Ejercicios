@@ -25,10 +25,11 @@ Orden del algoritmo: O(orden^2 + tamano)
 
 void IngresaAristas(int tamano, vector<vector<float>>& M);
 void ImprimeMatriz(int orden, vector<vector<float>>& M);
-void Buscar(vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<int>>& PesosAristas);
-void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<int>>& PesosAristas);
+void Buscar(vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<float>>& PesosAristas);
+void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<float>>& PesosAristas);
 
 int i, j, orden, tamano, minax;
+float PesoTotal;
 stack<int> visitado;
 
 int main()
@@ -59,7 +60,7 @@ int main()
     cout << endl << "Inserte 0 si quiere obtener un árbol mínimo o 1 para un árbol máximo: ";
     cin >> minax;
 
-    vector<queue<int>> PesosAristas(orden + 1);
+    vector<queue<float>> PesosAristas(orden + 1);
     vector<queue<char>> Indaristas(orden + 1);
 
     for(i = 1; i <= orden; i++){
@@ -71,6 +72,7 @@ int main()
     }
 
     for(i = 1; i <= orden; i++){
+        PesoTotal = 0;
         cout << endl << "Empezando por " << char(i+96) << endl;
 
         if(minax == 0)
@@ -83,9 +85,13 @@ int main()
             Indaristas[i].pop();
             cout << Indaristas[i].front();
             Indaristas[i].pop();
+
+            PesoTotal += PesosAristas[i].front();
             cout << " con peso " << PesosAristas[i].front() << endl;
             PesosAristas[i].pop();
         }
+
+        cout << "El peso del árbol es: " << PesoTotal << endl;
     }
 
     cout<<endl;
@@ -154,7 +160,7 @@ bool Encontrar(stack<int> fila, int elemento){
     return false;
 }
 
-void Buscar(vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<int>>& PesosAristas){
+void Buscar(vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<float>>& PesosAristas){
     Visitar(i, M, i, orden, Indaristas, PesosAristas);
 
     for (j = 1; j <= orden; j++){
@@ -163,7 +169,7 @@ void Buscar(vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Ind
     }
 }
 
-void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<int>>& PesosAristas){
+void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<float>>& PesosAristas){
     visitado.push(k);
     cout << char(visitado.top()+96) << endl;
     bool ady;
