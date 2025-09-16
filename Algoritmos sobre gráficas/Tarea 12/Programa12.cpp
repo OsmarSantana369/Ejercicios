@@ -8,17 +8,17 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra un árbol (o bosque) generador de una gráfica dada (Algoritmo de búsqueda en profundidad).
+Este programa encuentra un árbol (o bosque) generador mínimo o máximo de una gráfica dada.
 
-Se empieza por buscar el primer vértice (alfabéticamente) que no ha sido visitado y se usa la función Visitar() para añadirlo a *visitado*,
-mostrarlo en pantalla y buscar adyacencias que no esten en *visitado*.
-    En caso de tener tales adyacencias, se añade la arista correspondiente a *Indaristas* y se usa Visitar() con el vértice encontrado.
-    Este proceso se repite hasta que no haya más adyacencias por visitar, momento en el cual se regresa a Buscar() para repetir el proceso.
-El programa termina cuando todos los vértices estén en *visitado*.
+Se empieza por solicitar al usuario si desea obtener un árbol mínimo o máximo. El programa inicia en algún vértice de la gráfica y se usa la función Buscar() que primero ejecuta la función Visitar(). Esta función añade el vértice a *visitado* y lo muestra en pantalla. 
+Después, busca las adyacencias del vértice actual que no estén en *visitado* usando la matriz de adyacencia.
+    Si hay al menos una adyacencia, entonces el programa buscará aquella con el peso mínimo (o máximo, según corresponda), se añade la arista correspondiente a *Indaristas* y se usa Visitar() con el vértice encontrado. Este proceso se repite hasta que no haya más adyacencias por visitar. Cuando esto pase, el programa verificará si hay algún vértice que no haya sido visitado y que sea adyacente al vértice actual. De ser así, se repetirá el proceso desde ese vértice.
 
-Si la gráfica no es conexa, la función Buscar() se encargará de encontrar todas las componentes conexas y generar un bosque generador en lugar de un árbol generador.
+    Si no hay ninguna adyacencia, entonces se termina la función Visitar() y se regresa a Buscar(), que buscará si hay algún vértice de la gráfica que no esté en *visitado*. Si encuentra uno, entonces se repite el proceso desde ese vértice, lo cual quiere decir que la gráfica es disconexa y se obtendrá un bosque generador.
 
-Por último, se imprimen las aristas que inducen el árbol (bosque) generador.
+La función Buscar() termina cuando todos los vértices estén en *visitado*.
+
+Después, se vuelve a iniciar *visitado* y se repite el proceso empezando por cada vértice de la gráfica, para obtener todos los árboles (o bosques) generadores mínimos (o máximos) posibles y se imprimen las aristas que inducen estos árboles (o bosques), así como el peso total de cada uno. EL que tenga el peso total más pequeño (o más grande) será el árbol (o bosque) generador mínimo (o máximo).
 
 Orden del algoritmo: O(orden^2 + tamano)
 */
@@ -148,8 +148,9 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout<<endl;
 }
 
-bool Encontrar(stack<int> fila, int elemento){
-    stack<int> copia = fila;
+//Función para determinar si un elemento está en una pila
+bool Encontrar(stack<int> pila, int elemento){
+    stack<int> copia = pila;
     while(!copia.empty()){
         if(copia.top() == elemento)
             return true;
@@ -207,6 +208,5 @@ void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<cha
             PesosAristas[i].push(pesoM);
             Visitar(verticeM, M, i, orden, Indaristas, PesosAristas);
         }
-
     }while(ady);
 }

@@ -27,3 +27,7 @@
 
 ![Gráfica 3](Grafica3.png)
 
+4. adaeaideeibggkchhlcjcfjffl   5 6 10 3 4 5 7 1 2 2 4 9 1
+
+![Gráfica 4](Grafica4.png)
+
