@@ -8,17 +8,17 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra un árbol (o bosque) generador de una gráfica dada (Algoritmo de búsqueda en profundidad).
+Este programa encuentra un ï¿½rbol (o bosque) generador de una grï¿½fica dada (Algoritmo de bï¿½squeda en profundidad).
 
-Se empieza por buscar el primer vértice (alfabéticamente) que no ha sido visitado y se usa la función Visitar() para añadirlo a *visitado*,
+Se empieza por buscar el primer vï¿½rtice (alfabï¿½ticamente) que no ha sido visitado y se usa la funciï¿½n Visitar() para aï¿½adirlo a *visitado*,
 mostrarlo en pantalla y buscar adyacencias que no esten en *visitado*.
-    En caso de tener tales adyacencias, se añade la arista correspondiente a *Indaristas* y se usa Visitar() con el vértice encontrado.
-    Este proceso se repite hasta que no haya más adyacencias por visitar, momento en el cual se regresa a Buscar() para repetir el proceso.
-El programa termina cuando todos los vértices estén en *visitado*.
+    En caso de tener tales adyacencias, se aï¿½ade la arista correspondiente a *Indaristas* y se usa Visitar() con el vï¿½rtice encontrado.
+    Este proceso se repite hasta que no haya mï¿½s adyacencias por visitar, momento en el cual se regresa a Buscar() para repetir el proceso.
+El programa termina cuando todos los vï¿½rtices estï¿½n en *visitado*.
 
-Si la gráfica no es conexa, la función Buscar() se encargará de encontrar todas las componentes conexas y generar un bosque generador en lugar de un árbol generador.
+Si la grï¿½fica no es conexa, la funciï¿½n Buscar() se encargarï¿½ de encontrar todas las componentes conexas y generar un bosque generador en lugar de un ï¿½rbol generador.
 
-Por último, se imprimen las aristas que inducen el árbol (bosque) generador.
+Por ï¿½ltimo, se imprimen las aristas que inducen el ï¿½rbol (bosque) generador.
 
 Orden del algoritmo: O(orden^2 + tamano)
 */
@@ -26,9 +26,9 @@ Orden del algoritmo: O(orden^2 + tamano)
 void IngresaAristas(int tamano, vector<vector<float>>& M);
 void ImprimeMatriz(int orden, vector<vector<float>>& M);
 void Buscar(vector<vector<float>>& M);
-void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<int>>& PesosAristas);
+void Visitar(int k, vector<vector<float>>& M, int orden);
 
-int i, j, orden, tamano, minax;
+int orden, tamano, minax;
 float PesoTotal = 0;
 stack<int> visitado;
 queue<char> Indaristas;
@@ -38,36 +38,36 @@ int main()
 {
     setlocale(LC_ALL, "");
 
-    cout<<"Ingrese el orden de la gráfica: ";
-    cin>>orden;
+    cout << "Ingrese el orden de la grï¿½fica: ";
+    cin >> orden;
 
-    if (orden <= 0) {
-        cout<<"Orden inválido. Debe ser mayor que 0.\n";
+    if(orden <= 0) {
+        cout << "Orden invï¿½lido. Debe ser mayor que 0." << endl;
         return 1;
     }
 
-    cout<<"\nIngrese el tamaño de la gráfica: ";
-    cin>>tamano;
+    cout << endl << "Ingrese el tamaï¿½o de la grï¿½fica: ";
+    cin >> tamano;
 
     if (tamano < 0 || tamano > orden*(orden - 1)/2) {
-        cout<<"Tamaño inválido para una gráfica simple.\n";
+        cout << "Tamaï¿½o invï¿½lido para una grï¿½fica simple." << endl;
         return 1;
     }
 
-    vector<vector<float>> M(orden+1, vector<float>(orden+1, 0));
+    vector<vector<float>> M(orden + 1, vector<float>(orden + 1, 0));
 
     IngresaAristas(tamano, M);
     ImprimeMatriz(orden, M);
 
-    cout << endl << "Inserte 0 si quiere obtener un árbol mínimo o 1 para un árbol máximo: ";
+    cout << endl << "Inserte 0 si quiere obtener un ï¿½rbol mï¿½nimo o 1 para un ï¿½rbol mï¿½ximo: ";
     cin >> minax;
 
     Buscar(M);
 
     if(minax == 0)
-        cout<<"El árbol (bosque) generador mínimo es la subgráfica inducida por las aristas: "<<endl;
+        cout << "El ï¿½rbol (bosque) generador mï¿½nimo es la subgrï¿½fica inducida por las aristas: " << endl;
     else
-        cout<<"El árbol (bosque) generador máximo es la subgráfica inducida por las aristas: "<<endl;
+        cout << "El ï¿½rbol (bosque) generador mï¿½ximo es la subgrï¿½fica inducida por las aristas: " << endl;
 
     while(!Indaristas.empty()){
         cout << Indaristas.front();
@@ -80,36 +80,36 @@ int main()
         PesosAristas.pop();
     }
 
-    cout << "El peso del árbol es: " << PesoTotal << endl;
+    cout << "El peso del ï¿½rbol es: " << PesoTotal << endl;
 
     return 0;
 }
 
-//Función para ingresar las adyacencias de la gráfica
+//Funciï¿½n para ingresar las adyacencias de la grï¿½fica
 void IngresaAristas(int tamano, vector<vector<float>>& M){
     char v1, v2;
     float peso;
 
-    for (int i = 1; i <= tamano; i++){
-        cout<<"\nInserte los vértices de la "<<i<<"° arista: ";
-        cin>>v1>>v2;
+    for(int i = 1; i <= tamano; i++){
+        cout << endl << "Inserte los vï¿½rtices de la " << i << "ï¿½ arista: ";
+        cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
         int ver2 = tolower(v2) - 96;
 
-        if (ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
+        if(ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
             M[ver1][ver2] = 1;
             M[ver2][ver1] = 1;
-        } else {
-            cout<<"vértices fuera de rango. Inténtelo nuevamente.\n";
+        } else{
+            cout << "Vï¿½rtices fuera de rango. Intï¿½ntelo nuevamente." << endl;
             i--;
         }
     }
 
-    for (int i = 1; i <= orden; i++){
+    for(int i = 1; i <= orden; i++){
         for(int j = i+1; j <= orden; j++){
             if(M[i][j] != 0){
-                cout << endl << "Ingrese el peso de la arista " << char(i+96) << char(j+96) << ": ";
+                cout << endl << "Ingrese el peso de la arista " << char(i + 96) << char(j + 96) << ": ";
                 cin >> peso;
                 M[i][j] = peso;
                 M[j][i] = peso;
@@ -118,24 +118,72 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
     }
 }
 
-// Función para imprimir la matriz de adyacencia
+// Funciï¿½n para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
-    cout<<endl<<endl;
-    for (int i = 1; i <= orden; i++){
-        cout<<"   "<<char(96 + i);
+    cout << endl << endl;
+    for(int i = 1; i <= orden; i++){
+        cout << "   " << char(96 + i);
     }
 
-    for (int i = 1; i <= orden; i++){
-        cout<<"\n"<<char(96 + i)<<"  ";
-        for (int j = 1; j <= orden; j++){
-            cout<<M[i][j]<<"   ";
+    for(int i = 1; i <= orden; i++){
+        cout << endl << char(96 + i) << "  ";
+        for(int j = 1; j <= orden; j++){
+            cout << M[i][j] << "   ";
         }
     }
-    cout<<endl;
+    cout << endl;
+}
+
+//FunciÃ³n para elevar una matriz a una n-Ã©sima potencia
+vector<vector<int>> PotenciaMatriz(vector<vector<int>>& M, int potencia, int orden){
+    vector<vector<int>> resultado(orden + 1, vector<int>(orden + 1, 0));
+
+    // Inicializar resultado como la matriz identidad
+    for(int i = 1; i <= orden; i++){
+        resultado[i][i] = 1;
+    }
+
+    // Multiplicar la matriz por sÃ­ misma n veces
+    for(int k = 1; k <= potencia; k++){
+        vector<vector<int>> temp(orden + 1, vector<int>(orden + 1, 0));
+
+        for(int i = 1; i <= orden; i++){
+            for(int j = 1; j <= orden; j++){
+                for(int l = 1; l <= orden; l++){
+                    temp[i][j] += resultado[i][l] * M[l][j];
+                }
+            }
+        }
+		
+        resultado = temp;
+    }
+
+    return resultado;
+}
+
+//FunciÃ³n para obtener la matriz de distancias
+vector<vector<int>> MatrizDistancia(vector<vector<int>>& M, int orden){
+	vector<vector<int>> MDist = M;
+
+	for(int n = 2; n < orden; n++){
+		vector<vector<int>> MPot = PotenciaMatriz(M, n, orden);
+
+		for(int i = 1; i < orden; i++){
+			for(int j = i+1; j <= orden; j++){
+				if(MDist[i][j] == 0 && MPot[i][j] != 0){
+					MDist[i][j] = n;
+					MDist[j][i] = n;
+				}
+			}
+		}
+	}
+
+	return MDist;
 }
 
 bool Encontrar(stack<int> fila, int elemento){
     stack<int> copia = fila;
+
     while(!copia.empty()){
         if(copia.top() == elemento)
             return true;
@@ -147,15 +195,15 @@ bool Encontrar(stack<int> fila, int elemento){
 }
 
 void Buscar(vector<vector<float>>& M){
-    for (j = 1; j <= orden; j++){
-        if (!Encontrar(visitado, j))
-            Visitar(j, M, i, orden, Indaristas, PesosAristas);
+    for(int j = 1; j <= orden; j++){
+        if(!Encontrar(visitado, j))
+            Visitar(j, M, orden);
     }
 }
 
-void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<char>>& Indaristas, vector<queue<int>>& PesosAristas){
+void Visitar(int k, vector<vector<float>>& M, int orden){
     visitado.push(k);
-    cout << char(visitado.top()+96) << endl;
+    cout << char(visitado.top() + 96) << endl;
     bool ady;
 
     do{
@@ -171,7 +219,7 @@ void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<cha
                             pesoM = M[k][x];
                             verticeM = x;
                         }
-                    } else {
+                    } else{
                         if(pesoM < M[k][x]){
                             pesoM = M[k][x];
                             verticeM = x;
@@ -186,10 +234,10 @@ void Visitar(int k, vector<vector<float>>& M, int i, int orden, vector<queue<cha
         }
 
         if(ady){
-            Indaristas.push(k+96);
-            Indaristas.push(verticeM+96);
+            Indaristas.push(k + 96);
+            Indaristas.push(verticeM + 96);
             PesosAristas.push(pesoM);
-            Visitar(verticeM, M, i, orden, Indaristas, PesosAristas);
+            Visitar(verticeM, M, orden);
         }
 
     }while(ady);
