@@ -15,19 +15,19 @@
 
 # Gráficas simples con pesos
 
-1. abacadbccd   2 1 3 4 1
+1. ab2 ac1 ad3 bc4 cd1
 
 ![Gráfica 1](Grafica1.png)
 
-2. abbcbffeed   1 2 1 2 1
+2. ab1 bc2 bf1 fe2 ed1
 
 ![Gráfica 2](Grafica2.png)
 
-3. abadafbcbebfcdcecfdeef   9 9 3 1 6 4 8 5 2 3 2
+3. ab9 ad9 af3 bc1 be6 bf4 cd8 ce5 cf2 de3 ef2
 
 ![Gráfica 3](Grafica3.png)
 
-4. adaeaideeibggkchhlcjcfjffl   5 6 10 3 4 5 7 1 2 2 4 9 1
+4. ad5 ae6 ai10 de3 ei4 bg5 gk7 ch1 hl2 cj2 cf4 jf9 fl1
 
 ![Gráfica 4](Grafica4.png)
 

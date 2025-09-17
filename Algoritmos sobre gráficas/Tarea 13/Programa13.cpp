@@ -23,16 +23,20 @@ Por �ltimo, se imprimen las aristas que inducen el �rbol (bosque) generador.
 Orden del algoritmo: O(orden^2 + tamano)
 */
 
-void IngresaAristas(int tamano, vector<vector<float>>& M);
+void IngresaAristas(int tamano, vector<vector<float>>& M, vector<float>& Pesos);
 void ImprimeMatriz(int orden, vector<vector<float>>& M);
 void Buscar(vector<vector<float>>& M);
-void Visitar(int k, vector<vector<float>>& M, int orden);
 
-int orden, tamano, minax;
+int orden, tamano, minax, contador;
 float PesoTotal = 0;
 stack<int> visitado;
 queue<char> Indaristas;
-queue<float> PesosAristas;
+
+struct Arista{
+    float Peso;
+    int v1;
+    int v2;
+};
 
 int main()
 {
@@ -55,12 +59,14 @@ int main()
     }
 
     vector<vector<float>> M(orden + 1, vector<float>(orden + 1, 0));
+    queue<Arista> Pesos;
 
-    IngresaAristas(tamano, M);
+    IngresaAristas(tamano, M, Pesos);
     ImprimeMatriz(orden, M);
 
     cout << endl << "Inserte 0 si quiere obtener un �rbol m�nimo o 1 para un �rbol m�ximo: ";
     cin >> minax;
+
 
     Buscar(M);
 
@@ -69,16 +75,7 @@ int main()
     else
         cout << "El �rbol (bosque) generador m�ximo es la subgr�fica inducida por las aristas: " << endl;
 
-    while(!Indaristas.empty()){
-        cout << Indaristas.front();
-        Indaristas.pop();
-        cout << Indaristas.front();
-        Indaristas.pop();
-
-        PesoTotal += PesosAristas.front();
-        cout << " con peso " << PesosAristas.front() << endl;
-        PesosAristas.pop();
-    }
+    
 
     cout << "El peso del �rbol es: " << PesoTotal << endl;
 
@@ -86,34 +83,31 @@ int main()
 }
 
 //Funci�n para ingresar las adyacencias de la gr�fica
-void IngresaAristas(int tamano, vector<vector<float>>& M){
+void IngresaAristas(int tamano, vector<vector<float>>& M, queue<Arista>& Pesos){
     char v1, v2;
     float peso;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los v�rtices de la " << i << "� arista: ";
+        cout << endl << "Inserte los v�rtices de la " << i << "� arista: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
         int ver2 = tolower(v2) - 96;
 
         if(ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
-            M[ver1][ver2] = 1;
-            M[ver2][ver1] = 1;
+            cout << "Ingrese el peso de la arista: ";
+            cin >> peso;
+            M[ver1][ver2] = peso;
+            M[ver2][ver1] = peso;
+
+            Arista nuevaArista;
+            nuevaArista.Peso = peso;
+            nuevaArista.v1 = ver1;
+            nuevaArista.v2 = ver2;
+            Pesos.push(nuevaArista);
         } else{
             cout << "V�rtices fuera de rango. Int�ntelo nuevamente." << endl;
             i--;
-        }
-    }
-
-    for(int i = 1; i <= orden; i++){
-        for(int j = i+1; j <= orden; j++){
-            if(M[i][j] != 0){
-                cout << endl << "Ingrese el peso de la arista " << char(i + 96) << char(j + 96) << ": ";
-                cin >> peso;
-                M[i][j] = peso;
-                M[j][i] = peso;
-            }
         }
     }
 }
@@ -132,6 +126,10 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M){
         }
     }
     cout << endl;
+}
+
+void Ordenar(queue<Arista>& Pesos, int minmax){
+    queue<Arista> aux;
 }
 
 //Función para elevar una matriz a una n-ésima potencia
@@ -181,64 +179,30 @@ vector<vector<int>> MatrizDistancia(vector<vector<int>>& M, int orden){
 	return MDist;
 }
 
-bool Encontrar(stack<int> fila, int elemento){
-    stack<int> copia = fila;
+Arista Encontrar(vector<vector<float>>& Matriz, float elemento){
+    Arista resultado;
+    resultado.EsPeso = false;
 
-    while(!copia.empty()){
-        if(copia.top() == elemento)
-            return true;
-
-        copia.pop();
+    for(int i = 1; i <= orden; i++){
+        for(int j = 1; j <= orden; j++){
+            if(Matriz[i][j] == elemento){
+                resultado.EsPeso = true;
+                resultado.v1 = i;
+                resultado.v2 = j;
+                Matriz[i][j] = 0;
+                Matriz[j][i] = 0;
+                break;
+            }
+        }
     }
 
-    return false;
+    return resultado;
 }
 
 void Buscar(vector<vector<float>>& M){
-    for(int j = 1; j <= orden; j++){
-        if(!Encontrar(visitado, j))
-            Visitar(j, M, orden);
+    vector<vector<float>> CopiaM = M;
+
+    for(int i = 1; i <= tamano; i++){
+        
     }
-}
-
-void Visitar(int k, vector<vector<float>>& M, int orden){
-    visitado.push(k);
-    cout << char(visitado.top() + 96) << endl;
-    bool ady;
-
-    do{
-        float pesoM = 0;
-        int verticeM;
-        ady = false;
-
-        for(int x = 1; x <= orden; x++){
-            if(M[k][x] != 0 && !Encontrar(visitado, x)){
-                if(ady){
-                    if(minax == 0){
-                        if(pesoM > M[k][x]){
-                            pesoM = M[k][x];
-                            verticeM = x;
-                        }
-                    } else{
-                        if(pesoM < M[k][x]){
-                            pesoM = M[k][x];
-                            verticeM = x;
-                        }
-                    }
-                } else{
-                    pesoM = M[k][x];
-                    verticeM = x;
-                    ady = true;
-                }
-            }
-        }
-
-        if(ady){
-            Indaristas.push(k + 96);
-            Indaristas.push(verticeM + 96);
-            PesosAristas.push(pesoM);
-            Visitar(verticeM, M, orden);
-        }
-
-    }while(ady);
 }
