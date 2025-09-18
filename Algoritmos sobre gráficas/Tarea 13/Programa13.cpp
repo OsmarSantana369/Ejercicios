@@ -168,30 +168,32 @@ void Ordenar(){
             PesosPrima.pop();
 
         while(!Pesos.empty()){
-            aux = Pesos.front();
-            Pesos.pop();
-
-            if(minax == 0){
-                if(aux.Peso <= Pesos.front().Peso)
-                    PesosPrima.push(aux);
-                else{
-                    PesosPrima.push(Pesos.front());
-                    PesosPrima.push(aux);
-                    Pesos.pop();
-                    contador += 1;
-                }
-            } else{
-                if(aux.Peso >= Pesos.front().Peso)
-                    PesosPrima.push(aux);
-                else{
-                    PesosPrima.push(Pesos.front());
-                    PesosPrima.push(aux);
-                    Pesos.pop();
-                    contador += 1;
+            if(PesosPrima.empty())
+                aux = Pesos.front();
+            else{
+                if(minax == 0){
+                    if(aux.Peso <= Pesos.front().Peso){
+                        PesosPrima.push(aux);
+                        aux = Pesos.front();
+                    }
+                    else{
+                        PesosPrima.push(Pesos.front());
+                        contador += 1;
+                    }
+                } else{
+                    if(aux.Peso >= Pesos.front().Peso){
+                        PesosPrima.push(aux);
+                        aux = Pesos.front();
+                    }
+                    else{
+                        PesosPrima.push(Pesos.front());
+                        contador += 1;
+                    }
                 }
             }
         }
 
+        PesosPrima.push(aux);
         Pesos = PesosPrima;
     } while(contador > 0);
 }
@@ -248,4 +250,3 @@ void Buscar(vector<vector<float>>& M){
 
     }
 }
-
