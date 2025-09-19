@@ -5,15 +5,13 @@ date: "2025-09-17"
 output: html_document
 ---
 
-# Regresión Lineal (Ejercicio)
-
-1. De la base de datos **tortugas.xls**, considerar la variable **LONGITUD** como variable dependiente y ALTURA como variable independendiente. Realizar un análisis de regresión simple y contestar lo siguiente.
+1. De la base de datos **tortugas.xls**, considerar la variable **LONGITUD** como variable dependiente y ALTURA como variable independiente. Realizar un análisis de regresión simple y contestar lo siguiente.
 
 a) Obtener la matriz de correlación de la base de datos. ¿Entre qué par de variables se tiene la mejor relación lineal?
 
 ```{r, echo=FALSE}
 library(readxl)
-Tortugas <- read_excel("C:/Users/Alumno 25-B/Documents/Osmar/Analítica/Ejercicio 9/Tortugas.xls")
+Tortugas <- read_excel("C:/Users/CONTROL/Desktop/Ejercicios/Analitica/Ejercicio 9/Tortugas.xls")
 datos <- Tortugas[,1:3]
 
 cor(datos)
@@ -29,7 +27,7 @@ plot(x = datos$LONGITUD, y = datos$ALTURA)
 
 Si, el diagrama de dispersión de las variables LONGITUD y ALTURA permite ver que hay una buena relación lineal.
 
-c) Escribir el modelo de regresión lineal y la ecuación resultante al realizar el ´analisis.
+c) Escribir el modelo de regresión lineal y la ecuación resultante al realizar el análisis.
 
 ```{r, echo=FALSE}
 modelo <- lm(LONGITUD ~ ALTURA, data = datos) #lineal simple
@@ -40,15 +38,15 @@ La ecuación lineal resultante es: $2.35897x + 15.31099$.
 
 d) ¿Los dos coeficientes del modelo son significativos?
 
-LOs p-value del intercepto y el de la pendiente son 0.017 y $2*10^{-16}$, respectivamente. Ambos son menores que 0.05, por lo que en ambos casos se rechaza la hipótesis nula (los coeficientes no son significativos) en favor de la hipótesis alternativa (los coeficientes son significativos).
+Los p-value del intercepto y el de la pendiente son 0.017 y $2*10^{-16}$, respectivamente. Ambos son menores que 0.05, por lo que en ambos casos se rechaza la hipótesis nula (los coeficientes no son significativos) en favor de la hipótesis alternativa (los coeficientes son significativos).
 
-e) Obtener el coeficiente de determinaci´on y el coeficiente de correlaci´on. ¿Podemos decir que la ecuación se ajusta bien a los datos?
+e) Obtener el coeficiente de determinación y el coeficiente de correlación. ¿Podemos decir que la ecuación se ajusta bien a los datos?
 
 ```{r, echo=FALSE}
 cor(datos$LONGITUD, datos$ALTURA)
 ```
 
-El coeficiente de correlación entre las variables LONGITUD y ALTURA es de 0.9272, por lo que se puede decir que hay una relación lineal directa entre las variables. Por otro lado, el coeficiente de determinación del modelo es 0.9272, por lo tanto, el ajuste lineal entre las variables es bueno. En conclusión, la ecuación sí se ajusta bien a los datos.
+El coeficiente de correlación entre las variables LONGITUD y ALTURA es de 0.9628899, por lo que se puede decir que hay una relación lineal directa entre las variables. Por otro lado, el coeficiente de determinación del modelo es 0.9272, por lo tanto, el ajuste lineal entre las variables es bueno. En conclusión, la ecuación sí se ajusta bien a los datos.
 
 f) Con ayuda de la tabla ANOVA, ¿el modelo es significativo?
 
@@ -58,19 +56,19 @@ anova(modelo)
 
 Del ANOVA se obtiene un p-value de $2.2*10^{-16}$, que es menor a 0.05. Por lo tanto, se rechaza la hipótesis nula en favor de la hipótesis alternativa de que el modelo sí es significativo.
 
-g) Colocar la gr´afica del modelo.
+g) Colocar la gráfica del modelo.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 
-ggplot(datos, aes(x = datos$LONGITUD, y = datos$ALTURA)) +
+ggplot(datos, aes(x = LONGITUD, y = ALTURA)) +
   geom_point()+
   geom_smooth(method = "lm", se = FALSE)+
   labs(title = "Longitud de tortugas contra su altura", x = "Longitud", y = "Altura")+
-  theme_classic()
+  theme_linedraw()
 ```
 
-h) Predecir los valores de la variable LONGITUD, cuando la variable ALTURA toma los valores 31, 48 y 61. Adem´as, obtener sus intervalos de confianza y de predicci´on.
+h) Predecir los valores de la variable LONGITUD, cuando la variable ALTURA toma los valores 31, 48 y 61. Además, obtener sus intervalos de confianza y de predicción.
 
 ```{r, echo=FALSE}
 nuevo <- data.frame(ALTURA = c(31, 48, 61))
@@ -85,7 +83,7 @@ Para ALTURA = 61, la predicción es de 159.20830 y sus intervalos de confianza y
 
 i) Comprobar el supuesto de homocedasticidad y de normalidad.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(car)
 ncvTest(modelo)
 ```

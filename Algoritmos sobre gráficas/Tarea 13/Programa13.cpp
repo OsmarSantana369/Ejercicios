@@ -23,24 +23,23 @@ Por ï¿½ltimo, se imprimen las aristas que inducen el árbol (bosque) generado
 Orden del algoritmo: O(orden^2 + tamano)
 */
 
-void IngresaAristas(int tamano, vector<vector<float>>& M);
-void ImprimeMatriz(int orden, vector<vector<float>>& M);
-void Buscar(vector<vector<float>>& M);
-void Ordenar();
-
-int orden, tamano, minax, contador;
-float PesoTotal = 0;
-bool Reiniciar;
-stack<int> visitado;
-queue<char> Indaristas;
-
 struct Arista{
     float Peso;
     int v1;
     int v2;
 };
 
-queue<Arista> Pesos;
+void IngresaAristas(int tamano, vector<vector<float>>& M, vector<Arista>& Pesos);
+void ImprimeMatriz(int orden, vector<vector<float>>& M);
+bool Encontrar(stack<int> pila, int elemento);
+void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<stack<int>>& Componentes);
+void Buscar(vector<vector<float>>& M, vector<Arista>& Pesos, vector<stack<int>>& Componentes);
+
+int orden, tamano, minax, NumCompCon = 0;
+float PesoTotal = 0;
+bool Reiniciar;
+stack<int> visitado;
+queue<char> Indaristas;
 
 int main()
 {
@@ -71,8 +70,15 @@ int main()
     } while(Reiniciar);
 
     vector<vector<float>> M(orden + 1, vector<float>(orden + 1, 0));
+    vector<Arista> Pesos(tamano+1);
 
-    IngresaAristas(tamano, M);
+    for(int i = 1; i <= tamano; i++){
+        Pesos[i].Peso = 0;
+        Pesos[i].v1 = 0;
+        Pesos[i].v2 = 0;
+    }
+
+    IngresaAristas(tamano, M, Pesos);
     ImprimeMatriz(orden, M);
 
     do{
@@ -87,29 +93,32 @@ int main()
 
     } while(Reiniciar);
 
-    Ordenar();
+    vector<stack<int>> Componentes(orden+1);
 
-    while(!Pesos.empty()){
-        cout << Pesos.front().Peso << "\t";
-        Pesos.pop();
-    }
-
-    Buscar(M);
+    ComponentesConexas(M, visitado, Componentes);
+    Buscar(M, Pesos, Componentes);
 
     if(minax == 0)
-        cout << "El árbol (bosque) generador mínimo es la subgráfica inducida por las aristas: " << endl;
+        cout << endl << "El árbol (bosque) generador mínimo es la subgráfica inducida por las aristas: " << endl;
     else
-        cout << "El árbol (bosque) generador máximo es la subgráfica inducida por las aristas: " << endl;
+        cout << endl << "El árbol (bosque) generador máximo es la subgráfica inducida por las aristas: " << endl;
 
+    while(!Indaristas.empty()){
+        char v1 = Indaristas.front();
+        Indaristas.pop();
+        char v2 = Indaristas.front();
+        Indaristas.pop();
 
+        cout << v1 << v2 << endl;
+    }
 
-    cout << "El peso del árbol es: " << PesoTotal << endl;
+    cout << endl << "El peso del árbol es: " << PesoTotal << endl << endl;
 
     return 0;
 }
 
 // Función para ingresar las adyacencias de la gráfica
-void IngresaAristas(int tamano, vector<vector<float>>& M){
+void IngresaAristas(int tamano, vector<vector<float>>& M, vector<Arista>& Pesos){
     char v1, v2;
     float peso;
 
@@ -130,7 +139,22 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
             nuevaArista.Peso = peso;
             nuevaArista.v1 = ver1;
             nuevaArista.v2 = ver2;
-            Pesos.push(nuevaArista);
+
+            for(int j = 1; j <= i; j++){
+                if(Pesos[j].Peso == 0){
+                    Pesos[j] = nuevaArista;
+                    break;
+                }
+                else if(nuevaArista.Peso <= Pesos[j].Peso){
+                    for(int k = i; k > j; k--){
+                        Pesos[k] = Pesos[k-1];
+                    }
+
+                    Pesos[j] = nuevaArista;
+                    break;
+                }
+            }
+
         } else{
             cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
             i--;
@@ -156,63 +180,29 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl;
 }
 
-// Función para ordenar *Pesos* de forma ascendente (si minax = 0) o descendente (si minax = 1)
-void Ordenar(){
-    queue<Arista> PesosPrima;
-    Arista aux;
+// Funci�n para elevar una matriz a una n-�sima potencia
+vector<vector<float>> PotenciaMatriz(vector<vector<float>>& M, int potencia, int orden){
+    vector<vector<float>> resultado(orden + 1, vector<float>(orden + 1, 0));
+    vector<vector<float>> copia(orden + 1, vector<float>(orden + 1, 0));
 
-    do{
-        contador = 0;
-
-        while(!PesosPrima.empty())
-            PesosPrima.pop();
-
-        while(!Pesos.empty()){
-            if(PesosPrima.empty())
-                aux = Pesos.front();
-            else{
-                if(minax == 0){
-                    if(aux.Peso <= Pesos.front().Peso){
-                        PesosPrima.push(aux);
-                        aux = Pesos.front();
-                    }
-                    else{
-                        PesosPrima.push(Pesos.front());
-                        contador += 1;
-                    }
-                } else{
-                    if(aux.Peso >= Pesos.front().Peso){
-                        PesosPrima.push(aux);
-                        aux = Pesos.front();
-                    }
-                    else{
-                        PesosPrima.push(Pesos.front());
-                        contador += 1;
-                    }
-                }
-            }
+    for(int i = 1; i <= orden; i++){
+        for(int j = 1; j <= orden; j++){
+            if(M[i][j] != 0)
+                copia[i][j] = 1;
         }
-
-        PesosPrima.push(aux);
-        Pesos = PesosPrima;
-    } while(contador > 0);
-}
-
-// Función para elevar una matriz a una n-ésima potencia
-vector<vector<int>> PotenciaMatriz(vector<vector<int>>& M, int potencia, int orden){
-    vector<vector<int>> resultado(orden + 1, vector<int>(orden + 1, 0));
+    }
 
     for(int i = 1; i <= orden; i++){
         resultado[i][i] = 1;
     }
 
     for(int k = 1; k <= potencia; k++){
-        vector<vector<int>> temp(orden + 1, vector<int>(orden + 1, 0));
+        vector<vector<float>> temp(orden + 1, vector<float>(orden + 1, 0));
 
         for(int i = 1; i <= orden; i++){
             for(int j = 1; j <= orden; j++){
                 for(int l = 1; l <= orden; l++){
-                    temp[i][j] += resultado[i][l] * M[l][j];
+                    temp[i][j] += resultado[i][l] * copia[l][j];
                 }
             }
         }
@@ -224,11 +214,11 @@ vector<vector<int>> PotenciaMatriz(vector<vector<int>>& M, int potencia, int ord
 }
 
 //Función para obtener la matriz de distancias
-vector<vector<int>> MatrizDistancia(vector<vector<int>>& M, int orden){
-	vector<vector<int>> MDist = M;
+vector<vector<float>> MatrizDistancia(vector<vector<float>>& M, int orden){
+	vector<vector<float>> MDist(orden + 1, vector<float>(orden + 1, 0));
 
-	for(int n = 2; n < orden; n++){
-		vector<vector<int>> MPot = PotenciaMatriz(M, n, orden);
+	for(int n = 1; n < orden; n++){
+		vector<vector<float>> MPot = PotenciaMatriz(M, n, orden);
 
 		for(int i = 1; i < orden; i++){
 			for(int j = i+1; j <= orden; j++){
@@ -243,10 +233,67 @@ vector<vector<int>> MatrizDistancia(vector<vector<int>>& M, int orden){
 	return MDist;
 }
 
-void Buscar(vector<vector<float>>& M){
-    vector<vector<float>> CopiaM = M;
+//Funci�n para determinar si un elemento est� en una pila
+bool Encontrar(stack<int> pila, int elemento){
+    stack<int> copia = pila;
+    while(!copia.empty()){
+        if(copia.top() == elemento)
+            return true;
+
+        copia.pop();
+    }
+
+    return false;
+}
+
+void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<stack<int>>& Componentes){
+    vector<vector<float>>& MDist = MatrizDistancia(M, orden);
+
+    for(int i = 1; i <= orden; i++){
+        if(!Encontrar(visitado, i)){
+            NumCompCon++;
+            Componentes[NumCompCon].push(i);
+            visitado.push(i);
+            
+            for(int j = i+1; j <= orden; j++){
+                if(MDist[i][j] != 0){
+                    Componentes[NumCompCon].push(j);
+                    visitado.push(j);
+                }
+            }
+        }
+    }
+
+    while(!visitado.empty())
+        visitado.pop();
+}
+
+void Buscar(vector<vector<float>>& M, vector<Arista>& Pesos, vector<stack<int>>& Componentes){
+    int ordenComp;
+    vector<int> tamanoComp(NumCompCon+1, 0);
+    vector<vector<float>> MDist = MatrizDistancia(M, orden);
 
     for(int i = 1; i <= tamano; i++){
-
+        if(minax == 0){
+            for(int j = 1; j <= NumCompCon; j++){
+                if(Encontrar(Componentes[j], Pesos[i].v1) && tamanoComp[j] < Componentes[j].size()-1){
+                    tamanoComp[j]++;
+                    Indaristas.push(char(96 + Pesos[i].v1));
+                    Indaristas.push(char(96 + Pesos[i].v2));
+                    PesoTotal += Pesos[i].Peso;
+                    break;
+                }
+            }
+        } else{
+            for(int j = 1; j <= NumCompCon; j++){
+                if(Encontrar(Componentes[j], Pesos[tamano - i + 1].v1) && tamanoComp[j] <= Componentes[j].size()-1){
+                    tamanoComp[j]++;
+                    Indaristas.push(char(96 + Pesos[tamano - i + 1].v1));
+                    Indaristas.push(char(96 + Pesos[tamano - i + 1].v2));
+                    PesoTotal += Pesos[tamano - i + 1].Peso;
+                    break;
+                }
+            }
+        }
     }
 }
