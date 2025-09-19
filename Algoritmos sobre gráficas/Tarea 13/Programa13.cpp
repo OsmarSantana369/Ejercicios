@@ -8,19 +8,17 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra un Ã¡rbol (o bosque) generador de una grÃ¡fica dada (Algoritmo de bÃ¯Â¿Â½squeda en profundidad).
+Este programa encuentra un árbol (o bosque) generador de peso mínimo o máximo de una gráfica dada (Algoritmo de Kruskal).
 
-Se empieza por buscar el primer vÃ¯Â¿Â½rtice (alfabÃ¯Â¿Â½ticamente) que no ha sido visitado y se usa la funciÃ³n Visitar() para aÃ¯Â¿Â½adirlo a *visitado*,
-mostrarlo en pantalla y buscar adyacencias que no esten en *visitado*.
-    En caso de tener tales adyacencias, se aÃ¯Â¿Â½ade la arista correspondiente a *Indaristas* y se usa Visitar() con el vÃ¯Â¿Â½rtice encontrado.
-    Este proceso se repite hasta que no haya mÃ¯Â¿Â½s adyacencias por visitar, momento en el cual se regresa a Buscar() para repetir el proceso.
-El programa termina cuando todos los vÃ©rtices estÃ¯Â¿Â½n en *visitado*.
+Este programa primero solicita al usuario el orden y tamaño de la gráfica, y luego las aristas con sus respectivos pesos. Esto último con la función IngresaAristas(), la cual también almacena las aristas y sus pesos en el vector *Pesos* ordenado por peso, de menor a mayor. Luego, se imprime la matriz de adyacencia con la función ImprimeMatriz() y se pide al usuario si desea un árbol (bosque) generador mínimo o máximo. 
 
-Si la grÃ¡fica no es conexa, la funciÃ³n Buscar() se encargarÃ¯Â¿Â½ de encontrar todas las componentes conexas y generar un bosque generador en lugar de un Ã¡rbol generador.
+Después, se encuentran las componentes conexas de la gráfica con la función ComponentesConexas(), la cual utiliza la matriz de distancias para almacenar los vértices que se relacionan entre sí mediante trayectorias dentro de *Componentes* que es un vector de pilas.
 
-Por Ã¯Â¿Â½ltimo, se imprimen las aristas que inducen el Ã¡rbol (bosque) generador.
+Posteriormente, se busca el árbol (bosque) generador mínimo o máximo con la función Buscar(), la cual recorre las aristas ordenadas por peso y las va agregando a *Indaristas* si en la componente conexa a la que pertencen, el número de aristas agregadas es menor que el número de vértices disminuido en uno. La función finaliza cuando se han recorrido todas las aristas o cuando en cada componente conexa se han agregado el número de aristas igual al número de vértices menos uno.
 
-Orden del algoritmo: O(orden^2 + tamano)
+Por último, se imprimen las aristas que inducen el árbol (bosque) generador de peso mínimo o máximo, así como el peso total de este.
+
+Orden del algoritmo: O(potencia*orden^3 + tamano*NumCompCon)
 */
 
 struct Arista{
@@ -46,11 +44,11 @@ int main()
     setlocale(LC_ALL, "");
 
     do{
-        cout << "Ingrese el orden de la grÃ¡fica: ";
+        cout << "Ingrese el orden de la gráfica: ";
         cin >> orden;
 
         if(orden <= 0){
-            cout << "Orden invÃ¡lido. Debe ser mayor que 0." << endl;
+            cout << "Orden inválido. Debe ser mayor que 0." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -58,11 +56,11 @@ int main()
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaÃ±o de la grÃ¡fica: ";
+        cout << endl << "Ingrese el tamaño de la gráfica: ";
         cin >> tamano;
 
         if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "TamaÃ±o invÃ¡lido para una grÃ¡fica simple." << endl;
+            cout << "Tamaño inválido para una gráfica simple." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -82,11 +80,11 @@ int main()
     ImprimeMatriz(orden, M);
 
     do{
-        cout << endl << "Inserte 0 si quiere obtener un Ã¡rbol mÃ­nimo o 1 para un Ã¡rbol mÃ¡ximo: ";
+        cout << endl << "Inserte 0 si quiere obtener un árbol mínimo o 1 para un árbol máximo: ";
         cin >> minax;
 
         if(minax != 0 && minax != 1){
-            cout << "Valor invÃ¡lido." << endl;
+            cout << "Valor inválido." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -99,9 +97,9 @@ int main()
     Buscar(M, Pesos, Componentes);
 
     if(minax == 0)
-        cout << endl << "El Ã¡rbol (bosque) generador mÃ­nimo es la subgrÃ¡fica inducida por las aristas: " << endl;
+        cout << endl << "El árbol (bosque) generador mínimo es la subgráfica inducida por las aristas: " << endl;
     else
-        cout << endl << "El Ã¡rbol (bosque) generador mÃ¡ximo es la subgrÃ¡fica inducida por las aristas: " << endl;
+        cout << endl << "El árbol (bosque) generador máximo es la subgráfica inducida por las aristas: " << endl;
 
     while(!Indaristas.empty()){
         char v1 = Indaristas.front();
@@ -112,18 +110,18 @@ int main()
         cout << v1 << v2 << endl;
     }
 
-    cout << endl << "El peso del Ã¡rbol es: " << PesoTotal << endl << endl;
+    cout << endl << "El peso del árbol es: " << PesoTotal << endl << endl;
 
     return 0;
 }
 
-// FunciÃ³n para ingresar las adyacencias de la grÃ¡fica
+// Función para ingresar las adyacencias de la gráfica
 void IngresaAristas(int tamano, vector<vector<float>>& M, vector<Arista>& Pesos){
     char v1, v2;
     float peso;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los vÃ©rtices de la " << i << "Â° arista: ";
+        cout << endl << "Inserte los vértices de la " << i << "° arista: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
@@ -156,13 +154,13 @@ void IngresaAristas(int tamano, vector<vector<float>>& M, vector<Arista>& Pesos)
             }
 
         } else{
-            cout << "VÃ©rtices fuera de rango. IntÃ©ntelo nuevamente." << endl;
+            cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
             i--;
         }
     }
 }
 
-// FunciÃ³n para imprimir la matriz de adyacencia
+// Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl << endl;
 
@@ -213,7 +211,7 @@ vector<vector<float>> PotenciaMatriz(vector<vector<float>>& M, int potencia, int
     return resultado;
 }
 
-//FunciÃ³n para obtener la matriz de distancias
+// Función para obtener la matriz de distancias
 vector<vector<float>> MatrizDistancia(vector<vector<float>>& M, int orden){
 	vector<vector<float>> MDist(orden + 1, vector<float>(orden + 1, 0));
 
@@ -233,7 +231,7 @@ vector<vector<float>> MatrizDistancia(vector<vector<float>>& M, int orden){
 	return MDist;
 }
 
-//Función para determinar si un elemento está en una pila
+// Función para determinar si un elemento está en una pila
 bool Encontrar(stack<int> pila, int elemento){
     stack<int> copia = pila;
     while(!copia.empty()){
@@ -246,6 +244,7 @@ bool Encontrar(stack<int> pila, int elemento){
     return false;
 }
 
+// Función para encontrar las componentes conexas de la gráfica
 void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<stack<int>>& Componentes){
     vector<vector<float>>& MDist = MatrizDistancia(M, orden);
 
@@ -268,6 +267,7 @@ void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<s
         visitado.pop();
 }
 
+// Función para encontrar el árbol (bosque) generador mínimo o máximo
 void Buscar(vector<vector<float>>& M, vector<Arista>& Pesos, vector<stack<int>>& Componentes){
     int ordenComp;
     vector<int> tamanoComp(NumCompCon+1, 0);

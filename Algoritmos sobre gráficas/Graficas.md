@@ -27,7 +27,7 @@
 
 ![Gráfica 3](Grafica3.png)
 
-4. ad5 ae6 ai10 de3 ei4 bg5 gk7 ch1 hl2 cj2 cf4 jf9 fl1
+4. ad5 ae6 ai10 de1 ei2 bg3 gk9 ch5 hl1 cj7 cf4 jf2 fl4
 
 ![Gráfica 4](Grafica4.png)
 
