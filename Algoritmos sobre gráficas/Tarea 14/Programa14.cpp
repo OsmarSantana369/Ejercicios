@@ -9,7 +9,7 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra las distancia de peso mínimo que hay de un vértice a otros (Algoritmo de Dijkstra).
+Este programa encuentra las distancia de peso mÃ­nimo que hay de un vÃ©rtice a otros (Algoritmo de Dijkstra).
 
 
 
@@ -21,6 +21,7 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M);
 void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDistPesos);
 
 int orden, tamano, infinito = INT_MAX;
+int grafdigraf;
 bool Reiniciar;
 
 int main()
@@ -28,11 +29,11 @@ int main()
     setlocale(LC_ALL, "");
 
     do{
-        cout << "Ingrese el orden de la gráfica: ";
-        cin >> orden;
+        cout << "Ingrese 1 si desea trabajar en una grÃ¡fica o 2 para una digrÃ¡fica: ";
+        cin >> grafdigraf;
 
-        if(orden <= 0){
-            cout << "Orden inválido. Debe ser mayor que 0." << endl;
+        if(grafdigraf != 1 && grafdigraf != 2){
+            cout << "Valores invÃ¡lidos." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -40,11 +41,23 @@ int main()
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaño de la gráfica: ";
+        cout << endl << "Ingrese el orden de la grÃ¡fica: ";
+        cin >> orden;
+
+        if(orden <= 0){
+            cout << "Orden invÃ¡lido. Debe ser mayor que 0." << endl;
+            Reiniciar = true;
+        } else
+            Reiniciar = false;
+
+    } while(Reiniciar);
+
+    do{
+        cout << endl << "Ingrese el tamaÃ±o de la grÃ¡fica: ";
         cin >> tamano;
 
         if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "Tamaño inválido para una gráfica simple." << endl;
+            cout << "TamaÃ±o invÃ¡lido para una grÃ¡fica simple." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -58,19 +71,19 @@ int main()
     ImprimeMatriz(orden, M);
     ObtenerDistancias(M, MDistPesos);
 
-    cout << endl << "Las distancias de peso mínimo entre los vértices son las siguientes:";
+    cout << endl << "Las distancias de peso mÃ­nimo entre los vÃ©rtices son las siguientes:";
     ImprimeMatriz(orden, MDistPesos);
     cout << endl;
     return 0;
 }
 
-// Función para ingresar las adyacencias de la gráfica
+// FunciÃ³n para ingresar las adyacencias de la grÃ¡fica
 void IngresaAristas(int tamano, vector<vector<float>>& M){
     char v1, v2;
     float peso;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los vértices de la " << i << "° arista: ";
+        cout << endl << "Inserte los vÃ©rtices de la " << i << "Â° arista: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
@@ -79,40 +92,43 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
         if(ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
             cout << "Ingrese el peso de la arista: ";
             cin >> peso;
-            M[ver1][ver2] = peso;
-            M[ver2][ver1] = peso;
+
+            if(grafdigraf == 1){
+                M[ver1][ver2] = peso;
+                M[ver2][ver1] = peso;
+            } else
+                M[ver1][ver2] = peso;
+
         } else{
-            cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
+            cout << "VÃ©rtices fuera de rango. IntÃ©ntelo nuevamente." << endl;
             i--;
         }
     }
 }
 
-/*
-La función ImprimeMatriz ya imprime la matriz de adyacencia organizada por columnas y filas correspondientes a los vértices.
-Sin embargo, para mejorar la alineación y claridad, se puede ajustar el formato de impresión usando setw.
-*/
-
-// Función para imprimir la matriz de adyacencia
+// FunciÃ³n para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl << endl << " ";
 
     for(int i = 1; i <= orden; i++){
-        cout << setw(6) << char(96 + i);
+        cout << setw(7) << char(96 + i);
     }
     cout << endl;
 
     for(int i = 1; i <= orden; i++){
         cout << char(96 + i);
         for(int j = 1; j <= orden; j++){
-            cout << setw(6) << M[i][j];
+            if(M[i][j] == infinito)
+                cout << setw(7) << "infty";
+            else
+                cout << setw(7) << M[i][j];
         }
         cout << endl;
     }
     cout << endl;
 }
 
-// Función para obtener las distancias de peso mínimo entre los vértices
+// FunciÃ³n para obtener las distancias de peso mÃ­nimo entre los vÃ©rtices
 void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDistPesos){
     queue<int> aux;
 
