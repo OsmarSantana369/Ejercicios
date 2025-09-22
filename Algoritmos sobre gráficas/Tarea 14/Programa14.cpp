@@ -1,14 +1,15 @@
 #include <iostream>
 #include <locale>
 #include <vector>
-#include <stack>
 #include <queue>
+#include <limits>
+#include <iomanip>
 using namespace std;
 
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra las distancia de peso mínimo o máximo que hay de un vértice a otros (Algoritmo de Dijkstra).
+Este programa encuentra las distancia de peso mínimo que hay de un vértice a otros (Algoritmo de Dijkstra).
 
 
 
@@ -17,8 +18,9 @@ Orden del algoritmo: O(potencia*orden^3 + tamano*NumCompCon)
 
 void IngresaAristas(int tamano, vector<vector<float>>& M);
 void ImprimeMatriz(int orden, vector<vector<float>>& M);
+void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDistPesos);
 
-int orden, tamano, minax;
+int orden, tamano, infinito = INT_MAX;
 bool Reiniciar;
 
 int main()
@@ -50,23 +52,15 @@ int main()
     } while(Reiniciar);
 
     vector<vector<float>> M(orden + 1, vector<float>(orden + 1, 0));
-	vector<vector<float>> MDist(orden + 1, vector<float>(orden + 1, 0));
+    vector<vector<float>> MDistPesos(orden + 1, vector<float>(orden + 1, infinito));
 
     IngresaAristas(tamano, M);
     ImprimeMatriz(orden, M);
+    ObtenerDistancias(M, MDistPesos);
 
-    do{
-        cout << endl << "Inserte 0 si quiere obtener distancias mínimas o 1 para distancias máximas: ";
-        cin >> minax;
-
-        if(minax != 0 && minax != 1){
-            cout << "Valor inválido." << endl;
-            Reiniciar = true;
-        } else
-            Reiniciar = false;
-
-    } while(Reiniciar);
-
+    cout << endl << "Las distancias de peso mínimo entre los vértices son las siguientes:";
+    ImprimeMatriz(orden, MDistPesos);
+    cout << endl;
     return 0;
 }
 
@@ -94,20 +88,48 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
     }
 }
 
+/*
+La función ImprimeMatriz ya imprime la matriz de adyacencia organizada por columnas y filas correspondientes a los vértices.
+Sin embargo, para mejorar la alineación y claridad, se puede ajustar el formato de impresión usando setw.
+*/
+
 // Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
-    cout << endl << endl;
+    cout << endl << endl << " ";
 
     for(int i = 1; i <= orden; i++){
-        cout << "   " << char(96 + i);
+        cout << setw(6) << char(96 + i);
     }
+    cout << endl;
 
     for(int i = 1; i <= orden; i++){
-        cout << endl << char(96 + i) << "  ";
+        cout << char(96 + i);
         for(int j = 1; j <= orden; j++){
-            cout << M[i][j] << "   ";
+            cout << setw(6) << M[i][j];
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+// Función para obtener las distancias de peso mínimo entre los vértices
+void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDistPesos){
+    queue<int> aux;
+
+    for(int i = 1; i <= orden; i++){
+        MDistPesos[i][i] = 0;
+        aux.push(i);
+
+        while(!aux.empty()){
+            int actual = aux.front();
+            aux.pop();
+
+            for(int j = 1; j <= orden; j++){
+                if(M[actual][j] != 0 && MDistPesos[i][actual] + M[actual][j] < MDistPesos[i][j]){
+                    MDistPesos[i][j] = MDistPesos[i][actual] + M[actual][j];
+                    aux.push(j);
+                }
+            }
         }
     }
-
-    cout << endl;
 }

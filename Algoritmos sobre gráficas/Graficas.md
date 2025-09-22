@@ -31,3 +31,6 @@
 
 ![Gráfica 4](Grafica4.png)
 
+5. ab2 ac6 bd5 cd8 df15 de10 ef6 fg6 eg2
+
+![Gráfica 5](Grafica5.png)

@@ -270,27 +270,50 @@ void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<s
 // Función para encontrar el árbol (bosque) generador mínimo o máximo
 void Buscar(vector<vector<float>>& M, vector<Arista>& Pesos, vector<stack<int>>& Componentes){
     int ordenComp;
-    vector<int> tamanoComp(NumCompCon+1, 0);
+    vector<int> tamanoArbolComp(NumCompCon+1, 0);
+    vector<stack<int>> vertVisitados(NumCompCon+1);
     vector<vector<float>> MDist = MatrizDistancia(M, orden);
 
     for(int i = 1; i <= tamano; i++){
-        if(minax == 0){
-            for(int j = 1; j <= NumCompCon; j++){
-                if(Encontrar(Componentes[j], Pesos[i].v1) && tamanoComp[j] < Componentes[j].size()-1){
-                    tamanoComp[j]++;
+        for(int j = 1; j <= NumCompCon; j++){
+            if(minax == 0){
+                if(vertVisitados[j].empty() && Encontrar(Componentes[j], Pesos[i].v1)){
+                    vertVisitados[j].push(Pesos[i].v1);
+                    vertVisitados[j].push(Pesos[i].v2);
+                }
+
+                if(Encontrar(Componentes[j], Pesos[i].v1) && tamanoArbolComp[j] == vertVisitados[j].size()-1){
+                    tamanoArbolComp[j]++;
                     Indaristas.push(char(96 + Pesos[i].v1));
                     Indaristas.push(char(96 + Pesos[i].v2));
                     PesoTotal += Pesos[i].Peso;
+
+                    if(Encontrar(vertVisitados[j], Pesos[i].v1))
+                        vertVisitados[j].push(Pesos[i].v1);
+
+                    if(Encontrar(vertVisitados[j], Pesos[i].v2))
+                        vertVisitados[j].push(Pesos[i].v2);
+
                     break;
                 }
-            }
-        } else{
-            for(int j = 1; j <= NumCompCon; j++){
-                if(Encontrar(Componentes[j], Pesos[tamano - i + 1].v1) && tamanoComp[j] <= Componentes[j].size()-1){
-                    tamanoComp[j]++;
+            } else{
+                if(vertVisitados[j].empty() && Encontrar(Componentes[j], Pesos[tamano - i + 1].v1)){
+                    vertVisitados[j].push(Pesos[tamano - i + 1].v1);
+                    vertVisitados[j].push(Pesos[tamano - i + 1].v2);
+                }
+
+                if(Encontrar(Componentes[j], Pesos[tamano - i + 1].v1) && tamanoArbolComp[j] == vertVisitados[j].size()-1){
+                    tamanoArbolComp[j]++;
                     Indaristas.push(char(96 + Pesos[tamano - i + 1].v1));
                     Indaristas.push(char(96 + Pesos[tamano - i + 1].v2));
                     PesoTotal += Pesos[tamano - i + 1].Peso;
+
+                    if(Encontrar(vertVisitados[j], Pesos[tamano - i + 1].v1))
+                        vertVisitados[j].push(Pesos[tamano - i + 1].v1);
+
+                    if(Encontrar(vertVisitados[j], Pesos[tamano - i + 1].v2))
+                        vertVisitados[j].push(Pesos[tamano - i + 1].v2);
+
                     break;
                 }
             }
