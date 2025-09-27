@@ -9,7 +9,7 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra las distancia de peso mínimo que hay de un vértice a otros (Algoritmo de Dijkstra).
+Este programa encuentra las distancias de peso mínimo que hay de un vértice a otros (Algoritmo de Dijkstra).
 
 
 
