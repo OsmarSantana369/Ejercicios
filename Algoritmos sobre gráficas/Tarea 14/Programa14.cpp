@@ -9,11 +9,15 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa encuentra las distancias de peso mÃ­nimo que hay de un vÃ©rtice a otros (Algoritmo de Dijkstra).
+Este programa encuentra las distancias de peso mínimo que hay de un vértice a otros (Algoritmo de Dijkstra).
 
+Para esto, primero se solicita al usuario si desea trabajar con una gráfica o una digráfica, así como su orden y tamaño.
+Después, una vez ingresada la gráfica o digráfica, se usa la función ObtenerDistancias() para encontrar las distancias de peso mínimo entre los vértices.
+Esta función toma cada vértice y, en la matriz de distancias *MDistPesos*, asigna 0 a la distancia del vértice consigo mismo mientras que las demás son infinito. Después agrega el vértice en cuestión a una cola y, mientras esta no esté vacía, saca el vértice al frente de la cola y revisa sus adyacentes. Si la suma de la distancia del vértice en cuestión al vértice actual más el peso de la arista que los conecta es menor a la distancia que ya se tenía registrada en la matriz de distancias, entonces se actualiza esta distancia y se agrega el vértice adyacente a la cola. Esto se repite hasta que se hayan revisado todos los vértices de la cola y hasta que todos los vértices de la gráfica se hayan revisado.
 
+Finalmente, se imprime la matriz de distancias de peso mínimo entre los vértices.
 
-Orden del algoritmo: O(potencia*orden^3 + tamano*NumCompCon)
+Orden del algoritmo: O(tamano + orden^2)
 */
 
 void IngresaAristas(int tamano, vector<vector<float>>& M);
@@ -29,11 +33,11 @@ int main()
     setlocale(LC_ALL, "");
 
     do{
-        cout << "Ingrese 1 si desea trabajar en una grÃ¡fica o 2 para una digrÃ¡fica: ";
+        cout << "Ingrese 1 si desea trabajar en una gráfica o 2 para una digráfica: ";
         cin >> grafdigraf;
 
         if(grafdigraf != 1 && grafdigraf != 2){
-            cout << "Valores invÃ¡lidos." << endl;
+            cout << "Valores inválidos." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -41,11 +45,11 @@ int main()
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el orden de la grÃ¡fica: ";
+        cout << endl << "Ingrese el orden de la gráfica: ";
         cin >> orden;
 
         if(orden <= 0){
-            cout << "Orden invÃ¡lido. Debe ser mayor que 0." << endl;
+            cout << "Orden inválido. Debe ser mayor que 0." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -53,11 +57,11 @@ int main()
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaÃ±o de la grÃ¡fica: ";
+        cout << endl << "Ingrese el tamaño de la gráfica: ";
         cin >> tamano;
 
         if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "TamaÃ±o invÃ¡lido para una grÃ¡fica simple." << endl;
+            cout << "Tamaño inválido para una gráfica simple." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -71,19 +75,19 @@ int main()
     ImprimeMatriz(orden, M);
     ObtenerDistancias(M, MDistPesos);
 
-    cout << endl << "Las distancias de peso mÃ­nimo entre los vÃ©rtices son las siguientes:";
+    cout << endl << "Las distancias de peso mínimo entre los vértices son las siguientes:";
     ImprimeMatriz(orden, MDistPesos);
     cout << endl;
     return 0;
 }
 
-// FunciÃ³n para ingresar las adyacencias de la grÃ¡fica
+// Función para ingresar las adyacencias de la gráfica
 void IngresaAristas(int tamano, vector<vector<float>>& M){
     char v1, v2;
     float peso;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los vÃ©rtices de la " << i << "Â° arista: ";
+        cout << endl << "Inserte los vértices de la " << i << "° arista: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
@@ -100,13 +104,13 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
                 M[ver1][ver2] = peso;
 
         } else{
-            cout << "VÃ©rtices fuera de rango. IntÃ©ntelo nuevamente." << endl;
+            cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
             i--;
         }
     }
 }
 
-// FunciÃ³n para imprimir la matriz de adyacencia
+// Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl << endl << " ";
 
@@ -128,7 +132,7 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl;
 }
 
-// FunciÃ³n para obtener las distancias de peso mÃ­nimo entre los vÃ©rtices
+// Función para obtener las distancias de peso mínimo entre los vértices
 void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDistPesos){
     queue<int> aux;
 
