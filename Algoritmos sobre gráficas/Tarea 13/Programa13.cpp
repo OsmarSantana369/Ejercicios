@@ -246,7 +246,7 @@ bool Encontrar(stack<int> pila, int elemento){
 
 // Función para encontrar las componentes conexas de la gráfica
 void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<stack<int>>& Componentes){
-    vector<vector<float>>& MDist = MatrizDistancia(M, orden);
+    vector<vector<float>> MDist = MatrizDistancia(M, orden);
 
     for(int i = 1; i <= orden; i++){
         if(!Encontrar(visitado, i)){
@@ -269,10 +269,8 @@ void ComponentesConexas(vector<vector<float>>& M, stack<int>& visitado, vector<s
 
 // Función para encontrar el árbol (bosque) generador mínimo o máximo
 void Buscar(vector<vector<float>>& M, vector<Arista>& Pesos, vector<stack<int>>& Componentes){
-    int ordenComp;
     vector<int> tamanoArbolComp(NumCompCon+1, 0);
     vector<stack<int>> vertVisitados(NumCompCon+1);
-    vector<vector<float>> MDist = MatrizDistancia(M, orden);
 
     for(int i = 1; i <= tamano; i++){
         for(int j = 1; j <= NumCompCon; j++){
@@ -282,16 +280,16 @@ void Buscar(vector<vector<float>>& M, vector<Arista>& Pesos, vector<stack<int>>&
                     vertVisitados[j].push(Pesos[i].v2);
                 }
 
-                if(Encontrar(Componentes[j], Pesos[i].v1) && tamanoArbolComp[j] == vertVisitados[j].size()-1){
+                if(Encontrar(Componentes[j], Pesos[i].v1) && tamanoArbolComp[j] + 1 == vertVisitados[j].size()-1){
                     tamanoArbolComp[j]++;
                     Indaristas.push(char(96 + Pesos[i].v1));
                     Indaristas.push(char(96 + Pesos[i].v2));
                     PesoTotal += Pesos[i].Peso;
 
-                    if(Encontrar(vertVisitados[j], Pesos[i].v1))
+                    if(!Encontrar(vertVisitados[j], Pesos[i].v1))
                         vertVisitados[j].push(Pesos[i].v1);
 
-                    if(Encontrar(vertVisitados[j], Pesos[i].v2))
+                    if(!Encontrar(vertVisitados[j], Pesos[i].v2))
                         vertVisitados[j].push(Pesos[i].v2);
 
                     break;
