@@ -8,21 +8,23 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
+Programa que encuentra las componentes conexas de una gráfica y los vértices que pertenecen a cada una.
 
+Este programa está basado en el de búsqueda en profundidad, el cual visita cada vértice mediante sus adyacencias para obtener un árbol o bosque generador. Si la gráfica es conexa, la función Buscar() solo usará la función Visitar() una vez, ya que todos los vértices estarán conectados. Si no es conexa, la función Buscar() llamará a la función Visitar() tantas veces como componentes conexas haya y cada vez que se llame se incrementará el contador numeroComponentes.
 
+En este programa, la función Visitar() toma un vértice k, lo agrega a *visitado* y a la cola de vértices de la componente conexa en cuestión y revisa sus adyacencias. Si una de estas adyacencias no está en *visitado*, entonces se llama recursivamente a la función Visitar() con este vértice. Esto se repite hasta que se hayan visitado todos los vértices conectados al vértice inicial k.
 
-
-
+Finalmente, se imprime el número de componentes conexas y los vértices que pertenecen a cada una, o bien, se indica que la gráfica es conexa.
 
 Orden del algoritmo: O(tamano + orden^2)
 */
 
 void IngresaAristas(int tamano, vector<vector<float>>& M, vector<queue<int>>& Adyacencias);
 void ImprimeMatriz(int orden, vector<vector<float>>& M);
-vector<queue<int>> Buscar(vector<vector<float>>& M);
-void Visitar(int k, vector<vector<float>>& M, queue<queue<int>>& ComponentesCopia);
+vector<queue<int>> Buscar(vector<vector<float>>& M, vector<queue<int>>& Adyacencias);
+void Visitar(int k, vector<vector<float>>& M, vector<queue<int>>& ComponentesCopia, vector<queue<int>>& Adyacencias);
 
-int orden, tamano, NumeroComponentes = 0;
+int orden, tamano, numeroComponentes = 0;
 bool Reiniciar;
 queue<int> visitado;
 
@@ -30,22 +32,22 @@ int main(){
     setlocale(LC_ALL, "");
 
     do{
-        cout << endl << "Ingrese el orden de la grÃ¡fica: ";
+        cout << endl << "Ingrese el orden de la gráfica: ";
         cin >> orden;
 
         if(orden <= 0){
-            cout << "Orden invÃ¡lido. Debe ser mayor que 0." << endl;
+            cout << "Orden inválido. Debe ser mayor que 0." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaÃ±o de la grÃ¡fica: ";
+        cout << endl << "Ingrese el tamaño de la gráfica: ";
         cin >> tamano;
 
         if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "TamaÃ±o invÃ¡lido para una grÃ¡fica simple." << endl;
+            cout << "Tamaño inválido para una gráfica simple." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -57,13 +59,14 @@ int main(){
     IngresaAristas(tamano, M, Adyacencias);
     ImprimeMatriz(orden, M);
 
-	vector<queue<int>> Componentes = Buscar(M);
+	vector<queue<int>> Componentes = Buscar(M, Adyacencias);
 
-	if(NumeroComponentes == 1)
-		cout << endl << "La grÃ¡fica es conexa." << endl;
+	if(numeroComponentes == 1)
+		cout << "La gráfica es conexa." << endl;
 	else{
-		for(int i = 1; i <= NumeroComponentes; i++){
-			cout << "La " << i << "Â° componente conexa tiene a los vÃ©rtices: ";
+		for(int i = 1; i <= numeroComponentes; i++){
+			cout << "La " << i << "° componente conexa tiene a los vértices: ";
+
 			while(!Componentes[i].empty()){
 				cout << char(96 + Componentes[i].front()) << " ";
 				Componentes[i].pop();
@@ -71,16 +74,17 @@ int main(){
 			cout << endl;
 		}
 	}
+    cout << endl;
 
     return 0;
 }
 
-// FunciÃ³n para ingresar las adyacencias de la grÃ¡fica o digrÃ¡fica
+// Función para ingresar las adyacencias de la gráfica o digráfica
 void IngresaAristas(int tamano, vector<vector<float>>& M, vector<queue<int>>& Adyacencias){
     char v1, v2;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los vÃ©rtices de la " << i << "Â° arista: ";
+        cout << endl << "Inserte los vértices de la " << i << "° arista: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
@@ -92,68 +96,72 @@ void IngresaAristas(int tamano, vector<vector<float>>& M, vector<queue<int>>& Ad
             M[ver2][ver1] = 1;
 			Adyacencias[ver2].push(ver1);
         } else{
-            cout << "VÃ©rtices fuera de rango. IntÃ©ntelo nuevamente." << endl;
+            cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
             i--;
         }
     }
 }
 
-// FunciÃ³n para imprimir la matriz de adyacencia
+// Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl << endl << " ";
 
-    for(int i = 1; i <= orden; i++){
+    for(int i = 1; i <= orden; i++)
         cout << setw(3) << char(96 + i);
-    }
+    
     cout << endl;
 
     for(int i = 1; i <= orden; i++){
         cout << char(96 + i);
+
         for(int j = 1; j <= orden; j++)
             cout << setw(3) << M[i][j];
         
 		cout << endl;
     }
-
     cout << endl;
 }
 
 bool Encontrar(queue<int> fila, int elemento){
     queue<int> copia = fila;
+
     while(!copia.empty()){
         if(copia.front() == elemento)
             return true;
 
         copia.pop();
     }
-
     return false;
 }
 
-vector<queue<int>> Buscar(vector<vector<float>>& M){
+vector<queue<int>> Buscar(vector<vector<float>>& M, vector<queue<int>>& Adyacencias){
     vector<queue<int>> ComponentesCopia(orden + 1);
 
     for(int i = 1; i <= orden; i++){
         if(!Encontrar(visitado, i)){
-            NumeroComponentes++;
-            Visitar(i, M, ComponentesCopia);
+            numeroComponentes++;
+            Visitar(i, M, ComponentesCopia, Adyacencias);
         }
     }
+    vector<queue<int>> Componentes(numeroComponentes + 1);
 
-    vector<queue<int>> Componentes(NumeroComponentes + 1);
-
-    for(int i = 1; i <= NumeroComponentes; i++)
+    for(int i = 1; i <= numeroComponentes; i++)
         Componentes[i] = ComponentesCopia[i];
 
     return Componentes;
 }
 
-void Visitar(int k, vector<vector<float>>& M, vector<queue<int>>& ComponentesCopia){
-    ComponentesCopia[NumeroComponentes].push(k);
+void Visitar(int k, vector<vector<float>>& M, vector<queue<int>>& ComponentesCopia, vector<queue<int>>& Adyacencias){
+    ComponentesCopia[numeroComponentes].push(k);
 	visitado.push(k);
 
-    for(int x = 1; x <= orden; x++){
-        if(M[k][x] != 0 && !Encontrar(ComponentesCopia[NumeroComponentes], x))
-            Visitar(x, M, ComponentesCopia);
+    for(int j = 1; j <= Adyacencias[k].size(); j++){
+        int x = Adyacencias[k].front();
+        Adyacencias[k].pop();
+
+        if(!Encontrar(ComponentesCopia[numeroComponentes], x))
+            Visitar(x, M, ComponentesCopia, Adyacencias);
+
+        Adyacencias[k].push(x);
     }
 }
