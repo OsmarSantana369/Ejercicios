@@ -66,12 +66,28 @@ int main(){
 	else{
 		for(int i = 1; i <= numeroComponentes; i++){
 			cout << "La " << i << "° componente conexa tiene a los vértices: ";
+            queue<int> copia = Componentes[i];
 
 			while(!Componentes[i].empty()){
 				cout << char(96 + Componentes[i].front()) << " ";
 				Componentes[i].pop();
 			}
-			cout << endl;
+			cout << endl << "Y a las aristas: ";
+
+            while(copia.size() > 1){
+                int v1 = copia.front();
+                copia.pop();
+                queue<int> temp = copia;
+
+                while(!temp.empty()){
+                    int v2 = temp.front();
+                    temp.pop();
+
+                    if(M[v1][v2] == 1)
+                        cout << char(96 + v1) << char(96 + v2) << " ";
+                }
+            }
+            cout << endl;
 		}
 	}
     cout << endl;
