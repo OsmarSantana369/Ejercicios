@@ -66,12 +66,28 @@ int main(){
 	else{
 		for(int i = 1; i <= numeroComponentes; i++){
 			cout << "La " << i << "° componente conexa tiene a los vértices: ";
+            queue<int> copia = Componentes[i];
 
 			while(!Componentes[i].empty()){
 				cout << char(96 + Componentes[i].front()) << " ";
 				Componentes[i].pop();
 			}
-			cout << endl;
+			cout << endl << "Y a las aristas: ";
+
+            while(copia.size() > 1){
+                int v1 = copia.front();
+                copia.pop();
+                queue<int> temp = copia;
+
+                while(!temp.empty()){
+                    int v2 = temp.front();
+                    temp.pop();
+
+                    if(M[v1][v2] == 1)
+                        cout << char(96 + v1) << char(96 + v2) << " ";
+                }
+            }
+            cout << endl;
 		}
 	}
     cout << endl;
@@ -108,7 +124,7 @@ void ImprimeMatriz(vector<vector<float>>& M){
 
     for(int i = 1; i <= orden; i++)
         cout << setw(3) << char(96 + i);
-    
+
     cout << endl;
 
     for(int i = 1; i <= orden; i++){
@@ -116,7 +132,7 @@ void ImprimeMatriz(vector<vector<float>>& M){
 
         for(int j = 1; j <= orden; j++)
             cout << setw(3) << M[i][j];
-        
+
 		cout << endl;
     }
     cout << endl;
@@ -132,6 +148,35 @@ bool Encontrar(queue<int> fila, int elemento){
         copia.pop();
     }
     return false;
+}
+
+queue<int> Eliminar(queue<int> fila, int elemento){
+    queue<int> resultado;
+
+    while(!fila.empty()){
+        if(fila.front() != elemento)
+            resultado.push(fila.front());
+
+        fila.pop();
+    }
+    return resultado;
+}
+
+vector<queue<int>> QuitarVertice(vector<queue<int>>& Adyacencias, int vertice){
+    vector<queue<int>> resultado(Adyacencias.size());
+    
+    for(int i = 1; i < Adyacencias.size(); i++){
+        if(i < vertice){
+            resultado[i] = Ayacencias[i];
+            resultado[i] = Eliminar(resultado[i], vertice);
+        }
+        else if(i > vertice){
+            resultado[i] = Ayacencias[i+1];
+            resultado[i] = Eliminar(resultado[i], vertice);
+        }
+    }
+    
+    return resultado;
 }
 
 vector<queue<int>> Buscar(vector<queue<int>>& Adyacencias){
