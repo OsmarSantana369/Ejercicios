@@ -8,21 +8,20 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Programa que encuentra las componentes conexas de una gráfica y los vértices que pertenecen a cada una.
+Programa que encuentra los vertices de corte, quitando un vértice a la vez y comparando el número de componetes conexas de la subgráfica respecto a la original.
 
-Este programa está basado en el de búsqueda en profundidad, el cual visita cada vértice mediante sus adyacencias para obtener un árbol o bosque generador. Si la gráfica es conexa, la función Buscar() solo usará la función Visitar() una vez, ya que todos los vértices estarán conectados. Si no es conexa, la función Buscar() llamará a la función Visitar() tantas veces como componentes conexas haya y cada vez que se llame se incrementará el contador numeroComponentes.
-
-En este programa, la función Visitar() toma un vértice k, lo agrega a *visitado* y a la cola de vértices de la componente conexa en cuestión y revisa sus adyacencias. Si una de estas adyacencias no está en *visitado*, entonces se llama recursivamente a la función Visitar() con este vértice. Esto se repite hasta que se hayan visitado todos los vértices conectados al vértice inicial k.
-
-Finalmente, se imprime el número de componentes conexas y los vértices que pertenecen a cada una, o bien, se indica que la gráfica es conexa.
+Después, se imprime los vértices que son de corte y sus componentes conexas.
 
 Orden del algoritmo: O(tamano + orden^2)
 */
 
 void IngresaAristas(vector<vector<float>>& M, vector<queue<int>>& Adyacencias);
 void ImprimeMatriz(vector<vector<float>>& M);
-vector<queue<int>> Buscar(vector<queue<int>>& Adyacencias);
 void Visitar(int k, vector<queue<int>>& ComponentesCopia, vector<queue<int>>& Adyacencias);
+queue<int> Eliminar(queue<int>& fila, int elemento);
+vector<queue<int>> QuitarVertice(vector<queue<int>>& Adyacencias, int vertice);
+void VerticesCorte(vector<queue<int>>& Adyacencias);
+vector<queue<int>> Buscar(vector<queue<int>>& Adyacencias, int orden, int numeroComponentes);
 
 int orden, tamano, numeroComponentes = 0;
 bool Reiniciar;
@@ -59,37 +58,10 @@ int main(){
     IngresaAristas(M, Adyacencias);
     ImprimeMatriz(M);
 
-	vector<queue<int>> Componentes = Buscar(Adyacencias);
+	vector<queue<int>> Componentes = Buscar(Adyacencias, orden, numeroComponentes);
 
-	if(numeroComponentes == 1)
-		cout << "La gráfica es conexa." << endl;
-	else{
-		for(int i = 1; i <= numeroComponentes; i++){
-			cout << "La " << i << "° componente conexa tiene a los vértices: ";
-            queue<int> copia = Componentes[i];
-
-			while(!Componentes[i].empty()){
-				cout << char(96 + Componentes[i].front()) << " ";
-				Componentes[i].pop();
-			}
-			cout << endl << "Y a las aristas: ";
-
-            while(copia.size() > 1){
-                int v1 = copia.front();
-                copia.pop();
-                queue<int> temp = copia;
-
-                while(!temp.empty()){
-                    int v2 = temp.front();
-                    temp.pop();
-
-                    if(M[v1][v2] == 1)
-                        cout << char(96 + v1) << char(96 + v2) << " ";
-                }
-            }
-            cout << endl;
-		}
-	}
+    VerticesCorte(Adyacencias);
+	
     cout << endl;
 
     return 0;
@@ -150,7 +122,7 @@ bool Encontrar(queue<int> fila, int elemento){
     return false;
 }
 
-queue<int> Eliminar(queue<int> fila, int elemento){
+queue<int> Eliminar(queue<int>& fila, int elemento){
     queue<int> resultado;
 
     while(!fila.empty()){
@@ -167,11 +139,11 @@ vector<queue<int>> QuitarVertice(vector<queue<int>>& Adyacencias, int vertice){
     
     for(int i = 1; i < Adyacencias.size(); i++){
         if(i < vertice){
-            resultado[i] = Ayacencias[i];
+            resultado[i] = Adyacencias[i];
             resultado[i] = Eliminar(resultado[i], vertice);
         }
         else if(i > vertice){
-            resultado[i] = Ayacencias[i+1];
+            resultado[i] = Adyacencias[i+1];
             resultado[i] = Eliminar(resultado[i], vertice);
         }
     }
@@ -179,7 +151,32 @@ vector<queue<int>> QuitarVertice(vector<queue<int>>& Adyacencias, int vertice){
     return resultado;
 }
 
-vector<queue<int>> Buscar(vector<queue<int>>& Adyacencias){
+void VerticesCorte(vector<queue<int>>& Adyacencias){
+    int numeroComp = 0;
+    
+    for(int i = 1; i <= orden; i++){
+        vector<queue<int>> Adyver = QuitarVertice(Adyacencias, i);
+        vector<queue<int>> Componentesver = Buscar(Adyver, orden - 1, numeroComp);
+
+        if(Componentesver.size() > numeroComponentes){
+            cout << "El vértice " << char(96 + i) << " es de corte. A continuación se muestran las componentes de la gráfica sin el vértice" << char(96 + i);
+
+            for(int j = 1; j <= Componentesver.size(); j++){
+                cout << "La " << j << "° componente conexa tiene a los vértices: ";
+
+                while(!Componentesver[j].empty()){
+                    cout << char(96 + Componentesver[j].front()) << " ";
+                    Componentesver[j].pop();
+                }
+                cout << endl;
+            }
+        } else{
+            cout << "El vértice " << char(96 + i) << " no es de corte.";
+        }
+    }
+}
+
+vector<queue<int>> Buscar(vector<queue<int>>& Adyacencias, int orden, int numeroComponentes){
     vector<queue<int>> ComponentesCopia(orden + 1);
 
     for(int i = 1; i <= orden; i++){
