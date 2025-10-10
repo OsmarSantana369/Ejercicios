@@ -12,6 +12,24 @@
 
 ![Gráfica 3](Grafica3.png)
 
+4. adaeaideeibggkchhcjcfjffl
+
+	orden: 12, tamano: 13
+
+![Gráfica 4](Grafica4.png)
+
+5. ab ac bd cd df de ef fg eg
+
+	orden: 7, tamano: 9
+
+![Gráfica 5](Grafica5.png)
+
+6. ab ac ad ae bf cf dc dg ed eg eh fi gf gi gh hk ij il jh jl kj
+
+	orden: 12, tamano: 21
+
+![Gráfica 6](Grafica6.png)
+
 
 # Gráficas simples con pesos
 
