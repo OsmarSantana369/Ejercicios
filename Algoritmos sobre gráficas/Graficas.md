@@ -12,7 +12,7 @@
 
 ![Gráfica 3](Grafica3.png)
 
-4. adaeaideeibggkchhcjcfjffl
+4. ad ae ai de ei bg gk ch hl cj cf jf fl
 
 	orden: 12, tamano: 13
 
