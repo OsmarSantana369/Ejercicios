@@ -16,18 +16,16 @@ Para esto la matriz de distancias se obtiene igualandola con la matriz de adyace
 Orden del algoritmo: O(tamano + potencia*orden^3)
 */
 
-void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& Adyacencias);
+void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& adyacencias);
 void ImprimeMatriz(vector<vector<int>>& M);
 vector<vector<int>> PotenciaMatriz(vector<vector<int>>& M, int n);
 vector<vector<int>> MatrizDistancia(vector<vector<int>>& M);
+int Minimo(vector<int>& vector);
+int Maximo(vector<int>& vector);
+queue<int> Buscar(vector<int>& vec, int valor);
 
 int orden, tamano;
 bool Reiniciar;
-
-struct elementoIndice{
-    int elemento;
-    int indice;
-};
 
 int main()
 {
@@ -58,21 +56,41 @@ int main()
     } while(Reiniciar);
 
     vector<vector<int>> M(orden + 1, vector<int>(orden + 1, 0));
-    vector<queue<int>> Adyacencias(orden + 1);
-    vector<int> excentricidades(orden + 1, 0);
+    vector<queue<int>> adyacencias(orden + 1);
+    vector<int> excentricidades(orden, 0);
 
-    IngresaAristas(M, Adyacencias);
+    IngresaAristas(M, adyacencias);
     ImprimeMatriz(M);
+    
+    vector<vector<int>> MDist = MatrizDistancia(M);
 
-    vector<vector<int>> Mdistancia = MatrizDistancia(M);
-    cout<<endl<<"La matriz de distancias es:"<<endl;
-    ImprimeMatriz(Mdistancia);
-    cout<<endl;
+    for(int i = 1; i <= orden; i++){
+        excentricidades[i-1] = Maximo(MDist[i]);
+    }
+
+    cout << "Las excentricidades de cada vértice son:" << endl;
+
+    for(int i = 1; i <= orden; i++){
+        cout << "e(" << char(96+i) << ") = " << excentricidades[i-1] << endl;
+    }
+    
+    cout << endl << "El radio de la gráfica es: " << Minimo(excentricidades) << endl;
+    cout << "El diámetro de la gráfica es: " << Maximo(excentricidades) << endl;
+    cout << "El centro de la gráfica es: {";
+
+    queue<int> centro = Buscar(excentricidades, Minimo(excentricidades));
+
+    while(centro.size() > 1){
+        cout << char(97 + centro.front()) << ", ";
+        centro.pop();
+    }
+    cout << char(97 + centro.front()) << "}" << endl << endl;
 
     return 0;
 }
 
-void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& Adyacencias){
+// Función para ingresar las adyacencias de la gráfica
+void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& adyacencias){
     char v1, v2;
 
     for(int i = 1; i <= tamano; i++){
@@ -84,9 +102,9 @@ void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& Adyacencias){
 
         if(ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
             M[ver1][ver2] = 1;
-            Adyacencias[ver1].push(ver2);
+            adyacencias[ver1].push(ver2);
             M[ver2][ver1] = 1;
-            Adyacencias[ver2].push(ver1);
+            adyacencias[ver2].push(ver1);
         }
         else{
             cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
@@ -156,55 +174,37 @@ vector<vector<int>> MatrizDistancia(vector<vector<int>>& M){
     return MDist;
 }
 
-// Función que obtiene la suma de los elementos de un vector
-int SumaVector(vector<int>& vector){
-    int suma;
+// Función que obtiene el mínimo de un vector
+int Minimo(vector<int>& vector){
+    int resultado = vector[0];
 
-    for(int i = 1; i <= vector.size(); i++)
-        suma += vector[i];
-    
-    return suma;
-}
-
-elementoIndice Minimo(vector<int>& vector){
-    elementoIndice resultado;
-    resultado.elemento = vector[1];
-    resultado.indice = 1;
-
-    for(int i = 2; i <= vector.size(); i++){
-        if(resultado.elemento > vector[i]){
-            resultado.elemento = vector[i];
-            resultado.indice = i;
-        }
+    for(int i = 1; i < vector.size(); i++){
+        if(resultado > vector[i])
+            resultado = vector[i];
     }
     return resultado;
 }
 
-elementoIndice Maximo(vector<int>& vector){
-    elementoIndice resultado;
-    resultado.elemento = vector[1];
-    resultado.indice = 1;
+// Función que obtiene el máximo de un vector
+int Maximo(vector<int>& vector){
+    int resultado = vector[0];
 
-    for(int i = 2; i <= vector.size(); i++){
-        if(resultado.elemento < vector[i]){
-            resultado.elemento = vector[i];
-            resultado.indice = i;
-        }
+    for(int i = 1; i < vector.size(); i++){
+        if(resultado < vector[i])
+            resultado = vector[i];
     }
     return resultado;
 }
 
-queue<elementoIndice> Buscar(vector<int>& vec, int valor){
+// Función que devuelve los índices en los que se encuentra un valor dado dentro de un vector
+queue<int> Buscar(vector<int>& vec, int valor){
     vector<int> copia = vec;
-    queue<elementoIndice> resultado;
+    queue<int> indices;
     
-    for(int i = 1; i <= vec.size(); i++){
+    for(int i = 0; i < vec.size(); i++){
         if(vec[i] == valor){
-            elementoIndice auxiliar;
-            auxiliar.elemento = vec[i];
-            auxiliar.indice = i;
-            resultado.push(auxiliar);
+            indices.push(i);
         }
     }
-    return resultado;
+    return indices;
 }
