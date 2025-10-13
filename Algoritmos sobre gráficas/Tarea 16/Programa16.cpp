@@ -8,9 +8,9 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Programa que encuentra los vertices de corte, quitando un vÃ©rtice a la vez y comparando el nÃºmero de componetes conexas de la subgrÃ¡fica respecto a la original.
+Programa que encuentra los vértices de corte, quitando un vértice a la vez y comparando el número de componetes conexas de la subgráfica respecto a la original.
 
-DespuÃ©s, se imprime los vÃ©rtices que son de corte y sus componentes conexas.
+Después, se imprime los vértices que son de corte y sus componentes conexas.
 
 Orden del algoritmo: O(tamano + orden^2)
 */
@@ -31,22 +31,22 @@ int main(){
     setlocale(LC_ALL, "");
 
     do{
-        cout << endl << "Ingrese el orden de la grÃ¡fica: ";
+        cout << endl << "Ingrese el orden de la gráfica: ";
         cin >> orden;
 
         if(orden <= 0){
-            cout << "Orden invÃ¡lido. Debe ser mayor que 0." << endl;
+            cout << "Orden inválido. Debe ser mayor que 0." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaÃ±o de la grÃ¡fica: ";
+        cout << endl << "Ingrese el tamaño de la gráfica: ";
         cin >> tamano;
 
         if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "TamaÃ±o invÃ¡lido para una grÃ¡fica simple." << endl;
+            cout << "Tamaño inválido para una gráfica simple." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -67,12 +67,12 @@ int main(){
     return 0;
 }
 
-// FunciÃ³n para ingresar las adyacencias de la grÃ¡fica o digrÃ¡fica
+// Función para ingresar las adyacencias de la gráfica o digráfica
 void IngresaAristas(vector<vector<float>>& M, vector<queue<int>>& Adyacencias){
     char v1, v2;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los vÃ©rtices de la " << i << "Â° arista: ";
+        cout << endl << "Inserte los vértices de la " << i << "° arista: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
@@ -84,13 +84,13 @@ void IngresaAristas(vector<vector<float>>& M, vector<queue<int>>& Adyacencias){
             M[ver2][ver1] = 1;
 			Adyacencias[ver2].push(ver1);
         } else{
-            cout << "VÃ©rtices fuera de rango. IntÃ©ntelo nuevamente." << endl;
+            cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
             i--;
         }
     }
 }
 
-// FunciÃ³n para imprimir la matriz de adyacencia
+// Función para imprimir la matriz de adyacencia
 void ImprimeMatriz(vector<vector<float>>& M){
     cout << endl << endl << " ";
 
@@ -159,10 +159,10 @@ void VerticesCorte(vector<queue<int>>& Adyacencias){
         vector<queue<int>> Componentesver = Buscar(Adyver, orden - 1, numeroComp);
 
         if(Componentesver.size() > numeroComponentes){
-            cout << "El vÃ©rtice " << char(96 + i) << " es de corte. A continuaciÃ³n se muestran las componentes de la grÃ¡fica sin el vÃ©rtice" << char(96 + i);
+            cout << "El vértice " << char(96 + i) << " es de corte. A continuaciÃ³n se muestran las componentes de la gráfica sin el vértice" << char(96 + i);
 
             for(int j = 1; j <= Componentesver.size(); j++){
-                cout << "La " << j << "Â° componente conexa tiene a los vÃ©rtices: ";
+                cout << "La " << j << "° componente conexa tiene a los vértices: ";
 
                 while(!Componentesver[j].empty()){
                     cout << char(96 + Componentesver[j].front()) << " ";
@@ -171,7 +171,7 @@ void VerticesCorte(vector<queue<int>>& Adyacencias){
                 cout << endl;
             }
         } else{
-            cout << "El vÃ©rtice " << char(96 + i) << " no es de corte.";
+            cout << "El vértice " << char(96 + i) << " no es de corte.";
         }
     }
 }

@@ -9,9 +9,9 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa obtiene la matriz de distancias de una gráfica y la imprime.
+Este programa obtiene las excentricidades de cada vértice de una gráfica dada asi como el radio, diámetro y centro.
 
-Para esto la matriz de distancias se obtiene igualandola con la matriz de adyacencia, ya que todos los vértices adyacentes tienen distancia 1 entre sí. Después, se eleva la matriz de adyacencia a las potencias 2, 3, ..., *orden*-1 (pues las trayectorias tienen longitud a lo más *orden*-1) y se revisa si en la matriz resultante hay entradas no nulas en posiciones donde la matriz de distancias aún tiene un 0 (esto indica que ese par de vértices no ha tenido algún camino que los conecte hasta antes de la potencia actual). Si se encuentra una entrada no nula en la matriz elevada, se actualiza la matriz de distancias con el valor de la potencia actual, que representa la distancia entre esos vértices.
+Para esto se obtiene la matriz de distancias de la gráfica y en excentricidades se guarda la distancia máxima de cada vértice, es decir, el máximo de cada fila. Después, se imprimen las excentricidades, asi como el mínimo y máximo de estas, lo cual corresponde al radio y diámetro de la gráfica. Por último, se obtienen los vértices del centro y se imprimen.
 
 Orden del algoritmo: O(tamano + potencia*orden^3)
 */
