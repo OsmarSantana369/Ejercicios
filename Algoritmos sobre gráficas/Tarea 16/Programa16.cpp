@@ -18,7 +18,7 @@ Orden del algoritmo: O(tamano + orden^2)
 void IngresaAristas(vector<vector<float>>& M, vector<queue<int>>& Adyacencias);
 void ImprimeMatriz(vector<vector<float>>& M);
 void Visitar(int k, vector<queue<int>>& ComponentesCopia, vector<queue<int>>& Adyacencias);
-queue<int> Eliminar(queue<int>& fila, int elemento);
+queue<int> Eliminar(queue<int> fila, int elemento);
 vector<queue<int>> QuitarVertice(vector<queue<int>>& Adyacencias, int vertice);
 void VerticesCorte(vector<queue<int>>& Adyacencias);
 vector<queue<int>> Buscar(vector<queue<int>>& Adyacencias, int orden, int numeroComponentes);
@@ -122,7 +122,7 @@ bool Encontrar(queue<int> fila, int elemento){
     return false;
 }
 
-queue<int> Eliminar(queue<int>& fila, int elemento){
+queue<int> Eliminar(queue<int> fila, int elemento){
     queue<int> resultado;
 
     while(!fila.empty()){
@@ -135,19 +135,14 @@ queue<int> Eliminar(queue<int>& fila, int elemento){
 }
 
 vector<queue<int>> QuitarVertice(vector<queue<int>>& Adyacencias, int vertice){
-    vector<queue<int>> resultado(Adyacencias.size());
-    
-    for(int i = 1; i < Adyacencias.size(); i++){
-        if(i < vertice){
-            resultado[i] = Adyacencias[i];
-            resultado[i] = Eliminar(resultado[i], vertice);
-        }
-        else if(i > vertice){
-            resultado[i] = Adyacencias[i+1];
-            resultado[i] = Eliminar(resultado[i], vertice);
-        }
+    vector<queue<int>> resultado(Adyacencias.size() - 1);
+
+    for(int i = 1, idx = 1; i < Adyacencias.size(); i++){
+        if(i == vertice)
+            continue;
+        resultado[idx] = Eliminar(Adyacencias[i], vertice);
+        idx++;
     }
-    
     return resultado;
 }
 
