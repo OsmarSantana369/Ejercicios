@@ -1,0 +1,80 @@
+---
+title: "Ejercicios no lineales"
+author: "Osmar Dominique Santana Reyes"
+date: "2025-10-16"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+Sustancia <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica/Trabajo 15/sustancia.csv")
+```
+
+
+1. La data sustancia contiene la cantidad de una sustancia (Y en porcentaje) en muestras de un producto en función del numero de semanas (X) desde que se produjo. Se sabe que se puede ajustar a un modelo
+
+$$ Y = \beta_0 + (\alpha - \beta_0) e^{-\beta_1(X - \delta)} $$
+a) ¿Cuáles tendrían que ser los valores para $\alpha$ y $\delta$?
+    
+La base de datos *sustancia* y su diagrama de dispersión son:
+
+```{r, echo=FALSE}
+head(Sustancia)
+plot(Sustancia, main = "Diagrama de dispersión")
+```
+    
+De estos datos, se observa que el dato inicial se da en la semana 6 con una cantidad de sustancia de 0.690, por lo que $\alpha = 0.690$ y $\delta = 6$. 
+
+b) Realizar el análisis con los valores de $\alpha$ y $\delta$. ¿El modelo es bueno?
+
+```{r, echo=FALSE}
+#Definir la función 
+expo<-function(x,b,c){return(b+(0.690-b)*exp(c*(x-6)))} #b y c son los parámetros de la función
+
+#La función "nls" realiza la regresión exponencial
+ajuste <- nls(data=Sustancia, formula = Sustancia~expo(Semanas,b,c),start=list(b=-1,c=-0.1),trace=T)
+
+summary(ajuste)
+```
+Ambos parámetros son significativos para el modelo.
+
+```{r, echo=FALSE}
+deviance(ajuste)
+```
+
+Además, el valor de la desviación es muy bajo, por lo que el modelo es bueno.
+
+
+c) ¿Cuáles son los valores de los coeficientes de regresión?
+
+```{r, echo=FALSE}
+#Obtenemos los valores obtenidos para b y c
+(b_ajustado <- ajuste$m$getPars()["b"])
+(c_ajustado <- ajuste$m$getPars()["c"])
+```
+
+Los coeficientes del modelo son $\beta_0 = 0.2474071$ y $\beta_1 = 0.206509$.
+
+d) Predecir el porcentaje de Y para 9 y 15 semanas.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#predecimos valores para y. 
+library(tidyverse)
+(fitData <- tibble(Semanas=9:15, Porcentaje = expo(Semanas,b_ajustado,c_ajustado)))
+```
+
+Por último, el gráfico del modelo de regresión exponencial queda como sigue:
+
+```{r, echo=FALSE, message=FALSE}
+fitData <- tibble(Semanas=5:35, Porcentaje = expo(Semanas,b_ajustado,c_ajustado))
+#Graficamos el resultado de la regresión. 
+ggplot()+
+  geom_point(Sustancia,mapping=aes(x=Semanas,y=Sustancia)) +
+  geom_line(fitData,mapping=aes(x=Semanas,y=Porcentaje),color="blue")
+```
+
+
+
+
+
+
+
