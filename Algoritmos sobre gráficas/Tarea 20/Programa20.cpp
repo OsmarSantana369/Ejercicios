@@ -11,14 +11,15 @@ Osmar Dominique Santana Reyes
 
 Este programa obtiene la cerradura transitiva de una digráfica dada.
 
+Para esto, se usa la función CerraduraTransitiva(), la cual recibe como parámetros la matriz de adyacencia y el vector de colas de adyacencias. Dentro de esta función, se utiliza un ciclo do-while que se repite hasta que no se realicen más cambios en la matriz de adyacencia. En cada iteración, se recorre cada vértice y sus adyacencias, y para cada adyacencia, se revisan sus propias adyacencias. Si alguna de estas últimas no está ya en la lista de adyacencias del vértice original y no es el mismo vértice, se añade a la matriz y a la lista de adyacencias.
 
-
-Orden del algoritmo: O(tamano + potencia*orden^3)
+Orden del algoritmo: O(orden^2 + tamano)
 */
 
 void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& adyacencias);
 void ImprimeMatriz(vector<vector<int>>& M);
 vector<vector<int>> PotenciaMatriz(vector<vector<int>>& M, int n);
+void CerraduraTransitiva(vector<vector<int>>& Matriz, vector<queue<int>>& adyacencias);
 
 int orden, tamano;
 bool Reiniciar;
@@ -27,7 +28,7 @@ int main(){
     setlocale(LC_ALL, "");
 
     do{
-        cout << endl << "Ingrese el orden de la gráfica: ";
+        cout << endl << "Ingrese el orden de la digráfica: ";
         cin >> orden;
 
         if(orden <= 0){
@@ -39,11 +40,11 @@ int main(){
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaño de la gráfica: ";
+        cout << endl << "Ingrese el tamaño de la digráfica: ";
         cin >> tamano;
 
-        if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "Tamaño inválido para una gráfica simple." << endl;
+        if(tamano < 0 || tamano > orden*(orden - 1)){
+            cout << "Tamaño inválido para una digráfica simple." << endl;
             Reiniciar = true;
         }
         else
@@ -60,6 +61,23 @@ int main(){
     vector<queue<int>> adyacenciasCerradura = adyacencias;
 
     CerraduraTransitiva(MatrizCerradura, adyacenciasCerradura);
+
+    cout << endl << "Matriz de adyacencia de la cerradura transitiva:";
+    ImprimeMatriz(MatrizCerradura);
+
+    cout << "Adyacencias de la cerradura transitiva:" << endl;
+
+    for(int i = 1; i <= orden; i++){
+        cout << char(96 + i) << ": ";
+
+        queue<int> temp = adyacenciasCerradura[i];
+        while(!temp.empty()){
+            cout << char(96 + temp.front()) << " ";
+            temp.pop();
+        }
+        cout << endl;
+    }
+    cout << endl;
 
     return 0;
 }
@@ -106,42 +124,44 @@ void ImprimeMatriz(vector<vector<int>>& M){
     cout << endl;
 }
 
-// Función para elevar una matriz a una n-ésima potencia
-vector<vector<int>> PotenciaMatriz(vector<vector<int>>& M, int potencia){
-    vector<vector<int>> resultado(orden + 1, vector<int>(orden + 1, 0));
+// Función para verificar si un entero está almacenado en una cola
+bool Encontrar(queue<int> fila, int elemento){
+    queue<int> copia = fila;
 
-    for (int i = 1; i <= orden; i++)
-        resultado[i][i] = 1;
+    while(!copia.empty()){
+        if(copia.front() == elemento)
+            return true;
 
-    for (int k = 1; k <= potencia; k++){
-        vector<vector<int>> temp(orden + 1, vector<int>(orden + 1, 0));
-
-        for (int i = 1; i <= orden; i++){
-            for (int j = 1; j <= orden; j++){
-                for (int l = 1; l <= orden; l++)
-                    temp[i][j] += resultado[i][l] * M[l][j];
-            }
-        }
-        resultado = temp;
+        copia.pop();
     }
-    return resultado;
+    return false;
 }
 
+// Función para obtener la cerradura transitiva de una digráfica
 void CerraduraTransitiva(vector<vector<int>>& Matriz, vector<queue<int>>& adyacencias){
 	int contador = 0;
 
 	do{
-		vector<vector<int>> MDist2 = PotenciaMatriz(Matriz, 2);
 		contador = 0;
 
 		for(int i = 1; i <= orden; i++){
-			for(int j = 1; j <= orden; j++){
-				if(MDist2[i][j] > 0 && Matriz[i][j] == 0 && i != j){
-					Matriz[i][j] = 1;
-					adyacencias[i].push(j);
-					contador++;
-				}
-			}
-		}
+			queue<int> fila = adyacencias[i];
+            
+            while(!fila.empty()){
+                queue<int> adyacentesVerticeActual = adyacencias[fila.front()];
+
+                while(!adyacentesVerticeActual.empty()){
+                    int verticeFinal = adyacentesVerticeActual.front();
+                    adyacentesVerticeActual.pop();
+
+                    if(!Encontrar(adyacencias[i], verticeFinal) && verticeFinal != i){
+                        Matriz[i][verticeFinal] = 1;
+                        adyacencias[i].push(verticeFinal);
+                        contador++;
+                    }
+                }
+                fila.pop();
+            }
+        }
 	} while(contador != 0);
 }

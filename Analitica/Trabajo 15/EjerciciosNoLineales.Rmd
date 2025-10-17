@@ -10,7 +10,7 @@ Sustancia <- read.csv("C:/Users/Alumno 25-B/Documents/Osmar/Ejercicios/Analitica
 ```
 
 
-1. La data sustancia contiene la cantidad de una sustancia (Y en porcentaje) en muestras de un producto en función del numero de semanas (X) desde que se produjo. Se sabe que se puede ajustar a un modelo
+1. La data sustancia contiene la cantidad de una sustancia (Y en porcentaje) en muestras de un producto en función del numero de semanas (X) desde que se produjo. Se sabe que se puede ajustar a un modelo exponencial de la forma:
 
 $$ Y = \beta_0 + (\alpha - \beta_0) e^{-\beta_1(X - \delta)} $$
 a) ¿Cuáles tendrían que ser los valores para $\alpha$ y $\delta$?
