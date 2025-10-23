@@ -2,7 +2,16 @@
 title: "Regresión Polinomial"
 author: "Osmar Dominique Santana Reyes"
 date: "2025-10-08"
-output: html_document
+output: 
+  html_document:
+    toc: true          # Incluir tabla de contenidos
+    toc_depth: 2      # Incluir hasta nivel 2 en la tabla de contenidos
+    toc_float: true    # Hacer que la tabla de contenidos sea flotante
+    toc_collapse: true # Colapsar secciones en la tabla de contenidos
+    code_folding: hide  # Ocultar el código por defecto
+    df_print: paged   # Imprimir data frames con paginación
+    theme:
+      bootswatch: superhero    # superhero sketchy
 ---
 
 # Ejemplo:
@@ -10,6 +19,7 @@ output: html_document
 Consideremos la base de datos resistencia, realicemos un análisis polinomial (debido al gráfico de dispersión) para explicar la resistencia a la tensión de una bolsa en función del porcentaje de madera dura.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
 Resistencia <- read.csv("C:/Users/CONTROL/Desktop/Ejercicios/Analitica/Trabajo 13/Resistencia.csv")
 ```
 
@@ -22,6 +32,13 @@ Veamos el diagrama de dispersión:
 plot(Resistencia, main = "Diagrama de dipersión")
 ```
 
+```{r, echo=FALSE}
+DT::datatable(
+  head(Resistencia, 19),
+  fillContainer = FALSE, options = list(pageLength = 7)
+)
+```
+
 Como podemos notar, una regresión lineal simple no es un buen modelo, ya que se observa que los datos tienen forma de parábola. Por ello, ahora realizaremos una regresión polinomial, probando polinomios de grado 2 hasta de grado 5. Y como comparación obtendremos el modelo lineal:
 
 ## Modelo 1 (lineal)
@@ -30,7 +47,7 @@ $$ y = a + bx $$
 
 donde $y$ = Resistencia y $x$ = Concentración.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, results='hold'}
 mod1 <- lm(Resistencia ~ Concentracion , data=Resistencia)
 summary(mod1)
 ```
@@ -121,8 +138,7 @@ ggplot(Resistencia, aes(x=Concentracion, y=Resistencia)) +
   geom_smooth(method='lm', formula=y~x, se=FALSE,col='blue') +
   geom_smooth(method='lm', formula=y~x+I(x^2), se=FALSE,col='green') +
   geom_smooth(method='lm', formula=y~x+I(x^2)+I(x^3), se=FALSE, col='red')+
-  geom_smooth(method='lm', formula=y~x+I(x^2)+I(x^3)+I(x^4), se=FALSE, col='purple')+
-  theme_light()
+  geom_smooth(method='lm', formula=y~x+I(x^2)+I(x^3)+I(x^4), se=FALSE, col='purple')
 ```
 
 ## Mejor modelo:
@@ -148,7 +164,7 @@ library(car)
 ncvTest(mod3)
 ```
 
-De la prueba de homocedasticidad, se obtiene un p-value de 0.075529 por lo que se acepta la hipótesis nula de que la varianza es constante.
+De la prueba de homocedasticidad, se obtiene un p-value de 0.075529 por lo que se acepta la hipótesis nula de que la varianza es constante. 
 
 ```{r, echo=FALSE}
 residuos <- rstandard(mod3)
