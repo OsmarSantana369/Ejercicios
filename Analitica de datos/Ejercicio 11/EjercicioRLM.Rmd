@@ -1,0 +1,194 @@
+---
+title: "Regresión lineal múltiple"
+author: "Osmar Dominique"
+date: "2025-09-18"
+output: html_document
+---
+
+Consideraremos la tabla cocodrilos.xls que trata sobre el estudio de 11 variables medidas en 44 cráneos de cocodrilos. Las variables son:
+
+CL = Longitud del cráneo.
+
+CW = Ancho del cráneo.
+
+SW = Ancho del hocico.
+
+SL = Longitud del hocico.
+
+DCL = Longitud dorsal del cráneo.
+
+OW = Ancho máximo orbital.
+
+OIW = Ancho mínimo inter-orbital.
+
+OL = Longitud máxima orbital.
+
+LCR = Longitud del paladar post-orbital.
+
+WCR = Ancho posterior del paladar craneal.
+
+WN = Ancho máximo en los orificios nasales.
+
+a)  **Obtener la matriz de dispersión de las 11 variables**
+
+    ```{r, echo=FALSE}
+    datos <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica/Ejercicio 11/Cocodrilos.csv")
+    cocodrilos <- datos[,3:13]
+
+    plot(cocodrilos)
+    ```
+
+b)  **De la matriz de correlación, entre qué par de variables se da la mayor y menor relación lineal?**
+
+    La matriz de correlación es:
+
+    ```{r, echo=FALSE}
+    cor(cocodrilos)
+    ```
+
+    La mayor relación lineal se da entre la longitud del cráneo (CL) y la longitud dorsal del cráneo (DCL), con una correlación de 0.9990275 mientras que la menor se da entre la longitud del hocico (SL) y la ancho máximo orbital (OW) con una correlación de 0.7132771.
+
+c)  **Realizar una regresión lineal múltiple entre la variable dependiente CW y las variables independientes WN, WCR, OW y LCR.**
+
+    ```{r, echo=FALSE}
+    modelo <- lm(CW_1 ~ WN_1 + WCR_1 + OW_1 + LCR_1, data = cocodrilos)
+    summary(modelo)
+    ```
+
+    1)  **¿Esta regresión se ajusta bien a los datos?**
+
+        Las únicas variables que son significativas para el modelo es WN y WCR. Además, se obtiene un coeficiente de determinación ajustado ($R^2$ ajustado) de 0.8616, es decir, el modelo explica el 86.16% de la variabilidad total.
+
+        ```{r, echo=FALSE}
+        anova(modelo)
+        ```
+
+        Después, del ANOVA del modelo, se obtiene que el modelo solo es significativo para WN y WCR. Por lo tanto, el modelo solo se ajusta bien a las variables WN y WCR.
+
+    2)  **Colocar la ecuación de regresión.**
+
+        La ecuación de regresión es: $$ Y = 0 + 1.8327*WN + 1.5751*WCR - 1.6969*OW + 0.6604*LCR $$
+
+    3)  **Predecir el valor de la variable CW cuando las variables independientes toman los siguientes valores:**
+
+        ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+        library(knitr)
+        tabla1 <- data.frame(
+          WN = c(30, 45, 60),
+          WCR = c(100, 140, 180),
+          OW = c(40, 48, 51),
+          LCR = c(45, 65, 87)
+        )
+        kable(tabla1)
+        ```
+        
+        ```{r, echo=FALSE}
+        nuevo <- data.frame(WN_1 = c(30, 45, 60), WCR_1 = c(100, 140, 180), OW_1 = c(40, 48, 51), LCR_1 = c(45,65, 87))
+        predict(object=modelo, newdata=nuevo, interval="confidence", level=0.95)
+        predict(object=modelo, newdata=nuevo, interval="prediction", level=0.95)
+        ```
+
+d)  **Verificar los supuestos de normalidad y homocedasticidad.**
+
+    ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+    library(car)
+    ncvTest(modelo)
+    ```
+
+    De la prueba de homocedasticidad se obtiene un p-value de 0.64164 por lo cual la varianza es constante.
+
+    ```{r, echo=FALSE}
+    residuos <- rstandard(modelo)   #Los errores en las predicciones
+    shapiro.test(residuals(modelo))
+    ```
+
+    Por otro lado, de la prueba de normalidad se obtiene un p-value de $2.005*10^{-8}$ por lo que los errores no están distribuidos de manera normal.
+
+e)  **Realizar un ajuste del modelo quitando alguna(s) variables. Colocar la nueva ecuación de regresión con el modelo que creas que se ajusto mejor. ¿Hay un cambio significativo en el modelo?**
+
+    -   **Modelo 1:** Solo se considerarán las variables WN y WCR, ya que el resto no eran significativas para el modelo.
+
+        ```{r, echo=FALSE}
+        modelo1 <- lm(CW_1 ~ WN_1 + WCR_1, data = cocodrilos)
+        summary(modelo1)
+        ```
+
+        Las variables explicativas son significativas para el modelo, pero el intercepto no lo es. Además, se obtiene un coeficiente de determinación ajustado ($R^2$ ajustado) de 0.8609, es decir, el modelo explica el 86.09% de la variabilidad total.
+
+        ```{r, echo=FALSE}
+        anova(modelo1)
+        ```
+
+        Después, del ANOVA del modelo, se obtiene que el modelo es significativo para las variables explicativas. De esta manera, el modelo es significativo.
+
+        ```{r, echo=FALSE}
+        ncvTest(modelo1)
+        ```
+        
+        De la prueba de homocedasticidad se obtiene un p-value de 0.87869 por lo cual la varianza es constante.
+        
+        ```{r, echo=FALSE}
+        residuos <- rstandard(modelo1)   #Los errores en las predicciones
+        shapiro.test(residuals(modelo1))
+        ```
+
+        Por otro lado, de la prueba de normalidad se obtiene un p-value de $3.514*10^{-8}$ por lo que los errores no están distribuidos de manera normal.
+
+    -   **Modelo 2:** Solo se considerará la variable WCR, ya que la variable WN es la que tiene menor correlación con CW.
+
+        ```{r, echo=FALSE}
+        modelo2 <- lm(CW_1 ~ WCR_1, data = cocodrilos)
+        summary(modelo2)
+        ```
+
+        La variable WCR es significativa para el modelo, pero el intercepto no lo es. Además, se obtiene un coeficiente de determinación ajustado ($R^2$ ajustado) de 0.8356, es decir, el modelo explica el 83.56% de la variabilidad total.
+
+        ```{r, echo=FALSE}
+        anova(modelo2)
+        ```
+
+        Después, del ANOVA del modelo, se obtiene que el modelo es significativo para las variables explicativas. De esta manera, el modelo es significativo.
+
+        ```{r, echo=FALSE}
+        ncvTest(modelo2)
+        ```
+
+        De la prueba de homocedasticidad se obtiene un p-value de 0.17168 por lo cual la varianza es constante.
+
+        ```{r, echo=FALSE}
+        residuos <- rstandard(modelo2)   #Los errores en las predicciones
+        shapiro.test(residuals(modelo2))
+        ```
+
+        Por otro lado, de la prueba de normalidad se obtiene un p-value de $4.684*10^{-11}$ por lo que los errores no están distribuidos de manera normal.
+
+    De los modelos anteriores, se concluye que el que mejor se ajusta es el 1, ya que tiene mejor $R^2$ ajustado y menor error estándar. La ecuación del modelo es: $$ Y = -24.7710 + 1.5717*WN + 1.6228*WCR $$. Aunque el intercepto no es significativo, se decide mantenerlo en el modelo ya que algunos valores de la tabla cocodrilos tienen errores más reducidos.
+
+f)  **Realizar nuevamente el inciso c) con la nueva ecuación del inciso anterior.**
+
+    1)  ¿Esta regresión se ajusta bien a los datos?
+
+        Las variables explicativas son significativas para el modelo, pero el intercepto no lo es. Además, se obtiene un coeficiente de determinación ajustado ($R^2$ ajustado) de 0.8609, es decir, el modelo explica el 86.09% de la variabilidad total.
+
+        Después, del ANOVA del modelo, se obtiene que el modelo es significativo para las variables explicativas. De esta manera, el modelo es significativo.
+
+    2)  Colocar la ecuación de regresión.
+
+        La ecuación de regresión es: $$ Y = -24.7710 + 1.5717*WN + 1.6228*WCR $$
+
+    3)  Predecir el valor de la variable CW cuando las variables independientes toman los siguientes valores:
+
+        ```{r, echo=FALSE}
+        library(knitr)
+        tabla1 <- data.frame(
+          WN = c(30, 45, 60),
+          WCR = c(100, 140, 180)
+        )
+        kable(tabla1)
+        ```
+
+        ```{r, echo=FALSE}
+        nuevo <- data.frame(WCR_1 = c(100, 140, 180))
+        predict(object=modelo2, newdata=nuevo, interval="confidence", level=0.95)
+        predict(object=modelo2, newdata=nuevo, interval="prediction", level=0.95)
+        ```

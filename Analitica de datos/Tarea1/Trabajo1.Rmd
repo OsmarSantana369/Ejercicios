@@ -1,0 +1,85 @@
+---
+title: "APROBACION DE UN CREDITO"
+author: "Juan Escobar"
+date: "2025-08-08"
+output: html_document
+---
+1.Construir un data frame de 10 observaciones (sujetos) con 4 variables.
+```{r}
+ingresos_mensuales<-c(15000, 37000, 60000,9000,23000,6000,85000,2000,80000,65000)
+nacionalidad<- c('local','extranjero','multiple','extranjero','local','multiple','local','multiple','local','extranjero')
+Estadodecuenta<- c("congelada","libre","libre","adeudo","congelada","libre","adeudo","congelada","libre","adeudo")
+Profesion<- c('doctor', 'maestro', 'ingeniero', 'electricista', 'policia','pintor','sastre','musico','enfermero','pediatra')
+
+datos<-data.frame(ingresos_mensuales,nacionalidad,Estadodecuenta,Profesion)
+datos
+
+```
+Daremos puntos de acuerdo al ingreso mensual de cada persona
+```{r}
+ingresos_categoria<-cut(ingresos_mensuales, breaks=c(0,10000,60000,100000),labels=c("33","66","100"))
+ingresos_categoria
+ingresos_categoria_num<-as.numeric(as.character(ingresos_categoria))
+ingresos_categoria_num
+
+```
+Daremos puntos de acuerdo a la nacionalidad de cada persona 
+```{r}
+library(dplyr)
+nacion_puntos=recode(nacionalidad,
+                    "local"=100,
+                    "extranjero"=60,
+                    "multiple"=20)
+nacion_puntos
+```
+Daremos puntos de acuerdo al estado cuenta de cada persona
+```{r}
+estado_puntos=recode(Estadodecuenta,
+                     "adeudo"=100,
+                     "libre"=50,
+                     "congelada"=0)
+estado_puntos
+```
+Finalmente daremos puntos de acuerdo a la profesion de cada persona 
+```{r}
+profesion_puntos=recode(Profesion,
+                        "doctor"=100,
+                        "maestro"=80,
+                        "ingeniero"=80,
+                        "electricista"=60,
+                        "policia"=70,
+                        "pintor"=60,
+                        "sastre"=70,
+                        "musico"=80,
+                        "enfermero"=80,
+                        "pediatra"=70)
+profesion_puntos
+
+```
+A continuacion mostramos el puntaje obtenido al momento de calificar estas cuatro variables en cada persona.
+
+```{r}
+Puntaje<-data.frame(ingresos_categoria_num,nacion_puntos,estado_puntos,profesion_puntos)
+Puntaje
+Puntaje_total<-rowSums(Puntaje)
+Puntaje_total
+
+```
+Ya conocida la suma total de cada persona, daremos el credito a dicha persona que cumpla con cierto puntaje.
+```{r}
+categoria = cut(Puntaje_total, breaks = c(0,170,310,Inf), labels = c("No", "Tal vez", "Si"))
+categoria
+```
+Aqui se crea un resumen con la decisión de crédito para cada persona
+```{r}
+resultado <- cbind(datos, Puntaje_total, categoria)
+resultado
+cat("Personas a quienes SÍ se les autoriza el crédito:\n")
+subset(resultado, categoria == "Si")
+
+cat("Personas a quienes TAL VEZ se les autoriza el crédito:\n")
+subset(resultado, categoria == "Tal vez")
+
+cat("Personas a quienes NO se les autoriza el crédito:\n")
+subset(resultado, categoria == "No")
+```

@@ -1,0 +1,222 @@
+---
+title: "Modelos de regresión no lineales"
+author: "Osmar Dominique Santana Reyes"
+date: "2025-10-20"
+output: 
+  html_document:
+    code_folding: hide  # Ocultar el código por defecto
+    df_print: paged   # Imprimir data frames con paginación
+    theme:
+      bootswatch: sketchy
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.align='center', comment = '') 
+library(tidyverse)
+```
+
+## Ejercicio 1. {.tabset}
+
+Consideremos la relación de la velocidad inicial $y$ de una reacción enzimática con la concentración $x$ de sustrato. Usando el modelo de Michaelis-Menten de cinética química tenemos que
+
+$$ Y = \dfrac{\beta_0 x}{x + \beta_1} + \epsilon $$
+    
+Los datos de velocidad inicial de reacción para una enzima tratada con puromicina se muestran a continuación:
+
+```{r}
+velocidad <- data.frame(
+  concentracion = c(0.02, 0.06, 0.11, 0.22, 0.56, 1.10),
+  velsinpur = c(47, 97, 123, 152, 191, 200),
+  velconpur = c(76, 107, 139, 159, 201, 207)
+)
+```
+
+    
+| Concentración de sustrato | Velocidad inicial (sin puromicina) | Velocidad inicial (con puromicina) |
+|:-------------------------:|:----------------------------------:|:----------------------------------:|
+| 0.02                      | 47                                 | 76                                 |
+| 0.06                      | 97                                 | 107                                |
+| 0.11                      | 123                                | 139                                |
+| 0.22                      | 152                                | 159                                |
+| 0.56                      | 191                                | 201                                |
+| 1.10                      | 200                                | 207                                |
+
+Se realizará un análisis de regresión exponencial para explicar la velocidad inicial de la reacción en función de la concentración de sustrato, tanto para el caso sin puromicina como con puromicina.
+
+```{r}
+#Definir la función 
+expo <- function(x,a,b){return((a*x)/(x+b))} # a y b son los parámetros de la función
+```
+
+### Sin puromicina
+
+Para dar los valores iniciales de los parámetros a y b, podemos fijarnos en dos observaciones:
+
+```{r}
+head(velocidad[c(2,5),])
+```
+
+Sustituyendo en el modelo, se obtiene el sistema de ecuaciones siguiente:
+
+$$ 97 = \dfrac{0.06a}{0.06 + b} $$ 
+
+$$ 191 = \dfrac{0.56a}{0.56 + b} $$
+
+El cual se puede resolver para obtener los valores iniciales de a y b, que son 216 y 0 (redondeados), respectivamente.
+
+```{r}
+#La función "nls" realiza la regresión exponencial
+ajuste <- nls(data = velocidad, formula = velsinpur ~ expo(concentracion, a, b), start = list(a = 216, b = 0), trace = T)
+```
+
+De esta manera, el resumen del modelo es:
+
+```{r}
+summary(ajuste)
+```
+
+Y tiene un error residual de `r deviance(ajuste) `. Como los dos coeficientes son significativos para el modelo, podemos escribir el modelo ajustado como:
+
+$$ Y_{sp} = \dfrac{213.17 * X}{X + 0.0768} + \epsilon $$
+
+Finalmente, la gráfica del resultado de la regresión es:
+
+```{r}
+#Obtenemoslos valores obtenidos para a y b
+a_ajustado <- ajuste$m$getPars()["a"]
+b_ajustado <- ajuste$m$getPars()["b"]
+
+fitData <- tibble(concentracion = seq(0, 1.2, 0.01), fit = expo(concentracion, a_ajustado, b_ajustado))
+nuevo <- tibble(concentracion = 0.5, fit = expo(concentracion, a_ajustado, b_ajustado))
+#Graficamos el resultado de la regresión. 
+ggplot()+
+  geom_point(velocidad, mapping = aes(x = concentracion, y = velsinpur)) +
+  geom_line(fitData, mapping = aes(x = concentracion, y = fit), color="blue") +
+  labs(title = "Regresión exponencial sin puromicina",
+       x = "Concentración de sustrato",
+       y = "Velocidad inicial de reacción") +
+  theme_bw()
+```
+
+
+### Con puromicina
+
+De forma análoga, podemos fijarnos en las mismas observaciones:
+
+```{r}
+head(velocidad[c(2,5),])
+```
+
+Sustituyendo en el modelo, se obtiene el sistema de ecuaciones siguiente:
+
+$$ 107 = \dfrac{0.06a}{0.06 + b} $$ 
+
+$$ 201 = \dfrac{0.56a}{0.56 + b} $$
+
+El cual se puede resolver para obtener los valores iniciales de a y b, los cuales son 224 y 0 (redondeados), respectivamente.
+
+```{r}
+#La función "nls" realiza la regresión exponencial
+ajuste <- nls(data = velocidad, formula = velconpur ~ expo(concentracion, a, b), start = list(a = 224, b = 0), trace = T)
+```
+
+De esta manera, el resumen del modelo es:
+
+```{r}
+summary(ajuste)
+```
+
+Y tiene un error residual de `r deviance(ajuste) `. Como los dos coeficientes son significativos para el modelo, podemos escribir el modelo ajustado como:
+
+$$ Y_{cp} = \dfrac{212.12 * X}{X + 0.0528} + \epsilon $$
+
+Finalmente, la gráfica del resultado de la regresión es:
+
+```{r}
+#Obtenemoslos valores obtenidos para a y b
+a_ajustado <- ajuste$m$getPars()["a"]
+b_ajustado <- ajuste$m$getPars()["b"]
+
+fitData <- tibble(concentracion = seq(0, 1.2, 0.01), fit = expo(concentracion, a_ajustado, b_ajustado))
+nuevo <- tibble(concentracion = 0.5, fit = expo(concentracion, a_ajustado, b_ajustado))
+#Graficamos el resultado de la regresión. 
+ggplot()+
+  geom_point(velocidad, mapping = aes(x = concentracion, y = velconpur)) +
+  geom_line(fitData, mapping = aes(x = concentracion, y = fit), color="blue") +
+  labs(title = "Regresión exponencial con puromicina",
+       x = "Concentración de sustrato",
+       y = "Velocidad inicial de reacción") +
+  theme_bw()
+```
+
+
+
+## Ejercicio 2. 
+
+Consideremos la relación de la presión $P$ de una masa de gas para distintos valores de volumen V. Se sabe que la relación entre estas variables sigue el siguiente modelo
+
+<center>
+$P = \beta_0 V^{-\beta_1}$ (modelo potencial $Y = \beta_0 X^{\beta_1} + \epsilon$)
+</center>
+
+Los datos son:
+
+```{r}
+gas <- data.frame(
+  volumen = c(54.3, 61.8, 72.4, 88.7, 118.6, 194),
+  presion = c(61.2, 49.5, 37.6, 28.4, 19.2, 10.1)
+)
+```
+
+
+| Volumen | Presión |
+|:-------:|:-------:|
+| 54.3    | 61.2    |
+| 61.8    | 49.5    |
+| 72.4    | 37.6    |
+| 88.7    | 28.4    |
+| 118.6   | 19.2    |
+| 194     | 10.1    |
+
+Aplicando logaritmo natural a ambos lados del modelo, obtenemos:
+
+$$ \ln(P) = \ln(\beta_0) - \beta_1 \ln(V) $$
+
+El cual es un modelo lineal con los parámetros $\ln(\beta_0)$ y $-\beta_1$. 
+
+```{r}
+mod <- lm(log(presion) ~ log(volumen), data = gas)
+summary(mod)
+```
+
+Del resumen del modelo, ambos coeficientes son significativos para el modelo. Además, se obtiene un R-cuadrada ajustada de 0.9912, por lo que el modelo es muy bueno y queda como:
+
+$$ \ln(P) = `r mod$coefficients[1] ` `r mod$coefficients[2] ` \ln(V) $$
+
+Es decir:
+
+$$ P = `r exp(mod$coefficients[1]) ` V^{`r mod$coefficients[2] `} $$
+
+Finalmente, la gráfica del resultado de la regresión es:
+
+```{r}
+ggplot(data = data.frame(x = c(50, 200)), aes(x = x)) +
+  geom_point(gas, mapping = aes(x = volumen, y = presion)) +
+  geom_function(fun = function(x) exp(mod$coefficients[1])*x^mod$coefficients[2]) +
+  labs(title = "Presión de una masa de gas a distinto volumen ocupado",
+       x = "Volumen",
+       y = "Presión del gas") +
+  theme_bw()
+```
+
+
+
+
+
+
+
+
+
+
+
+

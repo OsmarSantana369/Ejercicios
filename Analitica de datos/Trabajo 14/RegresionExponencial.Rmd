@@ -1,0 +1,248 @@
+---
+title: "Regresión exponencial"
+author: "Osmar Dominique Santana Reyes"
+date: "2025-10-09"
+output: html_document
+---
+
+Veamos un primer ejemplo de la regresión exponencial de la forma $$Y = \beta_0 e^{\beta_1}X + \epsilon$$, que se puede linealizar, es decir, que podemos llevar nuestro modelo a uno lineal simple mediante el logaritmo natural.
+
+$$ \ln(Y) = \ln (\beta_0) + \beta_1 X + \epsilon = \beta_0 + \beta_1 X + \epsilon$$
+
+## Ejemplo: 
+
+Analicemos la relación que existe entre la reacción a un estímulo (variable dependiente) y el tiempo de exposición a ese estímulo (variable independiente). Consideremos la tabla estimulo.
+
+```{r}
+estimulo <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica de datos/Trabajo 14/Estimulo.csv")
+print(estimulo)
+```
+
+* Variable dependiente: Estímulo
+* Variable independiente: Tiempo
+
+Como linealizamos el modelo entonces Y = log(Estimulo).
+
+```{r}
+mod1<- lm(log(Estimulo) ~ Tiempo , data = estimulo)
+summary(mod1)
+```
+
+Del resumen del modelo, los dos coeficientes son significativos alcanzando un R- cuadrada ajustada de 92.4%.
+
+La ecuación del modelo es:
+
+$$ \ln(Estimulo) = 1.6834 - 0.3329*Tiempo $$
+
+### Diagrama de dispersión.
+
+```{r}
+library(ggplot2)
+ggplot(estimulo, aes(x=Tiempo, y=Estimulo)) + 
+  geom_point() +
+  geom_smooth(method='lm', formula=y~x, se=FALSE,col='brown') +
+  theme_light() +
+  ggtitle("Diagrama de dispersión sin aplicar logaritmo")
+```
+
+```{r}
+library(ggplot2)
+y1 <- log(estimulo$Estimulo)
+ggplot(estimulo, aes(x=Tiempo, y=y1)) + 
+  geom_point() +
+  geom_smooth(method='lm', formula=y~x, se=FALSE,col='brown') +
+  theme_light() + 
+  ggtitle("Diagrama de dispersión aplicando logaritmo")
+```
+
+Solo como observación, si hicieramos un modelo lineal con las variables originales obtendríamos:
+
+* Que las dos variables son significativas para el modelo pero solo alcanzamos una R-cuadrada ajustada de 76.3%. Y este modelo hace referencia al primer diagrama de dispersión.
+
+```{r}
+mod2 <- lm(Estimulo ~ Tiempo , data = estimulo)
+summary(mod2)
+```
+
+Otra versión de una regresión exponencial podría ser que a la variable independiente se le aplique el exponente. Pero realizando este modelo no obtenemos nada significativo.
+
+```{r}
+mod3 <- lm(Estimulo ~ exp(Tiempo),data = estimulo)
+summary(mod3)
+```
+
+**Conclusión:** El mejor modelo que podemos tener es el **mod1** y este nos ayudará a realizar predicciones.
+
+### Predicciones
+
+```{r}
+nuevo <- data.frame(Tiempo = 4)
+predict(object=mod1, newdata=nuevo, interval="confidence", level=0.95)
+predict(object=mod1, newdata=nuevo, interval="prediction", level=0.95)
+```
+
+De la tabla original, si el tiempo es 4, el estímulo es 1.4.
+
+En una primer instancia podemos pensar que la predicción es mala, pero recordemos que el modelo es para log(Estimulo), no sobre la variable original.
+
+Por lo que la predicción, en términos de la variable original es:
+
+```{r}
+cat("La predicción del estímulo para Tiempo = 4 es: ", exp(0.3519415))
+```
+
+### Verificación de supuestos
+
+```{r, echo=FALSE, message=FALSE}
+library(car)
+ncvTest(mod1)
+```
+
+De la prueba de homocedasticidad se obtiene un p-value de 0.13841 por lo cual la varianza es constante.
+
+```{r, echo=FALSE}
+residuos <- rstandard(mod1)   #Los errores en las predicciones
+shapiro.test(residuals(mod1))
+```
+
+Por otro lado, de la prueba de normalidad se obtiene un p-value de 0.7572 por lo que los errores sí están distribuidos de manera normal.
+
+## Caso general
+
+Un caso mas general de la regresión exponencial con una sola variable predictora es: $$Y = \beta_0 + (\alpha - \beta_0) e^{\beta_1 (X - \delta)} + \epsilon$$ donde $\alpha$ y $\delta$ son constantes; $\beta_0$ y $\beta_1$ son los coeficientes de regresión.
+
+Ejemplo: Consideremos la base de datos cloro, que contiene la cantidad de cloro (Y) en muestras de un producto en función del numero de semanas (X) desde que se produjo. Se sabe que se puede ajustar el siguiente modelo a los datos:
+$$Y = \beta_0 + (0.49 - \beta_0) e^{-\beta_1 (X - 8)} + \epsilon$$
+
+```{r}
+Cloro <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica de datos/Trabajo 14/cloro.csv")
+print(Cloro)
+
+ggplot(Cloro, aes(x=Semanas,y=Cloro))+
+  geom_point()
+```
+
+Para el modelo necesitamos encontrar los valores de las constantes $\alpha$ y $\delta$, que se obtendrán al analizar la base de datos. En este tipo de regresión, $\delta$ es el valor de inicio para la variable independiente y $\alpha$ es el valor de inicio para la variable dependiente.
+
+En nuestro ejemplo: $\alpha = 0.49$ y $\delta = 8$. Con estos valores podemos ya generar nuestro modelo
+
+```{r}
+#Definir la función 
+expo<-function(x,b,c){return(b+(0.49-b)*exp(c*(x-8)))} #b y c son los par?metros de la funci?n
+
+#La función "nls" realiza la regresión exponencial
+ajuste <- nls(data=Cloro, formula = Cloro~expo(Semanas,b,c),start=list(b=-1,c=-0.1),trace=T)
+
+#para b y c se deben dar valores iniciales. Si la el modelo es creciente, se toman positivos y si es decreciente, se toman negativos.
+```
+
+El resumen del modelo es:
+
+```{r}
+summary(ajuste)
+```
+
+Del resumen, los dos coeficientes son significativos para el modelo, obteniendo un error residual de 0.01091, y para 
+
+```{r}
+deviance(ajuste)
+```
+
+```{r}
+(b_ajustado <- ajuste$m$getPars()["b"])
+(c_ajustado <- ajuste$m$getPars()["c"])
+
+#Obtenemoslos valores obtenidos para b y c
+library(tidyverse)
+(fitData <- tibble(Semanas=1:50,fit = expo(Semanas,b_ajustado,c_ajustado)))
+
+(nuevo <- tibble(Semanas=80,fit = expo(Semanas,b_ajustado,c_ajustado)))
+
+#Graficamos el resultado de la regresi?n. 
+ggplot()+
+  geom_point(Cloro,mapping=aes(x=Semanas,y=Cloro)) +
+  geom_line(fitData,mapping=aes(x=Semanas,y=fit),color="blue")
+```
+
+
+## Regresión exponencial con más variables
+
+```{r}
+library("rgl")
+library("magick")
+material <- read.csv("C:/Users/Alumno 25-B/Documents/Osmar/Ejercicios/Analitica/Trabajo 14/material.csv")
+```
+
+```{r}
+Tiempo <- material$Tiempo
+Temperatura <- material$Temperatura
+Material <- material$Material
+```
+
+```{r}
+plot3d(Tiempo, Temperatura, Material, 
+       type = "s", radius = 1.5 )
+```
+
+```{r eval=FALSE, include=FALSE}
+play3d( spin3d( axis = c(0, 0, 1), rpm = 2), duration = 30 ) #gira el gráfico
+```
+
+Veamos ahora cómo realizaremos el análisis.
+
+```{r}
+# b y c son los coeficientes \beta1 y \beta2
+# x y y son las variables predictoras: x = x_1 (tiempo) y y = x_2 (temperatura)
+expo<-function(x,y,b,c){return(exp(b*x*exp(-c*((1/y)-(1/620)))))}
+ajuste <- nls(data=material, formula = Material~expo(Tiempo,Temperatura,b,c),
+              start=list(b=0.3,c=0.3),trace=T)
+```
+
+Los valores estimados para los coeficientes son:
+$\beta_1 = -0.003758807$ y $\beta_2 = 27539.05$. Y con el resumen del modelo podemos observar que los dos son significativos.
+
+```{r}
+summary(ajuste)
+```
+
+```{r}
+# Un buen modelo tiene un valor cercano a 0
+deviance(ajuste)
+```
+
+Al observar esta deviación, podemos decir que el modelo es bueno.
+
+### Predicciones
+
+```{r}
+#Obtenemos los valores obtenidos para b y c
+(b_ajustado <- ajuste$m$getPars()["b"])
+(c_ajustado <- ajuste$m$getPars()["c"])
+
+#predecimos valores para y. 
+library(tidyverse)
+(fitData <- tibble(Tiempo=c(120,125), Temperatura=c(600, 620), fit = expo(Tiempo,Temperatura,b_ajustado,c_ajustado)))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

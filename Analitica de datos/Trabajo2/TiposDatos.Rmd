@@ -1,0 +1,162 @@
+---
+title: "Tipos de datos"
+author: "Osmar Dominique"
+date: "2025-08-13"
+output: html_document
+---
+
+# Variables
+
+Una variable es una característica de interés que posee cada elemento de la población y que podemos medir.
+Tenemos diferentes tipo de variables:
+
+* **Cualitativas**. Describen cualidades o atributos. Ejemplos: 
+  * Color de bicicleta (azul, blanco, verde, amarillo) (Datos categóricos)
+  * Tamaño de bicicleta (pequeña, mediana, grande) (Datos ordinales)
+  * Calidad de bicicleta (mala, regular, buena) (Datos nominales)
+          
+* **Cuantitativas discretas**. Números enteros. Ejemplos: 
+  * Peso
+  * Ruedas
+  * Cascos
+          
+* **Cuantitativas continuas**. Números reales. Ejemplos: 
+  * Precios
+  * Diametro de ruedas.
+          
+## Tipos de gráficos.
+
+Consideremos la base de datos sobre el estudio de la venta de bicicletas. Esta base contiene información sobre 30 autos y variables como: color, tamaño, calidad, peso, ruedas, cascos, precios y diámetro.
+
+```{r, echo=FALSE}
+set.seed(123)
+color <- sample(c("azul", "blanco", "verde", "amarillo", "negro"), size = 30, replace = T)
+```
+```{r, echo=FALSE}
+tamaño <- sample(c("pequeña", "mediana", "grande"), size = 30, replace = T)
+```
+```{r, echo=FALSE}
+calidad <- sample(c("mala", "regular", "buena"), size = 30, replace = T)
+```
+```{r, echo=FALSE}
+pesos <- sample(c(7,9,10,12,14,15), size = 30, replace = T)
+```
+
+```{r, echo=FALSE}
+ruedas <- sample(c(2,4), size = 30, replace = T)
+```
+```{r, echo=FALSE}
+cascos <- sample(c(1,2,3), size = 30, replace = T)
+```
+```{r, echo=FALSE}
+precio <- runif(30, min = 2800, max = 11000)
+precio = round(precio,0)   #mostrar cierta cantidad de decimales
+```
+```{r, echo=FALSE}
+diametro <- runif(30, min = 660, max = 780)   #En milimetros
+diametro = round(diametro, 0)
+```
+La base de datos es:
+
+```{r}
+bicicletas <- data.frame(color, tamaño, calidad, pesos, ruedas, cascos, precio, diametro)   #Si queremos cambiar el nombre a una variable, "Nuevo_nombre" = variable
+head(bicicletas)   #solo muestra las primeras observaciones
+```
+```{r}
+print(bicicletas)
+```
+```{r}
+str(bicicletas)
+```
+Primero veamos gráficos para datos cualitativos nominales:
+
+## Color
+```{r, echo=FALSE}
+#Gráfico de barras
+tabla <- table(bicicletas$color) #datos$variable
+```
+
+
+```{r, echo=FALSE}
+barplot(tabla, main = "Gráfico de barras por color", xlab = "Colores de bicicletas", ylab = "Cantidad de bicicletas", col = c("yellow", "blue", "white", "black", "green")) 
+```
+
+Podemos observar que las bicicletas más vendidas son de color verde, azul y blanco. Mientras que las menos vendidas son las de color amarillo y negro.
+
+### Tamaño
+
+```{r, echo=FALSE}
+barplot(table(bicicletas$tamaño), main = "Gráfica de pasteles por tamaño", col = c("red", "purple", "brown"), xlab = "Tamaño de las bicicletas", ylab = "Número de bicicletas")
+```
+
+Podemos observar que las bicicletas más vendidas fueron pequeñas. Mientras que las menos vendidas son medianas.
+
+### Calidad
+
+```{r, echo=FALSE}
+pie(table(bicicletas$calidad), main = "Bicicletas vendidas por calidad", col = c("red", "purple", "brown"))
+```
+
+Podemos observar que las bicicletas más vendidas fueron de calidad regular. Mientras que las menos vendidas son de calidad mala.
+
+### Peso
+
+```{r, echo=FALSE}
+barplot(table(bicicletas$pesos), main = "Bicicletas vendidas por su peso", col = c("red", "purple", "brown", "yellow", "blue", "white"), xlab = "Peso de las bicicletas", ylab = "Número de bicicletas")
+```
+
+Podemos observar que los pesos de las bicletas más vendidas son de 15, 9 y 10 kilogramos. Mientras que las menos vendidas son: de 14, 12, 7 kilogramos.
+
+### Número de ruedas
+
+```{r, echo=FALSE}
+pie(table(bicicletas$ruedas), main = "Bicicletas vendidas por cantidad de ruedas", col = c("red", "purple"))
+```
+
+Observamos que tanto bicicletas con dos ruedas como aquellas con 4 fueron vendidas.
+
+### Cascos incluidos
+
+```{r, echo=FALSE}
+barplot(table(bicicletas$cascos), main = "Bicicletas vendidas por número de cascos incluidos", col = c("red", "purple", "yellow"), xlab = "Número de cascos incluidos", ylab = "Número de bicicletas")
+```
+
+Observamos que las bicicletas más vendidas son las que tienen uno o dos cascos. Mientras que las menos vendidas son las de tres cascos.
+
+Por último, tenemos para variables cuantitativas continuas:
+
+### Precio
+
+```{r, echo=FALSE}
+hist(bicicletas$precio, main = "Histograma de precio", col = "lightblue", xlab = "Precio de bicicletas", ylab = "Número de bicicletas", breaks = c(2800, 4000, 6000, 8000, 10000, 11000))
+# breaks = c(2800, 5000,11000) es para hacer los cortes en los intervalos
+# breaks = 10 muestra 10 intervalos (pero si para R ya son demasiados por la cantidad de datos, colocará lo que crea conveniente)
+```
+
+Las bicicletas más vendidas están entre los 4000 y 8000 pesos, y entre los 10000 y 11000 pesos. Mientras que las menos vendidas van de los 2800 a los 4000 y de los 8000 a los 10000.
+
+### Diametro de las ruedas
+
+```{r, echo=FALSE}
+hist(bicicletas$diametro, main = "Histograma de diametro de las ruedas", col = "lightgreen", xlab = "Diametro de las ruedas", ylab = "Número de bicicletas", breaks = c(660, 690, 720, 750, 780))
+```
+
+Las bicicletas más vendidas tienen diametro de 660 a 690 y de 750 780 milímetros. Mientras que las menos vendidas van de los 690 a los 750 milímetros
+
+## Conclusión
+
+Las bicicletas más vendidas tienen colores estándar y no muy claros o oscuros. La mayoría de ellas fueron pequeñas y añadiendo que la mitad de las ventas fueron bicicletas con 4 ruedas, entonces se puede inferir que la mayoría de los clientes son infantes. En este caso, tiene sentido que la calidad de la mayoría haya sido por lo menos regular. También se resalta que muchos compradores adquirieron solo uno o dos cascos, asi que estas bicicletas son a lo más para uso de dos personas, por lo que se puede hacer un diseño para facilitar el uso para dos personas. Por último, el precio de la mayoría de las bicicletas vendidas fue muy alto, lo cual indica la preferencia de las personas por la calidad y la marca, pero no hay que olvidar que también hay varias con un precio intermedio.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

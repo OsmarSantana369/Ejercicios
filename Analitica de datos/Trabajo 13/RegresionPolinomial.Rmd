@@ -1,0 +1,176 @@
+---
+title: "Regresión Polinomial"
+author: "Osmar Dominique Santana Reyes"
+date: "2025-10-08"
+output: 
+  html_document:
+    toc: true          # Incluir tabla de contenidos
+    toc_depth: 2      # Incluir hasta nivel 2 en la tabla de contenidos
+    toc_float: true    # Hacer que la tabla de contenidos sea flotante
+    toc_collapse: true # Colapsar secciones en la tabla de contenidos
+    code_folding: hide  # Ocultar el código por defecto
+    df_print: paged   # Imprimir data frames con paginación
+    theme:
+      bootswatch: superhero    # superhero sketchy
+---
+
+# Ejemplo:
+
+Consideremos la base de datos resistencia, realicemos un análisis polinomial (debido al gráfico de dispersión) para explicar la resistencia a la tensión de una bolsa en función del porcentaje de madera dura.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+Resistencia <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica de datos/Trabajo 13/Resistencia.csv")
+```
+
+* Variable dependiente(respuesta): Resistencia
+* Variable independiente(predictora): Concentración
+
+Veamos el diagrama de dispersión:
+
+```{r, echo=FALSE}
+plot(Resistencia, main = "Diagrama de dipersión")
+```
+
+```{r, echo=FALSE}
+DT::datatable(
+  head(Resistencia, 15),
+  fillContainer = FALSE, options = list(pageLength = 7)
+)
+```
+
+Como podemos notar, una regresión lineal simple no es un buen modelo, ya que se observa que los datos tienen forma de parábola. Por ello, ahora realizaremos una regresión polinomial, probando polinomios de grado 2 hasta de grado 5. Y como comparación obtendremos el modelo lineal:
+
+## Modelo 1 (lineal)
+
+$$ y = a + bx $$
+
+donde $y$ = Resistencia y $x$ = Concentración.
+
+```{r, echo=FALSE, results='hold'}
+mod1 <- lm(Resistencia ~ Concentracion , data=Resistencia)
+summary(mod1)
+```
+
+Se observa que los dos coeficientes son significativos para el modelo, en este caso, podemos decir que la concentración sí es una variable que nos pueda ayudar a predecir la resitencia. Pero notamos que el R-cuadrado ajustado es muy bajo (0.2645), por lo que este modelo no es muy bueno.
+
+## Modelo 2 (Polinomio cuadrático)
+
+$$ y = a + bx + cx^2 $$
+
+donde $y$ = Resistencia y $x$ = Concentración.
+
+```{r, echo=FALSE}
+mod2 <- lm(Resistencia ~ Concentracion + I(Concentracion^2), data=Resistencia)
+summary(mod2)
+```
+
+Notamos que este es un mejor modelo, pasamos de un R-cuadrada ajustada de 0.2645 a una de 0.8971, donde tanto el término lineal como el cuadrático son significativos para el modelo.
+
+## Comparación del Modelo 1 vs el Modelo 2
+
+```{r, echo=FALSE}
+anova(mod1, mod2)
+```
+
+Como el p-value $= 1.894 * 10^{-8}$ rechazamos H0, es decir, el modelo con más variables es mejor que el modelo con menos variables.
+
+Por lo que, por el momento, el mejor modelo es un polinomio cuadrático.
+
+$$ Resistencia = -6.67419 + 11.76401*Concentracion - 0.63455*Concentracion^2 $$
+
+## Modelo 3 (Polinomio cúbico)
+
+$$ y = a + bx + cx^2 + dx^3 $$
+
+donde $y$ = Resistencia y $x$ = Concentración
+
+```{r, echo=FALSE}
+mod3 <- lm(Resistencia ~ Concentracion + I(Concentracion^2)+I(Concentracion^3), data=Resistencia)
+summary(mod3)
+```
+
+El R-cuadrado ajustado es mejor, pero los términos ya no son tan significativos, de hecho el intercepto no es significativo.
+
+## Comparación del Modelo 2 vs el Modelo 3
+
+```{r, echo=FALSE}
+anova(mod2, mod3)
+```
+
+Como el p-value $= 4.722 * 10^{-5}$ rechazamos H0, es decir, el modelo con más variables es mejor que el modelo con menos variables.
+
+Por lo que, por el momento, el mejor modelo es un polinomio cúbico.
+
+$$ Resistencia = 5.648395 + 3.578489*Concentracion + 0.653635*Concentracion^2 - 0.055188*Concentracion^3 $$
+
+## Modelo 4 (polinomio de grado 4)
+
+$$ y = a + bx + cx^2 + dx^3 + ex^4 $$
+
+donde $y$ = Resistencia y $x$ = Concentración
+
+```{r, echo=FALSE}
+mod4 <- lm(Resistencia ~ Concentracion + I(Concentracion^2)+I(Concentracion^3) +I(Concentracion^4), data=Resistencia)
+summary(mod4)
+```
+
+El R-cuadrado ajustado es un poco mejor, pero los términos ya no son significativos para el modelo.
+
+## Comparación del Modelo 3 vs el Modelo 4
+
+```{r, echo=FALSE}
+anova(mod3, mod4)
+```
+
+Como el p-value = 0.233 se acepta H0, es decir, el modelo con menos variables es mejor que el modelo con más variables.
+
+De esta manera, el mejor modelo es el cúbico.
+
+$$ Resistencia = 3.578489*Concentracion + 0.653635*Concentracion^2 - 0.055188*Concentracion^3 $$
+
+Graficando los modelos y el diagrama de dispersión, se obtiene lo siguiente:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(Resistencia, aes(x=Concentracion, y=Resistencia)) + 
+  geom_point() +
+  geom_smooth(method='lm', formula=y~x, se=FALSE,col='blue') +
+  geom_smooth(method='lm', formula=y~x+I(x^2), se=FALSE,col='green') +
+  geom_smooth(method='lm', formula=y~x+I(x^2)+I(x^3), se=FALSE, col='red')+
+  geom_smooth(method='lm', formula=y~x+I(x^2)+I(x^3)+I(x^4), se=FALSE, col='purple')
+```
+
+## Mejor modelo:
+
+$$ Resistencia = 5.648395 + 3.578489*Concentracion + 0.653635*Concentracion^2 - 0.055188*Concentracion^3 $$ con una R-cuadrada ajustada de  0.9648.
+
+## Predicciones
+
+Predecir la resistencia para la concentración: 8.5, 9.5 y 10.5
+
+```{r, echo=FALSE}
+nuevo <- data.frame(Concentracion = c(8.5, 9.5, 10.5))
+predict(object=mod3, newdata=nuevo, interval="confidence", level=0.95)
+predict(object=mod3, newdata=nuevo, interval="prediction", level=0.95)
+```
+
+## Verificación de supuestos
+
+Verificar los supuestos de normalidad y homocedasticidad.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(car)
+ncvTest(mod3)
+```
+
+De la prueba de homocedasticidad, se obtiene un p-value de 0.075529 por lo que se acepta la hipótesis nula de que la varianza es constante. 
+
+```{r, echo=FALSE}
+residuos <- rstandard(mod3)
+shapiro.test(residuals(mod3))
+```
+
+Y de la prueba de normalidad se obtiene un p-value de 0.9986 por lo que se acepta la hipótesis nula de que los errores están distribuidos de manera normal.
+
+

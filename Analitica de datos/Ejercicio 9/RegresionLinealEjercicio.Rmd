@@ -1,0 +1,107 @@
+---
+title: "Regresión Lineal (Ejercicio)"
+author: "Osmar Dominique"
+date: "2025-09-17"
+output: html_document
+---
+
+1. De la base de datos **tortugas.xls**, considerar la variable **LONGITUD** como variable dependiente y ALTURA como variable independiente. Realizar un análisis de regresión simple y contestar lo siguiente.
+
+a) Obtener la matriz de correlación de la base de datos. ¿Entre qué par de variables se tiene la mejor relación lineal?
+
+```{r, echo=FALSE}
+library(readxl)
+Tortugas <- read_excel("C:/Users/CONTROL/Desktop/Ejercicios/Analitica/Ejercicio 9/Tortugas.xls")
+datos <- Tortugas[,1:3]
+
+cor(datos)
+```
+
+La mejor relación lineal se da entre las variables LONGITUD y ANCHO con una correlación de 0.9778869.
+
+b) Graficar el diagrama de dispersión. ¿Se puede observar alguna relación lineal significativa?
+
+```{r, echo=FALSE}
+plot(x = datos$LONGITUD, y = datos$ALTURA)
+```
+
+Si, el diagrama de dispersión de las variables LONGITUD y ALTURA permite ver que hay una buena relación lineal.
+
+c) Escribir el modelo de regresión lineal y la ecuación resultante al realizar el análisis.
+
+```{r, echo=FALSE}
+modelo <- lm(LONGITUD ~ ALTURA, data = datos) #lineal simple
+summary(modelo)
+```
+
+La ecuación lineal resultante es: $2.35897x + 15.31099$.
+
+d) ¿Los dos coeficientes del modelo son significativos?
+
+Los p-value del intercepto y el de la pendiente son 0.017 y $2*10^{-16}$, respectivamente. Ambos son menores que 0.05, por lo que en ambos casos se rechaza la hipótesis nula (los coeficientes no son significativos) en favor de la hipótesis alternativa (los coeficientes son significativos).
+
+e) Obtener el coeficiente de determinación y el coeficiente de correlación. ¿Podemos decir que la ecuación se ajusta bien a los datos?
+
+```{r, echo=FALSE}
+cor(datos$LONGITUD, datos$ALTURA)
+```
+
+El coeficiente de correlación entre las variables LONGITUD y ALTURA es de 0.9628899, por lo que se puede decir que hay una relación lineal directa entre las variables. Por otro lado, el coeficiente de determinación del modelo es 0.9272, por lo tanto, el ajuste lineal entre las variables es bueno. En conclusión, la ecuación sí se ajusta bien a los datos.
+
+f) Con ayuda de la tabla ANOVA, ¿el modelo es significativo?
+
+```{r, echo=FALSE}
+anova(modelo)
+```
+
+Del ANOVA se obtiene un p-value de $2.2*10^{-16}$, que es menor a 0.05. Por lo tanto, se rechaza la hipótesis nula en favor de la hipótesis alternativa de que el modelo sí es significativo.
+
+g) Colocar la gráfica del modelo.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+ggplot(datos, aes(x = LONGITUD, y = ALTURA)) +
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE)+
+  labs(title = "Longitud de tortugas contra su altura", x = "Longitud", y = "Altura")+
+  theme_linedraw()
+```
+
+h) Predecir los valores de la variable LONGITUD, cuando la variable ALTURA toma los valores 31, 48 y 61. Además, obtener sus intervalos de confianza y de predicción.
+
+```{r, echo=FALSE}
+nuevo <- data.frame(ALTURA = c(31, 48, 61))
+predict(object=modelo, newdata=nuevo, interval="confidence", level = 0.95)
+predict(object=modelo, newdata=nuevo, interval="prediction", level = 0.95)
+```
+Para ALTURA = 31, la predicción es de 88.43913 y sus intervalos de confianza y de predicción son [85.01246, 91.86581] y [76.67442, 100.2038], respectivamente.
+
+Para ALTURA = 48, la predicción es de 128.54166 y sus intervalos de confianza y de predicción son [126.88620, 130.19713] y [117.16594, 139.9174], respectivamente.
+
+Para ALTURA = 61, la predicción es de 159.20830 y sus intervalos de confianza y de predicción son [155.91048, 162.50613] y [147.48047, 170.9361], respectivamente.
+
+i) Comprobar el supuesto de homocedasticidad y de normalidad.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(car)
+ncvTest(modelo)
+```
+
+De la prueba de homocedasticidad se obtiene un p-value de 0.56644 por lo que se acepta la hipótesis nula de que la varianza es constante.
+
+```{r, echo=FALSE}
+residuos <- rstandard(modelo)   #Los errores en las predicciones
+shapiro.test(residuals(modelo))
+```
+
+Por otro lado, de la prueba de normalidad se obtiene un p-value de 0.1418 por lo que se acepta la hipótesis nula de que los errores están distribuidos de manera normal.
+
+
+
+
+
+
+
+
+

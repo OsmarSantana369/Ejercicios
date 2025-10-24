@@ -1,0 +1,201 @@
+---
+title: "Ejercicios no lineales"
+author: "Osmar Dominique Santana Reyes"
+date: "2025-10-16"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+Sustancia <- read.csv("C:/Users/Alumno 25-B/Documents/Osmar/Ejercicios/Analitica/Trabajo 15/sustancia.csv")
+```
+
+
+1. La data sustancia contiene la cantidad de una sustancia (Y en porcentaje) en muestras de un producto en función del numero de semanas (X) desde que se produjo. Se sabe que se puede ajustar a un modelo exponencial de la forma:
+
+$$ Y = \beta_0 + (\alpha - \beta_0) e^{-\beta_1(X - \delta)} $$
+a) ¿Cuáles tendrían que ser los valores para $\alpha$ y $\delta$?
+    
+La base de datos *sustancia* y su diagrama de dispersión son:
+
+```{r, echo=FALSE}
+head(Sustancia)
+plot(Sustancia, main = "Diagrama de dispersión")
+```
+    
+De estos datos, se observa que el dato inicial se da en la semana 6 con una cantidad de sustancia de 0.690, por lo que $\alpha = 0.690$ y $\delta = 6$. 
+
+b) Realizar el análisis con los valores de $\alpha$ y $\delta$. ¿El modelo es bueno?
+
+```{r, echo=FALSE}
+#Definir la función 
+expo<-function(x,b,c){return(b+(0.690-b)*exp(c*(x-6)))} #b y c son los parámetros de la función
+
+#La función "nls" realiza la regresión exponencial
+ajuste <- nls(data=Sustancia, formula = Sustancia~expo(Semanas,b,c),start=list(b=-1,c=-0.1),trace=T)
+
+summary(ajuste)
+```
+Ambos parámetros son significativos para el modelo.
+
+```{r, echo=FALSE}
+deviance(ajuste)
+```
+
+Además, el valor de la desviación es muy bajo, por lo que el modelo es bueno.
+
+
+c) ¿Cuáles son los valores de los coeficientes de regresión?
+
+```{r, echo=FALSE}
+#Obtenemos los valores obtenidos para b y c
+(b_ajustado <- ajuste$m$getPars()["b"])
+(c_ajustado <- ajuste$m$getPars()["c"])
+```
+
+Los coeficientes del modelo son $\beta_0 = 0.2474071$ y $\beta_1 = 0.206509$.
+
+d) Predecir el porcentaje de Y para 9 y 15 semanas.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#predecimos valores para y. 
+library(tidyverse)
+(fitData <- tibble(Semanas=c(9,15), Porcentaje = expo(Semanas,b_ajustado,c_ajustado)))
+```
+
+Por último, el gráfico del modelo de regresión exponencial queda como sigue:
+
+```{r, echo=FALSE, message=FALSE}
+fitData <- tibble(Semanas=5:35, Porcentaje = expo(Semanas,b_ajustado,c_ajustado))
+#Graficamos el resultado de la regresión. 
+ggplot()+
+  geom_point(Sustancia,mapping=aes(x=Semanas,y=Sustancia)) +
+  geom_line(fitData,mapping=aes(x=Semanas,y=Porcentaje),color="blue")
+```
+
+2. Consideremos el data ice-cream que contiene información sobre la temperatura y el número correspondiente de unidades de helados vendidos. Realizar un análisis de regresión polinomial (considerar polinomios de grado 2 hasta el grado 10) para predecir la venta de helados basadas en entradas de temperatura. Hallar la ecuación del mejor modelo polinomial.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+icecream <- read.csv("C:/Users/Alumno 25-B/Documents/Osmar/Ejercicios/Analitica/Trabajo 15/ice-cream.csv")
+```
+
+El diagrama de dispersión de la base de datos es:
+
+```{r, echo=FALSE}
+plot(icecream, main = "Diagrama de dispersión")
+```
+
+## Modelo 1 (Polinomio cuadrático)
+
+```{r, echo=FALSE}
+mod1 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2), data=icecream)
+summary(mod1)
+```
+
+Los coeficientes del modelo son significativos, y el R-cuadrado ajustado es de 0.9292, por lo que este es un buen modelo.
+
+$$ Y = 2.95177 - 0.82468X + 1.82953X^2 $$
+donde $Y$ = Helados vendidos y $X$ = Temperatura.
+
+## Modelo 2 (Polinomio cúbico)
+
+```{r, echo=FALSE}
+mod2 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3), data=icecream)
+summary(mod2)
+```
+
+Los coeficientes del modelo son significativos, excepto por el coeficiente del término cúbico. Sin embargo, el R-cuadrado ajustado es de 0.9325, por lo que este es un buen modelo. Aun así, se prefiere el modelo 1, ya que es más sencillo y tiene un R-cuadrado ajustado similar.
+
+$$ Y = 3.06137 - 1.48090 X + 1.82431 X^2 + 0.05141 X^3 $$
+donde $Y$ = Helados vendidos y $X$ = Temperatura.
+
+## Modelo 3 (Polinomio de grado cuatro)
+
+```{r, echo=FALSE}
+mod3 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4), data=icecream)
+summary(mod3)
+```
+
+Los coeficientes del modelo son significativos y el R-cuadrado ajustado es de 0.9387, por lo que es un buen modelo. De momento, se preferirá este modelo, ya que tiene un R-cuadrado ajustado mayor que los modelos anteriores.
+
+$$ Y = 1.95590 - 1.61337 X + 2.28685 X^2 + 0.06002 X^3 - 0.02411 X^4 $$
+donde $Y$ = Helados vendidos y $X$ = Temperatura.
+
+## Modelo 4 (Polinomio de grado cinco)
+
+```{r, echo=FALSE}
+mod4 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4) + I(Temperature...C.^5), data=icecream)
+summary(mod4)
+```
+
+Dos de los coeficientes del modelo no son significativos y el R-cuadrado ajustado es de 0.9389, de este modo, el modelo 3 sigue siendo mejor.
+
+$$ Y = 2.104848 - 2.226936 X + 2.225005 X^2 + 0.179544 X^3 - 0.020737 X^4 - 0.004575 X^5 $$
+donde $Y$ = Helados vendidos y $X$ = Temperatura.
+
+## Modelo 5 (Polinomio de grado seis)
+
+```{r, echo=FALSE}
+mod5 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4) + I(Temperature...C.^5) + I(Temperature...C.^6), data=icecream)
+summary(mod5)
+```
+
+Los cuatro coeficientes de mayor grado no son significativos por lo cual este modelo no es bueno.
+
+## Modelo 6 (Polinomio de grado siete)
+
+```{r, echo=FALSE}
+mod6 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4) + I(Temperature...C.^5) + I(Temperature...C.^6) + I(Temperature...C.^7), data=icecream)
+summary(mod6)
+```
+
+Dos coeficientes no son significativos, a pesar de que el R-cuadrado ajustado es de 0.944, el modelo 3 sigue siendo el mejor.
+
+## Modelo 7 (Polinomio de grado ocho)
+
+```{r, echo=FALSE}
+mod7 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4) + I(Temperature...C.^5) + I(Temperature...C.^6) + I(Temperature...C.^7) + I(Temperature...C.^8), data=icecream)
+summary(mod7)
+```
+
+Hay cinco coeficientes no significativos, por lo que este modelo no es bueno.
+
+## Modelo 8 (Polinomio de grado nueve)
+
+```{r, echo=FALSE}
+mod8 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4) + I(Temperature...C.^5) + I(Temperature...C.^6) + I(Temperature...C.^7) + I(Temperature...C.^8) + I(Temperature...C.^9), data=icecream)
+summary(mod8)
+```
+
+Casi todos los coeficientes no son significativos, por lo que este modelo tampoco es bueno.
+
+## Modelo 9 (Polinomio de grado diez)
+
+```{r, echo=FALSE}
+mod9 <- lm(Ice.Cream.Sales..units. ~ Temperature...C. + I(Temperature...C.^2) + I(Temperature...C.^3) + I(Temperature...C.^4) + I(Temperature...C.^5) + I(Temperature...C.^6) + I(Temperature...C.^7) + I(Temperature...C.^8) + I(Temperature...C.^9) + I(Temperature...C.^10), data=icecream)
+summary(mod9)
+```
+
+Varios coeficientes no son significativos, por lo que este modelo tampoco es bueno.
+
+Graficando los modelos 1 y 3 junto con el diagrama de dispersión, se obtiene lo siguiente:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(icecream, aes(x= Temperature...C., y= Ice.Cream.Sales..units.)) + 
+  geom_point() +
+  geom_smooth(method='lm', formula=y~x+I(x^2), se=FALSE,col='blue') +
+  geom_smooth(method='lm', formula=y~x+I(x^2)+I(x^3)+I(x^4), se=FALSE, col='red')+
+  theme_light()
+```
+
+En conclusión, el mejor modelo es el modelo 3 (polinomio de grado cuatro):
+
+$$ Y = 1.95590 - 1.61337 X + 2.28685 X^2 + 0.06002 X^3 - 0.02411 X^4 $$
+
+
+
+
+
+
+
+

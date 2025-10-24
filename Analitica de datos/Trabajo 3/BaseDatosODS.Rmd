@@ -1,0 +1,78 @@
+---
+title: "Base de datos"
+author: "Osmar Dominique"
+date: "2025-08-20"
+output: html_document
+---
+
+Se considerará una base de datos sobre distintas familias en cierto municipio que quieren comprar o alquilar casas y en base a ciertas variables se decidirá a quién se le venderá o alquilará la vivienda que solicitan.
+
+```{r}
+library(dplyr)
+datos <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica/Trabajo 3/comprar_alquilar.csv", header = TRUE, sep = ",")
+```
+
+Las variables consideradas son:
+
+## Datos cualitativos
+
+* Estado civil
+
+```{r}
+estado <- recode(datos$estado_civil,
+                             "0" = "Soltero",
+                             "1" = "Casado",
+                             "2" = "Divorciado")
+
+barplot(table(estado), main = "Familias por el estado civil del comprador", col = c("gray", "yellow", "black"), xlab = "Estado civil", ylab = "Número de familias")
+```
+
+```{r}
+job <- recode(datos$trabajo,
+                             "0" = "Sin empleo",
+                             "1" = "Autónomo",
+                             "2" = "Empleado",
+                             "3" = "Empresario",
+                             "4" = "Pareja: autónomos",
+                             "5" = "Pareja: empleados",
+                             "6" = "Pareja: autónomo y asalariado",
+                             "7" = "Pareja: empresario y autónomo",
+                             "8" = "Pareja: empresarios los dos, o empresario y empleado")
+
+b1 = barplot(table(job), main = "Familias por trabajo", col = c("blue", "blue", "blue", "red", "red", "red", "red", "red", "black"), xlab = "Trabajo", ylab = "Número de familias")
+```
+
+```{r}
+compra <- recode(datos$comprar,
+                             "0" = "Sí",
+                             "1" = "No")
+
+barplot(table(compra), main = "Familias que quieren comprar una casa", col = c("lightblue", "orange"), ylab = "Número de familias")
+```
+
+## Datos cuantitativos discretos
+
+```{r}
+hist(datos$hijos, main = "Familias por número de hijos", xlab = "Cantidad de hijos", ylab = "Número de familias", breaks = seq(min(datos$hijos)-1, max(datos$hijos), 1), ylim = c(0,100))
+```
+
+## Datos cuantitativos (continuos)
+
+```{r}
+ingreso <- hist(datos$ingresos, main = "Familias por sus ingresos mensuales", xlab = "Ingresos", ylab = "Número de familias", breaks = seq(min(datos$ingresos), max(datos$ingresos)+1000, 1000), ylim = c(0, 50), col = "lightblue")
+text(x = ingreso$mids, y = ingreso$counts, labels = ingreso$counts, pos = 3)
+```
+
+```{r}
+gasto <- hist(datos$gastos_comunes, main = "Familias por sus ingresos mensuales", xlab = "Ingresos", ylab = "Número de familias", breaks = seq(min(datos$gastos_comunes), max(datos$gastos_comunes)+1000, 1000), ylim = c(0, 50), col = "lightblue")
+text(x = gasto$mids, y = gasto$counts, labels = gasto$counts, pos = 3)
+```
+
+
+
+
+
+
+
+
+
