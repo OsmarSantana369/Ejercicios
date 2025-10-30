@@ -32,7 +32,7 @@ WN = Ancho máximo en los orificios nasales.
 a)  **Obtener la matriz de dispersión de las 11 variables**
 
     ```{r, echo=FALSE}
-    datos <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica/Ejercicio 11/Cocodrilos.csv")
+    datos <- read.csv("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica de datos/Trabajo 20/Cocodrilos.csv")
     cocodrilos <- datos[,3:13]
 
     plot(cocodrilos)
