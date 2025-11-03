@@ -10,6 +10,8 @@
 
 3. abadafbcbebfcdcecfdeef
 
+	orden: 6, tamano: 11
+
 ![Gráfica 3](Grafica3.png)
 
 4. ad ae ai de ei bg gk ch hl cj cf jf fl

@@ -11,19 +11,19 @@ Osmar Dominique Santana Reyes
 
 Este programa busca una buena coloración de una gráfica dada.
 
-Para esto, se obtiene el vértice de mayor grado no coloreado y se le asigna el primer color. Luego, se toma el siguiente vértice de mayor grado y si es adyacente al anterior, se le asigna un nuevo color; si no es adyacente, se le asigna el mismo color. Este proceso se repite hasta que todos los vértices hayan sido coloreados. 
+Para esto, se obtiene el vértice de mayor grado no coloreado y se le asigna el primer color. Luego, se toma el siguiente vértice de mayor grado y si está en la vecindad abierta del conjunto de vértices ya coloreados con el primer color, se le asigna otro color. En caso contrario, se le asigna el mismo color. Este proceso se repite hasta que todos los vértices estén coloreados.
 
 Finalmente, se imprime la coloración obtenida.
 
-Orden del algoritmo: O(colores.size() + tamano + orden^2)
+Orden del algoritmo: O(coloracion.size() + tamano + orden^2)
 */
+struct grado;
 
 void IngresaAristas(vector<vector<int>>& M, vector<queue<int>>& adyacencias);
 void ImprimeMatriz(vector<vector<int>>& M);
-bool Encontrar(queue<int> fila, int elemento);
+bool Encontrar(queue<int> cola, int elemento);
+queue<queue<int>> ObtenerGrados(vector<queue<int>>& adyacencias);
 queue<int> VecindadAbierta(queue<int>& conjunto, vector<queue<int>>& adyacencias);
-queue<int> FusionarColas(vector<queue<int>>& colas);
-queue<int> Eliminar(queue<int> fila, int elemento);
 vector<queue<int>> ObtenerColoracion(vector<queue<int>>& adyacencias);
 
 int orden, tamano;
@@ -124,8 +124,8 @@ void ImprimeMatriz(vector<vector<int>>& M){
 }
 
 // Función para verificar si un entero está almacenado en una cola
-bool Encontrar(queue<int> fila, int elemento){
-    queue<int> copia = fila;
+bool Encontrar(queue<int> cola, int elemento){
+    queue<int> copia = cola;
 
     while(!copia.empty()){
         if(copia.front() == elemento)
@@ -136,13 +136,30 @@ bool Encontrar(queue<int> fila, int elemento){
     return false;
 }
 
-// Función que obtiene la vecindad abierta no coloreada de un conjunto de vértices
+// Función que crea una cola de colas con vértices del mismo grado y ordenadas por grado de mayor a menor
+queue<queue<int>> ObtenerGrados(vector<queue<int>>& adyacencias){
+    vector<queue<int>> grados(orden);
+    queue<queue<int>> gradosOrdenados;
+
+    for(int i = 1; i <= orden; i++)
+        grados[adyacencias[i].size()].push(i);
+    
+    // Ordenar los grados de mayor a menor
+    for(int i = orden-1; i >= 0; i--){
+        if(!grados[i].empty())
+            gradosOrdenados.push(grados[i]);
+    }
+    return gradosOrdenados;
+}
+
+// Función que obtiene la vecindad abierta de un conjunto de vértices
 queue<int> VecindadAbierta(queue<int>& conjunto, vector<queue<int>>& adyacencias){
 	queue<int> vecindad;
 	queue<int> copia = conjunto;
 
 	while(!copia.empty()){
 		queue<int> adyacentes = adyacencias[copia.front()];
+
 		while(!adyacentes.empty()){
 			int vecino = adyacentes.front();
 			adyacentes.pop();
@@ -155,116 +172,35 @@ queue<int> VecindadAbierta(queue<int>& conjunto, vector<queue<int>>& adyacencias
 	return vecindad;
 }
 
-// Función que une los elementos de un vector de colas en una sola
-queue<int> FusionarColas(vector<queue<int>>& colas){
-	queue<int> resultado;
-
-	for(int i = 0; i < colas.size(); i++){
-		queue<int> copia = colas[i];
-
-		while(!copia.empty()){
-			resultado.push(copia.front());
-			copia.pop();
-		}
-	}
-	return resultado;
-}
-
-// Función que elimina un elemento de una cola
-queue<int> Eliminar(queue<int> fila, int elemento){
-	queue<int> resultado;
-
-	while(!fila.empty()){
-		if(fila.front() != elemento)
-			resultado.push(fila.front());
-
-		fila.pop();
-	}
-	return resultado;
-}
-
 // Función que obtiene un vector de colas de vértices posicionados por color
 vector<queue<int>> ObtenerColoracion(vector<queue<int>>& adyacencias){
 	vector<queue<int>> coloracion;       // Vector de colas para almacenar la coloración
-	vector<bool> coloreados(orden + 1, false);       // Vector para rastrear los vértices coloreados
-	bool todosColoreados = false;
-	
-	while(!todosColoreados){
-		int gradoMaximo = 0;
+	queue<queue<int>> grados = ObtenerGrados(adyacencias);
+    coloracion.push_back(queue<int>());
+    coloracion[0].push(grados.front().front());
+    grados.front().pop();
 
-		// Se busca el vértice con el mayor grado no coloreado
-		for(int i = 1; i <= orden; i++){
-			if(adyacencias[gradoMaximo].size() < adyacencias[i].size() && !coloreados[i])
-				gradoMaximo = i;
-		}
-		if(gradoMaximo != 0){
-			if(coloracion.empty())
-				coloracion.push_back(queue<int>());
+    if(grados.front().empty())
+        grados.pop();
 
-			coloracion[0].push(gradoMaximo);
-			coloreados[gradoMaximo] = true;
-			int vecinos = 0;
+	while(!grados.empty()){
+		while(!grados.front().empty()){
+            int vertice = grados.front().front();
+            grados.front().pop();
 
-			do{
-				// Se obtiene la vecindad abierta de los vértices ya coloreados
-				queue<int> vecindad = VecindadAbierta(FusionarColas(coloracion), adyacencias);
-				vecinos = vecindad.size();
-
-				// Se intenta colorear la vecindad con los colores ya existentes
-				for(int i = 0; i < coloracion.size(); i++){
-					queue<int> copia = vecindad;       // Se crea una copia de la vecindad para recorrer los vértices de la vencindad y en caso de ser coloreados, eliminarlos de la vecindad original
-
-					while(!copia.empty()){
-						int candidato = copia.front();
-						copia.pop();
-						
-						bool puedeColorear = true;
-						queue<int> adyacentes = adyacencias[candidato];
-
-						// Se verifica que el candidato no sea adyacente a ningún vértice ya coloreado con el color actual
-						while(!adyacentes.empty()){
-							int vecino = adyacentes.front();
-							adyacentes.pop();
-
-							if(Encontrar(coloracion[i], vecino)){
-								puedeColorear = false;
-								break;
-							}
-						}
-						if(puedeColorear){
-							coloracion[i].push(candidato);
-							coloreados[candidato] = true;
-							vecindad = Eliminar(vecindad, candidato);
-						}
-					}
-				}
-				// Si quedaron vértices sin colorear en la vecindad, se crea un nuevo color y se colorea el primer vértice de la vecindad
-				if(!vecindad.empty()){
-					coloracion.push_back(queue<int>());
-					coloracion.back().push(vecindad.front());
-					coloreados[vecindad.front()] = true;
-				}
-			} while(vecinos > 0);       // Se repite hasta que no queden vértices sin colorear en la componente conexa
-		} else{ // Si no quedan vértices con adyacencias, se colorean los vértices aislados con el primer color
-			if(coloracion.empty())
-				coloracion.push_back(queue<int>());
-				
-			for(int i = 1; i <= orden; i++){
-				if(!coloreados[i]){
-					coloracion[0].push(i);
-					coloreados[i] = true;
-				}
-			}
-		}
-		// Se verifica si todos los vértices han sido coloreados
-		todosColoreados = true;
-
-		for(int i = 1; i <= orden; i++){
-			if(!coloreados[i]){
-				todosColoreados = false;
-				break;
-			}
-		}
-	}
-	return coloracion;
+            for(int i = 0; i < coloracion.size(); i++){
+                if(!Encontrar(VecindadAbierta(coloracion[i], adyacencias), vertice)){
+                    coloracion[i].push(vertice);
+                    break;
+                } else if(i == coloracion.size() - 1){
+                    queue<int> nuevoColor;
+                    nuevoColor.push(vertice);
+                    coloracion.push_back(nuevoColor);
+                    break;
+                }
+            }
+        }
+        grados.pop();
+    }
+    return coloracion;
 }
