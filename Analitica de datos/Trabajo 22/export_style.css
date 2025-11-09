@@ -1,0 +1,172 @@
+/* export_style.css
+   Plantilla CSS para HTML exportado desde Jupyter / MATLAB notebooks.
+   Guía rápida de uso (ver instrucciones en el README abajo):
+   - Guardar este archivo en la misma carpeta del HTML exportado.
+   - O insertar el contenido dentro del <head> del HTML para un único archivo.
+
+   Autor: plantilla mínima moderna
+*/
+
+:root{
+  /* Fondo degradado azul rey */
+  --text: rgba(255, 255, 255, 0.701); /* texto claro sobre azul */
+  --muted: rgba(4, 252, 4, 0.945);
+  --accent: #58a6ff; /* acento claro */
+  --accent-2: #0ea5a4; /* teal */
+  --code-bg: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.06);
+  --shadow: 0 10px 30px rgba(3,10,30,0.55);
+  --radius: 8px;
+  --max-width: 980px;
+  --mono: "Fira Mono", Consolas, "Courier New", monospace;
+  --ui-font: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Layout */
+html,body{
+  height:100%;
+  margin:0;
+  /* Degradado azul rey en toda la página */
+  background: linear-gradient(135deg,var(--bg-start),var(--bg-end));
+  color:var(--text);
+  font-family:var(--ui-font);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:36px auto;
+  padding:28px;
+  /* Fondo semitransparente para buena legibilidad sobre el degradado */
+  background: rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 12px 40px rgba(3,10,30,0.45);
+}
+
+/* Headings */
+
+h1,h2,h3,h4{
+  color:rgb(36, 36, 214);
+  margin-top:1.2em;
+  margin-bottom:0.6em;
+  line-height:1.18;
+  /* Sombra de texto para títulos sobre el fondo degradado */
+  text-shadow: 0 6px 22px rgba(3,10,30,0.6);
+}
+
+h1{font-size:2.05rem}
+h2{font-size:1.55rem}
+h3{font-size:1.25rem}
+
+/* Opcional: ligero fondo y sombra en encabezados para resaltarlos */
+h1,h2{display:block;padding:6px 10px;border-radius:6px}
+
+/* Metadata / header */
+.header-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  margin-bottom:20px;
+}
+.meta-left{color:var(--muted);font-size:0.95rem}
+
+/* Paragraphs and lists */
+p{margin:0 0 1rem 0}
+ul,ol{margin:0 0 1rem 1.2rem}
+
+/* Links */
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Code and preformatted blocks */
+pre, code{
+  font-family:var(--mono);
+  font-size:0.92rem;
+}
+pre{
+  background:var(--code-bg);
+  padding:14px;
+  border-radius:6px;
+  overflow:auto;
+  border:9px solid rgba(255, 255, 255, 0.922);
+}
+code{background:rgba(31,111,235,0.06);padding:2px 6px;border-radius:4px;box-shadow:0 6px 20px rgba(3,10,30,0.45)}
+
+/* Jupyter specific classes that may appear in exported HTML */
+div.output_text, .output_stdout, .output_stderr{
+  background:#fff;
+  border-left:4px solid rgba(0,0,0,0.04);
+  padding:10px 12px;
+  margin:10px 0 18px 0;
+  white-space:pre-wrap;
+}
+
+/* In/Out prompts */
+div.input_prompt, div.output_prompt{color:var(--muted);font-size:0.85rem}
+
+/* Tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:1rem;
+  font-size:0.95rem;
+}
+thead tr{background:linear-gradient(90deg,#f31804,#f7fbff)}
+th, td{
+  border:1px solid var(--border);
+  padding:8px 10px;
+  text-align:left;
+}
+tr:nth-child(even){background:#fafafa}
+
+/* Images and figures */
+figure{margin:0 0 1rem 0}
+figure img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--border)}
+figcaption{font-size:0.9rem;color:var(--muted);margin-top:6px}
+
+/* Blockquote */
+blockquote{
+  border-left:4px solid var(--accent-2);
+  padding:10px 16px;
+  margin:12px 0;
+  background:linear-gradient(90deg, rgba(255, 1, 238, 0.03), transparent);
+  color:var(--text);
+  border-radius:6px;
+}
+
+/* Floating table of contents (if exported) */
+.toc{
+  position:sticky;top:20px;float:right;margin-left:20px;padding:12px;border:1px solid var(--border);background:#fff;border-radius:6px;font-size:0.95rem}
+
+/* Small utility classes */
+.kv{font-weight:600;color:var(--muted)}
+.center{display:block;margin:0 auto;text-align:center}
+.small{font-size:0.9rem;color:var(--muted)}
+
+/* Print-friendly adjustments */
+@media print{
+  body{background:rgb(245, 4, 4)}
+  .container{box-shadow:none;border:none;padding:12px}
+  pre{page-break-inside:avoid}
+}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .container{margin:18px;padding:16px}
+  h1{font-size:1.5rem}
+  .toc{display:none}
+}
+
+/* Dark-mode helper: if you want a dark variant, add 'dark-mode' class to <body> */
+body.dark-mode{
+  --bg:#0b1220;--text:#e6eef8;--muted:#97a0b2;--accent:#58a6ff;--code-bg:#071223;--border:rgba(255,255,255,0.06);
+}
+body.dark-mode .container{background:linear-gradient(180deg, rgba(7,12,23,0.95), rgba(7,12,23,0.98));}
+body.dark-mode pre{background:#081423;color:#dbeafe}
+body.dark-mode table tr:nth-child(even){background:transparent}
+
+/* End of file */
