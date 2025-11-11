@@ -11,7 +11,7 @@ Osmar Dominique Santana Reyes
 
 Este programa verifica si una digráfica dada es débil, unilateral o fuertemente conexa.
 
-
+Para esto, se obtiene la matriz de distancias mínimas entre los vértices. Si para cada par de vértices existe un camino en ambas direcciones, la digráfica es fuertemente conexa. Si para cada par de vértices existe un camino en al menos una dirección y no en ambas, la digráfica es a lo más unilateralmente conexa. Si alguna de las dos anteriores no se cumple, se comprueba si al convertir la digráfica en gráfica (haciendo las aristas no dirigidas) es conexa; si es así, la digráfica es débilmente conexa. En caso contrario, la digráfica no es conexa.
 
 Orden del algoritmo: O(tamano + orden^2)
 */
