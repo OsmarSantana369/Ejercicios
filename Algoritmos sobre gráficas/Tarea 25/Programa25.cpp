@@ -9,16 +9,16 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa verifica si una didigrÃ¡fica dada es dÃ©bil, unilateral o fuertemente conexa.
+Este programa verifica si una didigráfica dada es débil, unilateral o fuertemente conexa.
 
 
 
 Orden del algoritmo: O(tamano + orden^2)
 */
 
-void IngresaAristas(int tamano, vector<vector<float>>& M);
-void ImprimeMatriz(int orden, vector<vector<float>>& M);
-void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDist);
+void IngresaAristas(int tamano, vector<vector<int>>& M);
+void ImprimeMatriz(int orden, vector<vector<int>>& M);
+vector<vector<int>> ObtenerDistancias(vector<vector<int>>& M);
 
 int orden, tamano, infinito = INT_MAX;
 int grafdigraf;
@@ -27,11 +27,11 @@ bool Reiniciar;
 int main()
 {
     do{
-        cout << endl << "Ingrese el orden de la didigrÃ¡fica: ";
+        cout << endl << "Ingrese el orden de la didigráfica: ";
         cin >> orden;
 
         if(orden <= 0){
-            cout << "Orden invÃ¡lido. Debe ser mayor que 0." << endl;
+            cout << "Orden inválido. Debe ser mayor que 0." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
@@ -39,33 +39,35 @@ int main()
     } while(Reiniciar);
 
     do{
-        cout << endl << "Ingrese el tamaÃ±o de la digrÃ¡fica: ";
+        cout << endl << "Ingrese el tamaño de la digráfica: ";
         cin >> tamano;
 
         if(tamano < 0 || tamano > orden*(orden - 1)/2){
-            cout << "TamaÃ±o invÃ¡lido para una digrÃ¡fica simple." << endl;
+            cout << "Tamaño inválido para una digráfica simple." << endl;
             Reiniciar = true;
         } else
             Reiniciar = false;
 
     } while(Reiniciar);
 
-    vector<vector<float>> M(orden + 1, vector<float>(orden + 1, 0));
-    vector<vector<float>> MDist(orden + 1, vector<float>(orden + 1, infinito));
+    vector<vector<int>> M(orden + 1, vector<int>(orden + 1, 0));
+    vector<vector<int>> MDist = ObtenerDistancias(M);
 
     IngresaAristas(tamano, M);
     ImprimeMatriz(orden, M);
+
+    cout << "Matriz de distancias mínimas entre vértices:" << endl;
+    ImprimeMatriz(orden, MDist);
     
     return 0;
 }
 
-// FunciÃ³n para ingresar las adyacencias de la digrÃ¡fica
-void IngresaAristas(int tamano, vector<vector<float>>& M){
+// Función para ingresar las adyacencias de la digráfica
+void IngresaAristas(int tamano, vector<vector<int>>& M){
     char v1, v2;
-    float peso;
 
     for(int i = 1; i <= tamano; i++){
-        cout << endl << "Inserte los vÃ©rtices de la " << i << "Â° flecha: ";
+        cout << endl << "Inserte los vértices de la " << i << "° flecha: ";
         cin >> v1 >> v2;
 
         int ver1 = tolower(v1) - 96;
@@ -74,14 +76,14 @@ void IngresaAristas(int tamano, vector<vector<float>>& M){
         if(ver1 > 0 && ver1 <= orden && ver2 > 0 && ver2 <= orden){
             M[ver1][ver2] = 1;
         } else{
-            cout << "VÃ©rtices fuera de rango. IntÃ©ntelo nuevamente." << endl;
+            cout << "Vértices fuera de rango. Inténtelo nuevamente." << endl;
             i--;
         }
     }
 }
 
-// FunciÃ³n para imprimir la matriz de adyacencia
-void ImprimeMatriz(int orden, vector<vector<float>>& M){
+// Función para imprimir la matriz de adyacencia
+void ImprimeMatriz(int orden, vector<vector<int>>& M){
     cout << endl << endl << " ";
 
     for(int i = 1; i <= orden; i++){
@@ -100,9 +102,10 @@ void ImprimeMatriz(int orden, vector<vector<float>>& M){
     cout << endl;
 }
 
-// FunciÃ³n para obtener las distancias mÃ­nimas entre los vÃ©rtices
-void ObtenerDistancias(vector<vector<float>>& M, vector<vector<float>>& MDist){
+// Función para obtener las distancias mínimas entre los vértices
+vector<vector<int>> ObtenerDistancias(vector<vector<int>>& M){
     queue<int> aux;
+    vector<vector<int>> MDist(orden + 1, vector<int>(orden + 1, infinito));
 
     for(int i = 1; i <= orden; i++){
         MDist[i][i] = 0;
