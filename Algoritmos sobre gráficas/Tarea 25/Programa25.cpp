@@ -9,7 +9,7 @@ using namespace std;
 /*
 Osmar Dominique Santana Reyes
 
-Este programa verifica si una didigráfica dada es débil, unilateral o fuertemente conexa.
+Este programa verifica si una digráfica dada es débil, unilateral o fuertemente conexa.
 
 
 
@@ -18,16 +18,19 @@ Orden del algoritmo: O(tamano + orden^2)
 
 void IngresaAristas(int tamano, vector<vector<int>>& M);
 void ImprimeMatriz(int orden, vector<vector<int>>& M);
+vector<int> Encontrar(vector<vector<int>>& M, int elemento);
 vector<vector<int>> ObtenerDistancias(vector<vector<int>>& M);
+int TipoConexidad(vector<vector<int>>& MDist);
 
 int orden, tamano, infinito = INT_MAX;
 int grafdigraf;
 bool Reiniciar;
 
-int main()
-{
+int main(){
+    setlocale(LC_ALL, "");
+
     do{
-        cout << endl << "Ingrese el orden de la didigráfica: ";
+        cout << endl << "Ingrese el orden de la digráfica: ";
         cin >> orden;
 
         if(orden <= 0){
@@ -42,7 +45,7 @@ int main()
         cout << endl << "Ingrese el tamaño de la digráfica: ";
         cin >> tamano;
 
-        if(tamano < 0 || tamano > orden*(orden - 1)/2){
+        if(tamano < 0 || tamano > orden*(orden - 1)){
             cout << "Tamaño inválido para una digráfica simple." << endl;
             Reiniciar = true;
         } else
@@ -51,14 +54,27 @@ int main()
     } while(Reiniciar);
 
     vector<vector<int>> M(orden + 1, vector<int>(orden + 1, 0));
-    vector<vector<int>> MDist = ObtenerDistancias(M);
-
+    
     IngresaAristas(tamano, M);
     ImprimeMatriz(orden, M);
 
-    cout << "Matriz de distancias mínimas entre vértices:" << endl;
-    ImprimeMatriz(orden, MDist);
-    
+    int tipo = TipoConexidad(M);
+
+    switch(tipo){
+        case 0:
+            cout << "La digráfica no es conexa." << endl;
+            break;
+        case 1:
+            cout << "La digráfica es débilmente conexa." << endl;
+            break;
+        case 2:
+            cout << "La digráfica es unilateralmente conexa." << endl;
+            break;
+        case 3:
+            cout << "La digráfica es fuertemente conexa." << endl;
+            break;
+    }
+    cout << endl;
     return 0;
 }
 
@@ -96,10 +112,21 @@ void ImprimeMatriz(int orden, vector<vector<int>>& M){
 
         for(int j = 1; j <= orden; j++)
             cout << setw(3) << M[i][j];
-
+    
         cout << endl;
     }
     cout << endl;
+}
+
+//Función que comprueba si hay un elemento en una matriz y devuelve el índice de su posición
+vector<int> Encontrar(vector<vector<int>>& M, int elemento){
+    for(int i = 1; i <= orden; i++){
+        for(int j = 1; j <= orden; j++){
+            if(M[i][j] == elemento)
+                return {i, j};
+        }
+    }
+    return {};
 }
 
 // Función para obtener las distancias mínimas entre los vértices
@@ -123,4 +150,46 @@ vector<vector<int>> ObtenerDistancias(vector<vector<int>>& M){
             }
         }
     }
+    return MDist;
+}
+
+// Función que obtiene el tipo de conexidad de la digráfica
+int TipoConexidad(vector<vector<int>>& M){
+    bool debil = true, unilateral = true, fuerte = true;
+    vector<vector<int>> MDist = ObtenerDistancias(M);
+
+    do{
+        vector<int> indices = Encontrar(MDist, infinito);
+        if(indices.size() != 0){
+            fuerte = false;
+            int i = indices[0];
+            int j = indices[1];
+
+            if(MDist[j][i] == infinito){
+                unilateral = false;
+                vector<vector<int>> Mcopia = M;
+
+                for(int k = 1; k <= orden; k++){
+                    for(int l = 1; l <= orden; l++){
+                        if(Mcopia[k][l] != 0)
+                            Mcopia[l][k] = Mcopia[k][l];
+                    }
+                }
+                if(Encontrar(ObtenerDistancias(Mcopia), infinito).size() != 0){
+                    debil = false;
+                    break;
+                }
+            } else
+                MDist[i][j] = -1;
+        }
+    } while (Encontrar(MDist, infinito).size() != 0 && unilateral);
+
+    if(fuerte)
+        return 3; // Fuertemente conexa
+    if(unilateral)
+        return 2; // Unilateralmente conexa
+    if(debil)
+        return 1; // Débilmente conexa
+
+    return 0; // No conexa
 }
