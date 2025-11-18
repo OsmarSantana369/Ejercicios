@@ -1,0 +1,358 @@
+---
+title: "Medidas de tendencia central"
+author: "Gabriell Quetzalli Santana Reyes"
+date: "2025-09-05"
+output: html_document
+---
+
+Para analizar el tema del desempleo en México, se cuenta con una base de datos que recopila distintas variables involucradas con el tema y medidas desde el año 2000 hasta el 2016. A continuación se muestran las variables y sus medidas de tendencia central.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(modeest)
+library(readxl)
+dato <- read_excel("C:/Users/CONTROL/Downloads/BaseDesempleo.xlsx")
+datos <- dato[,4:21]
+
+for (i in c(1:13)) {
+    for(j in c(i+1:13)) {
+        cor(as.numeric(datos[i,2:18]), as.numeric(datos[j,2:18]), use = "pairwise.complete.obs")
+    }
+}
+```
+
+## Índice de dependencia por edad (porcentaje de la población en edad de trabajar)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[1,2:18]))
+E <- median(as.numeric(datos[1,2:18]))
+O <- mlv(as.numeric(datos[1,2:18]), method = "mfv")
+R <- max(as.numeric(datos[1,2:18])) - min(as.numeric(datos[1,2:18]))
+V <- var(as.numeric(datos[1,2:18]))
+D <- sqrt(V)
+
+anios <- 2000:2016
+barplot(as.numeric(datos[1,2:18]), names.arg = anios, las = 2, main = "Porcentaje de la población en edad de trabajar", xlab = "Años", ylab = "Porcentaje", ylim = c(0,70))
+```
+
+La media es 57.54318%.
+
+La mediana es 57.44503%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 13.8276%.
+
+La varianza es 20.6851%.
+
+La desviación estándar es 4.54808%.
+
+## Empleadores, hombres (% del empleo masculino) (estimación modelada de la OIT)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[2,2:18]))
+E <- median(as.numeric(datos[2,2:18]))
+O <- mlv(as.numeric(datos[2,2:18]), method = "mfv")
+R <- max(as.numeric(datos[2,2:18])) - min(as.numeric(datos[2,2:18]))
+V <- var(as.numeric(datos[2,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[2,2:18]), names.arg = anios, las = 2, main = "Porcentaje de empleadores hombres", xlab = "Años", ylab = "Porcentaje", ylim = c(0,7))
+```
+
+La media es 5.88441%.
+
+La mediana es 5.81599%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 1.27%.
+
+La varianza es 0.12668%.
+
+La desviación estándar es 0.35592%.
+
+## Empleadores, mujeres (% del empleo femenino) (estimación modelada de la OIT)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[3,2:18]))
+E <- median(as.numeric(datos[3,2:18]))
+O <- mlv(as.numeric(datos[3,2:18]), method = "mfv")
+R <- max(as.numeric(datos[3,2:18])) - min(as.numeric(datos[3,2:18]))
+V <- var(as.numeric(datos[3,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[3,2:18]), names.arg = anios, las = 2, main = "Porcentaje de empleadores mujeres", xlab = "Años", ylab = "Porcentaje", ylim = c(0,3))
+```
+
+La media es 2.18935%.
+
+La mediana es 2.255%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 0.77799%.
+
+La varianza es 0.05224%.
+
+La desviación estándar es 0.22856%.
+
+## Índice GINI (estimación del Banco Mundial)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[4,2:18]), na.rm = TRUE)
+E <- median(as.numeric(datos[4,2:18]), na.rm = TRUE)
+O <- mlv(as.numeric(datos[4,2:18]), method = "mfv", , na.rm = TRUE)
+R <- max(as.numeric(datos[4,2:18]), na.rm = TRUE) - min(as.numeric(datos[4,2:18]), na.rm = TRUE)
+V <- var(as.numeric(datos[4,2:18]), na.rm = TRUE)
+D <- sqrt(V)
+
+barplot(as.numeric(datos[4,2:18]), names.arg = anios, las = 2, main = "Índice GINI", xlab = "Años", ylab = "Índice", ylim = c(0,60))
+```
+
+**Nota:** Hay datos faltantes en algunos años.
+
+La media es 46.98.
+
+La mediana es 46.75.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 8.
+
+La varianza es 6.084.
+
+La desviación estándar es 2.46657.
+
+## Tasa de participación en la fuerza laboral, mujeres (% de la población femenina de 15+ años) (estimación modelada de la OIT)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[5,2:18]))
+E <- median(as.numeric(datos[5,2:18]))
+O <- mlv(as.numeric(datos[5,2:18]), method = "mfv")
+R <- max(as.numeric(datos[5,2:18])) - min(as.numeric(datos[5,2:18]))
+V <- var(as.numeric(datos[5,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[5,2:18]), names.arg = anios, las = 2, main = "% de la población femenina de 15+ años", xlab = "Años", ylab = "Porcentaje", ylim = c(0,50))
+```
+
+La media es 42.07082%.
+
+La mediana es 42.923%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 6.386%.
+
+La varianza es 4.9258%.
+
+La desviación estándar es 2.2194%.
+
+## Tasa de participación en la fuerza laboral, hombres (% de la población masculina de 15+ años) (estimación modelada de la OIT)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[6,2:18]))
+E <- median(as.numeric(datos[6,2:18]))
+O <- mlv(as.numeric(datos[6,2:18]), method = "mfv")
+R <- max(as.numeric(datos[6,2:18])) - min(as.numeric(datos[6,2:18]))
+V <- var(as.numeric(datos[6,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[6,2:18]), names.arg = anios, las = 2, main = "% de la población masculina de 15+ años", xlab = "Años", ylab = "Porcentaje", ylim = c(0,100))
+```
+
+La media es 80.74394%.
+
+La mediana es 81.04699%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 3.479%.
+
+La varianza es 1.12944%.
+
+La desviación estándar es 1.06275%.
+
+## Fuerza laboral, total
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[7,2:18]))
+E <- median(as.numeric(datos[7,2:18]))
+O <- mlv(as.numeric(datos[7,2:18]), method = "mfv")
+R <- max(as.numeric(datos[7,2:18])) - min(as.numeric(datos[7,2:18]))
+V <- var(as.numeric(datos[7,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[7,2:18]), names.arg = anios, las = 2, main = "Fuerza laboral, total", xlab = "Años", ylim = c(0,60000000))
+```
+
+La media es 48407938.
+
+La mediana es 48488143.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 16654502.
+
+La varianza es 3.130805e+13.
+
+La desviación estándar es 5595360.
+
+## Trabajadores por cuenta propia, mujeres (% del empleo femenino) (estimación modelada de la OIT
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[8,2:18]))
+E <- median(as.numeric(datos[8,2:18]))
+O <- mlv(as.numeric(datos[8,2:18]), method = "mfv")
+R <- max(as.numeric(datos[8,2:18])) - min(as.numeric(datos[8,2:18]))
+V <- var(as.numeric(datos[8,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[8,2:18]), names.arg = anios, las = 2, main = "Trabajadores por cuenta propia, mujeres", xlab = "Años", ylab = "Porcentaje", ylim = c(0,25))
+```
+
+La media es 22.71405%.
+
+La mediana es 22.738%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 2.88299%.
+
+La varianza es 0.49413%.
+
+La desviación estándar es 0.70295%.
+
+## Trabajadores por cuenta propia, hombres (% del empleo masculino) (estimación modelada de la OIT)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[9,2:18]))
+E <- median(as.numeric(datos[9,2:18]))
+O <- mlv(as.numeric(datos[9,2:18]), method = "mfv")
+R <- max(as.numeric(datos[9,2:18])) - min(as.numeric(datos[9,2:18]))
+V <- var(as.numeric(datos[9,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[9,2:18]), names.arg = anios, las = 2, main = "Trabajadores por cuenta propia, hombres", xlab = "Años", ylab = "Porcentaje", ylim = c(0,30))
+```
+
+La media es 23.36805%.
+
+La mediana es 22.881%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 3.64399%.
+
+La varianza es 1.74989%.
+
+La desviación estándar es 1.32283%.
+
+## Empleo total, total (15+ años)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[10,2:18]))
+E <- median(as.numeric(datos[10,2:18]))
+O <- mlv(as.numeric(datos[10,2:18]), method = "mfv")
+R <- max(as.numeric(datos[10,2:18])) - min(as.numeric(datos[10,2:18]))
+V <- var(as.numeric(datos[10,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[10,2:18]), names.arg = anios, las = 2, main = "Empleo total", xlab = "Años", ylim = c(0,60000000))
+```
+
+La media es 46430019.
+
+La mediana es 46597412.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 15476391%.
+
+La varianza es 25373480605809.
+
+La desviación estándar es 5037209.
+
+## Desempleo con educación avanzada (% de la fuerza laboral total con educación avanzada)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[11,2:18]))
+E <- median(as.numeric(datos[11,2:18]))
+O <- mlv(as.numeric(datos[11,2:18]), method = "mfv")
+R <- max(as.numeric(datos[11,2:18])) - min(as.numeric(datos[11,2:18]))
+V <- var(as.numeric(datos[11,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[11,2:18]), names.arg = anios, las = 2, main = "Desempleo con educación avanzada", xlab = "Años", ylab = "Porcentaje", ylim = c(0,7))
+```
+
+La media es 4.62504%.
+
+La mediana es 4.89799%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 4.03999%.
+
+La varianza es 1.25722%.
+
+La desviación estándar es 1.12126%.
+
+## Desempleo con educación intermedia (% de la fuerza laboral total con educación intermedia)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[12,2:18]), na.rm = TRUE)
+E <- median(as.numeric(datos[12,2:18]), na.rm = TRUE)
+O <- mlv(as.numeric(datos[12,2:18]), method = "mfv", na.rm = TRUE)
+R <- max(as.numeric(datos[12,2:18]), na.rm = TRUE) - min(as.numeric(datos[12,2:18]), na.rm = TRUE)
+V <- var(as.numeric(datos[12,2:18]), na.rm = TRUE)
+D <- sqrt(V)
+
+barplot(as.numeric(datos[12,2:18]), names.arg = anios, las = 2, main = "Desempleo con educación intermedia", xlab = "Años", ylab = "Porcentaje", ylim = c(0,7))
+```
+
+**Nota:** Hay datos faltantes en algunos años.
+
+La media es 5.79795%.
+
+La mediana es 5.59099%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 2.1194%.
+
+La varianza es 0.42329%.
+
+La desviación estándar es 0.65061%.
+
+## Desempleo, jóvenes total (% de la fuerza laboral total de 15-24 años) (estimación modelada de la OIT)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+M <- mean(as.numeric(datos[13,2:18]), na.rm = TRUE)
+E <- median(as.numeric(datos[13,2:18]), na.rm = TRUE)
+O <- mlv(as.numeric(datos[13,2:18]), method = "mfv", na.rm = TRUE)
+R <- max(as.numeric(datos[13,2:18])) - min(as.numeric(datos[13,2:18]))
+V <- var(as.numeric(datos[13,2:18]))
+D <- sqrt(V)
+
+barplot(as.numeric(datos[13,2:18]), names.arg = anios, las = 2, main = "Desempleo, jóvenes total", xlab = "Años", ylab = "Porcentaje")
+```
+
+La media es 7.75164%.
+
+La mediana es 7.62099%.
+
+Como todos los datos son distintos, no hay moda.
+
+El rango es 5.27699%.
+
+La varianza es 2.96351%.
+
+La desviación estándar es 1.72148%.
+
+
+
+
+
+
