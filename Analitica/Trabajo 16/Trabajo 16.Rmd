@@ -1,0 +1,39 @@
+---
+title: "Modelos de regresión no lineales"
+author: "Osmar Dominique Santana Reyes"
+date: "2025-10-20"
+output: 
+  html_document:
+    code_folding: hide  # Ocultar el código por defecto
+    df_print: paged   # Imprimir data frames con paginación
+    theme:
+      bootswatch: sketchy
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align='center', comment = '')  
+```
+
+1.  Consideremos la relación de la velocidad inicial y de una reacción enzimática con la concentración x de sustrato. Usando el modelo de Michaelis-Menten de cinética química, tenemos que
+
+    $$
+    Y = \dfrac{\beta_0 x}{x + \beta_1} + \epsilon
+    $$
+    
+    Los datos de velocidad inicial de reacción para una enzima tratada con puromicina se muestran a continuación:
+    
+    | Concentración de sustrato | Velocidad inicial |
+    |---------------------------|-------------------|
+    | 0.02                      | 47       | 76     |
+    | 0.06                      | 97       | 107    |
+    | 0.11                      | 123      | 139    |
+    | 0.22                      | 152      | 159    |
+    | 0.56                      | 191      | 201    |
+    | 1.10                      | 200      | 207    |
+
+
+2.  Consideremos la relación
+
+    $$
+    P = \beta_0 V^{-\beta_1}
+    $$
