@@ -152,6 +152,18 @@ int BuscarEnColumna(vector<vector<int>>& matriz, int columna, int valorBuscado){
     return -1; // Valor no encontrado
 }
 
+// Función que elimina los elementos repetidos de un vector de parejas
+void EliminarRepetidos(vector<Pareja>& parejasOptimas){
+    for(int i = 0; i < parejasOptimas.size(); i++){
+        for(int j = i + 1; j < parejasOptimas.size(); j++){
+            if(parejasOptimas[i].mujer == parejasOptimas[j].mujer && parejasOptimas[i].hombre == parejasOptimas[j].hombre){
+                parejasOptimas.erase(parejasOptimas.begin() + j);
+                j--; // Ajustar el índice después de eliminar un elemento
+            }
+        }
+    }
+}
+
 // Función que obtiene un vector con emparejamientos óptimos
 vector<Pareja> EmparejamientoOptimo(vector<vector<int>>& Mujeres, vector<vector<int>>& Hombres){
     vector<Pareja> resultado;
@@ -208,6 +220,8 @@ vector<Pareja> EmparejamientoOptimo(vector<vector<int>>& Mujeres, vector<vector<
                 }
             }
         }
+        EliminarRepetidos(parejasOptimas);
+        
         while(Reiniciar){
             Pareja parejaSeleccionada = MaximaCorrespondencia(parejasOptimas);
             mujeresEmparejadas[parejaSeleccionada.mujer] = true;
@@ -258,7 +272,7 @@ vector<Pareja> EmparejamientoOptimo(vector<vector<int>>& Mujeres, vector<vector<
             Reiniciar = false;
             
             for(int i = 0; i < parejasOptimas.size(); i++){
-                if(parejasOptimas[i].correspondencia != -1){
+                if(parejasOptimas[i].correspondencia != -1 && resultado.size() < parejas){
                     Reiniciar = true;
                     break;
                 }
