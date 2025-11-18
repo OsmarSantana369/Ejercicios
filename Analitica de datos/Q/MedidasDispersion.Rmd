@@ -11,7 +11,7 @@ Para analizar el tema del desempleo en México, se cuenta con una base de datos 
 library(dplyr)
 library(modeest)
 library(readxl)
-dato <- read_excel("C:/Users/CONTROL/Downloads/BaseDesempleo.xlsx")
+dato <- read_excel("C:/Users/GabDomDal/Desktop/Ejercicios/Analitica de datos/Q/BaseDesempleo.xlsx")
 datos <- dato[,4:21]
 
 for (i in c(1:13)) {
