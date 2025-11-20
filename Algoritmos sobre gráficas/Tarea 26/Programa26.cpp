@@ -11,7 +11,11 @@ Osmar Dominique Santana Reyes
 
 Programa que pide una tabla de preferencias sobre el interés tanto de hombres como de mujeres y encuentra un emparejamiento óptimo.
 
-parejas del algoritmo: O(tamano + parejas^2)
+Este programa solicita el número de parejas y las preferencias de cada mujer y hombre. Luego, se utiliza la función Emparejar() para encontrar los emparejamientos óptimos basados en las preferencias ingresadas. Para esto, se usa un vector de estructuras Pareja que almacena las parejas formadas junto con su nivel de correspondencia. Esta correspondencia se calcula sumando las posiciones de preferencia de cada miembro de la pareja, por ejemplo, si una mujer tiene a un hombre como su primera opción y él la tiene como su segunda opción, la correspondencia sería de parejas + (parejas - 1) = 2*parejas - 1, donde parejas es la cantidad de parejas a formar. Dicho de otra forma, la preferencia más alta tiene un valor de correspondencia igual a parejas, la segunda preferencia más alta tiene un valor de correspondencia igual a parejas - 1, y así sucesivamente hasta la última preferencia que tiene un valor de correspondencia igual a 1. Estos emparejamientos óptimos se obtienen mediante la función ObtenerParejasOptimas(), la cual revisa las preferencias de ambos géneros y forma parejas basadas en las opciones disponibles. Posteriormente, se eliminan las parejas repetidas y se usa la función MaximaCorrespondencia() para seleccionar la pareja con la mayor correspondencia. Esta pareja se agrega al vector resultado si está vacío o si la pareja implicada no ha sido emparejada aún con otro individuo. Las mujeres y hombres involucrados en la pareja seleccionada se marcan como emparejados para evitar futuras asignaciones. Sin embargo, de darse el caso de que uno de los miembros ya esté emparejado, pero el nivel de correspondencia de la nueva pareja sea igual al de la pareja previamente formada, se actualiza el emparejamiento de acuerdo a la preferencia del hombre o mujer en conflicto. Este proceso se repite hasta que todas las parejas estén formadas o los emparejamientos óptimos se hayan agotado, en cuyo caso se vuelve a llamar a la función ObtenerParejasOptimas() para buscar nuevas opciones, descartando las ya formadas.
+
+Finalmente, el programa imprime los emparejamientos óptimos encontrados junto con su nivel de correspondencia.
+
+parejas del algoritmo: O(parejas^3)
 */
 
 struct Pareja{
@@ -300,3 +304,5 @@ vector<Pareja> Emparejar(vector<vector<int>>& Mujeres, vector<vector<int>>& Homb
 
     return resultado;
 }
+
+// 5 1 4 2 3  4 5 2 1 3  1 4 2 3 5  3 2 4 1 5  4 2 3 5 1   2 5 1 3 4  1 2 3 4 5  2 3 5 4 1  1 3 2 4 5  5 3 2 1 4
