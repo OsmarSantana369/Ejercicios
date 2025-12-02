@@ -7,22 +7,113 @@
 
 \begin{document}
 \begin{enumerate}
+    % Ejercicio 1--------------------------------------------------------------------------------------------------------------------------------------
     \item Suponiendo que las siguientes funciones son lineales, proporcione una interpretación económica de la pendiente de la función:
     
     \begin{enumerate}
         \item $F(q)$ representa los ingresos por la producción de $q$ unidades de producto.
+        
+        La pendiente de la función $F(q)$ representa el ingreso marginal por unidad adicional producida. Es decir, cuánto aumentan los ingresos totales al producir una unidad más del producto. Por lo tanto, tiene pendiente positiva.
+
         \item $G(x)$ representa el costo de adquirir $x$ unidades de un bien.
+        
+        La pendiente de la función $G(x)$ representa el costo marginal por unidad adicional adquirida. Es decir, cuánto aumentan los costos totales al adquirir una unidad más del bien. Por lo tanto, tiene pendiente positiva.
+
 		\item $H(p)$ representa la cantidad del bien consumida cuando su precio es $p$
+		
+        La pendiente de la función $H(p)$ representa la sensibilidad de la cantidad consumida ante cambios en el precio. De este modo, es negativa, ya que a medida que el precio aumenta, la cantidad consumida tiende a disminuir.
+
         \item $C(Y)$ representa el consumo nacional total cuando el ingreso nacional es $Y$.
+        
+        La pendiente de la función $C(Y)$ representa la propensión marginal al consumo, es decir, cuánto aumenta el consumo total cuando el ingreso nacional aumenta en una unidad. Por lo tanto, tiene pendiente positiva.
+
         \item $S(Y)$ representa el ahorro nacional total cuando el ingreso nacional es $Y$.
+        
+        La pendiente de la función $S(Y)$ representa la propensión marginal al ahorro, es decir, cuánto aumenta el ahorro total cuando el ingreso nacional aumenta en una unidad. Como se espera que el ahorro aumente con el ingreso, tiene pendiente positiva.
     \end{enumerate}
 
-    \item El costo total de un fabricante es $C(x) = 0.1x^3 + 0.25x^2 + 300x + 100$ dólares, donde $x$ es el nivel de producción. Estime el efecto sobre el costo total de un aumento len el nivel de producción de 1 unidad.
+    % Ejercicio 2--------------------------------------------------------------------------------------------------------------------------------------
+    \item El costo total de un fabricante es $C(x) = 0.1x^3 + 0.25x^2 + 300x + 100$ dólares, donde $x$ es el nivel de producción. Estime el efecto sobre el costo total de un aumento en el nivel de producción de 1 unidad.
+    
+    El efecto sobre el costo total de un aumento en el nivel de producción de 1 unidad se puede estimar utilizando la derivada de la función de costo total la cual nos da la tasa de cambio del costo total con respecto al nivel de producción.
+    \begin{align*}
+        C'(x) = 0.3x^2 + 0.5x + 300
+    \end{align*}
+    Ahora, para estimar el efecto sobre el costo total de un aumento en el nivel de producción de 1 unidad, evaluamos la derivada en el nivel de producción actual $x$:
+    \begin{align*}
+        \Delta C \approx C'(x) \cdot \Delta x = (0.3x^2 + 0.5x + 300) \cdot 1 = 0.3x^2 + 0.5x + 300
+    \end{align*}
+    Por lo tanto, el efecto sobre el costo total de un aumento en el nivel de producción de 1 unidad es aproximadamente $0.3x^2 + 0.5x + 300$ dólares.
 
+    % Ejercicio 3--------------------------------------------------------------------------------------------------------------------------------------
     \item Obten una fórmula para calcular el tiempo que tarda el dinero en triplicarse en una cuenta bancaria que paga intereses a una tasa $ r $ capitalizada continuamente. ¿Cuánto tardarán \$500 en convertirse en \$600 si la tasa de interés es del 5\% capitalizada continuamente?
     
-	\item Con una tasa de interés del 10\% anual, ¿cuál de las siguientes opciones tiene el mayor valor presente: \$215 dentro de 2 años, \$100 después de cada uno de los dos próximos dos años o \$100 ahora y \$95 dentro de dos años?
+    La fórmula para calcular el valor futuro con interés compuesto continuamente es
+    \begin{align*}
+        A = Pe^{rt}
+    \end{align*}
+    Donde:
+    \begin{itemize}
+        \item $A$ es el monto futuro (cantidad final).
+        \item $P$ es el monto principal (cantidad inicial).
+        \item $r$ es la tasa de interés anual.
+        \item $t$ es el tiempo en años.
+    \end{itemize}
+    Para triplicar el dinero, queremos que $A = 3P$. Sustituyendo esto en la fórmula:
+    \begin{align*}
+        3P &= Pe^{rt} \\
+        %
+        3 &= e^{rt} \\
+        %
+        \ln(3) &= rt\\
+        %
+        t &= \frac{\ln(3)}{r}
+    \end{align*}
+    Ahora, para calcular cuánto tardarán \$500 en convertirse en \$600 si la tasa de interés es del 5\% capitalizada continuamente, usamos la fórmula anterior con $P = 500$, $A = 600$ y $r = 0.05$:
+    \begin{align*}
+        600 &= 500e^{0.05t} \\
+        %
+        1.2 &= e^{0.05t} \\
+        %
+        \ln(1.2) &= 0.05t \\
+        %
+        t &= \frac{\ln(1.2)}{0.05} \approx 3.64 \text{ años}
+    \end{align*}
+    Por lo tanto, tomará aproximadamente 3.64 años para que \$500 se conviertan en \$600 a una tasa de interés del 5\% capitalizada continuamente.
 
+    % Ejercicio 4--------------------------------------------------------------------------------------------------------------------------------------
+	\item Con una tasa de interés del 10\% anual, ¿cuál de las siguientes opciones tiene el mayor valor presente: \$215 dentro de 2 años, \$100 después de cada uno de los dos próximos dos años o \$100 ahora y \$95 dentro de dos años?
+	
+    El valor presente (PV) se calcula utilizando la fórmula:
+    \begin{align*}
+        PV = \dfrac{FV}{(1 + r)^n}
+    \end{align*}
+    Donde:
+    \begin{itemize}
+        \item $FV$ es el valor futuro.
+        \item $r$ es la tasa de interés anual.
+        \item $n$ es el número de años.
+    \end{itemize}
+    Ahora, calculemos el valor presente para cada opción:
+    \begin{enumerate}
+        \item \$215 dentro de 2 años:
+        \begin{align*}
+            PV_1 = \dfrac{215}{(1 + 0.10)^2} = \dfrac{215}{1.21} \approx 177.69
+        \end{align*}
+        
+        \item \$100 después de cada uno de los dos próximos años:
+        \begin{align*}
+            PV_2 = \dfrac{100}{(1 + 0.10)^1} + \dfrac{100}{(1 + 0.10)^2} = \dfrac{100}{1.10} + \dfrac{100}{1.21} \approx 90.91 + 82.64 = 173.55
+        \end{align*}
+        
+        \item \$95 dentro de dos años:
+        \begin{align*}
+            PV_3 = \dfrac{95}{(1 + 0.10)^2} = \dfrac{95}{1.21} \approx 78.51
+        \end{align*}
+    \end{enumerate}
+    Por lo tanto, la opción con el mayor valor presente es la primera: \$215 dentro de 2 años, con un valor presente aproximado de \$177.69.
+
+    % Ejercicio 5--------------------------------------------------------------------------------------------------------------------------------------
     \item Suponiendo una tasa de interés del 10\% capitalizable continuamente, ¿cuál es el valor presente de una anualidad que paga \$500 al año; durante los próximos 5 años; indefinidamente?
 	
 	\begin{align*}
@@ -32,20 +123,78 @@
 	Para calcular el valor actual de una anualidad que paga \$A dólares al año indefinidamente
 
     \begin{align*}
-        \text{Si} N \to \infty \quad S_{N \to \infty} \sim PV = \frac{A}{e^r - 1}
+        \text{Si } N \to \infty \quad PV = \frac{A}{e^r - 1}
     \end{align*}
 
-    \item Supongamos que posees un libro cuyo valor dentro de $ t $ años será de $ B(t) = 2^{\sqrt{t}} $ dólares. Suponiendo una tasa de interés constante del 5\%, ¿cuándo es el mejor momento para vender el libro e invertir las ganancias?
+    Sustituyendo los valores dados $A = 500, r = 0.10$:
+    \begin{align*}
+        PV = \dfrac{500}{e^{0.10} - 1} \approx \dfrac{500}{1.10517 - 1} \approx \dfrac{500}{0.10517} \approx 4755.03
+    \end{align*}
+    Por lo tanto, el valor presente de una anualidad que paga \$500 al año indefinidamente, con una tasa de interés del 10\% capitalizable continuamente, es aproximadamente \$4755.03.
 
-    \item Un comerciante de vinos posee una caja que puede vender por $ V(t) = Ke^{\sqrt{t}} $ dólares dentro de $t$ años. Si no hay costos de almacenamiento y la tasa de interés es $ r $, ¿Cuánto debería, el comerciante vender el vino?
-
-    \item El valor de un terreno comprado con fines especulativosaumenta según la fórmula $V(t)$. Si la tasa de interés es del 10\%, ¿cuánto tiempo se debe mantener el terreno para maximizar su valor presente?
+    % Ejercicio 6--------------------------------------------------------------------------------------------------------------------------------------
+    \item Supongamos que posees un libro raro cuyo valor dentro de $ t $ años será de $ B(t) = 2^{\sqrt{t}} $ dólares. Suponiendo una tasa de interés constante del 5\%, ¿cuándo es el mejor momento para vender el libro e invertir las ganancias?
     
+    El valor presente (PV) del libro en $t$ años se calcula utilizando la fórmula:
+    \begin{align*}
+        PV(t) = \dfrac{B(t)}{e^{rt}} = \dfrac{2^{\sqrt{t}}}{e^{0.05t}}
+    \end{align*}
+    Derivamos $PV(t)$ con respecto a $t$:
+    \begin{align*}
+        PV'(t) &= \dfrac{e^{0.05t} \cdot \left( 2^{\sqrt{t}} \cdot \dfrac{\ln(2)}{2\sqrt{t}} \right) - 2^{\sqrt{t}} \cdot (0.05 e^{0.05t})}{(e^{0.05t})^2} \\
+        &= \dfrac{2^{\sqrt{t}} e^{0.05t} \left( \dfrac{\ln(2)}{2\sqrt{t}} - 0.05 \right)}{(e^{0.05t})^2} \\
+        &= \dfrac{2^{\sqrt{t}}}{e^{0.05t}} \left( \dfrac{\ln(2)}{2\sqrt{t}} - 0.05 \right) 
+    \end{align*}
+    Igualamos a cero:
+    \begin{align*}
+        \dfrac{\ln(2)}{2\sqrt{t}} - 0.05 = 0 \\
+        \dfrac{\ln(2)}{2\sqrt{t}} = 0.05 \\
+        \sqrt{t} = \dfrac{\ln(2)}{0.1} \\
+        t = \left( \dfrac{\ln(2)}{0.1} \right)^2 \approx 48.16
+    \end{align*}
+    Por lo tanto, el mejor momento para vender el libro e invertir las ganancias es aproximadamente dentro de 48.16 años.
 
+    % Ejercicio 7--------------------------------------------------------------------------------------------------------------------------------------
+    \item Un comerciante de vinos posee una caja de vino que puede vender por $ V(t) = Ke^{\sqrt{t}} $ dólares dentro de $t$ años. Si no hay costos de almacenamiento y la tasa de interés es $ r $, ¿Cuándo debería el comerciante vender el vino?
+    
+    El valor presente (PV) del vino en $t$ años se calcula utilizando la fórmula:
+    \begin{align*}
+        PV(t) = \dfrac{V(t)}{e^{rt}} = \dfrac{Ke^{\sqrt{t}}}{e^{rt}} = Ke^{\sqrt{t} - rt}
+    \end{align*}
+    Derivamos $PV(t)$ con respecto a $t$:
+    \begin{align*}
+        PV'(t) &= K e^{\sqrt{t} - rt} \left( \dfrac{1}{2\sqrt{t}} - r \right)
+    \end{align*}
+    Igualamos a cero:
+    \begin{align*}
+        \dfrac{1}{2\sqrt{t}} - r = 0 \\
+        \dfrac{1}{2\sqrt{t}} = r \\
+        \sqrt{t} = \dfrac{1}{2r} \\
+        t = \left( \dfrac{1}{2r} \right)^2 = \dfrac{1}{4r^2}
+    \end{align*}
+    Por lo tanto, el comerciante debería vender el vino dentro de $\dfrac{1}{4r^2}$ años.
 
-	
-
-    \item Las ganancias anuales de una empresa aumentaron un 20\% entre 2010 y 2011, pero luego disminuyeron un 17\% entre 2011 y 2012. ¿Cuál fue la ganancia promedio anual?
+    % Ejercicio 8--------------------------------------------------------------------------------------------------------------------------------------
+    \item El valor de un terreno comprado con fines especulativos aumenta según la fórmula $V$. Si la tasa de interés es del 10\%, ¿cuánto tiempo se debe mantener el terreno para maximizar su valor presente?
+    
+    De forma análoga al ejercicio anterior, el tiempo para maximizar el valor presente es:
+    \begin{align*}
+        t = \dfrac{1}{4r^2} = \dfrac{1}{4(0.10)^2} = \dfrac{1}{0.04} = 25
+    \end{align*}
+    Por lo tanto, se debe mantener el terreno durante 25 años para maximizar su valor presente.
+    
+    % Ejercicio 9--------------------------------------------------------------------------------------------------------------------------------------
+    \item Las ganancias anuales de una empresa aumentaron un 20\% entre 2010 y 2011, pero luego disminuyeron un 17\% entre 2011 y 2012. ¿En cuál de los dos años, 2010 y 2012, se registró la mayor ganancia anual?
+    
+    Supongamos que las ganancias en 2010 fueron $G$. Entonces, las ganancias en 2011 serían:
+    \begin{align*}
+        G_{1} = G + 0.20G = 1.20G
+    \end{align*}
+    Luego, las ganancias en 2012 serían:
+    \begin{align*}
+        G_{2} = G_{1} - 0.17G_{1} = 1.20G - 0.17(1.20G) = 1.20G \times 0.83 = 0.996G
+    \end{align*}
+    Por lo tanto, las ganancias en 2012 son aproximadamente el 99.6\% de las ganancias en 2010, lo que indica que las ganancias en 2010 fueron mayores.
 
     \item Demanda de educación en EE.UU. en 1990 fue 15192 millones. Estime para 1992.
 
