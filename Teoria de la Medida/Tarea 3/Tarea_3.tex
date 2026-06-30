@@ -33,5 +33,35 @@
 		\begin{equation*}
 			\mu \left( \bigcup_{k=1}^n A_k \right) \leq C \quad n \in \mathbb{N}
 		\end{equation*}
+
+		\textbf{Demostración.}
+
+		Primero, se supondrá que $ A \in \mathcal{Y}_\mu $, lo que implica que $A$ es medible, por lo que $ \mu (A) = C $, para algún $ C > 0 $. Por lo tanto, 
+
+		\begin{equation*}
+			\sum_{k=1}^n \mu (A_k) = \mu \left( \bigcup_{k=1}^n A_k \right) \leq \mu \left( \bigcup_{n \in \mathbb{N}} A_k \right) \leq C \quad \mbox{para todo } n \in \mathbb{N}
+		\end{equation*}
+
+		Ahora, se supondrá que existe un $ C > 0 $ tal que 
+
+		\begin{equation*}
+			\mu \left( \bigcup_{k=1}^n A_k \right) \leq C  \quad \mbox{para todo } n \in \mathbb{N}
+		\end{equation*}
+
+        Para cada $ n \in \mathbb{N} $, se tiene que $ \displaystyle \bigcup_{k=1}^n A_k = \left( \bigcap_{k=1}^n A_k \right) \cup \left( \bigcup_{k=1}^t B_{n_k} \right) $, por definición de semianillo.
+  
+		De lo anterior, se tiene que
+
+		\begin{equation*}
+			\sum_{k=1}^t \mu (B_{n_k}) + \mu \left( \bigcap_{k=1}^n A_k \right) = \mu \left( \bigcup_{k=1}^n A_k \right) \leq C \quad \mbox{para todo } n \in \mathbb{N}
+		\end{equation*}
+
+        Así, la serie $ \displaystyle \sum_{n_k} \mu (B_{n_k}) $ está acotada, por lo que
+
+        \begin{equation*}
+			\sum_{n_k} \mu (B_{n_k}) + \mu \left( \bigcap_{k=1}^n A_k \right) = \mu \left( \bigcup_{k=1}^\infty A_k \right) \leq C
+		\end{equation*}
+
+        Por lo tanto, $ A $ es medible y pertenece a $ \mathcal{Y}_\mu $.
 	\end{enumerate}
 \end{document}
