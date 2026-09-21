@@ -28,13 +28,13 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\txtbabel.
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\arabi\bblopts.cfg
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
-INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-es.ini
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\babel-spanish\spanish.ldf
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\parskip\parskip.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\parskip\parskip.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
@@ -73,6 +73,19 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\grap
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\scholax\scholax.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\scholax\scholax.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\base\fontenc.sty
@@ -98,6 +111,8 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\mweights\mweights
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\fontaxes\fontaxes.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\fontaxes\fontaxes.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\fontaxes\fontaxes.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\figureversions\figureversions.sty
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\figureversions\figureversions.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\tex\latex\xkeyval\xkeyval.sty
@@ -241,6 +256,9 @@ INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NC
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\NCXMathMI.tfm
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\vf\public\scholax\TeXGyreScholaX-Regular-tlf-ot1G.vf
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\tfm\public\scholax\TeXGyreScholaX-Regular-tlf-ot1.tfm
 INPUT c:\Users\CONTROL\Desktop\Ejercicios\Programación lineal\Tarea 3\build\Tarea3.aux
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXFourierMI.pfb
 INPUT C:\Users\CONTROL\AppData\Local\Programs\MiKTeX\fonts\type1\public\scholax\NCXFourierMI.pfb
